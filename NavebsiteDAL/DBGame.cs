@@ -7,9 +7,9 @@ using System.Data;
 
 namespace NavebsiteDAL
 {
-    class DBGame
+    public class DBGame
     {
-        public DataRow GetGame(int id)
+        public static DataRow GetGame(int id)
         {
             DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
 
@@ -24,7 +24,7 @@ namespace NavebsiteDAL
             return tb.Rows[0];
         }
 
-        public DataTable AllGames()
+        public static DataTable AllGames()
         {
             DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
 

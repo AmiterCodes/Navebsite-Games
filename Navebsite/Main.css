@@ -1,0 +1,63 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(180deg, #1D1D1D 0%, #24263D 100%);
+    min-height: 100vh;
+    font-family: Roboto;
+    color: white;
+}
+
+.game {
+    justify-content: space-between;
+    background: linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 16rem;
+    height: 16rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game_caption {
+    display: flex;
+    font-weight: bold;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game_genres {
+    font-weight: normal;
+}
+
+.game_bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    bottom: 0;
+    height: 10%;
+}
+
+.game_title {
+    font-size: 1.4rem;
+}
+
+.game_image {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+}
+
+.game_company {
+    color: rgba(192, 197, 255, 0.47);
+    margin-right: 10px;
+}
+
+.game_buy {
+    background: linear-gradient(142.56deg, #5BDB2F 20.35%, #3DD64D 80.31%);
+    border: none;
+    padding: 5px;
+    color: white;
+}
