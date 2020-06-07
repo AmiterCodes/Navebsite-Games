@@ -21,6 +21,28 @@ namespace NavebsiteBL
         public int Developer { get; set; }
         public DateTime PublishDate { get; set; }
         public double Price { get; set; }
+        public List<Genre> Genres { get {
+                List<Genre> l = new List<Genre>();
+                foreach(DataRow r in DBGenre.GetGenresByGame(ID).Rows)
+                {
+                    l.Add(new Genre(r));
+                }
+                return l;
+            } }
+        public string GenresString { get
+            {
+                List<Genre> list = Genres;
+                string s = "";
+                if(list.Count == 0) return "";
+                foreach (Genre g in list)
+                {
+                    
+                    s += g.GenreName + ", ";
+                }
+                return s.Substring(0, s.Length - 2);
+            } }
+
+        
         public Game(DataRow row)
         {
             if (row == null) throw new InvalidOperationException();

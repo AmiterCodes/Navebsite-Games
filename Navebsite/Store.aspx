@@ -4,12 +4,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <asp:DataList id="ItemsList"
            BorderColor="black"
-           CellPadding="5"
-           CellSpacing="5"
+           CellPadding="20"
+           CellSpacing="50"
            RepeatDirection="Vertical"
            RepeatLayout="Table"
            RepeatColumns="3"
-           runat="server">
+           runat="server"
+                CssClass="store">
 
          <HeaderStyle BackColor="#aaaadd">
          </HeaderStyle>
@@ -18,9 +19,7 @@
          </AlternatingItemStyle>
 
          <HeaderTemplate>
-
             List of items
-
          </HeaderTemplate>
                
          <ItemTemplate>
@@ -32,7 +31,7 @@
                  runat="server" CssClass="game_image"/>
               <div class="game_caption">
                 <span class="game_title"><%# DataBinder.Eval(Container.DataItem, "GameName") %></span>
-                <span class="game_genres">Sandbox, Survival</span>
+                <span class="game_genres"><%# DataBinder.Eval(Container.DataItem, "GenresString") %></span>
               </div>
               <div class="game_bottom">
                 <button class="game_buy"><%# DataBinder.Eval(Container.DataItem, "Price", "${0:c}") %></button>

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BLHelper.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Genre.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

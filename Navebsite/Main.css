@@ -21,6 +21,7 @@ body {
     flex-direction: column;
 }
 
+
 .game_caption {
     display: flex;
     font-weight: bold;
