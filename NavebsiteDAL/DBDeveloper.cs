@@ -9,9 +9,11 @@ namespace NavebsiteDAL
 {
     public class DBDeveloper
     {
-        public DataRow GetDeveloper(int id)
+        public static DataRow GetDeveloper(int id)
         {
-
+            return DALHelper.GetRowById(id, "Developer");
         }
+
+
     }
 }

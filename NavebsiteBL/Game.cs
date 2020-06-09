@@ -18,7 +18,7 @@ namespace NavebsiteBL
         public int ReviewStatus { get; set; }
         public string Background { get; set; }
         public string Logo { get; set; }
-        public int Developer { get; set; }
+        public int DeveloperID { get; set; }
         public DateTime PublishDate { get; set; }
         public double Price { get; set; }
         public List<Genre> Genres { get {
@@ -29,6 +29,7 @@ namespace NavebsiteBL
                 }
                 return l;
             } }
+        
         public string GenresString { get
             {
                 List<Genre> list = Genres;
@@ -55,7 +56,7 @@ namespace NavebsiteBL
             this.ReviewStatus = (int)row["Review Status"];
             this.Background = (string)row["Background"];
             this.Logo = (string)row["Logo"];
-            this.Developer = (int)row["Developer"];
+            this.DeveloperID = (int)row["Developer"];
             this.PublishDate = (DateTime)row["Publish Date"];
             this.Price = (double)row["Price"];
         }

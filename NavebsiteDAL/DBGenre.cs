@@ -11,17 +11,7 @@ namespace NavebsiteDAL
     {
         public static DataRow GetGenre(int id)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
-
-            if (!helper.OpenConnection()) throw new ConnectionException();
-            string sql = $"SELECT * FROM Genres WHERE ID = {id}";
-
-            DataTable tb = helper.GetDataTable(sql);
-            helper.CloseConnection();
-
-            if (tb.Rows.Count < 1) return null;
-
-            return tb.Rows[0];
+            return DALHelper.GetRowById(id, "Genres");
         }
 
         public static DataTable GetGenresByGame(int gameId)
