@@ -29,7 +29,13 @@ namespace NavebsiteBL
                 }
                 return l;
             } }
-        
+        public Developer Developer { get {
+                return new Developer(DeveloperID);
+            } }
+        public string DeveloperName { get
+            {
+                return Developer.DeveloperName;
+            } }
         public string GenresString { get
             {
                 List<Genre> list = Genres;

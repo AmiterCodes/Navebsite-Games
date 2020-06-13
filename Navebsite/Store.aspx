@@ -35,7 +35,8 @@
               </div>
               <div class="game_bottom">
                 <button class="game_buy"><%# DataBinder.Eval(Container.DataItem, "Price", "${0:c}") %></button>
-                <p class="game_company">Mojang Inc.</p>
+
+                <p class="game_company"><%# DataBinder.Eval(Container.DataItem, "DeveloperName") %></p>
               </div>
             </div>
          </ItemTemplate>

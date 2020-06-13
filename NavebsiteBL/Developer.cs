@@ -21,7 +21,7 @@ namespace NavebsiteBL
             DeveloperName = (string)row["Developer Name"];
             About = (string)row["About"];
             Icon = (string)row["Icon"];
-            Background = (string)row["Background"]
+            Background = (string)row["Background"];
         }
 
         public Developer(int id) : this(DBDeveloper.GetDeveloper(id))
