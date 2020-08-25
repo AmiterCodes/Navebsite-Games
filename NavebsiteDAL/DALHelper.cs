@@ -23,6 +23,7 @@ namespace NavebsiteDAL
 
             return tb.Rows[0];
         }
+
         public static DataTable AllFromTable(string table)
         {
             DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);

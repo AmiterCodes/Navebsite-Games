@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Database Driver - Navebase.accdb" uuid="6ed52c3a-7809-4105-acd9-07bce406cf2c">
+      <driver-ref>java.sql.Driver</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>net.ucanaccess.jdbc.UcanaccessDriver</jdbc-driver>
+      <jdbc-url>jdbc:ucanaccess://$PROJECT_DIR$/Navebsite/App_Data/Navebase.accdb;newdatabaseversion=V2010</jdbc-url>
+      <explain-plan-config>
+        <provider>com.intellij.database.plan.sqlite.SqliteExplainPlanProvider</provider>
+      </explain-plan-config>
+    </data-source>
+  </component>
+</project>

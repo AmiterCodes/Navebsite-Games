@@ -69,6 +69,7 @@
     <Content Include="Global.asax" />
     <Content Include="Main.css" />
     <Content Include="Store.aspx" />
+    <Content Include="User.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

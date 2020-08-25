@@ -23,8 +23,6 @@
          </HeaderTemplate>
                
          <ItemTemplate>
-
-            
              <div class="game">
                  <asp:Image id="ProductImage" AlternateText="Product picture" 
                  ImageUrl='<%# "./Images/GameBackgrounds/"+DataBinder.Eval(Container.DataItem, "Background") %>'
