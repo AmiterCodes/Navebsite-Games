@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
-using System.Web;
-using System.Configuration;
-//using System.Linq;
-using System.Xml.Linq;
 using System.Data.OleDb;
-using System.Threading.Tasks;
-using System.Net.Http;
 
 namespace NavebsiteDAL
 {

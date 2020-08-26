@@ -14,6 +14,12 @@ namespace NavebsiteDAL
             return DALHelper.GetRowById(id,"Games");
         }
 
+        public static DataTable AllGamesFromDeveloper(int devId)
+        {
+            return DALHelper.AllWhere("Games", "Developer", devId);
+        }
+        
+
         public static DataTable AllGames()
         {
             return DALHelper.AllFromTable("Games");

@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="258efc49-a880-4052-b9f5-a075b404c8f9" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Navebsite/Game.ascx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Navebsite/Navebsite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Navebsite/Navebsite.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Navebsite/User.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/Navebsite/User.aspx" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Database Driver - Navebase.accdb" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Database Driver - Navebase.accdb" type="feb32156:DbDataSourceImpl" />
+        <item name="PUBLIC: database" type="189accc2:HsqlImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Database Driver - Navebase.accdb" type="feb32156:DbDataSourceImpl" />
+        <item name="PUBLIC: database" type="189accc2:HsqlImplModel$Database" />
+        <item name="#1: schema" type="302dc3d9:HsqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Database Driver - Navebase.accdb" type="feb32156:DbDataSourceImpl" />
+        <item name="PUBLIC: database" type="189accc2:HsqlImplModel$Database" />
+        <item name="#1: schema" type="302dc3d9:HsqlImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Database Driver - Navebase.accdb" type="feb32156:DbDataSourceImpl" />
+        <item name="PUBLIC: database" type="189accc2:HsqlImplModel$Database" />
+        <item name="#1: schema" type="302dc3d9:HsqlImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="UserWishlist: table" type="aa3f54b6:HsqlImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="NavebsiteBL.csproj" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NavebsiteBL/NavebsiteBL.csproj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Global.asax" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Navebsite/Global.asax">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Missy.Master" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Navebsite/Missy.Master">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+              <folding>
+                <marker date="1591563031019" expanded="true" signature="125:644" ph="&lt;html.../&gt;" />
+                <marker date="1591563031019" expanded="true" signature="132:428" ph="&lt;head.../&gt;" />
+                <marker date="1591563031019" expanded="true" signature="341:420" ph="&lt;ContentPlaceHolder.../&gt;" />
+                <marker date="1591563031019" expanded="true" signature="429:636" ph="&lt;body.../&gt;" />
+                <marker date="1591563031019" expanded="true" signature="440:628" ph="&lt;form.../&gt;" />
+                <marker date="1591563031019" expanded="true" signature="481:616" ph="&lt;div.../&gt;" />
+                <marker date="1591563031019" expanded="true" signature="499:601" ph="&lt;ContentPlaceHolder.../&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Store.aspx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Navebsite/Store.aspx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="1" selection-start-line="1" selection-end-line="3" selection-end-column="85" />
+              <folding>
+                <marker date="1594122322224" expanded="true" signature="144:229" ph="&lt;Content.../&gt;" />
+                <marker date="1594122322224" expanded="true" signature="230:1793" ph="&lt;Content.../&gt;" />
+                <marker date="1594122322224" expanded="true" signature="328:602" ph="&lt;%@ ... %&gt;" />
+                <marker date="1594122322224" expanded="true" signature="328:1777" ph="&lt;DataList.../&gt;" />
+                <marker date="1594122322224" expanded="true" signature="613:670" ph="&lt;HeaderStyle.../&gt;" />
+                <marker date="1594122322224" expanded="true" signature="681:758" ph="&lt;AlternatingItemStyle.../&gt;" />
+                <marker date="1594122322224" expanded="true" signature="769:838" ph="&lt;HeaderTemplate.../&gt;" />
+                <marker date="1594122322224" expanded="true" signature="864:1753" ph="&lt;ItemTemplate.../&gt;" />
+                <marker date="1594122322224" expanded="true" signature="892:1728" ph="&lt;div.../&gt;" />
+                <marker date="1594122322224" expanded="true" signature="928:1158" ph="&lt;%@ ... %&gt;" />
+                <marker date="1594122322224" expanded="true" signature="1173:1431" ph="&lt;div.../&gt;" />
+                <marker date="1594122322224" expanded="true" signature="1446:1709" ph="&lt;div.../&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Store.aspx.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Navebsite/Store.aspx.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+              <folding>
+                <marker date="1591563031187" expanded="false" signature="6:157" ph="..." />
+                <marker date="1591563031187" expanded="true" signature="177:478" ph="{...}" />
+                <marker date="1591563031187" expanded="true" signature="231:476" ph="{...}" />
+                <marker date="1591563031187" expanded="true" signature="298:470" ph="{...}" />
+                <marker date="1591563031187" expanded="true" signature="338:460" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.aspx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Navebsite/User.aspx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="66" selection-start-column="66" selection-end-column="66" />
+              <folding>
+                <marker date="1598396297320" expanded="true" signature="71:156" ph="&lt;Content.../&gt;" />
+                <marker date="1598396297320" expanded="true" signature="157:257" ph="&lt;Content.../&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.ascx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Navebsite/Game.ascx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="console_2.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6ed52c3a-7809-4105-acd9-07bce406cf2c/console_2.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="23" selection-start-column="23" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NavebsiteBL/Game.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+              <folding>
+                <marker date="1591711127362" expanded="false" signature="6:154" ph="..." />
+                <marker date="1591711127362" expanded="true" signature="177:2660" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="201:2658" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="731:979" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="737:977" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="860:937" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="1015:1089" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="1021:1087" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="1126:1209" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="1131:1207" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="1245:1598" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="1250:1596" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="1427:1529" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="1641:2310" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="2366:2399" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="2444:2652" ph="{...}" />
+                <marker date="1591711127362" expanded="true" signature="2556:2620" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Web.config" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Navebsite/Web.config">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/NavebsiteDAL/DALHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Navebsite/Game.ascx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/NavebsiteBL/Game.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Navebsite/Store.aspx.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Navebsite/Web.config" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Navebsite/Missy.Master" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Navebsite/Global.asax" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Navebsite/Store.aspx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Navebsite/User.aspx" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6ed52c3a-7809-4105-acd9-07bce406cf2c/console_1.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6ed52c3a-7809-4105-acd9-07bce406cf2c/console_2.sql" />
+        <option value="$PROJECT_DIR$/Navebsite/User.aspx" />
+        <option value="$PROJECT_DIR$/Navebsite/Game.ascx" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-11" />
+    <option name="y" value="-27" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Navebsite (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Navebsite (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Navebsite" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Navebsite (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Navebsite" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="References" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Navebsite (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Navebsite" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="App_Data" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+            <path>
+              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Navebsite (3 projects)" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Navebsite" type="977d5f41:SolutionExplorerNodeRider" />
+              <item name="Store.aspx" type="977d5f41:SolutionExplorerNodeRider" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Navebsite/App_Data/Navebase.accdb" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="C:/Program Files (x86)/IIS Express/iisexpress.exe" />
+      <option name="PROGRAM_PARAMETERS" value="/config:$PROJECT_DIR$/.idea/config/applicationhost.config /site:Navebsite /apppool:Clr4IntegratedAppPool" />
+      <option name="WORKING_DIRECTORY" value="C:/Program Files (x86)/IIS Express" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/Navebsite/Navebsite.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Web" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.6.1" />
+      <browser url="http://localhost:20513/" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="258efc49-a880-4052-b9f5-a075b404c8f9" name="Default" comment="" />
+      <created>1598390353102</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598390353102</updated>
+      <workItem from="1598390373114" duration="4656000" />
+    </task>
+    <task id="LOCAL-00001" summary="imported into rider">
+      <created>1598395885615</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1598395885615</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4656000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Errors In Solution" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Unit Tests" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="REST Client" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32890365" />
+      <window_info anchor="bottom" id="Version Control" visible="true" weight="0.32352942" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="NuGet" />
+      <window_info anchor="bottom" id="Database Console" weight="0.32890365" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info anchor="bottom" id="SQL Generator" weight="0.32890365" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Build" />
+      <window_info anchor="right" id="Database" visible="true" weight="0.1433902" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="imported into rider" />
+    <option name="LAST_COMMIT_MESSAGE" value="imported into rider" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Navebsite/Navebsite.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7" />
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6ed52c3a-7809-4105-acd9-07bce406cf2c/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://6ed52c3a-7809-4105-acd9-07bce406cf2c/database/PUBLIC/schema/&amp;empty;@#1/table/Games">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6ed52c3a-7809-4105-acd9-07bce406cf2c/database/PUBLIC/schema/&amp;empty;@#1/table/GamePhotos">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Navebsite/Web.config">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="9" column="57" selection-start-line="9" selection-start-column="57" selection-end-line="9" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6ed52c3a-7809-4105-acd9-07bce406cf2c/database/PUBLIC/schema/&amp;empty;@#1/table/Developer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NavebsiteBL/NavebsiteBL.csproj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6ed52c3a-7809-4105-acd9-07bce406cf2c/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Navebsite/Global.asax">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Navebsite/Missy.Master">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <marker date="1591563031019" expanded="true" signature="125:644" ph="&lt;html.../&gt;" />
+            <marker date="1591563031019" expanded="true" signature="132:428" ph="&lt;head.../&gt;" />
+            <marker date="1591563031019" expanded="true" signature="341:420" ph="&lt;ContentPlaceHolder.../&gt;" />
+            <marker date="1591563031019" expanded="true" signature="429:636" ph="&lt;body.../&gt;" />
+            <marker date="1591563031019" expanded="true" signature="440:628" ph="&lt;form.../&gt;" />
+            <marker date="1591563031019" expanded="true" signature="481:616" ph="&lt;div.../&gt;" />
+            <marker date="1591563031019" expanded="true" signature="499:601" ph="&lt;ContentPlaceHolder.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://6ed52c3a-7809-4105-acd9-07bce406cf2c/database/PUBLIC/schema/&amp;empty;@#1/table/UserWishlist">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NavebsiteBL/Game.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+          <folding>
+            <marker date="1591711127362" expanded="false" signature="6:154" ph="..." />
+            <marker date="1591711127362" expanded="true" signature="177:2660" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="201:2658" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="731:979" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="737:977" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="860:937" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="1015:1089" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="1021:1087" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="1126:1209" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="1131:1207" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="1245:1598" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="1250:1596" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="1427:1529" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="1641:2310" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="2366:2399" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="2444:2652" ph="{...}" />
+            <marker date="1591711127362" expanded="true" signature="2556:2620" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6ed52c3a-7809-4105-acd9-07bce406cf2c/console_2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Navebsite/Store.aspx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" selection-start-line="1" selection-end-line="3" selection-end-column="85" />
+          <folding>
+            <marker date="1594122322224" expanded="true" signature="144:229" ph="&lt;Content.../&gt;" />
+            <marker date="1594122322224" expanded="true" signature="230:1793" ph="&lt;Content.../&gt;" />
+            <marker date="1594122322224" expanded="true" signature="328:602" ph="&lt;%@ ... %&gt;" />
+            <marker date="1594122322224" expanded="true" signature="328:1777" ph="&lt;DataList.../&gt;" />
+            <marker date="1594122322224" expanded="true" signature="613:670" ph="&lt;HeaderStyle.../&gt;" />
+            <marker date="1594122322224" expanded="true" signature="681:758" ph="&lt;AlternatingItemStyle.../&gt;" />
+            <marker date="1594122322224" expanded="true" signature="769:838" ph="&lt;HeaderTemplate.../&gt;" />
+            <marker date="1594122322224" expanded="true" signature="864:1753" ph="&lt;ItemTemplate.../&gt;" />
+            <marker date="1594122322224" expanded="true" signature="892:1728" ph="&lt;div.../&gt;" />
+            <marker date="1594122322224" expanded="true" signature="928:1158" ph="&lt;%@ ... %&gt;" />
+            <marker date="1594122322224" expanded="true" signature="1173:1431" ph="&lt;div.../&gt;" />
+            <marker date="1594122322224" expanded="true" signature="1446:1709" ph="&lt;div.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Navebsite/Store.aspx.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding>
+            <marker date="1591563031187" expanded="false" signature="6:157" ph="..." />
+            <marker date="1591563031187" expanded="true" signature="177:478" ph="{...}" />
+            <marker date="1591563031187" expanded="true" signature="231:476" ph="{...}" />
+            <marker date="1591563031187" expanded="true" signature="298:470" ph="{...}" />
+            <marker date="1591563031187" expanded="true" signature="338:460" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Navebsite/User.aspx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="66" selection-start-column="66" selection-end-column="66" />
+          <folding>
+            <marker date="1598396297320" expanded="true" signature="71:156" ph="&lt;Content.../&gt;" />
+            <marker date="1598396297320" expanded="true" signature="157:257" ph="&lt;Content.../&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Navebsite/Game.ascx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

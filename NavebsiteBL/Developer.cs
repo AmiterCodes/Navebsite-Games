@@ -13,6 +13,9 @@ namespace NavebsiteBL
         public string DeveloperName { get; set; }
         public string About { get; set; }
         public string Icon { get; set; }
+
+        public string IconUrl { get => "./Images/DeveloperIcons/" + Icon; }
+        public string BackgroundUrl { get => "./Images/DeveloperBackgrounds/" + Background; }
         public string Background { get; set; }
 
         public Developer(DataRow row)

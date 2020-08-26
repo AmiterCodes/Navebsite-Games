@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Database Driver - Navebase.accdb" uuid="6ed52c3a-7809-4105-acd9-07bce406cf2c">
+      <database-info product="UCanAccess driver for Microsoft Access databases using HSQLDB" version="V2007 [VERSION_12]" jdbc-version="4.2" driver-name="Ucanaccess" driver-version="5.0.0-SNAPSHOT">
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <auth-required>false</auth-required>
+      <introspection-schemas>PUBLIC:</introspection-schemas>
+    </data-source>
+  </component>
+</project>

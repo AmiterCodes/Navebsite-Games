@@ -1,20 +1,24 @@
-﻿using System;
+﻿using NavebsiteBL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using NavebsiteBL;
-namespace Navebsite
+
+namespace Navebsite.Controls
 {
-    public partial class Store : System.Web.UI.Page
+    public partial class Gallery : System.Web.UI.UserControl
     {
+
+        public List<Photo> Photos { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!IsPostBack)
             {
-                gm.games = Game.AllGames();
+                ItemsList.DataSource = Photos;
+                ItemsList.DataBind();
             }
         }
     }

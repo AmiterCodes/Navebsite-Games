@@ -66,13 +66,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Navebase.accdb" />
+    <Content Include="CompanyPage.aspx" />
+    <Content Include="Controls\Gallery.ascx" />
+    <Content Include="Controls\GameList.ascx" />
     <Content Include="Global.asax" />
     <Content Include="Main.css" />
     <Content Include="Store.aspx" />
-    <Content Include="User.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompanyPage.aspx.cs">
+      <DependentUpon>CompanyPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompanyPage.aspx.designer.cs">
+      <DependentUpon>CompanyPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Gallery.ascx.cs">
+      <DependentUpon>Gallery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Gallery.ascx.designer.cs">
+      <DependentUpon>Gallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GameList.ascx.cs">
+      <DependentUpon>GameList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\GameList.ascx.designer.cs">
+      <DependentUpon>GameList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

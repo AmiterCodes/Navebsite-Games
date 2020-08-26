@@ -72,6 +72,15 @@ namespace NavebsiteBL
             
         }
 
+        public static List<Game> GamesByDeveloper(int developerId) {
+            List<Game> l = new List<Game>();
+            foreach (DataRow r in DBGame.AllGamesFromDeveloper(developerId).Rows)
+            {
+                l.Add(new Game(r));
+            }
+            return l;
+        }
+
         public static List<Game> AllGames()
         {
             List<Game> l = new List<Game>();

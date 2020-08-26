@@ -8,6 +8,7 @@
           <e p="Navebase.accdb" t="Include" />
         </e>
         <e p="Bin" t="ExcludeRecursive" />
+        <e p="Game.ascx" t="Include" />
         <e p="Global.asax" t="Include" />
         <e p="Global.asax.cs" t="Include" />
         <e p="Main.css" t="Include" />

@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite {
+namespace Navebsite.Controls {
     
     
-    public partial class Store {
+    public partial class GameList {
         
         /// <summary>
-        /// gm control.
+        /// ItemsList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Navebsite.Controls.GameList gm;
+        protected global::System.Web.UI.WebControls.DataList ItemsList;
     }
 }

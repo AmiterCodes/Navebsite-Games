@@ -5,16 +5,19 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NavebsiteBL;
-namespace Navebsite
+
+namespace Navebsite.Controls
 {
-    public partial class Store : System.Web.UI.Page
+    public partial class GameList : System.Web.UI.UserControl
     {
+
+        public List<Game> games { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!IsPostBack)
-            {
-                gm.games = Game.AllGames();
+            if (!IsPostBack) {
+                ItemsList.DataSource = games;
+                ItemsList.DataBind();
             }
         }
     }

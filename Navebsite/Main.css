@@ -21,6 +21,9 @@ body {
     flex-direction: column;
 }
 
+.gallery {
+    width: 100%;
+}
 
 .game_caption {
     display: flex;
@@ -60,5 +63,35 @@ body {
     background: linear-gradient(142.56deg, #5BDB2F 20.35%, #3DD64D 80.31%);
     border: none;
     padding: 5px;
+    color: white;
+}
+
+.dev {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dev_banner {
+    width: 100%;
+    object-fit: cover;
+    height: 30vh;
+}
+
+.dev_icon {
+    width: 10rem;
+    border-radius: 10000px;
+    margin-top: -5%;
+}
+
+.dev_info {
+    margin-left: -50%;
+    display: flex;
+    align-items: center;
+}
+
+.dev_name {
+    margin-left: 2rem;
+    font-size: 30px;
     color: white;
 }

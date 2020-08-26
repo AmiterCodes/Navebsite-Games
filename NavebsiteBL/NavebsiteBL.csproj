@@ -50,8 +50,11 @@
     <Compile Include="BLHelper.cs" />
     <Compile Include="Developer.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GamePhoto.cs" />
     <Compile Include="Genre.cs" />
+    <Compile Include="Photo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserPhoto.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NavebsiteDAL\NavebsiteDAL.csproj">
