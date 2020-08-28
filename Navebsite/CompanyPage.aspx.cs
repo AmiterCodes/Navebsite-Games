@@ -21,7 +21,7 @@ namespace Navebsite
             Developer developer = new Developer(devId);
             icon.ImageUrl = developer.IconUrl;
             banner.ImageUrl = developer.BackgroundUrl;
-            name.Text = developer.DeveloperName;
+            name.Text = Server.HtmlEncode(developer.DeveloperName);
             gallery.Photos = GamePhoto.PhotosByDeveloper(devId).Cast<Photo>().ToList();
         }
     }

@@ -14,6 +14,7 @@ namespace NavebsiteBL
         public int GameId { get; set; }
         
 
+
         public GamePhoto(int id) : base()
         {
             Id = id;

@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace NavebsiteDAL
 {
-    class DBUser
+    public class DBUser
     {
         public static DataTable AllUsers()
         {
             return DALHelper.AllFromTable("Users");
         }
 
-
+        public static DataRow GetUserById(int user)
+        {
+            return DALHelper.GetRowById(user, "Users");
+        }
     }
 }

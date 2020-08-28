@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace NavebsiteBL
 {
     public class UserPhoto : Photo
-    {
+    {   
+
         public int UserId { get; set; }
         public DateTime Timestamp { get; set; }
 

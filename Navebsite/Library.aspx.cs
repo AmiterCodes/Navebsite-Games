@@ -1,0 +1,18 @@
+﻿using NavebsiteBL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace Navebsite
+{
+    public partial class Library : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            library.games = UserGame.UserGames(1);
+        }
+    }
+}

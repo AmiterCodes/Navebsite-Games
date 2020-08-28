@@ -21,8 +21,20 @@ body {
     flex-direction: column;
 }
 
+.big-button {
+    font-size: 2rem;
+    color: white;
+    background: linear-gradient(180deg, rgba(109, 216, 92, 0.78) 0%, rgba(70, 255, 133, 0.79) 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    padding: 2rem;
+}
+
 .gallery {
-    width: 100%;
+}
+
+.gallery_image {
+    width: 30vw;
 }
 
 .game_caption {
@@ -44,7 +56,20 @@ body {
     height: 10%;
 }
 
+a {
+    text-decoration: none;
+    transition: all .3s;
+    background-image: linear-gradient()
+    padding: 0.2rem;
+}
+
+a:hover {
+    background-color: rgba(255,0,0,0.5);
+}
+
 .game_title {
+    color: white;
+    text-decoration: none;
     font-size: 1.4rem;
 }
 
@@ -84,14 +109,177 @@ body {
     margin-top: -5%;
 }
 
+.dev_name {
+    margin-left: 2rem;
+    font-size: 30px;
+    color: white;
+    margin-right: 2rem;
+}
+
 .dev_info {
     margin-left: -50%;
     display: flex;
     align-items: center;
 }
 
-.dev_name {
+
+.gamepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gamepage_banner {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border: none;
+    background-size: cover;
+    height: 30vh;
+}
+
+.gamepage_icon {
+    width: 10rem;
+    border-radius: 10000px;
+    margin-top: -5%;
+}
+
+.gamepage_name {
+    margin-left: 2rem;
+    font-size: 3rem;
+    font-weight: 100;
+    color: white;
+    margin-right: 2rem;
+}
+
+.gamepage_info {
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+
+.profile_name {
     margin-left: 2rem;
     font-size: 30px;
     color: white;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile_banner {
+    width: 100%;
+    object-fit: cover;
+    height: 30vh;
+}
+
+.profile_icon {
+    width: 10rem;
+    border-radius: 10000px;
+    margin-top: -5%;
+}
+
+.profile_info {
+    margin-left: -50%;
+    display: flex;
+    align-items: center;
+}
+
+.profile_name {
+    margin-left: 2rem;
+    font-size: 30px;
+    color: white;
+    margin-right: 2rem;
+}
+
+.button {
+    padding: 1rem;
+    color: white;
+    background: linear-gradient(259.72deg, #767FD1 14.72%, #7160D9 73.32%);
+    border: none;
+    transition: all .3s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.activities {
+    background: #0F1017;
+    padding: 2rem;
+    display: inline-block;
+}
+
+.activity {
+    display: flex;
+}
+
+.activity_time {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-left: .3rem;
+    transition: all .3s;
+    opacity: 0;
+}
+
+.activity:hover > .activity_time {
+    opacity: 1;
+}
+
+
+.libgame {
+    position: relative;
+    /* background: linear-gradient(180deg, rgba(15, 16, 22, 0.72) 0%, #1C1D2B 100%), url('https://d.ibtimes.co.uk/en/full/1602046/minecraft-art.jpg?w=600&e=b9208487edf12504de07b038ccad3c96');*/
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 60rem;
+    height: 8rem;
+    background-size: cover;
+    background-position: center;
+}
+
+.libgame_info {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
+.libgame_company {
+    color: #aaa;
+}
+
+.libgame_buttons {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+    .libgame_buttons > * {
+        width: 5rem;
+        height: 2rem;
+        margin: 1rem;
+        padding: 0;
+    }
+
+.libgame_time {
+    position: absolute;
+    color: rgba(192, 197, 255, 0.47);
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    bottom: 0;
+    left: 0;
 }

@@ -50,12 +50,14 @@
     <Compile Include="ConnectionException.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DALHelper.cs" />
+    <Compile Include="DBActivity.cs" />
     <Compile Include="DBDeveloper.cs" />
     <Compile Include="DBGame.cs" />
     <Compile Include="DBPhotos.cs" />
     <Compile Include="DBGenre.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="DBUser.cs" />
+    <Compile Include="DBUserGames.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLException.cs" />
   </ItemGroup>

@@ -11,7 +11,7 @@ namespace NavebsiteBL
     {
         public int Id { get; set; }
         public string Image { get; set; }
-        public string PhotoUrl { get => "./Images/GamePhotos/" + Image; }
+        public string PhotoUrl { get => "./Images/Photos/" + Image; }
 
         public Photo()
         {

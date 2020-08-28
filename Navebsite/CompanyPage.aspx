@@ -12,7 +12,7 @@
     </div>
     
     <NV:GameList runat="server" ID="list"/>
-    
-    <NV:GameGallery runat="server" ID="gallery"/>
+   
+    <NV:Gallery runat="server" ID="gallery"/>
     
 </asp:Content>
