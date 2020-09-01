@@ -26,6 +26,8 @@ namespace NavebsiteBL
         {
             Id = id;
             DataRow dr= DBUser.GetUserById(id);
+            if (dr == null) throw new InvalidOperationException();
+
             Username = (string)dr["Username"];
             Description = (string)dr["Description"];
             Balance = (double)dr["Balance"];
@@ -36,6 +38,7 @@ namespace NavebsiteBL
 
         public User(DataRow dr)
         {
+            if (dr == null) throw new InvalidOperationException();
             Id = (int)dr["ID"];
             Username = (string)dr["Username"];
             Description = (string)dr["Description"];
