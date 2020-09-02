@@ -75,6 +75,7 @@
     <Content Include="Controls\Gallery.ascx" />
     <Content Include="Controls\GameLibrary.ascx" />
     <Content Include="Controls\GameList.ascx" />
+    <Content Include="Controls\Navbar.ascx" />
     <Content Include="GamePage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Library.aspx" />
@@ -127,6 +128,13 @@
     </Compile>
     <Compile Include="Controls\GameList.ascx.designer.cs">
       <DependentUpon>GameList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Navbar.ascx.cs">
+      <DependentUpon>Navbar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Navbar.ascx.designer.cs">
+      <DependentUpon>Navbar.ascx</DependentUpon>
     </Compile>
     <Compile Include="GamePage.aspx.cs">
       <DependentUpon>GamePage.aspx</DependentUpon>
