@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GameList.ascx.cs" Inherits="Navebsite.Controls.GameList" %>
+<div class="game_list">
 <asp:DataList id="ItemsList"
            BorderColor="black"
            CellPadding="20"
@@ -37,3 +38,4 @@
          </ItemTemplate>
  
       </asp:DataList>
+    </div>

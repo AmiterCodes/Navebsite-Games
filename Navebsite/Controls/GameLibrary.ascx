@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GameLibrary.ascx.cs" Inherits="Navebsite.Controls.GameLibrary" %>
+<div class="game_library">
 <h2>Library</h2>
 <asp:DataList ID="ItemsList"
     BorderColor="black"
@@ -8,7 +9,7 @@
     RepeatLayout="Table"
     RepeatColumns="1"
     runat="server"
-    CssClass="store">
+    >
 
 
 
@@ -28,3 +29,4 @@
     </ItemTemplate>
 
 </asp:DataList>
+    </div>
