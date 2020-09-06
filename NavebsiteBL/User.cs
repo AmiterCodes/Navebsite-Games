@@ -22,6 +22,21 @@ namespace NavebsiteBL
         public string ProfilePictureUrl { get => "./Images/UserProfiles/" + ProfilePicture; }
         public string BackgroundUrl { get => "./Images/UserBackgrounds/" + Background; }
 
+        public static User AuthUser(string username, string password)
+        {
+            if(DBUser.Authenticate(username, password))
+            {
+                return new User(DBUser.GetUserByName(username));
+            }
+            return null;
+        }
+
+        public static User RegisterUser(string username, string password)
+        {
+            int id = DBUser.InsertUser(username, password);
+            return new User(id);
+        }
+
         public User(int id)
         {
             Id = id;

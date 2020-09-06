@@ -9,6 +9,25 @@ namespace NavebsiteDAL
 {
     public class DALHelper
     {
+
+        /// <summary>
+        /// runs an insert SQL statement
+        /// </summary>
+        /// <param name="sql">sql query</param>
+        /// <returns>id of newly inserted row, -1 if it didn't work</returns>
+        public static int Insert(string sql)
+        {
+            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+
+
+            if (!helper.OpenConnection()) throw new ConnectionException();
+
+            int id = helper.InsertWithAutoNumKey(sql);
+            helper.CloseConnection();
+
+            return id;
+        }
+
         /// <summary>
         /// queries a select statement on the SQL access database
         /// </summary>
@@ -18,12 +37,23 @@ namespace NavebsiteDAL
         {
             DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
 
+            
             if (!helper.OpenConnection()) throw new ConnectionException();
 
             DataTable tb = helper.GetDataTable(sql);
             helper.CloseConnection();
             
             return tb;
+        }
+
+        /// <summary>
+        /// a method to check if a sql select statement has an existing row
+        /// </summary>
+        /// <param name="sql">select sql query to run</param>
+        /// <returns>true if row exists</returns>
+        public static bool RowExists(string sql)
+        {
+            return Select(sql).Rows.Count > 0;
         }
 
         /// <summary>
@@ -103,6 +133,26 @@ namespace NavebsiteDAL
             DataTable tb = helper.GetDataTable(sql);
             helper.CloseConnection();
             if (tb.Rows.Count == 0) return null;
+            return tb.Rows[0];
+        }
+
+        /// <summary>
+        /// Returns row from a table with a where clause
+        /// </summary>
+        /// <param name="table">name of SQL table</param>
+        /// <param name="column">column to compare</param>
+        /// <param name="value">value that is required for the rows</param>
+        /// <returns>DataRow containing the matching row</returns>
+        public static DataRow RowWhere(string table, string column, int value)
+        {
+            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+
+            if (!helper.OpenConnection()) throw new ConnectionException();
+            string sql = $"SELECT * FROM {table} WHERE `{column}` = {value}";
+
+            DataTable tb = helper.GetDataTable(sql);
+            if (tb.Rows.Count == 0) return null;
+            helper.CloseConnection();
             return tb.Rows[0];
         }
 
