@@ -13,5 +13,10 @@ namespace Navebsite.Controls
         {
 
         }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Store.aspx");
+        }
     }
 }

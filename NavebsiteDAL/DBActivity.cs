@@ -22,7 +22,8 @@ ORDER BY Timestamp DESC;
 
         public static void InsertActivity(string activity, int userId)
         {
-            DALHelper.Insert($"INSERT INTO UserActivity (ActivityText,User) VALUES('{activity}',{userId})");
+            string sql = $"INSERT INTO UserActivity ([ActivityText],[User]) VALUES('{activity}',{userId})";
+            DALHelper.Insert(sql);
         }
 
         public static DataRow GetActivity(int id)

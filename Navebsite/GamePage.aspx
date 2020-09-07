@@ -8,7 +8,7 @@
         <asp:Label Text="Game Name" runat="server" ID="name" CssClass="gamepage_name" />
     </asp:Panel>
         <div class="gamepage_info">
-            <asp:Button Id="play" runat="server" CssClass="big-button" />
+            <asp:Button Id="play" runat="server" CssClass="big-button" OnClick="play_Click" />
         </div>
     </div>
     

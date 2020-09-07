@@ -25,5 +25,12 @@ namespace Navebsite
                 Response.Redirect("404.aspx");
             } 
         }
+
+        protected void play_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(Request.QueryString["id"]);
+            Game game = new Game(id);
+            Response.Redirect(game.GameLink);
+        }
     }
 }
