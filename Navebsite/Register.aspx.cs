@@ -12,12 +12,27 @@ namespace Navebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string userName = username.Text;
-            string pass = password.Text;
+        }
 
-            User user = NavebsiteBL.User.RegisterUser(userName, pass);
-            if(user == null) 
-            Session["user"] = user;
+        protected void Register_Click(object sender, EventArgs e)
+        {
+            Validate();
+            if (IsValid)
+            {
+                string userName = username.Text;
+                string pass = password.Text;
+
+                User user = NavebsiteBL.User.RegisterUser(userName, pass);
+                if (user == null)
+                {
+                    errorBox.Text = "Register did not work";
+                } else
+                {
+                    Session["user"] = user;
+                    user.AddActivity("Created Account");
+                    Response.Redirect("Profile.aspx?id=" + user.Id);
+                }
+            }
         }
     }
 }

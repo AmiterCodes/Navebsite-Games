@@ -27,6 +27,11 @@ namespace NavebsiteBL
 
         }
 
+        public static void AddActivity(string text, int userId)
+        {
+            DBActivity.InsertActivity(text, userId);
+        }
+
         public Activity(DataRow dr)
         {
             Id = (int)dr["ID"];
