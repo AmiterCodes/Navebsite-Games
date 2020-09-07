@@ -136,6 +136,8 @@ namespace NavebsiteDAL
             return tb.Rows[0];
         }
 
+
+
         /// <summary>
         /// Returns row from a table with a where clause
         /// </summary>
@@ -143,6 +145,24 @@ namespace NavebsiteDAL
         /// <param name="column">column to compare</param>
         /// <param name="value">value that is required for the rows</param>
         /// <returns>DataRow containing the matching row</returns>
+        public static DataRow RowWhere(string table, string column, string value)
+        {
+            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+
+            if (!helper.OpenConnection()) throw new ConnectionException();
+            string sql = $"SELECT * FROM {table} WHERE `{column}` = '{value}'";
+
+            DataTable tb = helper.GetDataTable(sql);
+            if (tb.Rows.Count == 0) return null;
+            helper.CloseConnection();
+            return tb.Rows[0];
+        }        /// <summary>
+                 /// Returns row from a table with a where clause
+                 /// </summary>
+                 /// <param name="table">name of SQL table</param>
+                 /// <param name="column">column to compare</param>
+                 /// <param name="value">value that is required for the rows</param>
+                 /// <returns>DataRow containing the matching row</returns>
         public static DataRow RowWhere(string table, string column, int value)
         {
             DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);

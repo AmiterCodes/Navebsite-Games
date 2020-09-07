@@ -20,6 +20,11 @@ ORDER BY Timestamp DESC;
 ");
         }
 
+        public static void InsertActivity(string activity, int userId)
+        {
+            DALHelper.Insert($"INSERT INTO UserActivity (ActivityText,User) VALUES('{activity}',{userId})");
+        }
+
         public static DataRow GetActivity(int id)
         {
             return DALHelper.GetRowById(id, "UserActivity");

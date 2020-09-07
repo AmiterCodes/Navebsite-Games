@@ -21,7 +21,7 @@ namespace NavebsiteDAL
 
         public static DataRow GetUserByName(string username)
         {
-            return DALHelper.AllWhere
+            return DALHelper.RowWhere("Users", "Username", username);
         }
 
         public static bool Authenticate(string username, string password)
