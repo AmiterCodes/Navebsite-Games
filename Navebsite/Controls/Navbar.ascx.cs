@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using NavebsiteBL;
 
 namespace Navebsite.Controls
 {
@@ -11,12 +12,15 @@ namespace Navebsite.Controls
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            welcome.Text = "";
+            User user = (User)Session["user"];
+            profile.Visible = false;
+            if (Session["user"] != null)
+            {
+                welcome.Text = "Ahoy, " + user.Username;
+                profile.Visible = true;
+            }
         }
 
-        protected void Unnamed_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Store.aspx");
-        }
     }
 }

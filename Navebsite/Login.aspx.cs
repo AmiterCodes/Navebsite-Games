@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NavebsiteBL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,29 @@ namespace Navebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack && Session["user"] != null) 
+                Response.Redirect("Store");
+        }
 
+        protected void Login_Click(object sender, EventArgs e)
+        {
+            Validate();
+            if (IsValid)
+            {
+                string userName = username.Text;
+                string pass = password.Text;
+ 
+                User user = NavebsiteBL.User.AuthUser(userName, pass);
+                if (user == null)
+                {
+                    errorBox.Text = "Login did not work";
+                }
+                else
+                {
+                    Session["user"] = user;
+                    Response.Redirect("Profile.aspx?id=" + user.Id);
+                }
+            }
         }
     }
 }

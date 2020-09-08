@@ -64,7 +64,7 @@ namespace NavebsiteBL
             Username = (string)dr["Username"];
             Description = (string)dr["Description"];
             Balance = (double)dr["Balance"];
-            JoinDate = (DateTime)dr["JoinDate"];
+            JoinDate = (DateTime)dr["Join Date"];
             ProfilePicture = (string)dr["Profile Picture"];
             Background = (string)dr["Background"];
         }

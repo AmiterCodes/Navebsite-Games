@@ -14,9 +14,23 @@ namespace Navebsite
         {
             string qs = Request.QueryString["id"];
             int id = 0;
-            if (qs == null || !int.TryParse(qs, out id)) Response.Redirect("404.aspx");
-
-            User user = new User(id);
+            User user;
+            if (qs == null || !int.TryParse(qs, out id))
+            {
+                if (Session["user"] != null)
+                {
+                    user = (User)Session["user"];
+                }
+                else
+                {
+                    Response.Redirect("404.aspx");
+                    return;
+                }
+            }
+            else
+            {
+                user = new User(id);
+            }
             banner.ImageUrl = user.BackgroundUrl;
             icon.ImageUrl = user.ProfilePictureUrl;
             
