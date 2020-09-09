@@ -16,6 +16,9 @@ namespace NavebsiteBL
         public int UserId { get; set; }
         public int Stars { get; set; }
 
+        public string GameName { get; set; }
+        public string Username { get; set; }
+
         public Review(DataRow dr)
         {
             Id = (int)dr["ID"];
@@ -23,6 +26,8 @@ namespace NavebsiteBL
             GameId = (int)dr["Game"];
             UserId = (int)dr["User"];
             Stars = (int)dr["Stars"];
+            GameName = (string)dr["Game Name"];
+            Username = (string)dr["Username"];
         } 
 
         public static List<Review> ReviewsByGame(int gameId)

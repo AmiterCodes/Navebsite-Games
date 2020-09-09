@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite.Controls
-{
-
-
-    public partial class Review
-    {
-
+namespace Navebsite.Controls {
+    
+    
+    public partial class Review {
+        
         /// <summary>
         /// title control.
         /// </summary>
@@ -22,7 +20,16 @@ namespace Navebsite.Controls
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label title;
-
+        
+        /// <summary>
+        /// author control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label author;
+        
         /// <summary>
         /// stars control.
         /// </summary>
@@ -31,7 +38,7 @@ namespace Navebsite.Controls
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel stars;
-
+        
         /// <summary>
         /// content control.
         /// </summary>

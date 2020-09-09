@@ -11,12 +11,16 @@ namespace NavebsiteDAL
     {
         public static DataTable ReviewsByGame(int gameId)
         {
-            return DALHelper.AllWhere("GameReviews", "Game", gameId);
+            return DALHelper.Select("SELECT GameReviews.*, Users.Username, Games.[Game Name]" +
+                " FROM Users INNER JOIN(Games INNER JOIN GameReviews ON Games.ID = GameReviews.Game) ON Users.ID = GameReviews.User" +
+                $" WHERE Games.ID = {gameId}");
         }
 
-        public static DataTable ReviewsByUser(int gameId)
+        public static DataTable ReviewsByUser(int userId)
         {
-            return DALHelper.AllWhere("GameReviews", "[User]", gameId);
+            return DALHelper.Select("SELECT GameReviews.*, Users.Username, Games.[Game Name]" +
+                " FROM Users INNER JOIN(Games INNER JOIN GameReviews ON Games.ID = GameReviews.Game) ON Users.ID = GameReviews.User" +
+                $" WHERE Users.ID = {userId}");
         }
     }
 }

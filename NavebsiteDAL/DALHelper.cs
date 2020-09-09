@@ -57,7 +57,7 @@ namespace NavebsiteDAL
         }
 
         /// <summary>
-        /// returns ta single row from a table by id
+        /// returns a single row from a table by id
         /// </summary>
         /// <param name="id">id of the row requested</param>
         /// <param name="table">name of SQL table</param>

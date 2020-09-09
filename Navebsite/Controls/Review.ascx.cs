@@ -24,7 +24,8 @@ namespace Navebsite.Controls
                 stars.Controls.Add(image);
             }
             content.Text = review.Content;
-            title.Text = "Review";
+            title.Text = review.GameName + " Review";
+            author.Text = "By " + review.Username; 
         }
     }
 }
