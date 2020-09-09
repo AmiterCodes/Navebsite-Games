@@ -83,7 +83,7 @@ a {
 }
 
 a:hover {
-    background-color: rgba(255,0,0,0.5);
+    text-shadow: rgba(255, 211, 0, 0.70) 0 0 .5rem;
 }
 
 .game_title {
@@ -278,6 +278,16 @@ a:hover {
     color: #aaa;
 }
 
+.big-title {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 6rem;
+    line-height: 112px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
 .libgame_buttons {
     position: absolute;
     right: 2rem;
@@ -340,4 +350,104 @@ a:hover {
     display: inline-block;
     background: linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%);
     
+}
+
+.home {
+    background: linear-gradient(180deg, #1D1F2F 0%, rgba(34, 36, 53, 0.56) 100%), url(Images/bg2.jfif) center/cover fixed;
+}
+
+.navebsite {
+    background-attachment: fixed;
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 0% 100%);
+    background: linear-gradient(139.25deg, rgba(255, 46, 0, 0.51) 4.98%, #FF1E61 70.62%), url(Images/bg1.jfif) center/cover fixed;
+    justify-content: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navebsite_title {
+}
+
+.navebsite_logo {
+
+}
+
+
+
+.navebsite_store {
+    font-size: 1.6rem;
+    margin-top: 2rem;
+    color: #fff;
+    border-bottom: 3px white solid;
+}
+
+.navebsite_title_text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 157px;
+    text-align: center;
+}
+
+.navebsite_subtitle {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: 2.15em;
+}
+
+.home_2 {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home_2_container {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    align-items: center;
+}
+
+.home_2_text {
+    font-size: 1.6rem;
+    width: 30%;
+    text-align: center;
+    height: 100%;
+    margin-right: 10rem;
+    
+}
+
+.home_2_images {
+    margin-top: 6rem;
+    position: relative;
+    height: 30rem;
+    width: 50%;
+}
+
+.home_2_images > img {
+    height: 10rem;
+    width: 20rem;
+    object-fit: cover;
+    position: absolute;
+    box-shadow: 0 0 .5rem .4rem rgba(0,0,0,.3);
+}
+
+    .home_2_images > img:nth-child(3n+1) {
+        left: 0rem;
+        top: 0rem;
+    }
+
+.home_2_images > img:nth-child(3n+2) {
+    left: 5rem;
+    top: 5rem;
+}
+
+.home_2_images > img:nth-child(3n) {
+    left: 10rem;
+    top: 10rem;
 }
