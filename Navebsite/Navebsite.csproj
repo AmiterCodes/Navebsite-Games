@@ -93,6 +93,9 @@
     <Content Include="Controls\GameLibrary.ascx" />
     <Content Include="Controls\GameList.ascx" />
     <Content Include="Controls\Navbar.ascx" />
+    <Content Include="Controls\Review.ascx" />
+    <Content Include="Controls\starempty.svg" />
+    <Content Include="Controls\starfilled.svg" />
     <Content Include="GamePage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Library.aspx" />
@@ -154,6 +157,13 @@
     </Compile>
     <Compile Include="Controls\Navbar.ascx.designer.cs">
       <DependentUpon>Navbar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Review.ascx.cs">
+      <DependentUpon>Review.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Review.ascx.designer.cs">
+      <DependentUpon>Review.ascx</DependentUpon>
     </Compile>
     <Compile Include="GamePage.aspx.cs">
       <DependentUpon>GamePage.aspx</DependentUpon>

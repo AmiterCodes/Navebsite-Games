@@ -12,5 +12,7 @@
         </div>
     </div>
     
+    
+    <asp:Panel runat="server" ID="reviewList"></asp:Panel>
     <NV:Gallery runat="server" Id="gallery"/>
 </asp:Content>

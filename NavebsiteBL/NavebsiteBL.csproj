@@ -55,6 +55,7 @@
     <Compile Include="Genre.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Review.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserGame.cs" />
     <Compile Include="UserPhoto.cs" />

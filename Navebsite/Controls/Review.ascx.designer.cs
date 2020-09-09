@@ -7,56 +7,38 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite
+namespace Navebsite.Controls
 {
 
 
-    public partial class GamePage
+    public partial class Review
     {
 
         /// <summary>
-        /// banner control.
+        /// title control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel banner;
+        protected global::System.Web.UI.WebControls.Label title;
 
         /// <summary>
-        /// name control.
+        /// stars control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label name;
+        protected global::System.Web.UI.WebControls.Panel stars;
 
         /// <summary>
-        /// play control.
+        /// content control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button play;
-
-        /// <summary>
-        /// reviewList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel reviewList;
-
-        /// <summary>
-        /// gallery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Navebsite.Controls.Gallery gallery;
+        protected global::System.Web.UI.WebControls.Label content;
     }
 }

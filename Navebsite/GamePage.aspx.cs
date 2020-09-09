@@ -20,6 +20,15 @@ namespace Navebsite
                 play.Text = "Play " + Server.HtmlEncode(game.GameName);
                 gallery.Photos = GamePhoto.PhotosByGame(id).Cast<Photo>().ToList();
                 name.Text = Server.HtmlEncode(game.GameName);
+
+                List<Review> list = Review.ReviewsByGame(id);
+                foreach(Review review in list)
+                {
+                    Controls.Review reviewControl = (Controls.Review)Page.LoadControl("~/Controls/Review.ascx");
+                reviewControl.review = review;
+
+                    reviewList.Controls.Add(reviewControl);
+                }
             } catch(Exception ex)
             {
                 Response.Redirect("404.aspx");
