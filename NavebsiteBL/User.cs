@@ -22,6 +22,15 @@ namespace NavebsiteBL
         public string ProfilePictureUrl { get => "./Images/UserProfiles/" + ProfilePicture; }
         public string BackgroundUrl { get => "./Images/UserBackgrounds/" + Background; }
 
+        public static List<User> AllUsers()
+        {
+            List<User> users = new List<User>();
+            foreach(DataRow row in DBUser.AllUsers().Rows)
+            {
+                users.Add(new User(row));
+            }
+            return users;
+        }
 
         public void AddActivity(string text)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NavebsiteDAL
 {
-    class DBFriends
+    public class DBFriends
     {
         public static DataTable GetFriendsOfUser(int userId)
         {

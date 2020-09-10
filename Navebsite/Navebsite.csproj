@@ -88,14 +88,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="AddReview.aspx" />
     <Content Include="App_Data\Navebase.accdb" />
     <Content Include="CompanyPage.aspx" />
+    <Content Include="ControlsPage.aspx" />
     <Content Include="Controls\ActivityList.ascx" />
     <Content Include="Controls\Gallery.ascx" />
     <Content Include="Controls\GameLibrary.ascx" />
     <Content Include="Controls\GameList.ascx" />
     <Content Include="Controls\Navbar.ascx" />
     <Content Include="Controls\Review.ascx" />
+    <Content Include="Controls\SmallUserList.ascx" />
     <Content Include="Controls\starempty.svg" />
     <Content Include="Controls\starfilled.svg" />
     <Content Include="Default.aspx" />
@@ -119,6 +122,13 @@
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddReview.aspx.cs">
+      <DependentUpon>AddReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddReview.aspx.designer.cs">
+      <DependentUpon>AddReview.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CompanyPage.aspx.cs">
       <DependentUpon>CompanyPage.aspx</DependentUpon>
@@ -126,6 +136,13 @@
     </Compile>
     <Compile Include="CompanyPage.aspx.designer.cs">
       <DependentUpon>CompanyPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlsPage.aspx.cs">
+      <DependentUpon>ControlsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlsPage.aspx.designer.cs">
+      <DependentUpon>ControlsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controls\ActivityList.ascx.cs">
       <DependentUpon>ActivityList.ascx</DependentUpon>
@@ -168,6 +185,13 @@
     </Compile>
     <Compile Include="Controls\Review.ascx.designer.cs">
       <DependentUpon>Review.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SmallUserList.ascx.cs">
+      <DependentUpon>SmallUserList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\SmallUserList.ascx.designer.cs">
+      <DependentUpon>SmallUserList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

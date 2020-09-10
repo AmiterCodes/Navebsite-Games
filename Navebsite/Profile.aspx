@@ -12,6 +12,9 @@
             <asp:Button Text="Add Friend" runat="server" CssClass="button" />
             </div>
     </div>
+    <div class="profile_content">
     <Nv:ActivityList runat="server" Id="activities" />
-
+        Friends
+    <NV:UserList runat="server" ID="friends" />
+    </div>
 </asp:Content>

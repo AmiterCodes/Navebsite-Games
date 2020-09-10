@@ -36,6 +36,7 @@ namespace Navebsite
             
             name.Text = Server.HtmlEncode(user.Username);
             activities.Activities = user.Activities;
+            friends.Users = Friends.GetFriends(user.Id);
         }
     }
 }

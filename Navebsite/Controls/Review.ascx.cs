@@ -25,7 +25,9 @@ namespace Navebsite.Controls
             }
             content.Text = review.Content;
             title.Text = review.GameName + " Review";
-            author.Text = "By " + review.Username; 
+            title.NavigateUrl = "../GamePage.aspx?id=" + review.GameId;
+            author.Text = "By " + review.Username;
+            author.NavigateUrl = "../Profile.aspx?id=" + review.UserId;
         }
     }
 }
