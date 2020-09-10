@@ -17,9 +17,10 @@ namespace Navebsite
                 int id = int.Parse(Request.QueryString["id"]);
                 Game game = new Game(id);
                 banner.Style["background"] = $"linear-gradient(180deg,rgba(255,255,255,0) -46.84%,#3F3148 100%), url('{game.BackgroundUrl}') center/cover";
-                play.Text = "Play " + Server.HtmlEncode(game.GameName);
+                play.Text = "Buy " + game.GameName + " $" + game.Price;   
                 gallery.Photos = GamePhoto.PhotosByGame(id).Cast<Photo>().ToList();
                 name.Text = Server.HtmlEncode(game.GameName);
+
 
                 List<Review> list = Review.ReviewsByGame(id);
                 foreach(Review review in list)
@@ -29,6 +30,22 @@ namespace Navebsite
                     reviewControl.ID = ""+review.UserId;
                     reviewList.Controls.Add(reviewControl);
                 }
+
+                if (Session["user"] != null)
+                {
+                    User user = (User)Session["user"];
+                    if(UserGame.GameOwnedByUser(game.ID, user.Id))
+                    {
+
+                        play.Text = "Play " + Server.HtmlEncode(game.GameName);
+                    }
+                     HyperLink link = new HyperLink();
+                    link.NavigateUrl = "AddReview.aspx?game=" + game.ID;
+                    link.CssClass = "button";
+                    link.Text = "Add Review";
+                    reviewContainer.Controls.Add(link);
+                }
+
             } catch(Exception ex)
             {
                 Response.Redirect("404.aspx");

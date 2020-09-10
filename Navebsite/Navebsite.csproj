@@ -69,6 +69,7 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -102,6 +103,7 @@
     <Content Include="Controls\starempty.svg" />
     <Content Include="Controls\starfilled.svg" />
     <Content Include="Default.aspx" />
+    <Content Include="GameData.aspx" />
     <Content Include="GamePage.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Library.aspx" />
@@ -199,6 +201,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GameData.aspx.cs">
+      <DependentUpon>GameData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GameData.aspx.designer.cs">
+      <DependentUpon>GameData.aspx</DependentUpon>
     </Compile>
     <Compile Include="GamePage.aspx.cs">
       <DependentUpon>GamePage.aspx</DependentUpon>

@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite
-{
-
-
-    public partial class GamePage
-    {
-
+namespace Navebsite {
+    
+    
+    public partial class GamePage {
+        
         /// <summary>
         /// banner control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel banner;
-
+        
         /// <summary>
         /// name control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label name;
-
+        
         /// <summary>
         /// play control.
         /// </summary>
@@ -40,7 +38,16 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button play;
-
+        
+        /// <summary>
+        /// reviewContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel reviewContainer;
+        
         /// <summary>
         /// reviewList control.
         /// </summary>
@@ -49,7 +56,7 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel reviewList;
-
+        
         /// <summary>
         /// gallery control.
         /// </summary>

@@ -18,6 +18,7 @@ namespace NavebsiteBL
         public int ReviewStatus { get; set; }
         public string Background { get; set; }
         public string Logo { get; set; }
+        
 
         public string BackgroundUrl { get => "./Images/GameBackgrounds/" + Background; }
         public string LogoUrl { get => "./Images/GameLogos/" + Logo; }
@@ -69,6 +70,7 @@ namespace NavebsiteBL
             this.DeveloperID = (int)row["Developer"];
             this.PublishDate = (DateTime)row["Publish Date"];
             this.Price = (double)row["Price"];
+            
         }
 
         public Game() { }

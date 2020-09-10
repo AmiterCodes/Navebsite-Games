@@ -18,6 +18,11 @@ namespace NavebsiteBL
         public string ProfilePicture { get; set; }
         public string Background { get; set; }
 
+        public bool IsAdmin { get; set; }
+        public bool IsDeveloper { get; set; }
+
+        public int DeveloperId { get; set; }
+
         public List<Activity> Activities { get => Activity.UserActivities(Id); }
         public string ProfilePictureUrl { get => "./Images/UserProfiles/" + ProfilePicture; }
         public string BackgroundUrl { get => "./Images/UserBackgrounds/" + Background; }
@@ -52,18 +57,8 @@ namespace NavebsiteBL
             return new User(id);
         }
 
-        public User(int id)
+        public User(int id) : this(DBUser.GetUserById(id))
         {
-            Id = id;
-            DataRow dr= DBUser.GetUserById(id);
-            if (dr == null) throw new InvalidOperationException();
-
-            Username = (string)dr["Username"];
-            Description = (string)dr["Description"];
-            Balance = (double)dr["Balance"];
-            JoinDate = (DateTime)dr["Join Date"];
-            ProfilePicture = (string)dr["Profile Picture"];
-            Background = (string)dr["Background"];
         }
 
         public User(DataRow dr)
@@ -76,6 +71,16 @@ namespace NavebsiteBL
             JoinDate = (DateTime)dr["Join Date"];
             ProfilePicture = (string)dr["Profile Picture"];
             Background = (string)dr["Background"];
+            IsAdmin = (bool)dr["Admin"];
+            IsDeveloper = (bool)dr["Developer"];
+            if (IsDeveloper)
+            {
+                DeveloperId = (int)dr["DeveloperId"];
+            }
+            else
+            {
+                DeveloperId = -1;
+            }
         }
     }
 }

@@ -13,6 +13,11 @@ namespace NavebsiteBL
         public int UserId { get; set; }
         public DateTime Timestamp { get; set; }
 
+        public static bool GameOwnedByUser(int gameId, int userId)
+        {
+            return DBUserGames.GameOwnedByUser(gameId, userId);
+        }
+
         public static List<UserGame> UserGames(int user)
         {
             List<UserGame> list = new List<UserGame>();
@@ -21,6 +26,10 @@ namespace NavebsiteBL
                 list.Add(new UserGame(row));
             }
             return list;
+        }
+
+        public static DataTable UserGameData() {
+            return DBUserGames.AllUserGames();
         }
 
         public string BoughtString { get => "Bought " + Timestamp.ToShortDateString(); }

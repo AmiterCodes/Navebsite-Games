@@ -28,7 +28,7 @@
             <label for="demo-5" aria-label="5 stars" title="5 stars"></label>   
         </div>
         </fieldset>
-    <asp:Button Text="text" runat="server" ID="submit" OnClick="submit_Click"/>
+    <asp:Button Text="text" runat="server" ID="submit" OnClick="submit_Click" CssClass="button"/>
         <asp:Label Text="" runat="server" ID="errorBox" />
         </div>
 </asp:Content>

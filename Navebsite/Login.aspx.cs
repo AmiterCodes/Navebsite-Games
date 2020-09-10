@@ -32,6 +32,14 @@ namespace Navebsite
                 else
                 {
                     Session["user"] = user;
+                    if(user.IsDeveloper)
+                    {
+                        Session["dev"] = new Developer(user.DeveloperId);
+                    }
+                    if(user.IsAdmin)
+                    {
+                        Session["admin"] = true;
+                    }
                     Response.Redirect("Profile.aspx?id=" + user.Id);
                 }
             }

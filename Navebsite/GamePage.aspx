@@ -12,10 +12,10 @@
         </div>
     </div>
     
-    <div class="review_container">
-    <asp:Panel runat="server" ID="reviewList" CssClass="reviews">
-        <h2>Reviews</h2>
+    <asp:Panel runat="server" class="review_container" ID="reviewContainer">
+        <asp:Panel runat="server" ID="reviewList" CssClass="reviews">
+            <h2>Reviews</h2>
+        </asp:Panel>
     </asp:Panel>
-    </div>
     <NV:Gallery runat="server" Id="gallery"/>
 </asp:Content>

@@ -25,7 +25,7 @@ namespace NavebsiteDAL
 
         public static int UpdateReview(string content, int gameId, int userId, int stars)
         {
-            return DALHelper.Update($"UPDATE GameReviews SET Content = '{content}', Stars = {stars} WHERE gameId={gameId} AND userId={userId}");
+            return DALHelper.Update($"UPDATE GameReviews SET Content = '{content}', Stars = {stars} WHERE Game={gameId} AND [User]={userId}");
         }
 
         public static int InsertReview(string content, int gameId, int userId, int stars)

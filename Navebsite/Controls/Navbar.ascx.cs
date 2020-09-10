@@ -15,10 +15,18 @@ namespace Navebsite.Controls
             welcome.Text = "";
             User user = (User)Session["user"];
             profile.Visible = false;
+            logout.Visible = false;
+            login.Visible = false;
+            register.Visible = false;
             if (Session["user"] != null)
             {
                 welcome.Text = "Ahoy, " + user.Username;
                 profile.Visible = true;
+                logout.Visible = true;
+            } else
+            {
+                register.Visible = true;
+                login.Visible = true;
             }
         }
 
