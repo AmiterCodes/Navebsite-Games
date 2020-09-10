@@ -18,7 +18,7 @@
     <form id="form1" runat="server">
             <NV:NavBar runat="server" />
         <main class="main">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="Navebsite" runat="server">
             </asp:ContentPlaceHolder>
         </main>
     </form>

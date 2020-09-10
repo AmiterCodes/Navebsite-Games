@@ -29,6 +29,24 @@ namespace NavebsiteDAL
         }
 
         /// <summary>
+        /// runs an insert SQL statement
+        /// </summary>
+        /// <param name="sql">sql query</param>
+        /// <returns>id of newly inserted row, -1 if it didn't work</returns>
+        public static int Update(string sql)
+        {
+            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+
+
+            if (!helper.OpenConnection()) throw new ConnectionException();
+
+            int id = helper.WriteData(sql);
+            helper.CloseConnection();
+
+            return id;
+        }
+
+        /// <summary>
         /// queries a select statement on the SQL access database
         /// </summary>
         /// <param name="sql">sql query to run</param>

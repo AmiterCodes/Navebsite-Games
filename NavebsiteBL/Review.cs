@@ -19,6 +19,19 @@ namespace NavebsiteBL
         public string GameName { get; set; }
         public string Username { get; set; }
 
+        public Review(string content, int gameId, int userId, int stars)
+        {
+            Content = content;
+            GameId = gameId;
+            UserId = userId;
+            Stars = stars;
+
+            if(DBReview.UpdateReview(content,gameId, userId, stars) == 0)
+            {
+                DBReview.InsertReview(content, gameId, userId, stars);
+            }
+        }
+
         public Review(DataRow dr)
         {
             Id = (int)dr["ID"];

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Missy.Master" AutoEventWireup="true" CodeBehind="GamePage.aspx.cs" Inherits="Navebsite.GamePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
     <div class="gamepage">
         
     <asp:Panel ID="banner" runat="server" CssClass="gamepage_banner" >

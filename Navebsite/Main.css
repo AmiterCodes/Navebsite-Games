@@ -507,6 +507,11 @@ a:hover {
     border-radius: 10000px;
 }
 
+.rating {
+    border: none;
+    font-size: 2rem;
+}
+
 .rating input[type="radio"]:not(:nth-of-type(0)) {
     /* hide visually */
     border: 0;
@@ -553,4 +558,24 @@ label[for]:hover {
 .rating [type="radio"]:nth-of-type(4):focus ~ .stars label:nth-of-type(4),
 .rating [type="radio"]:nth-of-type(5):focus ~ .stars label:nth-of-type(5) {
     color: darkorange;
+}
+
+.input {
+    background: linear-gradient(265.47deg, #292C42 33.93%, #24273D 56.67%);
+    border: none;
+    margin: 2rem;
+    padding: 1rem;
+    box-shadow: inset 0 0 .5rem 0.2rem rgba(0,0,0,.5);
+    outline: none;
+    color: #fff;
+}
+
+.review_form_text {
+    width: 30rem;
+}
+
+.review_form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

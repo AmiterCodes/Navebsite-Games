@@ -22,5 +22,15 @@ namespace NavebsiteDAL
                 " FROM Users INNER JOIN(Games INNER JOIN GameReviews ON Games.ID = GameReviews.Game) ON Users.ID = GameReviews.User" +
                 $" WHERE Users.ID = {userId}");
         }
+
+        public static int UpdateReview(string content, int gameId, int userId, int stars)
+        {
+            return DALHelper.Update($"UPDATE GameReviews SET Content = '{content}', Stars = {stars} WHERE gameId={gameId} AND userId={userId}");
+        }
+
+        public static int InsertReview(string content, int gameId, int userId, int stars)
+        {
+            return DALHelper.Insert($"INSERT INTO GameReviews (Content,Game,[User],Stars) VALUES ('{content}',{gameId},{userId},{stars})");
+        }
     }
 }

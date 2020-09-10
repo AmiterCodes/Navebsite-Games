@@ -26,7 +26,7 @@ namespace Navebsite
                 {
                     Controls.Review reviewControl = (Controls.Review)Page.LoadControl("~/Controls/Review.ascx");
                 reviewControl.review = review;
-
+                    reviewControl.ID = ""+review.UserId;
                     reviewList.Controls.Add(reviewControl);
                 }
             } catch(Exception ex)

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Missy.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Navebsite.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
     <asp:TextBox runat="server" ID="username" placeholder="username" />
     <asp:RequiredFieldValidator ErrorMessage="Username is required!" ControlToValidate="username" runat="server" />
     <asp:TextBox runat="server" ID="password" placeholder="password" />

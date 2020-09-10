@@ -7,13 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite
-{
-
-
-    public partial class AddReview
-    {
-
+namespace Navebsite {
+    
+    
+    public partial class AddReview {
+        
+        /// <summary>
+        /// reviewTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label reviewTitle;
+        
         /// <summary>
         /// reviewContent control.
         /// </summary>
@@ -22,5 +29,23 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox reviewContent;
+        
+        /// <summary>
+        /// submit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submit;
+        
+        /// <summary>
+        /// errorBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errorBox;
     }
 }

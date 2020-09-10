@@ -1,15 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Missy.Master" AutoEventWireup="true" CodeBehind="AddReview.aspx.cs" Inherits="Navebsite.AddReview" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:TextBox runat="server" ID="reviewContent" />
+<asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
+    <div class="review_form">
+        <asp:Label Text="Review" runat="server" ID="reviewTitle" />
+    <asp:TextBox runat="server" ID="reviewContent" TextMode="MultiLine" Rows="10" CssClass="input review_form_text" placeholder="Write your review here" />
+        <asp:RequiredFieldValidator ErrorMessage="You cannot submit an empty review" ControlToValidate="reviewContent" runat="server" />
+     
+        Rating
     <fieldset class="rating">
-        <legend>rating</legend>
         <input id="demo-1" type="radio" name="demo" value="1"> 
         <label for="demo-1">1 star</label>
         <input id="demo-2" type="radio" name="demo" value="2">
         <label for="demo-2">2 stars</label>
-        <input id="demo-3" type="radio" name="demo" value="3">
+        <input id="demo-3" type="radio" name="demo" value="3" checked="checked">
         <label for="demo-3">3 stars</label>
         <input id="demo-4" type="radio" name="demo" value="4">
         <label for="demo-4">4 stars</label>
@@ -24,5 +28,7 @@
             <label for="demo-5" aria-label="5 stars" title="5 stars"></label>   
         </div>
         </fieldset>
-    <asp:Button Text="text" runat="server" />
+    <asp:Button Text="text" runat="server" ID="submit" OnClick="submit_Click"/>
+        <asp:Label Text="" runat="server" ID="errorBox" />
+        </div>
 </asp:Content>
