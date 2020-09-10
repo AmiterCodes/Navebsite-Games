@@ -5,7 +5,7 @@
     <asp:TextBox runat="server" ID="reviewContent" />
     <fieldset class="rating">
         <legend>rating</legend>
-    <input id="demo-1" type="radio" name="demo" value="1"> 
+        <input id="demo-1" type="radio" name="demo" value="1"> 
         <label for="demo-1">1 star</label>
         <input id="demo-2" type="radio" name="demo" value="2">
         <label for="demo-2">2 stars</label>
