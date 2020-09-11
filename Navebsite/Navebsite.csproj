@@ -99,6 +99,7 @@
     <Content Include="Controls\GameList.ascx" />
     <Content Include="Controls\Navbar.ascx" />
     <Content Include="Controls\Review.ascx" />
+    <Content Include="Controls\SalesChart.ascx" />
     <Content Include="Controls\SmallUserList.ascx" />
     <Content Include="Controls\starempty.svg" />
     <Content Include="Controls\starfilled.svg" />
@@ -187,6 +188,13 @@
     </Compile>
     <Compile Include="Controls\Review.ascx.designer.cs">
       <DependentUpon>Review.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SalesChart.ascx.cs">
+      <DependentUpon>SalesChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\SalesChart.ascx.designer.cs">
+      <DependentUpon>SalesChart.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\SmallUserList.ascx.cs">
       <DependentUpon>SmallUserList.ascx</DependentUpon>

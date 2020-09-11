@@ -23,5 +23,7 @@ namespace NavebsiteDAL
         {
             return DALHelper.AllFromTable("UserGames");
         }
+
+        
     }
 }

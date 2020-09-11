@@ -4,9 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
-<asp:Chart runat="server" ID="chart">
-        <series><asp:Series Name="Series1" XValueMember="Timestamp" YValueMembers="Cost"></asp:Series></series>
-        <chartareas><asp:ChartArea Name="ChartArea1"></asp:ChartArea></chartareas>
-    </asp:Chart>
+<NV:SalesChart ID="sales" runat="server" />
     
 </asp:Content>

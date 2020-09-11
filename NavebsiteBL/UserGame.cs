@@ -27,10 +27,7 @@ namespace NavebsiteBL
             }
             return list;
         }
-
-        public static DataTable UserGameData() {
-            return DBUserGames.AllUserGames();
-        }
+        
 
         public string BoughtString { get => "Bought " + Timestamp.ToShortDateString(); }
 

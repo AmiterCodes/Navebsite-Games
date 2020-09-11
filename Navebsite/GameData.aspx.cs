@@ -14,16 +14,7 @@ namespace Navebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            chart.Height = 500;
-            chart.Width = 800;
-            chart.ForeColor = Color.White;
-            Series series = chart.Series[0];
-            series.ChartType = SeriesChartType.StackedArea;
-
-            ChartArea a = chart.ChartAreas[0];
-            chart.Style["background"] = "background: linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%)";
-            chart.DataSource = UserGame.UserGameData();
-            chart.DataBind();
+            sales.Sales = Sales.AllStats();
         }
     }
 }

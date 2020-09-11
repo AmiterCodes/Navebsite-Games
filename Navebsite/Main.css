@@ -16,6 +16,10 @@ body {
     align-items: center;
 }
 
+.navbar > * {
+    margin: .3rem;
+}
+
 .navbar {
     height: 3rem;
     display: flex;

@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite {
+namespace Navebsite.Controls {
     
     
-    public partial class GameData {
+    public partial class SalesChart {
         
         /// <summary>
-        /// sales control.
+        /// chart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Navebsite.Controls.SalesChart sales;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart chart;
     }
 }
