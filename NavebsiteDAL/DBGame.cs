@@ -19,7 +19,10 @@ namespace NavebsiteDAL
             return DALHelper.AllWhere("Games", "Developer", devId);
         }
         
-
+        /// <summary>
+        /// returns all games from the database
+        /// </summary>
+        /// <returns>DataTable of all games</returns>
         public static DataTable AllGames()
         {
             return DALHelper.AllFromTable("Games");
