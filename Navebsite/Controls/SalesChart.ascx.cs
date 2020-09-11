@@ -25,14 +25,15 @@ namespace Navebsite.Controls
             chart.Width = 800;
             chart.ForeColor = Color.White;
             Series series1 = chart.Series[0];
-            series1.ChartType = SeriesChartType.StepLine;
+            series1.ChartType = SeriesChartType.SplineArea;
             Series series2 = chart.Series[1];
-            series2.ChartType = SeriesChartType.StepLine;
+            series2.ChartType = SeriesChartType.SplineArea;
             ChartArea a = chart.ChartAreas[0];
             chart.Style["background"] = "background: linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%)";
-            a.BackColor = Color.Transparent;
+            a.BackImageTransparentColor = Color.Transparent;
             ChartArea b = chart.ChartAreas[1];
-            b.BackColor = Color.Transparent;
+            b.BackImageTransparentColor = Color.Transparent;
+            
 
             DataTable tb = new DataTable();
 
