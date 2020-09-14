@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.aspx" />
+    <Content Include="AddGame.aspx" />
     <Content Include="AddReview.aspx" />
     <Content Include="App_Data\Navebase.accdb" />
     <Content Include="CompanyPage.aspx" />
@@ -124,6 +125,13 @@
     </Compile>
     <Compile Include="404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddGame.aspx.cs">
+      <DependentUpon>AddGame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddGame.aspx.designer.cs">
+      <DependentUpon>AddGame.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddReview.aspx.cs">
       <DependentUpon>AddReview.aspx</DependentUpon>

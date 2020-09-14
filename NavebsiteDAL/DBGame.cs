@@ -18,6 +18,12 @@ namespace NavebsiteDAL
         {
             return DALHelper.AllWhere("Games", "Developer", devId);
         }
+
+        public static int InsertGame(string gameName, string link, string version, string description, string background, string logo, int developer, double price)
+        {
+            return DALHelper.Insert($"INSERT INTO Games ([Game Name],[Game Link],Version,Description,Background,Logo,Developer,Price) " +
+                $"VALUES ('{gameName}','{link}','{version}','{description}','{background}','{logo}',{developer},{price})");
+        }
         
         /// <summary>
         /// returns all games from the database
