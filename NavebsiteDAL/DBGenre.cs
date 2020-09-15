@@ -9,9 +9,19 @@ namespace NavebsiteDAL
 {
     public class DBGenre
     {
+
+        public static DataTable AllGenres()
+        {
+            return DALHelper.AllFromTable("Genres");
+        }
         public static DataRow GetGenre(int id)
         {
             return DALHelper.GetRowById(id, "Genres");
+        }
+
+        public static int InsertGenre(string genreName)
+        {
+            return DALHelper.Insert($"INSERT INTO Genres ([Genre Name]) VALUES ('{genreName}')");
         }
 
         public static DataTable GetGenresByGame(int gameId)

@@ -7,11 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite {
-    
-    
-    public partial class AddGame {
-        
+namespace Navebsite
+{
+
+
+    public partial class AddGame
+    {
+
+        /// <summary>
+        /// AddGameForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel AddGameForm;
+
         /// <summary>
         /// GameName control.
         /// </summary>
@@ -20,7 +31,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GameName;
-        
+
         /// <summary>
         /// Genres control.
         /// </summary>
@@ -28,8 +39,44 @@ namespace Navebsite {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Genres;
-        
+        protected global::System.Web.UI.WebControls.Label Genres;
+
+        /// <summary>
+        /// GenreList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList GenreList;
+
+        /// <summary>
+        /// AddToCurrentGenres control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddToCurrentGenres;
+
+        /// <summary>
+        /// newGenre control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox newGenre;
+
+        /// <summary>
+        /// AddGenreToAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddGenreToAll;
+
         /// <summary>
         /// Version control.
         /// </summary>
@@ -38,7 +85,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Version;
-        
+
         /// <summary>
         /// GameLink control.
         /// </summary>
@@ -47,7 +94,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GameLink;
-        
+
         /// <summary>
         /// Background control.
         /// </summary>
@@ -56,7 +103,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload Background;
-        
+
         /// <summary>
         /// Logo control.
         /// </summary>
@@ -65,7 +112,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload Logo;
-        
+
         /// <summary>
         /// Description control.
         /// </summary>
@@ -74,7 +121,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Description;
-        
+
         /// <summary>
         /// button control.
         /// </summary>

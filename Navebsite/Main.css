@@ -567,11 +567,12 @@ label[for]:hover {
 .input {
     background: linear-gradient(265.47deg, #292C42 33.93%, #24273D 56.67%);
     border: none;
-    margin: 2rem;
+    margin: .5rem;
     padding: 1rem;
-    box-shadow: inset 0 0 .5rem 0.2rem rgba(0,0,0,.5);
+    box-shadow: inset 0 0 .5rem 0.2rem rgba(0,0,0,.2);
     outline: none;
     color: #fff;
+    display: inline-block;
 }
 
 .review_form_text {
@@ -582,4 +583,10 @@ label[for]:hover {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.centering {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
