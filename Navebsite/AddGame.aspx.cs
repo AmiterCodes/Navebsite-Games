@@ -14,16 +14,27 @@ namespace Navebsite
         {
             if (!IsPostBack)
             {
-                GenreList.DataSource = Genre.AllGenres();
-                GenreList.DataTextField = "GenreName";
-                GenreList.DataValueField = "ID";
-                GenreList.DataBind();
-                ViewState["GenreList"] = new List<Genre>();
+                LoadData();
             }
-            Genres.Text = String.Join(", ",((List<Genre>)ViewState["GenreList"]).Select(genre => genre.GenreName));
+            UpdateGenres();
         }
 
+        public void LoadData()
+        {
+            GenreList.DataSource = Genre.AllGenres();
+            GenreList.DataTextField = "GenreName";
+            GenreList.DataValueField = "ID";
+            GenreList.DataBind();
+            ViewState["GenreList"] = new HashSet<Genre>();
+        }
 
+        protected void UpdateGenres()
+        {
+            HashSet<Genre> set = (HashSet<Genre>)ViewState["GenreList"];
+            if (set.Count == 0) Genres.Text = "No Genres Selected";
+            else
+            Genres.Text = String.Join(", ", set.Select(genre => genre.GenreName));
+        }
 
         protected void button_Click(object sender, EventArgs e)
         {
@@ -33,15 +44,25 @@ namespace Navebsite
         protected void AddGenreToAll_Click(object sender, EventArgs e)
         {
             Genre genre = new Genre(newGenre.Text);
-            List<Genre> genres = (List<Genre>)ViewState["GenreList"];
+            HashSet<Genre> genres = (HashSet<Genre>)ViewState["GenreList"];
             genres.Add(genre);
+
+            UpdateGenres();
+            
         }
 
         protected void AddToCurrentGenres_Click(object sender, EventArgs e)
         {
             Genre genre = new Genre(int.Parse(GenreList.SelectedValue), GenreList.SelectedItem.Text);
-            List<Genre> genres = (List<Genre>)ViewState["GenreList"];
+            HashSet<Genre> genres = (HashSet<Genre>)ViewState["GenreList"];
             genres.Add(genre);
+            UpdateGenres();
+        }
+
+        protected void ResetButton_Click(object sender, EventArgs e)
+        {
+            ViewState["GenreList"] = new HashSet<Genre>();
+            UpdateGenres();
         }
     }
 }

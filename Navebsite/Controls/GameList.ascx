@@ -1,7 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GameList.ascx.cs" Inherits="Navebsite.Controls.GameList" %>
 <div class="game_list">
 <asp:DataList id="ItemsList"
-           BorderColor="black"
            CellPadding="20"
            CellSpacing="50"
            RepeatDirection="Vertical"
@@ -9,12 +8,6 @@
            RepeatColumns="3"
            runat="server"
                 CssClass="store">
-
-         <HeaderStyle BackColor="#aaaadd">
-         </HeaderStyle>
-
-         <AlternatingItemStyle BackColor="Gainsboro">
-         </AlternatingItemStyle>
 
                
          <ItemTemplate>

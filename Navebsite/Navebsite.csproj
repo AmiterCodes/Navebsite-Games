@@ -115,6 +115,7 @@
     <Content Include="Register.aspx" />
     <Content Include="Store.aspx" />
     <Content Include="Profile.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>

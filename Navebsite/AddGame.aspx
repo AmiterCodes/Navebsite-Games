@@ -7,14 +7,19 @@
         <asp:TextBox runat="server" ID="GameName" CssClass="input" />
 
     <asp:Label runat="server" ID="Genres" CssClass="input" />
-
+        
+    <asp:Button Text="Reset Genres" runat="server" ID="ResetButton" OnClick="ResetButton_Click" CssClass="button" />
+        <div class="tuple">
+            
     <asp:DropDownList ID="GenreList" runat="server"></asp:DropDownList>
-    <asp:Button Text="Add to Current Genres" runat="server" ID="AddToCurrentGenres" OnClick="AddToCurrentGenres_Click" />
-
-        <asp:TextBox runat="server" ID="newGenre" />
-
-        <asp:Button Text="Add to All Genres" runat="server" ID="AddGenreToAll" OnClick="AddGenreToAll_Click" />
-
+    <asp:Button Text="Add to Current Genres" runat="server" ID="AddToCurrentGenres" OnClick="AddToCurrentGenres_Click" CssClass="button" />
+            </div>
+        <div class="tuple">
+        <asp:TextBox runat="server" ID="newGenre" CssClass="input" />
+            
+            
+        <asp:Button Text="Add to All Genres" runat="server" ID="AddGenreToAll" OnClick="AddGenreToAll_Click" CssClass="button" />
+            </div>
     <asp:TextBox runat="server" ID="Version" CssClass="input" />
 
     <asp:TextBox runat="server" ID="GameLink" CssClass="input"/>
