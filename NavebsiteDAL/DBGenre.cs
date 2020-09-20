@@ -21,10 +21,10 @@ namespace NavebsiteDAL
 
         public static int InsertGenre(string genreName)
         {
-            return DALHelper.Insert($"INSERT INTO Genres ([Genre Name]) VALUES ('{genreName}')");
+            return DALHelper.InsertIfDoesntExist($"INSERT INTO Genres ([Genre Name]) VALUES ('{genreName}')", $"SELECT ID FROM Genres WHERE [Genre Name] LIKE '{genreName}'");
         }
 
-        public static DataTable GetGenresByGame(int gameId)
+        public static DataTable GetGenresByGame(int gameId) 
         {
             string sql = $@"SELECT Genres.*
                             FROM Games 

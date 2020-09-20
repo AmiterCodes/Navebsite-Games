@@ -1,6 +1,7 @@
 ﻿using NavebsiteBL;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -36,18 +37,36 @@ namespace Navebsite
             Genres.Text = String.Join(", ", set.Select(genre => genre.GenreName));
         }
 
+        static string backgroundFormat = @"\Images\GameBackgrounds\";
+        static string logoFormat = @"\Images\GameLogos\";
+
+        protected string ImageFileUpload(FileUpload fileUpload, string path, string def)
+        {
+            string output = "";
+            if (fileUpload.HasFile)
+            {
+                output = Server.MapPath("~/" +  path +
+                    Path.ChangeExtension(Path.GetRandomFileName(), Path.GetExtension(Logo.FileName)));
+                Logo.SaveAs(output);
+            }
+            else
+            {
+                output = Server.MapPath("~/" + path + def);
+            }
+            return output;
+        }
+
         protected void button_Click(object sender, EventArgs e)
         {
-
+            string bgPath = ImageFileUpload(Background, backgroundFormat, "no.jpg");
+            string logoPath = ImageFileUpload(Logo, logoFormat, "no.jpg");
+            
         }
 
         protected void AddGenreToAll_Click(object sender, EventArgs e)
         {
             Genre genre = new Genre(newGenre.Text);
-            HashSet<Genre> genres = (HashSet<Genre>)ViewState["GenreList"];
-            genres.Add(genre);
-
-            UpdateGenres();
+            LoadData();
             
         }
 
@@ -55,8 +74,11 @@ namespace Navebsite
         {
             Genre genre = new Genre(int.Parse(GenreList.SelectedValue), GenreList.SelectedItem.Text);
             HashSet<Genre> genres = (HashSet<Genre>)ViewState["GenreList"];
-            genres.Add(genre);
-            UpdateGenres();
+            if (!genres.Any(g => g.GenreName == genre.GenreName))
+            {
+                genres.Add(genre);
+                UpdateGenres();
+            }
         }
 
         protected void ResetButton_Click(object sender, EventArgs e)

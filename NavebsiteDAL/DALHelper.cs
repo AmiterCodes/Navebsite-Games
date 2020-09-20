@@ -29,6 +29,28 @@ namespace NavebsiteDAL
         }
 
         /// <summary>
+        /// if no row satisfies the check query, insert with the insert query
+        /// </summary>
+        /// <param name="insert">insert SQL query</param>
+        /// <param name="check">check SQL query</param>
+        /// <returns>the id of the inserted element, else the id of the first row</returns>
+        public static int InsertIfDoesntExist(string insert, string check)
+        {
+
+            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            if (!helper.OpenConnection()) throw new ConnectionException();
+            DataTable tb = helper.GetDataTable(check);
+            if(tb.Rows.Count == 0)
+            {
+                int id = helper.InsertWithAutoNumKey(insert);
+                return id; 
+            } else
+            {
+                return (int)tb.Rows[0]["ID"];
+            }
+        }
+
+        /// <summary>
         /// runs an insert SQL statement
         /// </summary>
         /// <param name="sql">sql query</param>

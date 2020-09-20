@@ -624,3 +624,7 @@ select {
     align-items: center;
     
 }
+
+.input_label {
+    width: 20rem;
+}
