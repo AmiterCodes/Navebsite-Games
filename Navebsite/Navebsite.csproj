@@ -49,6 +49,9 @@
     <Reference Include="BCrypt.Net-Next, Version=4.0.0.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.0\lib\net452\BCrypt.Net-Next.dll</HintPath>
     </Reference>
+    <Reference Include="Markdig, Version=0.21.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Markdig.0.21.1\lib\net452\Markdig.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.FriendlyUrls, Version=1.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
@@ -104,6 +107,8 @@
     <Content Include="Controls\SmallUserList.ascx" />
     <Content Include="Controls\starempty.svg" />
     <Content Include="Controls\starfilled.svg" />
+    <Content Include="Controls\Update.ascx" />
+    <Content Include="Controls\UpdateList.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="GameData.aspx" />
     <Content Include="GamePage.aspx" />
@@ -211,6 +216,20 @@
     </Compile>
     <Compile Include="Controls\SmallUserList.ascx.designer.cs">
       <DependentUpon>SmallUserList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Update.ascx.cs">
+      <DependentUpon>Update.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Update.ascx.designer.cs">
+      <DependentUpon>Update.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UpdateList.ascx.cs">
+      <DependentUpon>UpdateList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\UpdateList.ascx.designer.cs">
+      <DependentUpon>UpdateList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

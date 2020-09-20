@@ -18,7 +18,7 @@ namespace NavebsiteBL
         public int ReviewStatus { get; set; }
         public string Background { get; set; }
         public string Logo { get; set; }
-        
+
 
         public string BackgroundUrl { get => "./Images/GameBackgrounds/" + Background; }
         public string LogoUrl { get => "./Images/GameLogos/" + Logo; }
@@ -28,7 +28,7 @@ namespace NavebsiteBL
         public double Price { get; set; }
         public List<Genre> Genres { get {
                 List<Genre> l = new List<Genre>();
-                foreach(DataRow r in DBGenre.GetGenresByGame(ID).Rows)
+                foreach (DataRow r in DBGenre.GetGenresByGame(ID).Rows)
                 {
                     l.Add(new Genre(r));
                 }
@@ -45,16 +45,16 @@ namespace NavebsiteBL
             {
                 List<Genre> list = Genres;
                 string s = "";
-                if(list.Count == 0) return "";
+                if (list.Count == 0) return "";
                 foreach (Genre g in list)
                 {
-                    
+
                     s += g.GenreName + ", ";
                 }
                 return s.Substring(0, s.Length - 2);
             } }
 
-        
+
         public Game(DataRow row)
         {
             if (row == null) throw new InvalidOperationException();
@@ -70,10 +70,26 @@ namespace NavebsiteBL
             this.DeveloperID = (int)row["Developer"];
             this.PublishDate = (DateTime)row["Publish Date"];
             this.Price = (double)row["Price"];
-            
+
         }
 
-        public Game() { }
+        public Game() {}
+
+        public Game(string gameName, string link, string version, string description, string background, string logo, int developer, double price) {
+
+            this.ID = DBGame.InsertGame(gameName,link,version,description,background,logo,developer,price);
+            GameName = gameName;
+            GameLink = link;
+            Version = version;
+            Description = description;
+            Background = background;
+            Logo = logo;
+            ReviewStatus = 0;
+            this.PublishDate = DateTime.Now;
+            DeveloperID = developer;
+            Price = price;
+
+        }
 
         public Game(int id) : this(DBGame.GetGame(id))
         {

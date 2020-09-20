@@ -39,10 +39,12 @@ namespace Navebsite
 
                         play.Text = "Play " + Server.HtmlEncode(game.GameName);
                     }
-                     HyperLink link = new HyperLink();
-                    link.NavigateUrl = "AddReview.aspx?game=" + game.ID;
-                    link.CssClass = "button";
-                    link.Text = "Add Review";
+                    HyperLink link = new HyperLink
+                    {
+                        NavigateUrl = "AddReview.aspx?game=" + game.ID,
+                        CssClass = "button",
+                        Text = "Add Review"
+                    };
                     reviewContainer.Controls.Add(link);
                 }
 
@@ -56,6 +58,7 @@ namespace Navebsite
         {
             int id = int.Parse(Request.QueryString["id"]);
             Game game = new Game(id);
+            
             Response.Redirect(game.GameLink);
         }
     }

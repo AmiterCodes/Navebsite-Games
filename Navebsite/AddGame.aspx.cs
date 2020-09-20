@@ -13,6 +13,9 @@ namespace Navebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            User user = (User)Session["user"];
+            if (user == null) Response.Redirect("404");
+            if (!user.IsDeveloper) Response.Redirect("404");
             if (!IsPostBack)
             {
                 LoadData();
@@ -58,8 +61,21 @@ namespace Navebsite
 
         protected void button_Click(object sender, EventArgs e)
         {
+            User user = (User)Session["user"];
+            if (user == null) Response.Redirect("404");
+            if (!user.IsDeveloper) Response.Redirect("404");
+
+            int developer = user.DeveloperId;
+
             string bgPath = ImageFileUpload(Background, backgroundFormat, "no.jpg");
             string logoPath = ImageFileUpload(Logo, logoFormat, "no.jpg");
+
+            string description = null;
+            string version = null;
+            string link = null;
+            string gameName = null;
+            double price = 0;
+            Game game = new Game(gameName, link, version, description, bgPath, logoPath, developer, price);
             
         }
 

@@ -20,6 +20,10 @@ body {
     margin: .3rem;
 }
 
+.input_list {
+    
+}
+
 .navbar {
     height: 3rem;
     display: flex;
@@ -225,7 +229,7 @@ a:hover {
 }
 
 .button {
-    padding: 1rem;
+    padding: .5rem;
     color: white;
     background: linear-gradient(259.72deg, #767FD1 14.72%, #7160D9 73.32%);
     border: none;
@@ -568,12 +572,13 @@ label[for]:hover {
     background: linear-gradient(265.47deg, #292C42 33.93%, #24273D 56.67%);
     border: none;
     margin: .5rem;
-    padding: 1rem;
+    padding: .5rem;
     box-shadow: inset 0 0 .5rem 0.2rem rgba(0,0,0,.2);
     outline: none;
     color: #fff;
     display: inline-block;
 }
+
 
 .review_form_text {
     width: 30rem;
@@ -592,15 +597,16 @@ label[for]:hover {
 }
 select {
     margin: .5rem;
-    width: 150px;
-    padding: 5px 35px 5px 5px;
+    width: 10rem;
+    padding: .5rem;
     font-size: 16px;
-    border: 1px solid #CCC;
-    height: 34px;
     -webkit-appearance: none;
     -moz-appearance: none;
+    color: #fff;
+    outline: none;
+
     appearance: none;
-    background: url(favicon.ico) 96% / 15% no-repeat #EEE;
+    background: url(favicon.ico) 96% / 15% no-repeat #24273D;
 }
 
 
@@ -626,5 +632,5 @@ select {
 }
 
 .input_label {
-    width: 20rem;
+    width: 7rem;
 }
