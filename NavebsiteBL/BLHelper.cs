@@ -10,7 +10,7 @@ namespace NavebsiteBL
     {
         public static void SetPath(string path)
         {
-            Constants.PATH = path;
+            Constants.Path = path;
         }
     }
 }

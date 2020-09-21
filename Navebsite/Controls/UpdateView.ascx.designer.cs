@@ -11,7 +11,7 @@ namespace Navebsite.Controls
 {
 
 
-    public partial class Update
+    public partial class UpdateView
     {
     }
 }

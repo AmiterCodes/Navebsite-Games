@@ -16,22 +16,21 @@ namespace Navebsite
 
         protected void Register_Click(object sender, EventArgs e)
         {
-            Validate();
-            if (IsValid)
-            {
-                string userName = username.Text;
-                string pass = password.Text;
 
-                User user = NavebsiteBL.User.RegisterUser(userName, pass);
-                if (user == null)
-                {
-                    errorBox.Text = "Register did not work";
-                } else
-                {
-                    Session["user"] = user;
-                    user.AddActivity("Created Account");
-                    Response.Redirect("Profile.aspx?id=" + user.Id);
-                }
+            Validate();
+            if (!IsValid) return;
+            var userName = username.Text;
+            var pass = password.Text;
+
+            var user = NavebsiteBL.User.RegisterUser(userName, pass);
+            if (user == null)
+            {
+                errorBox.Text = "Register did not work";
+            } else
+            {
+                Session["user"] = user;
+                user.AddActivity("Created Account");
+                Response.Redirect("Profile.aspx?id=" + user.Id);
             }
         }
     }

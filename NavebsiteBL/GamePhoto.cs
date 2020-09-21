@@ -18,7 +18,7 @@ namespace NavebsiteBL
         public GamePhoto(int id) : base()
         {
             Id = id;
-            DataRow dr = DBPhotos.GetPhoto(id, PhotoType.GamePhotos);
+            var dr = DBPhotos.GetPhoto(id, PhotoType.GamePhotos);
             if (dr == null) throw new ArgumentException("no photo with that id");
 
             GameId = (int) dr["Game"];
@@ -39,7 +39,7 @@ namespace NavebsiteBL
 
         public static List<GamePhoto> PhotosByGame(int game)
         {
-            List <GamePhoto> list = new List<GamePhoto>();
+            var list = new List<GamePhoto>();
             foreach(DataRow row in DBPhotos.GetPhotosOfGame(game).Rows)
             {
                 list.Add(new GamePhoto(row));
@@ -49,7 +49,7 @@ namespace NavebsiteBL
         }
         public static List<GamePhoto> PhotosByDeveloper(int developer)
         {
-            List<GamePhoto> list = new List<GamePhoto>();
+            var list = new List<GamePhoto>();
             foreach (DataRow row in DBPhotos.GetPhotosFromDeveloper(developer).Rows)
             {
                 list.Add(new GamePhoto(row));

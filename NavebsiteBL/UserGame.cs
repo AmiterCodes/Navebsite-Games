@@ -15,21 +15,16 @@ namespace NavebsiteBL
 
         public static bool GameOwnedByUser(int gameId, int userId)
         {
-            return DBUserGames.GameOwnedByUser(gameId, userId);
+            return DbUserGames.GameOwnedByUser(gameId, userId);
         }
 
         public static List<UserGame> UserGames(int user)
         {
-            List<UserGame> list = new List<UserGame>();
-            foreach(DataRow row in DBUserGames.GetUserGames(user).Rows)
-            {
-                list.Add(new UserGame(row));
-            }
-            return list;
+            return (from DataRow row in DbUserGames.GetUserGames(user).Rows select new UserGame(row)).ToList();
         }
         
 
-        public string BoughtString { get => "Bought " + Timestamp.ToShortDateString(); }
+        public string BoughtString => "Bought " + Timestamp.ToShortDateString();
 
         public UserGame(DataRow dr) : base(dr)
         {

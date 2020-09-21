@@ -11,17 +11,17 @@ namespace NavebsiteDAL
     {
         public static DataRow GetGame(int id)
         {
-            return DALHelper.GetRowById(id,"Games");
+            return DalHelper.GetRowById(id,"Games");
         }
 
         public static DataTable AllGamesFromDeveloper(int devId)
         {
-            return DALHelper.AllWhere("Games", "Developer", devId);
+            return DalHelper.AllWhere("Games", "Developer", devId);
         }
 
         public static int InsertGame(string gameName, string link, string version, string description, string background, string logo, int developer, double price)
         {
-            return DALHelper.Insert($"INSERT INTO Games ([Game Name],[Game Link],Version,Description,Background,Logo,Developer,Price) " +
+            return DalHelper.Insert($"INSERT INTO Games ([Game Name],[Game Link],Version,Description,Background,Logo,Developer,Price) " +
                 $"VALUES ('{gameName}','{link}','{version}','{description}','{background}','{logo}',{developer},{price})");
         }
         
@@ -31,7 +31,7 @@ namespace NavebsiteDAL
         /// <returns>DataTable of all games</returns>
         public static DataTable AllGames()
         {
-            return DALHelper.AllFromTable("Games");
+            return DalHelper.AllFromTable("Games");
         }
     }
 }

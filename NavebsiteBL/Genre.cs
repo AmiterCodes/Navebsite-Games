@@ -40,7 +40,7 @@ namespace NavebsiteBL
 
         public static List<Genre> AllGenres()
         {
-            List<Genre> list = new List<Genre>();
+            var list = new List<Genre>();
             foreach(DataRow row in DBGenre.AllGenres().Rows)
             {
                 list.Add(new Genre(row));

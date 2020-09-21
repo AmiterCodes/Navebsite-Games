@@ -12,8 +12,8 @@ namespace NavebsiteBL
     {
         public static List<User> GetFriends(int user)
         {
-            List<User> users = new List<User>();
-            DataTable tb = DBFriends.GetFriendsOfUser(user);
+            var users = new List<User>();
+            var tb = DBFriends.GetFriendsOfUser(user);
             foreach(DataRow row in tb.Rows)
             {
                 users.Add(new User(row));

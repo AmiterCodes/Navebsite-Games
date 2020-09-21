@@ -1,9 +1,6 @@
 ﻿using NavebsiteBL;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Navebsite
@@ -14,32 +11,32 @@ namespace Navebsite
         {
             try
             {
-                int id = int.Parse(Request.QueryString["id"]);
-                Game game = new Game(id);
+                var id = int.Parse(Request.QueryString["id"]);
+                var game = new Game(id);
                 banner.Style["background"] = $"linear-gradient(180deg,rgba(255,255,255,0) -46.84%,#3F3148 100%), url('{game.BackgroundUrl}') center/cover";
                 play.Text = "Buy " + game.GameName + " $" + game.Price;   
                 gallery.Photos = GamePhoto.PhotosByGame(id).Cast<Photo>().ToList();
                 name.Text = Server.HtmlEncode(game.GameName);
 
 
-                List<Review> list = Review.ReviewsByGame(id);
-                foreach(Review review in list)
+                var list = Review.ReviewsByGame(id);
+                foreach(var review in list)
                 {
-                    Controls.Review reviewControl = (Controls.Review)Page.LoadControl("~/Controls/Review.ascx");
-                reviewControl.review = review;
+                    var reviewControl = (Controls.Review)Page.LoadControl("~/Controls/Review.ascx");
+                reviewControl.ReviewObject = review;
                     reviewControl.ID = ""+review.UserId;
                     reviewList.Controls.Add(reviewControl);
                 }
 
                 if (Session["user"] != null)
                 {
-                    User user = (User)Session["user"];
+                    var user = (User)Session["user"];
                     if(UserGame.GameOwnedByUser(game.ID, user.Id))
                     {
 
                         play.Text = "Play " + Server.HtmlEncode(game.GameName);
                     }
-                    HyperLink link = new HyperLink
+                    var link = new HyperLink
                     {
                         NavigateUrl = "AddReview.aspx?game=" + game.ID,
                         CssClass = "button",
@@ -56,8 +53,8 @@ namespace Navebsite
 
         protected void play_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(Request.QueryString["id"]);
-            Game game = new Game(id);
+            var id = int.Parse(Request.QueryString["id"]);
+            var game = new Game(id);
             
             Response.Redirect(game.GameLink);
         }

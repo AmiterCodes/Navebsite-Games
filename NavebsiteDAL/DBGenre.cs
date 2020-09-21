@@ -12,31 +12,31 @@ namespace NavebsiteDAL
 
         public static DataTable AllGenres()
         {
-            return DALHelper.AllFromTable("Genres");
+            return DalHelper.AllFromTable("Genres");
         }
         public static DataRow GetGenre(int id)
         {
-            return DALHelper.GetRowById(id, "Genres");
+            return DalHelper.GetRowById(id, "Genres");
         }
 
         public static int InsertGenre(string genreName)
         {
-            return DALHelper.InsertIfDoesntExist($"INSERT INTO Genres ([Genre Name]) VALUES ('{genreName}')", $"SELECT ID FROM Genres WHERE [Genre Name] LIKE '{genreName}'");
+            return DalHelper.InsertIfNotExist($"INSERT INTO Genres ([Genre Name]) VALUES ('{genreName}')", $"SELECT ID FROM Genres WHERE [Genre Name] LIKE '{genreName}'");
         }
 
         public static DataTable GetGenresByGame(int gameId) 
         {
-            string sql = $@"SELECT Genres.*
+            var sql = $@"SELECT Genres.*
                             FROM Games 
                             INNER JOIN(Genres INNER JOIN GameGenres ON Genres.ID = GameGenres.Genre) 
                             ON Games.ID = GameGenres.Game 
                             WHERE Games.ID = {gameId};";
 
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             helper.CloseConnection();
             return tb;
         }

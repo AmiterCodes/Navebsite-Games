@@ -20,10 +20,10 @@ namespace NavebsiteBL
         public string Logo { get; set; }
 
 
-        public string BackgroundUrl { get => "./Images/GameBackgrounds/" + Background; }
-        public string LogoUrl { get => "./Images/GameLogos/" + Logo; }
+        public string BackgroundUrl => "./Images/GameBackgrounds/" + Background;
+        public string LogoUrl => "./Images/GameLogos/" + Logo;
 
-        public int DeveloperID { get; set; }
+        public int DeveloperId { get; set; }
         public DateTime PublishDate { get; set; }
         public double Price { get; set; }
         public List<Genre> Genres { get {
@@ -34,23 +34,14 @@ namespace NavebsiteBL
                 }
                 return l;
             } }
-        public Developer Developer { get {
-                return new Developer(DeveloperID);
-            } }
-        public string DeveloperName { get
-            {
-                return Developer.DeveloperName;
-            } }
+        public Developer Developer => new Developer(DeveloperId);
+        public string DeveloperName => Developer.DeveloperName;
+
         public string GenresString { get
             {
                 List<Genre> list = Genres;
-                string s = "";
                 if (list.Count == 0) return "";
-                foreach (Genre g in list)
-                {
-
-                    s += g.GenreName + ", ";
-                }
+                string s = list.Aggregate("", (current, g) => current + (g.GenreName + ", "));
                 return s.Substring(0, s.Length - 2);
             } }
 
@@ -67,7 +58,7 @@ namespace NavebsiteBL
             this.ReviewStatus = (int)row["Review Status"];
             this.Background = (string)row["Background"];
             this.Logo = (string)row["Logo"];
-            this.DeveloperID = (int)row["Developer"];
+            this.DeveloperId = (int)row["Developer"];
             this.PublishDate = (DateTime)row["Publish Date"];
             this.Price = (double)row["Price"];
 
@@ -86,7 +77,7 @@ namespace NavebsiteBL
             Logo = logo;
             ReviewStatus = 0;
             this.PublishDate = DateTime.Now;
-            DeveloperID = developer;
+            DeveloperId = developer;
             Price = price;
 
         }

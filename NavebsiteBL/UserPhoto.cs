@@ -17,7 +17,7 @@ namespace NavebsiteBL
         public UserPhoto(int id)
         {
             Id = id;
-            DataRow dr = DBPhotos.GetPhoto(id, PhotoType.GamePhotos);
+            var dr = DBPhotos.GetPhoto(id, PhotoType.GamePhotos);
             if (dr == null) throw new ArgumentException("no photo with that id");
 
             UserId = (int)dr["User"];
@@ -38,8 +38,8 @@ namespace NavebsiteBL
         /// <returns>empty list if user does not have any photos or doesn't exist, else returns a List<UserPhoto> of all photos of specified user</returns>
         public static List<UserPhoto> GetPhotosByUser(int user)
         {
-            List<UserPhoto> list = new List<UserPhoto>();
-            DataTable tb = DBPhotos.GetPhotosOfUser(user);
+            var list = new List<UserPhoto>();
+            var tb = DBPhotos.GetPhotosOfUser(user);
             foreach (DataRow r in tb.Rows)
             {
                 list.Add(new UserPhoto(r));

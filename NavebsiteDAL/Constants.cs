@@ -11,8 +11,8 @@ namespace NavebsiteDAL
     /// </summary>
     public class Constants
     {
-        public static string PROVIDER = @"Microsoft.ACE.OLEDB.12.0";
-        public static string PATH = @"  ";
+        public static string Provider = @"Microsoft.ACE.OLEDB.12.0";
+        public static string Path = @"  ";
 
         
     }

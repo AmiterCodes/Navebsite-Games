@@ -13,13 +13,13 @@ namespace Navebsite.Controls
         public List<User> Users;
         protected void Page_Load(object sender, EventArgs e)
         {
-            foreach(User user in Users)
+            foreach(var user in Users)
             {
-                HyperLink link = new HyperLink();
+                var link = new HyperLink();
                 link.CssClass = "user";
-                Label caption = new Label();
+                var caption = new Label();
                 caption.CssClass = "user_caption";
-                Image image = new Image();
+                var image = new Image();
                 image.CssClass = "user_img";
 
                 image.ImageUrl = "../" + user.ProfilePictureUrl;

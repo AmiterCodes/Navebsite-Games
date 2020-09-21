@@ -11,7 +11,7 @@ namespace NavebsiteDAL
     {
         public static DataRow GetDeveloper(int id)
         {
-            return DALHelper.GetRowById(id, "Developer");
+            return DalHelper.GetRowById(id, "Developer");
         }
 
 

@@ -23,7 +23,7 @@ namespace NavebsiteBL
 
         private static List<Sales> DataTableToList(DataTable tb)
         {
-            List<Sales> list = new List<Sales>();
+            var list = new List<Sales>();
             foreach(DataRow dr in tb.Rows)
             {
                 list.Add(new Sales(dr));

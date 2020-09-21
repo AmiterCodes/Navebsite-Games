@@ -18,24 +18,24 @@ namespace Navebsite.Controls
         protected void Page_Load(object sender, EventArgs ev)
         {
 
-            DateTime starting = DateTime.Now.Date.AddDays(-30);
-            DateTime ending = DateTime.Now.Date;
+            var starting = DateTime.Now.Date.AddDays(-30);
+            var ending = DateTime.Now.Date;
             
             chart.Height = 500;
             chart.Width = 800;
             chart.ForeColor = Color.White;
-            Series series1 = chart.Series[0];
+            var series1 = chart.Series[0];
             series1.ChartType = SeriesChartType.SplineArea;
-            Series series2 = chart.Series[1];
+            var series2 = chart.Series[1];
             series2.ChartType = SeriesChartType.SplineArea;
-            ChartArea a = chart.ChartAreas[0];
+            var a = chart.ChartAreas[0];
             chart.Style["background"] = "background: linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%)";
             a.BackImageTransparentColor = Color.Transparent;
-            ChartArea b = chart.ChartAreas[1];
+            var b = chart.ChartAreas[1];
             b.BackImageTransparentColor = Color.Transparent;
             
 
-            DataTable tb = new DataTable();
+            var tb = new DataTable();
 
             tb.Columns.Add("Timestamp", typeof(DateTime));
             tb.Columns.Add("Purchases", typeof(int));
@@ -44,13 +44,13 @@ namespace Navebsite.Controls
             IEnumerator<Sales> e = Sales.GetEnumerator();
             e.Reset();
             e.MoveNext();
-            for (DateTime day = starting; day < ending; day = day.AddDays(1))
+            for (var day = starting; day < ending; day = day.AddDays(1))
             {
-                DataRow row = tb.NewRow();
+                var row = tb.NewRow();
                 row["Timestamp"] = day;
 
                 if (e.Current != null && e.Current.Date.Equals(day)) {
-                    Sales s = e.Current;
+                    var s = e.Current;
                     row["Purchases"] = s.Purchases;
                     row["Revenue"] = s.Revenue;
                     e.MoveNext();
@@ -62,6 +62,7 @@ namespace Navebsite.Controls
 
                 tb.Rows.Add(row);
             }
+            e.Dispose();
             
             chart.DataSource = tb;
             chart.DataBind();

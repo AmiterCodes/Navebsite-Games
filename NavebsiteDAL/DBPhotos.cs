@@ -16,34 +16,34 @@ namespace NavebsiteDAL
     {
         public static DataRow GetPhoto(int id, PhotoType type)
         {
-            return DALHelper.GetRowById(id, type.ToString());
+            return DalHelper.GetRowById(id, type.ToString());
         }
 
         public static DataTable GetPhotosOfGame(int game)
         {
-            return DALHelper.AllWhere("GamePhotos", "Game", game);
+            return DalHelper.AllWhere("GamePhotos", "Game", game);
         }
 
         public static DataTable GetPhotosOfUser(int user)
         {
-            return DALHelper.AllWhere("UserPhotos", "User", user);
+            return DalHelper.AllWhere("UserPhotos", "User", user);
         }
 
 
         public static DataRow RandomPhotoOfGame(int game)
         {
-            return DALHelper.RandomWhere("GamePhotos", "Game", game);
+            return DalHelper.RandomWhere("GamePhotos", "Game", game);
         }
 
         public static DataTable GetPhotosFromDeveloper(int developer)
         {
-            return DALHelper.Select($"SELECT GamePhotos.* FROM GamePhotos INNER JOIN Games ON GamePhotos.Game = Games.Id WHERE Games.Developer = {developer};");
+            return DalHelper.Select($"SELECT GamePhotos.* FROM GamePhotos INNER JOIN Games ON GamePhotos.Game = Games.Id WHERE Games.Developer = {developer};");
 
         }
 
         public static DataTable AllPhotos(PhotoType type)
         {
-            return DALHelper.AllFromTable(type.ToString());
+            return DalHelper.AllFromTable(type.ToString());
         }
     }
 }

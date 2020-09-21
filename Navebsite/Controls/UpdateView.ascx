@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Update.ascx.cs" Inherits="Navebsite.Controls.Update" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UpdateView.ascx.cs" Inherits="Navebsite.Controls.UpdateView" %>
 
 <asp:Label Text="UpdateTitle" runat="server" />
 <asp:Label Text="UpdateVersion" runat="server" />

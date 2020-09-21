@@ -11,7 +11,7 @@ namespace NavebsiteDAL
     {
         public static DataTable UserActivity(int user)
         {
-            return DALHelper.Select($@"
+            return DalHelper.Select($@"
 SELECT TOP 30
 *
 FROM UserActivity
@@ -22,13 +22,13 @@ ORDER BY Timestamp DESC;
 
         public static void InsertActivity(string activity, int userId)
         {
-            string sql = $"INSERT INTO UserActivity ([ActivityText],[User]) VALUES('{activity}',{userId})";
-            DALHelper.Insert(sql);
+            var sql = $"INSERT INTO UserActivity ([ActivityText],[User]) VALUES('{activity}',{userId})";
+            DalHelper.Insert(sql);
         }
 
         public static DataRow GetActivity(int id)
         {
-            return DALHelper.GetRowById(id, "UserActivity");
+            return DalHelper.GetRowById(id, "UserActivity");
         }
     }
 }

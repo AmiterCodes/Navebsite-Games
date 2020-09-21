@@ -13,7 +13,7 @@ namespace Navebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null) Response.Redirect("Store.aspx");
-            User user = (User)Session["user"];
+            var user = (User)Session["user"];
             library.games = UserGame.UserGames(user.Id);
         }
     }

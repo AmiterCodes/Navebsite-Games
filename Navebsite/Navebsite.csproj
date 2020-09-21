@@ -107,7 +107,7 @@
     <Content Include="Controls\SmallUserList.ascx" />
     <Content Include="Controls\starempty.svg" />
     <Content Include="Controls\starfilled.svg" />
-    <Content Include="Controls\Update.ascx" />
+    <Content Include="Controls\UpdateView.ascx" />
     <Content Include="Controls\UpdateList.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="GameData.aspx" />
@@ -217,12 +217,12 @@
     <Compile Include="Controls\SmallUserList.ascx.designer.cs">
       <DependentUpon>SmallUserList.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Update.ascx.cs">
-      <DependentUpon>Update.ascx</DependentUpon>
+    <Compile Include="Controls\UpdateView.ascx.cs">
+      <DependentUpon>UpdateView.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controls\Update.ascx.designer.cs">
-      <DependentUpon>Update.ascx</DependentUpon>
+    <Compile Include="Controls\UpdateView.ascx.designer.cs">
+      <DependentUpon>UpdateView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\UpdateList.ascx.cs">
       <DependentUpon>UpdateList.ascx</DependentUpon>

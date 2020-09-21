@@ -17,8 +17,8 @@ namespace NavebsiteBL
 
         public static List<Activity> UserActivities(int user)
         {
-            List<Activity> list = new List<Activity>();
-            DataTable tb = DBActivity.UserActivity(user);
+            var list = new List<Activity>();
+            var tb = DBActivity.UserActivity(user);
             foreach(DataRow row in tb.Rows)
             {
                 list.Add(new Activity(row));
@@ -42,7 +42,7 @@ namespace NavebsiteBL
 
         public Activity(int id)
         {
-            DataRow dr = DBActivity.GetActivity(id);
+            var dr = DBActivity.GetActivity(id);
             ActivityText = (string)dr["ActivityText"];
             Timestamp = (DateTime)dr["Timestamp"];
             UserId = (int)dr["User"];

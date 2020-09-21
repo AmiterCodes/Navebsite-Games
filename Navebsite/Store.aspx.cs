@@ -14,7 +14,7 @@ namespace Navebsite
 
             if (!IsPostBack)
             {
-                gm.games = Game.AllGames();
+                gm.Games = Game.AllGames();
             }
         }
     }

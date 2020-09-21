@@ -23,14 +23,14 @@ namespace NavebsiteBL
 
         public int DeveloperId { get; set; }
 
-        public List<Activity> Activities { get => Activity.UserActivities(Id); }
-        public string ProfilePictureUrl { get => "./Images/UserProfiles/" + ProfilePicture; }
-        public string BackgroundUrl { get => "./Images/UserBackgrounds/" + Background; }
+        public List<Activity> Activities => Activity.UserActivities(Id);
+        public string ProfilePictureUrl => "./Images/UserProfiles/" + ProfilePicture;
+        public string BackgroundUrl => "./Images/UserBackgrounds/" + Background;
 
         public static List<User> AllUsers()
         {
-            List<User> users = new List<User>();
-            foreach(DataRow row in DBUser.AllUsers().Rows)
+            var users = new List<User>();
+            foreach(DataRow row in DbUser.AllUsers().Rows)
             {
                 users.Add(new User(row));
             }
@@ -44,20 +44,20 @@ namespace NavebsiteBL
 
         public static User AuthUser(string username, string password)
         {
-            if(DBUser.Authenticate(username, password))
+            if(DbUser.Authenticate(username, password))
             {
-                return new User(DBUser.GetUserByName(username));
+                return new User(DbUser.GetUserByName(username));
             }
             return null;
         }
 
         public static User RegisterUser(string username, string password)
         {
-            int id = DBUser.InsertUser(username, password);
+            var id = DbUser.InsertUser(username, password);
             return new User(id);
         }
 
-        public User(int id) : this(DBUser.GetUserById(id))
+        public User(int id) : this(DbUser.GetUserById(id))
         {
         }
 

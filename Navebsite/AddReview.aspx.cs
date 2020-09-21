@@ -1,10 +1,5 @@
 ﻿using NavebsiteBL;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Navebsite
 {
@@ -18,7 +13,7 @@ namespace Navebsite
                 Response.Redirect("Store");
                 return;
             }
-            if(!int.TryParse(Request.QueryString["game"], out int gameId))
+            if(!int.TryParse(Request.QueryString["game"], out var gameId))
             {
                 Response.Redirect("Store");
                 return;
@@ -30,15 +25,15 @@ namespace Navebsite
         protected void submit_Click(object sender, EventArgs e)
         {
             if (Request.Form["demo"] == null) return;
-            string unparsedRating = Request.Form["demo"];
-            if(!int.TryParse(unparsedRating, out int rating))
+            var unparsedRating = Request.Form["demo"];
+            if(!int.TryParse(unparsedRating, out var rating))
             {
                 errorBox.Text = "You entered an invalid rating!";
             } else
             {
-                User user = (User)Session["user"];
-                Review review = new Review(reviewContent.Text, int.Parse(Request.QueryString["game"]), user.Id, rating);
-                
+                var user = (User)Session["user"];
+                var review = new Review(reviewContent.Text, int.Parse(Request.QueryString["game"]), user.Id, rating);
+                Response.Redirect("GamePage.aspx?id=" + review.GameId);
             }
 
         }

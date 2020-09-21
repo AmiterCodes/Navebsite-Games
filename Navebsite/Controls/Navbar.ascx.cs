@@ -13,7 +13,7 @@ namespace Navebsite.Controls
         protected void Page_Load(object sender, EventArgs e)
         {
             welcome.Text = "";
-            User user = (User)Session["user"];
+            var user = (User)Session["user"];
             profile.Visible = false;
             logout.Visible = false;
             login.Visible = false;

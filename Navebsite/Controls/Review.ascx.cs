@@ -10,24 +10,25 @@ namespace Navebsite.Controls
 {
     public partial class Review : System.Web.UI.UserControl
     {
-        public NavebsiteBL.Review review;
+        public NavebsiteBL.Review ReviewObject { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             for (int i = 0; i < 5; i++) {
 
                 Image image = new Image();
                 image.ImageUrl = "./starfilled.svg";
-                if (i >= review.Stars)
+                if (i >= ReviewObject.Stars)
                 {
                     image.ImageUrl = "./starempty.svg";
                 }
                 stars.Controls.Add(image);
             }
-            content.Text = review.Content;
-            title.Text = review.GameName + " Review";
-            title.NavigateUrl = "../GamePage.aspx?id=" + review.GameId;
-            author.Text = "By " + review.Username;
-            author.NavigateUrl = "../Profile.aspx?id=" + review.UserId;
+            content.Text = ReviewObject.Content;
+            title.Text = ReviewObject.GameName + " Review";
+            title.NavigateUrl = "../GamePage.aspx?id=" + ReviewObject.GameId;
+            author.Text = "By " + ReviewObject.Username;
+            author.NavigateUrl = "../Profile.aspx?id=" + ReviewObject.UserId;
         }
     }
 }

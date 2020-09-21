@@ -45,7 +45,7 @@ namespace NavebsiteBL
 
         public static List<Review> ReviewsByGame(int gameId)
         {
-            List<Review> list = new List<Review>();
+            var list = new List<Review>();
 
             foreach(DataRow row in DBReview.ReviewsByGame(gameId).Rows)
             {
@@ -56,7 +56,7 @@ namespace NavebsiteBL
 
         public static List<Review> ReviewsByUser(int userId)
         {
-            List<Review> list = new List<Review>();
+            var list = new List<Review>();
 
             foreach (DataRow row in DBReview.ReviewsByGame(userId).Rows)
             {

@@ -11,14 +11,14 @@ namespace NavebsiteDAL
     {
         public static DataTable GetFriendsOfUser(int userId)
         {
-            return DALHelper.Select("SELECT Users.* " +
+            return DalHelper.Select("SELECT Users.* " +
                 "FROM Users INNER JOIN UserFriends ON(Users.ID = UserFriends.[User 2]) " +
                 $"WHERE [User 1] = {userId}; ");
         }
 
         public static DataTable GetFriendsWhoPlayGame(int userId, int gameId)
         {
-            return DALHelper.Select("SELECT Users.* " +
+            return DalHelper.Select("SELECT Users.* " +
                 "FROM(Users INNER JOIN UserFriends ON Users.ID = UserFriends.[User 2]) INNER JOIN UserGames ON Users.ID = UserGames.[User] " +
                 $"WHERE(((UserFriends.[User 1]) = {userId}) AND((UserGames.Game) = {gameId}));");
         }

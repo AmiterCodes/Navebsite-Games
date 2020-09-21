@@ -7,7 +7,7 @@ using System.Data;
 
 namespace NavebsiteDAL
 {
-    public class DALHelper
+    public class DalHelper
     {
 
         /// <summary>
@@ -17,12 +17,12 @@ namespace NavebsiteDAL
         /// <returns>id of newly inserted row, -1 if it didn't work</returns>
         public static int Insert(string sql)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
 
             if (!helper.OpenConnection()) throw new ConnectionException();
 
-            int id = helper.InsertWithAutoNumKey(sql);
+            var id = helper.InsertWithAutoNumKey(sql);
             helper.CloseConnection();
 
             return id;
@@ -34,15 +34,15 @@ namespace NavebsiteDAL
         /// <param name="insert">insert SQL query</param>
         /// <param name="check">check SQL query</param>
         /// <returns>the id of the inserted element, else the id of the first row</returns>
-        public static int InsertIfDoesntExist(string insert, string check)
+        public static int InsertIfNotExist(string insert, string check)
         {
 
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
             if (!helper.OpenConnection()) throw new ConnectionException();
-            DataTable tb = helper.GetDataTable(check);
+            var tb = helper.GetDataTable(check);
             if(tb.Rows.Count == 0)
             {
-                int id = helper.InsertWithAutoNumKey(insert);
+                var id = helper.InsertWithAutoNumKey(insert);
                 return id; 
             } else
             {
@@ -57,12 +57,12 @@ namespace NavebsiteDAL
         /// <returns>id of newly inserted row, -1 if it didn't work</returns>
         public static int Update(string sql)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
 
             if (!helper.OpenConnection()) throw new ConnectionException();
 
-            int id = helper.WriteData(sql);
+            var id = helper.WriteData(sql);
             helper.CloseConnection();
 
             return id;
@@ -75,12 +75,12 @@ namespace NavebsiteDAL
         /// <returns>DataTable containing the results</returns>
         public static DataTable Select(string sql)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             
             if (!helper.OpenConnection()) throw new ConnectionException();
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             helper.CloseConnection();
             
             return tb;
@@ -104,12 +104,12 @@ namespace NavebsiteDAL
         /// <returns>DataRow containing the row</returns>
         public static DataRow GetRowById(int id, string table)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            string sql = $"SELECT * FROM {table} WHERE ID = {id}";
+            var sql = $"SELECT * FROM {table} WHERE ID = {id}";
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             helper.CloseConnection();
 
             if (tb.Rows.Count < 1) return null;
@@ -125,12 +125,12 @@ namespace NavebsiteDAL
         /// <returns>DataRow containing the results</returns>
         public static DataRow Random(string table, string column)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            string sql = $"SELECT top 1 * from {table} ORDER BY rnd({column})";
+            var sql = $"SELECT top 1 * from {table} ORDER BY rnd({column})";
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             helper.CloseConnection();
             if (tb.Rows.Count == 0) return null; 
             return tb.Rows[0];
@@ -145,12 +145,12 @@ namespace NavebsiteDAL
         /// <returns>DataRow containing the results</returns>
         public static DataRow RandomWhere(string table, string column, int value)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            string sql = $"SELECT top 1 * from {table} WHERE {column} = {value} ORDER BY rnd({column})";
+            var sql = $"SELECT top 1 * from {table} WHERE {column} = {value} ORDER BY rnd({column})";
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             helper.CloseConnection();
             if (tb.Rows.Count == 0) return null;
             return tb.Rows[0];
@@ -165,12 +165,12 @@ namespace NavebsiteDAL
         /// <returns>DataRow containing the results</returns>
         public static DataRow RandomWhere(string table, string column, string value)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            string sql = $"SELECT top 1 * from {table} WHERE {column} = '{value}' ORDER BY rnd({column})";
+            var sql = $"SELECT top 1 * from {table} WHERE {column} = '{value}' ORDER BY rnd({column})";
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             helper.CloseConnection();
             if (tb.Rows.Count == 0) return null;
             return tb.Rows[0];
@@ -187,12 +187,12 @@ namespace NavebsiteDAL
         /// <returns>DataRow containing the matching row</returns>
         public static DataRow RowWhere(string table, string column, string value)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            string sql = $"SELECT * FROM {table} WHERE `{column}` = '{value}'";
+            var sql = $"SELECT * FROM {table} WHERE `{column}` = '{value}'";
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             if (tb.Rows.Count == 0) return null;
             helper.CloseConnection();
             return tb.Rows[0];
@@ -205,12 +205,12 @@ namespace NavebsiteDAL
                  /// <returns>DataRow containing the matching row</returns>
         public static DataRow RowWhere(string table, string column, int value)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            string sql = $"SELECT * FROM {table} WHERE `{column}` = {value}";
+            var sql = $"SELECT * FROM {table} WHERE `{column}` = {value}";
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             if (tb.Rows.Count == 0) return null;
             helper.CloseConnection();
             return tb.Rows[0];
@@ -225,12 +225,12 @@ namespace NavebsiteDAL
         /// <returns>DataTable containing the matching rows</returns>
         public static DataTable AllWhere(string table, string column, int value)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            string sql = $"SELECT * FROM {table} WHERE `{column}` = {value}";
+            var sql = $"SELECT * FROM {table} WHERE `{column}` = {value}";
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             helper.CloseConnection();
             return tb;
         }
@@ -244,12 +244,12 @@ namespace NavebsiteDAL
         /// <returns>DataTable containing the matching rows</returns>
         public static DataTable AllWhere(string table, string column, string value)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            string sql = $"SELECT * FROM {table} WHERE `{column}` = '{value}'";
+            var sql = $"SELECT * FROM {table} WHERE `{column}` = '{value}'";
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             helper.CloseConnection();
             return tb;
         }
@@ -261,12 +261,12 @@ namespace NavebsiteDAL
         /// <returns>DataTable containing all rows of a table</returns>
         public static DataTable AllFromTable(string table)
         {
-            DBHelper helper = new DBHelper(Constants.PROVIDER, Constants.PATH);
+            var helper = new DBHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            string sql = $"SELECT * FROM {table}";
+            var sql = $"SELECT * FROM {table}";
 
-            DataTable tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql);
             helper.CloseConnection();
             return tb;
         }

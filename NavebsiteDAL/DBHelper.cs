@@ -12,10 +12,10 @@ namespace NavebsiteDAL
 
         public const int WRITEDATA_ERROR = -1;
 
-        private OleDbConnection conn;
-        private string provider;
-        private string source;
-        private bool connOpen;
+        private OleDbConnection _conn;
+        private readonly string _provider;
+        private readonly string _source;
+        private bool _connOpen;
 
         /// <summary>
         /// constructor of the DBHelper class, which is used to 
@@ -25,8 +25,8 @@ namespace NavebsiteDAL
 
         public DBHelper(string provider, string source)
         {
-            this.provider = provider;
-            this.source = source;
+            this._provider = provider;
+            this._source = source;
 
 
         }
@@ -37,7 +37,7 @@ namespace NavebsiteDAL
         /// <returns>connection string</returns>
         public string BuildConnString()
         {
-            return String.Format(@"Provider={0};Data Source={1};", provider, source);
+            return String.Format(@"Provider={0};Data Source={1};", _provider, _source);
 
         }
 
@@ -46,9 +46,9 @@ namespace NavebsiteDAL
         /// </summary>
         public void CloseConnection()
         {
-            if (conn == null) return;
-            conn.Close();
-            connOpen = false;
+            if (_conn == null) return;
+            _conn.Close();
+            _connOpen = false;
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace NavebsiteDAL
         /// <returns>the data table, or null if it failed</returns>
         public DataTable GetDataTable(string sql)
         {
-            OleDbDataReader reader = ReadData(sql);
+            var reader = ReadData(sql);
             DataTable output = null;
 
             if (reader != null)
@@ -78,15 +78,15 @@ namespace NavebsiteDAL
         {
             try
             {
-                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                var cmd = new OleDbCommand(sql, _conn);
 
-                OleDbDataReader reader = cmd.ExecuteReader();
+                var reader = cmd.ExecuteReader();
 
                 if (reader != null && reader.RecordsAffected == 1)
                 {
-                    cmd = new OleDbCommand(@"SELECT @@Identity", conn);
+                    cmd = new OleDbCommand(@"SELECT @@Identity", _conn);
                     reader = cmd.ExecuteReader();
-                    int newID = WRITEDATA_ERROR;
+                    var newID = WRITEDATA_ERROR;
                     while (reader.Read())
                     {
                         //The new ID will be on the first (and only) column
@@ -112,10 +112,10 @@ namespace NavebsiteDAL
         {
             try
             {
-                if (!connOpen) return WRITEDATA_ERROR;
-                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                if (!_connOpen) return WRITEDATA_ERROR;
+                var cmd = new OleDbCommand(sql, _conn);
 
-                OleDbDataReader reader = cmd.ExecuteReader();
+                var reader = cmd.ExecuteReader();
                 
                 return reader.RecordsAffected;
             }
@@ -136,7 +136,7 @@ namespace NavebsiteDAL
         {
 
             
-            OleDbCommand cmd = new OleDbCommand(sql, conn);
+            var cmd = new OleDbCommand(sql, _conn);
             // since execute reader returns null on failure, that's all we have to do.
             return cmd.ExecuteReader();
         }
@@ -149,11 +149,11 @@ namespace NavebsiteDAL
         /// <returns>if the connection went successful</returns>
         public bool OpenConnection()
         {
-            if (conn == null) conn = new OleDbConnection(BuildConnString());
+            if (_conn == null) _conn = new OleDbConnection(BuildConnString());
             try
             {
-                conn.Open();
-                connOpen = true;
+                _conn.Open();
+                _connOpen = true;
 
             }
             catch(Exception e) // basically, if the connection throws some kind of exception.
@@ -175,11 +175,11 @@ namespace NavebsiteDAL
         {
             try
             {
-                DataSet set = new DataSet();
-                int i = 1;
-                foreach (string s in sql)
+                var set = new DataSet();
+                var i = 1;
+                foreach (var s in sql)
                 {
-                    OleDbDataAdapter adapter = new OleDbDataAdapter(s, conn);
+                    var adapter = new OleDbDataAdapter(s, _conn);
                     adapter.Fill(set, $"sql{i}");
 
                     // to release resources.

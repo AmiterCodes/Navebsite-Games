@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using NavebsiteBL;
 
 
@@ -13,12 +9,12 @@ namespace Navebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string dev = Request.QueryString["dev"];
+            var dev = Request.QueryString["dev"];
             if (dev == null) Response.Redirect("Store.aspx");
-            bool success = int.TryParse(dev, out int devId);
+            var success = int.TryParse(dev, out var devId);
             if(!success) Response.Redirect("Store.aspx");
-            list.games = Game.GamesByDeveloper(devId);
-            Developer developer = new Developer(devId);
+            list.Games = Game.GamesByDeveloper(devId);
+            var developer = new Developer(devId);
             icon.ImageUrl = developer.IconUrl;
             banner.ImageUrl = developer.BackgroundUrl;
             name.Text = Server.HtmlEncode(developer.DeveloperName);

@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
     <asp:Panel runat="server" ID="AddGameForm" CssClass="centering">
-        <div class="form">
+        <div>
         <asp:TextBox runat="server" ID="GameName" CssClass="input" />
 <div class="tuple">    
      <asp:Label Text="Current Genres" AssociatedControlID="Genres" runat="server" CssClass="input_label" />
@@ -42,7 +42,7 @@
     <asp:TextBox runat="server" ID="Description" CssClass="input"/>
 
 
-    <asp:Button Text="Submit for review" runat="server" ID="button" CssClass="button" OnClick="button_Click" />
+    <asp:Button Text="Submit for ReviewObject" runat="server" ID="button" CssClass="button" OnClick="button_Click" />
             </div>
 </asp:Panel>
 </asp:Content>

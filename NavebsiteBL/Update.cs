@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NavebsiteBL
 {
-    class Update
+    public class Update
     {
         public int Id { get; }
         public string UpdateVersion { get; }
@@ -29,12 +29,7 @@ namespace NavebsiteBL
 
         public List<Update> ListUpdates(int game)
         {
-            List<Update> list = new List<Update>();
-            foreach(DataRow dr in DBUpdate.ListUpdates(game).Rows)
-            {
-                list.Add(new Update(dr));
-            }
-            return list;
+            return (from DataRow dr in DBUpdate.ListUpdates(game).Rows select new Update(dr)).ToList();
         }
 
     }

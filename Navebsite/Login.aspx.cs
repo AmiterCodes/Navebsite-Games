@@ -21,10 +21,10 @@ namespace Navebsite
             Validate();
             if (IsValid)
             {
-                string userName = username.Text;
-                string pass = password.Text;
+                var userName = username.Text;
+                var pass = password.Text;
  
-                User user = NavebsiteBL.User.AuthUser(userName, pass);
+                var user = NavebsiteBL.User.AuthUser(userName, pass);
                 if (user == null)
                 {
                     errorBox.Text = "Login did not work";
