@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NavebsiteDAL
 {
-    public class DBReview
+    public class DbReview
     {
         public static DataTable ReviewsByGame(int gameId)
         {

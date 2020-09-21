@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NavebsiteDAL
 {
-    public class DBStats
+    public class DbStats
     {
         public static DataTable GameSalesStats(int gameId)
         {

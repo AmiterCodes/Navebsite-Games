@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NavebsiteDAL
 {
-    public class DBUpdate
+    public class DbUpdate
     {
         public static int InsertUpdate(string version,string updateName, string description, int game)
         {

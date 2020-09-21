@@ -13,9 +13,8 @@ namespace Navebsite
         protected void Page_Load(object sender, EventArgs e)
         {
             var qs = Request.QueryString["id"];
-            var id = 0;
             User user;
-            if (qs == null || !int.TryParse(qs, out id))
+            if (qs == null || !int.TryParse(qs, out var id))
             {
                 if (Session["user"] != null)
                 {

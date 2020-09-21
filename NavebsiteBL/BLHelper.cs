@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using NavebsiteDAL;
 namespace NavebsiteBL
 {
-    public class BLHelper
+    public class BlHelper
     {
         public static void SetPath(string path)
         {

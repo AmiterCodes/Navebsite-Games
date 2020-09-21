@@ -12,7 +12,7 @@ namespace NavebsiteDAL
         GamePhotos,
         UserPhotos
     }
-    public class DBPhotos
+    public class DbPhotos
     {
         public static DataRow GetPhoto(int id, PhotoType type)
         {

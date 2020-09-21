@@ -31,21 +31,21 @@ namespace Navebsite
                 if (Session["user"] != null)
                 {
                     var user = (User)Session["user"];
-                    if(UserGame.GameOwnedByUser(game.ID, user.Id))
+                    if(UserGame.GameOwnedByUser(game.Id, user.Id))
                     {
 
                         play.Text = "Play " + Server.HtmlEncode(game.GameName);
                     }
                     var link = new HyperLink
                     {
-                        NavigateUrl = "AddReview.aspx?game=" + game.ID,
+                        NavigateUrl = "AddReview.aspx?game=" + game.Id,
                         CssClass = "button",
                         Text = "Add Review"
                     };
                     reviewContainer.Controls.Add(link);
                 }
 
-            } catch(Exception ex)
+            } catch(Exception)
             {
                 Response.Redirect("404.aspx");
             } 

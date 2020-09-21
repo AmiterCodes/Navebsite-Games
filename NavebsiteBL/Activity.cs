@@ -18,7 +18,7 @@ namespace NavebsiteBL
         public static List<Activity> UserActivities(int user)
         {
             var list = new List<Activity>();
-            var tb = DBActivity.UserActivity(user);
+            var tb = DbActivity.UserActivity(user);
             foreach(DataRow row in tb.Rows)
             {
                 list.Add(new Activity(row));
@@ -29,7 +29,7 @@ namespace NavebsiteBL
 
         public static void AddActivity(string text, int userId)
         {
-            DBActivity.InsertActivity(text, userId);
+            DbActivity.InsertActivity(text, userId);
         }
 
         public Activity(DataRow dr)
@@ -42,7 +42,7 @@ namespace NavebsiteBL
 
         public Activity(int id)
         {
-            var dr = DBActivity.GetActivity(id);
+            var dr = DbActivity.GetActivity(id);
             ActivityText = (string)dr["ActivityText"];
             Timestamp = (DateTime)dr["Timestamp"];
             UserId = (int)dr["User"];

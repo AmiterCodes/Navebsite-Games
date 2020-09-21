@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace NavebsiteDAL
 {
-    class SQLException : Exception
+    class SqlException : Exception
     {
-        public SQLException() : base("SQL Error")
+        public SqlException() : base("SQL Error")
         {
 
         }

@@ -7,7 +7,7 @@ using System.Data;
 
 namespace NavebsiteDAL
 {
-    public class DBGenre
+    public class DbGenre
     {
 
         public static DataTable AllGenres()
@@ -32,7 +32,7 @@ namespace NavebsiteDAL
                             ON Games.ID = GameGenres.Game 
                             WHERE Games.ID = {gameId};";
 
-            var helper = new DBHelper(Constants.Provider, Constants.Path);
+            var helper = new DbHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
 

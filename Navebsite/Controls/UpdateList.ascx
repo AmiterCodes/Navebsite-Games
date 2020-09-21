@@ -10,7 +10,7 @@
     runat="server" CssClass="game_update_list"
     >
     <ItemTemplate>
-        <div class="libgame" style="background-image: linear-gradient(180deg, rgba(15, 16, 22, 0.72) 0%, #1C1D2B 100%), url('../<%#: DataBinder.Eval(Container.DataItem, "BackgroundUrl")%>');">
+        <div class="libgame" style="background-image: linear-gradient(180deg, rgba(15, 16, 22, 0.72) 0, #1C1D2B 100%), url('../<%#: DataBinder.Eval(Container.DataItem, "BackgroundUrl")%>');">
             <div class="libgame_info">
                 <h2><%#: DataBinder.Eval(Container.DataItem, "GameName") %></h2>
                 <a class="libgame_company" href="CompanyPage.aspx?dev=<%# DataBinder.Eval(Container.DataItem, "DeveloperID") %>"><%#: DataBinder.Eval(Container.DataItem, "DeveloperName") %></a>

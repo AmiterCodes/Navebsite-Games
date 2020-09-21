@@ -7,10 +7,10 @@ namespace NavebsiteDAL
     /// <summary>
     /// DB Helper, methods to do operations on a database
     /// </summary>
-    public class DBHelper
+    public class DbHelper
     {
 
-        public const int WRITEDATA_ERROR = -1;
+        public const int WriteDataError = -1;
 
         private OleDbConnection _conn;
         private readonly string _provider;
@@ -23,7 +23,7 @@ namespace NavebsiteDAL
         /// <param name="provider"></param>
         /// <param name="source"></param>
 
-        public DBHelper(string provider, string source)
+        public DbHelper(string provider, string source)
         {
             this._provider = provider;
             this._source = source;
@@ -37,7 +37,7 @@ namespace NavebsiteDAL
         /// <returns>connection string</returns>
         public string BuildConnString()
         {
-            return String.Format(@"Provider={0};Data Source={1};", _provider, _source);
+            return $@"Provider={_provider};Data Source={_source};";
 
         }
 
@@ -86,19 +86,19 @@ namespace NavebsiteDAL
                 {
                     cmd = new OleDbCommand(@"SELECT @@Identity", _conn);
                     reader = cmd.ExecuteReader();
-                    var newID = WRITEDATA_ERROR;
+                    var newId = WriteDataError;
                     while (reader.Read())
                     {
                         //The new ID will be on the first (and only) column
-                        newID = (int)reader[0];
+                        newId = (int)reader[0];
                     }
-                    return newID;
+                    return newId;
                 }
-                else return WRITEDATA_ERROR;
+                else return WriteDataError;
             }
             catch
             {
-                return WRITEDATA_ERROR;
+                return WriteDataError;
             }
         }
 
@@ -112,7 +112,7 @@ namespace NavebsiteDAL
         {
             try
             {
-                if (!_connOpen) return WRITEDATA_ERROR;
+                if (!_connOpen) return WriteDataError;
                 var cmd = new OleDbCommand(sql, _conn);
 
                 var reader = cmd.ExecuteReader();
@@ -122,7 +122,7 @@ namespace NavebsiteDAL
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                return WRITEDATA_ERROR;
+                return WriteDataError;
             }
         }
 
@@ -156,7 +156,7 @@ namespace NavebsiteDAL
                 _connOpen = true;
 
             }
-            catch(Exception e) // basically, if the connection throws some kind of exception.
+            catch(Exception) // basically, if the connection throws some kind of exception.
             {
                 return false;
             }

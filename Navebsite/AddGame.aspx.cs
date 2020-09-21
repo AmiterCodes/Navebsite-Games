@@ -1,7 +1,6 @@
 ﻿using NavebsiteBL;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Web.UI.WebControls;
@@ -34,9 +33,7 @@ namespace Navebsite
         protected void UpdateGenres()
         {
             var set = (HashSet<Genre>)ViewState["GenreList"];
-            if (set.Count == 0) Genres.Text = "No Genres Selected";
-            else
-            Genres.Text = String.Join(", ", set.Select(genre => genre.GenreName));
+            Genres.Text = set.Count == 0 ? "No Genres Selected" : string.Join(", ", set.Select(genre => genre.GenreName));
         }
 
         static string backgroundFormat = @"\Images\GameBackgrounds\";
@@ -74,11 +71,12 @@ namespace Navebsite
             var logoPath = ImageFileUpload(Logo, logoFormat, "no.jpg");
 
             string description = null;
-            string version = null;
+            string version = Version.Text;
+            Update update = new Update();
             string link = null;
             string gameName = null;
             double price = 0;
-            var game = new Game(gameName, link, version, description, bgPath, logoPath, developer, price);
+            var game = new Game(gameName, link, description, bgPath, logoPath, developer, price);
             
         }
 

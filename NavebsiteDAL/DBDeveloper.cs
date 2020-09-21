@@ -7,7 +7,7 @@ using System.Data;
 
 namespace NavebsiteDAL
 {
-    public class DBDeveloper
+    public class DbDeveloper
     {
         public static DataRow GetDeveloper(int id)
         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NavebsiteDAL
 {
-    public class DBActivity
+    public class DbActivity
     {
         public static DataTable UserActivity(int user)
         {

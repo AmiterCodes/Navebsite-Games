@@ -39,7 +39,7 @@ namespace NavebsiteBL
 
         public void AddActivity(string text)
         {
-            DBActivity.InsertActivity(text, Id);
+            DbActivity.InsertActivity(text, Id);
         }
 
         public static User AuthUser(string username, string password)

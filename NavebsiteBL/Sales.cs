@@ -33,33 +33,33 @@ namespace NavebsiteBL
 
         public static DataTable GameStatsTable(int gameId)
         {
-            return (DBStats.GameSalesStats(gameId));
+            return (DbStats.GameSalesStats(gameId));
         }
 
         public static DataTable CompanyStatsTable(int devId)
         {
-            return (DBStats.CompanySalesStats(devId));
+            return (DbStats.CompanySalesStats(devId));
         }
 
         public static DataTable AllStatsTable()
         {
-            return (DBStats.TotalSalesStats());
+            return (DbStats.TotalSalesStats());
 
         }
 
         public static List<Sales> GameStats(int gameId)
         {
-            return DataTableToList(DBStats.GameSalesStats(gameId));
+            return DataTableToList(DbStats.GameSalesStats(gameId));
         }
 
         public static List<Sales> CompanyStats(int devId)
         {
-            return DataTableToList(DBStats.CompanySalesStats(devId));
+            return DataTableToList(DbStats.CompanySalesStats(devId));
         }
 
         public static List<Sales> AllStats()
         {
-            return DataTableToList(DBStats.TotalSalesStats());
+            return DataTableToList(DbStats.TotalSalesStats());
         }
     }
 }

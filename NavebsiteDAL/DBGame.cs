@@ -7,7 +7,7 @@ using System.Data;
 
 namespace NavebsiteDAL
 {
-    public class DBGame
+    public class DbGame
     {
         public static DataRow GetGame(int id)
         {
@@ -21,8 +21,8 @@ namespace NavebsiteDAL
 
         public static int InsertGame(string gameName, string link, string version, string description, string background, string logo, int developer, double price)
         {
-            return DalHelper.Insert($"INSERT INTO Games ([Game Name],[Game Link],Version,Description,Background,Logo,Developer,Price) " +
-                $"VALUES ('{gameName}','{link}','{version}','{description}','{background}','{logo}',{developer},{price})");
+            return DalHelper.Insert($"INSERT INTO Games ([Game Name],[Game Link],Description,Background,Logo,Developer,Price) " +
+                $"VALUES ('{gameName}','{link}','{description}','{background}','{logo}',{developer},{price})");
         }
         
         /// <summary>

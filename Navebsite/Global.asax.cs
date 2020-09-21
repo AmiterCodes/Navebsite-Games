@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.SessionState;
 using System.IO;
 using System.Configuration;
 using NavebsiteBL;
 using System.Web.Routing;
-using Microsoft.AspNet.FriendlyUrls;
 
 namespace Navebsite
 {
@@ -18,7 +12,7 @@ namespace Navebsite
         protected void Application_Start(object sender, EventArgs e)
         {
             Directory.SetCurrentDirectory(Server.MapPath("~/"));
-            BLHelper.SetPath(ConfigurationManager.AppSettings["DbPath"]);
+            BlHelper.SetPath(ConfigurationManager.AppSettings["DbPath"]);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 

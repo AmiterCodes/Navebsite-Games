@@ -10,10 +10,9 @@ namespace NavebsiteBL
 {
     public class Game
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string GameName { get; set; }
         public string GameLink { get; set; }
-        public string Version { get; set; }
         public string Description { get; set; }
         public int ReviewStatus { get; set; }
         public string Background { get; set; }
@@ -26,14 +25,7 @@ namespace NavebsiteBL
         public int DeveloperId { get; set; }
         public DateTime PublishDate { get; set; }
         public double Price { get; set; }
-        public List<Genre> Genres { get {
-                List<Genre> l = new List<Genre>();
-                foreach (DataRow r in DBGenre.GetGenresByGame(ID).Rows)
-                {
-                    l.Add(new Genre(r));
-                }
-                return l;
-            } }
+        public List<Genre> Genres => (from DataRow r in DbGenre.GetGenresByGame(Id).Rows select new Genre(r)).ToList();
         public Developer Developer => new Developer(DeveloperId);
         public string DeveloperName => Developer.DeveloperName;
 
@@ -50,10 +42,9 @@ namespace NavebsiteBL
         {
             if (row == null) throw new InvalidOperationException();
 
-            this.ID = (int)row["ID"];
+            this.Id = (int)row["ID"];
             this.GameName = (string)row["Game Name"];
             this.GameLink = (string)row["Game Link"];
-            this.Version = (string)row["Version"];
             this.Description = (string)row["Description"];
             this.ReviewStatus = (int)row["Review Status"];
             this.Background = (string)row["Background"];
@@ -66,12 +57,11 @@ namespace NavebsiteBL
 
         public Game() {}
 
-        public Game(string gameName, string link, string version, string description, string background, string logo, int developer, double price) {
+        public Game(string gameName, string link, string description, string background, string logo, int developer, double price) {
 
-            this.ID = DBGame.InsertGame(gameName,link,version,description,background,logo,developer,price);
+            this.Id = DbGame.InsertGame(gameName,link,description,background,logo,developer,price);
             GameName = gameName;
             GameLink = link;
-            Version = version;
             Description = description;
             Background = background;
             Logo = logo;
@@ -82,28 +72,19 @@ namespace NavebsiteBL
 
         }
 
-        public Game(int id) : this(DBGame.GetGame(id))
+        public Game(int id) : this(DbGame.GetGame(id))
         {
             
         }
 
-        public static List<Game> GamesByDeveloper(int developerId) {
-            List<Game> l = new List<Game>();
-            foreach (DataRow r in DBGame.AllGamesFromDeveloper(developerId).Rows)
-            {
-                l.Add(new Game(r));
-            }
-            return l;
+        public static List<Game> GamesByDeveloper(int developerId)
+        {
+            return (from DataRow r in DbGame.AllGamesFromDeveloper(developerId).Rows select new Game(r)).ToList();
         }
 
         public static List<Game> AllGames()
         {
-            List<Game> l = new List<Game>();
-            foreach(DataRow r in DBGame.AllGames().Rows)
-            {
-                l.Add(new Game(r));
-            }
-            return l;
+            return (from DataRow r in DbGame.AllGames().Rows select new Game(r)).ToList();
         }
     }
 }

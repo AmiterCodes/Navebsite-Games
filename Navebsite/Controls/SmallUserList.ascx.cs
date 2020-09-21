@@ -1,9 +1,6 @@
 ﻿using NavebsiteBL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace Navebsite.Controls
@@ -15,15 +12,10 @@ namespace Navebsite.Controls
         {
             foreach(var user in Users)
             {
-                var link = new HyperLink();
-                link.CssClass = "user";
-                var caption = new Label();
-                caption.CssClass = "user_caption";
-                var image = new Image();
-                image.CssClass = "user_img";
+                var link = new HyperLink {CssClass = "user", NavigateUrl = "../Profile.aspx?id=" + user.Id};
+                var caption = new Label {CssClass = "user_caption"};
+                var image = new Image {CssClass = "user_img", ImageUrl = "../" + user.ProfilePictureUrl};
 
-                image.ImageUrl = "../" + user.ProfilePictureUrl;
-                link.NavigateUrl = "../Profile.aspx?id=" + user.Id;
                 caption.Text = Server.HtmlEncode(user.Username);
 
                 link.Controls.Add(caption);

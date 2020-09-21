@@ -8,13 +8,13 @@ namespace Navebsite.Controls
     {
 
 
-        public List<UserGame> games { get; set; }
+        public List<UserGame> Games { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ItemsList.DataSource = games;
+                ItemsList.DataSource = Games;
                 ItemsList.DataBind();
             }
         }

@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
-using NavebsiteBL;
 
 namespace Navebsite.Controls
 {
@@ -15,9 +10,7 @@ namespace Navebsite.Controls
         {
             
             for (int i = 0; i < 5; i++) {
-
-                Image image = new Image();
-                image.ImageUrl = "./starfilled.svg";
+                var image = new Image {ImageUrl = "./starfilled.svg"};
                 if (i >= ReviewObject.Stars)
                 {
                     image.ImageUrl = "./starempty.svg";

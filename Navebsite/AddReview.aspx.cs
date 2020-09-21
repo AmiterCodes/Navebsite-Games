@@ -5,7 +5,7 @@ namespace Navebsite
 {
     public partial class AddReview : System.Web.UI.Page
     {
-        Game game;
+        Game _game;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null || string.IsNullOrEmpty(Request.QueryString["game"]))
@@ -18,8 +18,8 @@ namespace Navebsite
                 Response.Redirect("Store");
                 return;
             }
-            game = new Game(gameId);
-            reviewTitle.Text = game.GameName + " Review";
+            _game = new Game(gameId);
+            reviewTitle.Text = _game.GameName + " Review";
         }
 
         protected void submit_Click(object sender, EventArgs e)

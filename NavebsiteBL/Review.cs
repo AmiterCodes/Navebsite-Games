@@ -26,9 +26,9 @@ namespace NavebsiteBL
             UserId = userId;
             Stars = stars;
 
-            if(DBReview.UpdateReview(content,gameId, userId, stars) == 0)
+            if(DbReview.UpdateReview(content,gameId, userId, stars) == 0)
             {
-                DBReview.InsertReview(content, gameId, userId, stars);
+                DbReview.InsertReview(content, gameId, userId, stars);
             }
         }
 
@@ -47,7 +47,7 @@ namespace NavebsiteBL
         {
             var list = new List<Review>();
 
-            foreach(DataRow row in DBReview.ReviewsByGame(gameId).Rows)
+            foreach(DataRow row in DbReview.ReviewsByGame(gameId).Rows)
             {
                 list.Add(new Review(row));
             }
@@ -58,7 +58,7 @@ namespace NavebsiteBL
         {
             var list = new List<Review>();
 
-            foreach (DataRow row in DBReview.ReviewsByGame(userId).Rows)
+            foreach (DataRow row in DbReview.ReviewsByGame(userId).Rows)
             {
                 list.Add(new Review(row));
             }
