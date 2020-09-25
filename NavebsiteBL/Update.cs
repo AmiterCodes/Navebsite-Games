@@ -16,6 +16,16 @@ namespace NavebsiteBL
             GameId = (int) dr["Game"];
         }
 
+        public Update(string updateVersion, string updateName, string updateDescription, int gameId)
+        {
+            UpdateVersion = updateVersion;
+            UpdateName = updateName;
+            UpdateDescription = updateDescription;
+            GameId = gameId;
+            Id = DbUpdate.InsertUpdate(updateVersion, updateName, updateDescription, gameId);
+        }
+
+
         public int Id { get; }
         public string UpdateVersion { get; }
         public string UpdateName { get; }
@@ -28,10 +38,6 @@ namespace NavebsiteBL
         {
             return (from DataRow dr in DbUpdate.ListUpdates(game).Rows select new Update(dr)).ToList();
         }
-
-        public Update()
-        {
-            
-        }
+        
     }
 }

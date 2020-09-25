@@ -31,7 +31,9 @@ namespace Navebsite
                 if (Session["user"] != null)
                 {
                     var user = (User)Session["user"];
-                    if(UserGame.GameOwnedByUser(game.Id, user.Id))
+
+                    friends.Users = Friends.FriendsThatPlayGame(user.Id, game.Id);
+                    if (UserGame.GameOwnedByUser(game.Id, user.Id))
                     {
 
                         play.Text = "Play " + Server.HtmlEncode(game.GameName);
@@ -44,7 +46,7 @@ namespace Navebsite
                     };
                     reviewContainer.Controls.Add(link);
                 }
-
+                
             } catch(Exception)
             {
                 Response.Redirect("404.aspx");

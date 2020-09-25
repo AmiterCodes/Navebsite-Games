@@ -38,14 +38,14 @@ namespace NavebsiteBL
             this.GenreName = (string)row["Genre Name"];
         }
 
+        public static int InsertGameGenre(Genre genre, int gameId)
+        {
+            return DbGenre.InsertGameGenre(genre.Id,gameId);
+        }
+        
         public static List<Genre> AllGenres()
         {
-            var list = new List<Genre>();
-            foreach(DataRow row in DbGenre.AllGenres().Rows)
-            {
-                list.Add(new Genre(row));
-            }
-            return list;
+            return (from DataRow row in DbGenre.AllGenres().Rows select new Genre(row)).ToList();
         }
         public Genre(int id) : this(DbGenre.GetGenre(id))
         {

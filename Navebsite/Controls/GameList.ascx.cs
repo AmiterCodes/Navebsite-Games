@@ -11,10 +11,8 @@ namespace Navebsite.Controls
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) {
-                ItemsList.DataSource = Games;
-                ItemsList.DataBind();
-            }
+            ItemsList.DataSource = Games;
+            ItemsList.DataBind();
         }
     }
 }

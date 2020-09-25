@@ -4,22 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using NavebsiteBL;
+
 namespace Navebsite
 {
-    public partial class Store : System.Web.UI.Page
+    public partial class UserSettings : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!IsPostBack)
-            {
-                gm.Games = Game.StoreGames();
-            }
-            else
-            {
-                
-            }
         }
     }
 }

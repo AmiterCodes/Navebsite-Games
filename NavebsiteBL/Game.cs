@@ -82,9 +82,9 @@ namespace NavebsiteBL
             return (from DataRow r in DbGame.AllGamesFromDeveloper(developerId).Rows select new Game(r)).ToList();
         }
 
-        public static List<Game> AllGames()
+        public static List<Game> StoreGames()
         {
-            return (from DataRow r in DbGame.AllGames().Rows select new Game(r)).ToList();
+            return (from DataRow r in DbGame.AllPublicGames().Rows select new Game(r)).ToList();
         }
     }
 }

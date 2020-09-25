@@ -5,7 +5,7 @@
     <asp:HyperLink ID="logout" runat="server" class="button" NavigateUrl="../Logout.aspx" Text="Logout"></asp:HyperLink>
     <asp:HyperLink ID="login" runat="server" class="button" NavigateUrl="../Login.aspx" Text="Login"></asp:HyperLink>
     <asp:HyperLink ID="profile" runat="server" class="button" NavigateUrl="../Profile.aspx" Text="Profile"></asp:HyperLink>
-
+    <asp:HyperLink ID="library" runat="server" class="button" NavigateUrl="../Library.aspx" Text="Library"></asp:HyperLink>
     
     <asp:Label Text="" runat="server" ID="welcome" />
     

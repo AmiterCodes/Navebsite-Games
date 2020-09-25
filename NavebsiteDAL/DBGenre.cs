@@ -24,6 +24,11 @@ namespace NavebsiteDAL
             return DalHelper.InsertIfNotExist($"INSERT INTO Genres ([Genre Name]) VALUES ('{genreName}')", $"SELECT ID FROM Genres WHERE [Genre Name] LIKE '{genreName}'");
         }
 
+        public static int InsertGameGenre(int genreId, int gameId)
+        {
+            return DalHelper.Insert($"INSERT INTO GameGenres (Game,Genre) VALUES({gameId},{genreId})");
+        }
+
         public static DataTable GetGenresByGame(int gameId) 
         {
             var sql = $@"SELECT Genres.*

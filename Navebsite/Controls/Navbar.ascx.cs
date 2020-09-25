@@ -13,11 +13,13 @@ namespace Navebsite.Controls
             logout.Visible = false;
             login.Visible = false;
             register.Visible = false;
+            library.Visible = false;
             if (Session["user"] != null)
             {
                 welcome.Text = "Ahoy, " + user.Username;
                 profile.Visible = true;
                 logout.Visible = true;
+                library.Visible = true;
             } else
             {
                 register.Visible = true;

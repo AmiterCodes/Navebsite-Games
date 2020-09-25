@@ -228,6 +228,8 @@ a:hover {
 }
 
 .button {
+    text-align: center;
+    display: inline-block;
     padding: .5rem;
     color: white;
     background: linear-gradient(259.72deg, #767FD1 14.72%, #7160D9 73.32%);
@@ -319,11 +321,10 @@ a:hover {
     justify-content: space-evenly;
 }
 
-    .libgame_buttons > * {
+    .libgame_buttons > a {
         width: 5rem;
-        height: 2rem;
         margin: 1rem;
-        padding: 0;
+        padding: .5rem;
     }
 
 .libgame_time {
@@ -640,6 +641,11 @@ select {
     display: flex;
     align-items: center;
     
+}
+.tuple_vert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .input_label {

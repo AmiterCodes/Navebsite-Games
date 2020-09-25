@@ -10,42 +10,42 @@
 namespace Navebsite {
     
     
-    public partial class Store {
+    public partial class UserSettings {
         
         /// <summary>
-        /// sortBy control.
+        /// Background control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList sortBy;
+        protected global::System.Web.UI.WebControls.FileUpload Background;
         
         /// <summary>
-        /// slider control.
+        /// UploadBackground control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox slider;
+        protected global::System.Web.UI.WebControls.Button UploadBackground;
         
         /// <summary>
-        /// text control.
+        /// ProfilePicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label text;
+        protected global::System.Web.UI.WebControls.FileUpload ProfilePicture;
         
         /// <summary>
-        /// gm control.
+        /// ProfilePicture control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Navebsite.Controls.GameList gm;
+        protected global::System.Web.UI.WebControls.Button ProfilePicture;
     }
 }

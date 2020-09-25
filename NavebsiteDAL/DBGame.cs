@@ -19,19 +19,30 @@ namespace NavebsiteDAL
             return DalHelper.AllWhere("Games", "Developer", devId);
         }
 
-        public static int InsertGame(string gameName, string link, string version, string description, string background, string logo, int developer, double price)
+        public static int InsertGame(string gameName, string link, string description, string background, string logo, int developer, double price)
         {
             return DalHelper.Insert($"INSERT INTO Games ([Game Name],[Game Link],Description,Background,Logo,Developer,Price) " +
                 $"VALUES ('{gameName}','{link}','{description}','{background}','{logo}',{developer},{price})");
         }
         
         /// <summary>
-        /// returns all games from the database
+        /// returns all public (accepted review) games from the database
         /// </summary>
         /// <returns>DataTable of all games</returns>
-        public static DataTable AllGames()
+        public static DataTable AllPublicGames()
         {
-            return DalHelper.AllFromTable("Games");
+            return DalHelper.AllWhere("Games", "Review Status", 1);
         }
+
+        /// <summary>
+        /// returns all games that need reviewing from the database
+        /// </summary>
+        /// <returns>DataTable of all games</returns>
+        public static DataTable GamesToReview()
+        {
+            return DalHelper.AllWhere("Games", "Review Status", 0);
+        }
+
+
     }
 }

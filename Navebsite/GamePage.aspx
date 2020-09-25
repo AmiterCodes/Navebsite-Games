@@ -17,5 +17,6 @@
             <h2>Reviews</h2>
         </asp:Panel>
     </asp:Panel>
-    <NV:Gallery runat="server" Id="gallery"/>
+    <NV:Gallery runat="server" ID="gallery"/>
+    <NV:UserList runat="server" ID="friends"/>
 </asp:Content>

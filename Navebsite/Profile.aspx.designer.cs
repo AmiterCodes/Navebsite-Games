@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite
-{
-
-
-    public partial class Profile
-    {
-
+namespace Navebsite {
+    
+    
+    public partial class Profile {
+        
         /// <summary>
         /// banner control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image banner;
-
+        
         /// <summary>
         /// icon control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image icon;
-
+        
         /// <summary>
         /// name control.
         /// </summary>
@@ -40,7 +38,25 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label name;
-
+        
+        /// <summary>
+        /// AddButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddButton;
+        
+        /// <summary>
+        /// RemoveButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button RemoveButton;
+        
         /// <summary>
         /// activities control.
         /// </summary>
@@ -49,7 +65,7 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Navebsite.Controls.ActivityList activities;
-
+        
         /// <summary>
         /// friends control.
         /// </summary>
