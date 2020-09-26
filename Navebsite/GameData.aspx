@@ -2,6 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
-<NV:SalesChart ID="sales" runat="server" />
-    
+    <NV:SalesChart ID="sales" runat="server"/>
+
 </asp:Content>

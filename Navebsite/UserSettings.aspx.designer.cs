@@ -13,6 +13,15 @@ namespace Navebsite {
     public partial class UserSettings {
         
         /// <summary>
+        /// CurrentBackground control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image CurrentBackground;
+        
+        /// <summary>
         /// Background control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Navebsite {
         protected global::System.Web.UI.WebControls.Button UploadBackground;
         
         /// <summary>
+        /// CurrentProfilePicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image CurrentProfilePicture;
+        
+        /// <summary>
         /// ProfilePicture control.
         /// </summary>
         /// <remarks>
@@ -40,12 +58,48 @@ namespace Navebsite {
         protected global::System.Web.UI.WebControls.FileUpload ProfilePicture;
         
         /// <summary>
-        /// ProfilePicture control.
+        /// UploadProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ProfilePicture;
+        protected global::System.Web.UI.WebControls.Button UploadProfile;
+        
+        /// <summary>
+        /// Bio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Bio;
+        
+        /// <summary>
+        /// UpdateBio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpdateBio;
+        
+        /// <summary>
+        /// ImageUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
+        
+        /// <summary>
+        /// UploadImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UploadImage;
     }
 }

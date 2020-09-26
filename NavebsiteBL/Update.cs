@@ -38,6 +38,5 @@ namespace NavebsiteBL
         {
             return (from DataRow dr in DbUpdate.ListUpdates(game).Rows select new Update(dr)).ToList();
         }
-        
     }
 }

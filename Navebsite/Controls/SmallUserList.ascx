@@ -2,3 +2,4 @@
 
 <asp:Panel runat="server" ID="userList" CssClass="user_list">
 </asp:Panel>
+<asp:Label Text="" runat="server" ID="TitleLabel"/>

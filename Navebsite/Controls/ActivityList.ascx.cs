@@ -1,10 +1,11 @@
-﻿using NavebsiteBL;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Web.UI;
+using NavebsiteBL;
 
 namespace Navebsite.Controls
 {
-    public partial class ActivityList : System.Web.UI.UserControl
+    public partial class ActivityList : UserControl
     {
         public List<Activity> Activities { get; set; }
 

@@ -11,14 +11,13 @@ namespace NavebsiteDAL
 
         public static DataTable GetUserGames(int userId)
         {
-            return DalHelper.Select($"SELECT * FROM Games INNER JOIN UserGames ON Games.ID = UserGames.Game WHERE User = {userId}");
+            return DalHelper.Select(
+                $"SELECT * FROM Games INNER JOIN UserGames ON Games.ID = UserGames.Game WHERE User = {userId}");
         }
 
         public static DataTable AllUserGames()
         {
             return DalHelper.AllFromTable("UserGames");
         }
-
-        
     }
 }

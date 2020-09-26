@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
 
 namespace NavebsiteDAL
 {
     public class DbGenre
     {
-
         public static DataTable AllGenres()
         {
             return DalHelper.AllFromTable("Genres");
         }
+
         public static DataRow GetGenre(int id)
         {
             return DalHelper.GetRowById(id, "Genres");
@@ -21,7 +16,8 @@ namespace NavebsiteDAL
 
         public static int InsertGenre(string genreName)
         {
-            return DalHelper.InsertIfNotExist($"INSERT INTO Genres ([Genre Name]) VALUES ('{genreName}')", $"SELECT ID FROM Genres WHERE [Genre Name] LIKE '{genreName}'");
+            return DalHelper.InsertIfNotExist($"INSERT INTO Genres ([Genre Name]) VALUES ('{genreName}')",
+                $"SELECT ID FROM Genres WHERE [Genre Name] LIKE '{genreName}'");
         }
 
         public static int InsertGameGenre(int genreId, int gameId)
@@ -29,7 +25,7 @@ namespace NavebsiteDAL
             return DalHelper.Insert($"INSERT INTO GameGenres (Game,Genre) VALUES({gameId},{genreId})");
         }
 
-        public static DataTable GetGenresByGame(int gameId) 
+        public static DataTable GetGenresByGame(int gameId)
         {
             var sql = $@"SELECT Genres.*
                             FROM Games 

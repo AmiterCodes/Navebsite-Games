@@ -1,13 +1,12 @@
-﻿using NavebsiteBL;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Web.UI;
+using NavebsiteBL;
 
 namespace Navebsite.Controls
 {
-    public partial class GameLibrary : System.Web.UI.UserControl
+    public partial class GameLibrary : UserControl
     {
-
-
         public List<UserGame> Games { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)

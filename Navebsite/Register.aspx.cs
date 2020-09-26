@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using NavebsiteBL;
 
 namespace Navebsite
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class Register : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,7 +11,6 @@ namespace Navebsite
 
         protected void Register_Click(object sender, EventArgs e)
         {
-
             Validate();
             if (!IsValid) return;
             var userName = username.Text;
@@ -26,7 +20,8 @@ namespace Navebsite
             if (user == null)
             {
                 errorBox.Text = "Register did not work";
-            } else
+            }
+            else
             {
                 Session["user"] = user;
                 user.AddActivity("Created Account");

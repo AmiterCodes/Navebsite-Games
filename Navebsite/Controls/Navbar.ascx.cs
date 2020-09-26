@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Web.UI;
 using NavebsiteBL;
 
 namespace Navebsite.Controls
 {
-    public partial class Navbar : System.Web.UI.UserControl
+    public partial class Navbar : UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             welcome.Text = "";
-            var user = (User)Session["user"];
+            var user = (User) Session["user"];
             profile.Visible = false;
             logout.Visible = false;
             login.Visible = false;
@@ -20,12 +21,12 @@ namespace Navebsite.Controls
                 profile.Visible = true;
                 logout.Visible = true;
                 library.Visible = true;
-            } else
+            }
+            else
             {
                 register.Visible = true;
                 login.Visible = true;
             }
         }
-
     }
 }

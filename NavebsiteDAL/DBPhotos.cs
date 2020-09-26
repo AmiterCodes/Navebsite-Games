@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace NavebsiteDAL
 {
@@ -12,6 +7,7 @@ namespace NavebsiteDAL
         GamePhotos,
         UserPhotos
     }
+
     public class DbPhotos
     {
         public static DataRow GetPhoto(int id, PhotoType type)
@@ -37,8 +33,8 @@ namespace NavebsiteDAL
 
         public static DataTable GetPhotosFromDeveloper(int developer)
         {
-            return DalHelper.Select($"SELECT GamePhotos.* FROM GamePhotos INNER JOIN Games ON GamePhotos.Game = Games.Id WHERE Games.Developer = {developer};");
-
+            return DalHelper.Select(
+                $"SELECT GamePhotos.* FROM GamePhotos INNER JOIN Games ON GamePhotos.Game = Games.Id WHERE Games.Developer = {developer};");
         }
 
         public static DataTable AllPhotos(PhotoType type)

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace NavebsiteDAL
 {
@@ -31,7 +26,7 @@ namespace NavebsiteDAL
             if (tb.Rows.Count == 0) return false;
 
             var row = tb.Rows[0];
-            var hash =(string) row["HashPass"];
+            var hash = (string) row["HashPass"];
 
             return BCrypt.Net.BCrypt.EnhancedVerify(password, hash);
         }
@@ -39,9 +34,9 @@ namespace NavebsiteDAL
         public static int InsertUser(string username, string password)
         {
             return DalHelper.Insert(
-"INSERT INTO Users" +
-"(Username,HashPass)"+
-$"VALUES('{username}', '{BCrypt.Net.BCrypt.EnhancedHashPassword(password)}')");
+                "INSERT INTO Users" +
+                "(Username,HashPass)" +
+                $"VALUES('{username}', '{BCrypt.Net.BCrypt.EnhancedHashPassword(password)}')");
         }
     }
 }

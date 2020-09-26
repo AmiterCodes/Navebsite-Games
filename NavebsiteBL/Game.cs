@@ -2,14 +2,51 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NavebsiteDAL;
 
 namespace NavebsiteBL
 {
     public class Game
     {
+        public Game(DataRow row)
+        {
+            if (row == null) throw new InvalidOperationException();
+
+            Id = (int) row["ID"];
+            GameName = (string) row["Game Name"];
+            GameLink = (string) row["Game Link"];
+            Description = (string) row["Description"];
+            ReviewStatus = (int) row["Review Status"];
+            Background = (string) row["Background"];
+            Logo = (string) row["Logo"];
+            DeveloperId = (int) row["Developer"];
+            PublishDate = (DateTime) row["Publish Date"];
+            Price = (double) row["Price"];
+        }
+
+        public Game()
+        {
+        }
+
+        public Game(string gameName, string link, string description, string background, string logo, int developer,
+            double price)
+        {
+            Id = DbGame.InsertGame(gameName, link, description, background, logo, developer, price);
+            GameName = gameName;
+            GameLink = link;
+            Description = description;
+            Background = background;
+            Logo = logo;
+            ReviewStatus = 0;
+            PublishDate = DateTime.Now;
+            DeveloperId = developer;
+            Price = price;
+        }
+
+        public Game(int id) : this(DbGame.GetGame(id))
+        {
+        }
+
         public int Id { get; set; }
         public string GameName { get; set; }
         public string GameLink { get; set; }
@@ -29,52 +66,15 @@ namespace NavebsiteBL
         public Developer Developer => new Developer(DeveloperId);
         public string DeveloperName => Developer.DeveloperName;
 
-        public string GenresString { get
+        public string GenresString
+        {
+            get
             {
-                List<Genre> list = Genres;
+                var list = Genres;
                 if (list.Count == 0) return "";
-                string s = list.Aggregate("", (current, g) => current + (g.GenreName + ", "));
+                var s = list.Aggregate("", (current, g) => current + g.GenreName + ", ");
                 return s.Substring(0, s.Length - 2);
-            } }
-
-
-        public Game(DataRow row)
-        {
-            if (row == null) throw new InvalidOperationException();
-
-            this.Id = (int)row["ID"];
-            this.GameName = (string)row["Game Name"];
-            this.GameLink = (string)row["Game Link"];
-            this.Description = (string)row["Description"];
-            this.ReviewStatus = (int)row["Review Status"];
-            this.Background = (string)row["Background"];
-            this.Logo = (string)row["Logo"];
-            this.DeveloperId = (int)row["Developer"];
-            this.PublishDate = (DateTime)row["Publish Date"];
-            this.Price = (double)row["Price"];
-
-        }
-
-        public Game() {}
-
-        public Game(string gameName, string link, string description, string background, string logo, int developer, double price) {
-
-            this.Id = DbGame.InsertGame(gameName,link,description,background,logo,developer,price);
-            GameName = gameName;
-            GameLink = link;
-            Description = description;
-            Background = background;
-            Logo = logo;
-            ReviewStatus = 0;
-            this.PublishDate = DateTime.Now;
-            DeveloperId = developer;
-            Price = price;
-
-        }
-
-        public Game(int id) : this(DbGame.GetGame(id))
-        {
-            
+            }
         }
 
         public static List<Game> GamesByDeveloper(int developerId)

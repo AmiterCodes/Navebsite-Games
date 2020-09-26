@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace NavebsiteBL
 {
     public class Photo
     {
-        public int Id { get; set; }
-        public string Image { get; set; }
-        public string PhotoUrl => "./Images/Photos/" + Image;
-
         public Photo()
         {
             Id = -1;
@@ -20,8 +11,12 @@ namespace NavebsiteBL
 
         public Photo(DataRow dr)
         {
-            Id = (int)dr["ID"];
-            Image = (string)dr["Photo"];
+            Id = (int) dr["ID"];
+            Image = (string) dr["Photo"];
         }
+
+        public int Id { get; set; }
+        public string Image { get; set; }
+        public string PhotoUrl => "./Images/Photos/" + Image;
     }
 }

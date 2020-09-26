@@ -94,6 +94,7 @@
     <Content Include="404.aspx" />
     <Content Include="AddGame.aspx" />
     <Content Include="AddReview.aspx" />
+    <Content Include="AdminReview.aspx" />
     <Content Include="App_Data\Navebase.accdb" />
     <Content Include="CompanyPage.aspx" />
     <Content Include="ControlsPage.aspx" />
@@ -146,6 +147,13 @@
     </Compile>
     <Compile Include="AddReview.aspx.designer.cs">
       <DependentUpon>AddReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminReview.aspx.cs">
+      <DependentUpon>AdminReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminReview.aspx.designer.cs">
+      <DependentUpon>AdminReview.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CompanyPage.aspx.cs">

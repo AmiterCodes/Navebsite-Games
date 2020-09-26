@@ -16,7 +16,7 @@ namespace Navebsite
             {
                 if (Session["user"] != null)
                 {
-                    user = (User)Session["user"];
+                    user = (User) Session["user"];
                 }
                 else
                 {

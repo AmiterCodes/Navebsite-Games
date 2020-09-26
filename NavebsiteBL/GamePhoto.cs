@@ -1,36 +1,28 @@
-﻿using NavebsiteDAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NavebsiteDAL;
 
 namespace NavebsiteBL
 {
     public class GamePhoto : Photo
     {
-        
-        public int GameId { get; set; }
-        
-
-
-        public GamePhoto(int id) : base()
+        public GamePhoto(int id)
         {
             Id = id;
             var dr = DbPhotos.GetPhoto(id, PhotoType.GamePhotos);
             if (dr == null) throw new ArgumentException("no photo with that id");
 
             GameId = (int) dr["Game"];
-            Image  = (string) dr["Photo"];
-
+            Image = (string) dr["Photo"];
         }
 
         public GamePhoto(DataRow dr) : base(dr)
         {
-
-            GameId = (int)dr["Game"];
+            GameId = (int) dr["Game"];
         }
+
+        public int GameId { get; set; }
 
         public static GamePhoto RandomPhoto(int game)
         {
@@ -40,23 +32,17 @@ namespace NavebsiteBL
         public static List<GamePhoto> PhotosByGame(int game)
         {
             var list = new List<GamePhoto>();
-            foreach(DataRow row in DbPhotos.GetPhotosOfGame(game).Rows)
-            {
-                list.Add(new GamePhoto(row));
-            }
+            foreach (DataRow row in DbPhotos.GetPhotosOfGame(game).Rows) list.Add(new GamePhoto(row));
 
             return list;
         }
+
         public static List<GamePhoto> PhotosByDeveloper(int developer)
         {
             var list = new List<GamePhoto>();
-            foreach (DataRow row in DbPhotos.GetPhotosFromDeveloper(developer).Rows)
-            {
-                list.Add(new GamePhoto(row));
-            }
+            foreach (DataRow row in DbPhotos.GetPhotosFromDeveloper(developer).Rows) list.Add(new GamePhoto(row));
 
             return list;
         }
-
     }
 }

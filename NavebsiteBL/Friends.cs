@@ -1,10 +1,7 @@
-﻿using NavebsiteDAL;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NavebsiteDAL;
 
 namespace NavebsiteBL
 {
@@ -31,12 +28,8 @@ namespace NavebsiteBL
         public static bool SendFriendRequest(int user1, int user2)
         {
             if (ExistsFriendRequest(user2, user1))
-            {
                 DbFriends.AcceptFriendRequest(user2, user1);
-            } else if (!ExistsFriendRequest(user1, user2))
-            {
-                return DbFriends.SendFriendRequest(user1, user2);
-            }
+            else if (!ExistsFriendRequest(user1, user2)) return DbFriends.SendFriendRequest(user1, user2);
 
             return true;
         }
