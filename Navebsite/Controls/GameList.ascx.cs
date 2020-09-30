@@ -13,8 +13,8 @@ namespace Navebsite.Controls
         public OrderBy OrderBy { get; set; } = OrderBy.PublishDate;
         public string SearchQuery { get; set; } = "";
         public double MaxPrice { get; set; } = double.MaxValue;
+        public List<Genre> FilterGenres { get; set; } = Genre.AllGenres();
 
-        
     }
 
     public partial class GameList : UserControl
@@ -29,7 +29,11 @@ namespace Navebsite.Controls
             get
             {
                 var o = ViewState["_search"];
-                if(o == null) return new SearchTerms();
+                if (o == null)
+                {
+                    ViewState["_search"] = new SearchTerms();
+                    return (SearchTerms) ViewState["_search"];
+                }
                 return (SearchTerms) o;
             }
             set
@@ -81,9 +85,10 @@ namespace Navebsite.Controls
             }
 
             games = games.Where(game => game.GameName.ToLower().Contains(Search.SearchQuery.ToLower()));
+            games = games.Where(game => game.Genres.Any(genre => Search.FilterGenres.Any(g => genre.Id == g.Id)));
 
             pg = new PagedDataSource { DataSource = games.ToList()
-                , AllowPaging = true, PageSize = 20, CurrentPageIndex = CurrentPage };
+                , AllowPaging = true, PageSize = 12, CurrentPageIndex = CurrentPage };
 
 
             ItemsList.DataSource = pg;

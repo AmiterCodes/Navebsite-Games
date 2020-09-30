@@ -5,7 +5,7 @@
            CellSpacing="50"
            RepeatDirection="Horizontal"
            RepeatLayout="Table"
-           RepeatColumns="5"
+           RepeatColumns="4"
               
            runat="server"
               CssClass="store">

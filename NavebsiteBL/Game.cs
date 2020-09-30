@@ -72,7 +72,12 @@ namespace NavebsiteBL
         public int DeveloperId { get; set; }
         public DateTime PublishDate { get; set; }
         public double Price { get; set; }
-        public List<Genre> Genres => (from DataRow r in DbGenre.GetGenresByGame(Id).Rows select new Genre(r)).ToList();
+        private List<Genre> _genres ;
+
+        public List<Genre> Genres =>
+            _genres ?? (_genres =
+                (from DataRow r in DbGenre.GetGenresByGame(Id).Rows select new Genre(r)).ToList());
+
         public Developer Developer => new Developer(DeveloperId);
         public string DeveloperName => Developer.DeveloperName;
 
@@ -95,25 +100,6 @@ namespace NavebsiteBL
         public static List<Game> StoreGames()
         {
             return (from DataRow r in DbGame.AllPublicGames().Rows select new Game(r)).ToList();
-        }
-
-        public static List<Game> StoreGames(OrderBy sort)
-        {
-            string sortString;
-            switch (sort)
-            {
-                case OrderBy.GameName:
-                    sortString = "Game Name";
-                    break;
-                case OrderBy.PublishDate:
-                    sortString = "Publish Date";
-                    break;
-                default:
-                    sortString = sort.ToString();
-                    break;
-            }
-
-            return (from DataRow r in DbGame.AllPublicGamesOrder(sortString).Rows select new Game(r)).ToList();
         }
     }
 }

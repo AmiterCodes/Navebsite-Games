@@ -14,6 +14,8 @@ namespace NavebsiteDAL
             return DalHelper.GetRowById(user, "Users");
         }
 
+
+
         public static DataRow GetUserByName(string username)
         {
             return DalHelper.RowWhere("Users", "Username", username);

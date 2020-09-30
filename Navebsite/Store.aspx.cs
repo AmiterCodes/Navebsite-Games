@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Navebsite.Controls;
 using NavebsiteBL;
 
@@ -11,10 +12,18 @@ namespace Navebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             if (!IsPostBack)
             {
-                ViewState["Games"] = Game.StoreGames(OrderBy.PublishDate);
+
+                GenreChecks.DataSource = Genre.AllGenres();
+                GenreChecks.DataTextField = "GenreName";
+                GenreChecks.DataValueField = "Id";
+                GenreChecks.DataBind();
+                foreach (ListItem genreChecksItem in GenreChecks.Items)
+                {
+                    genreChecksItem.Selected = true;
+                }
+                ViewState["Games"] = Game.StoreGames();
             };
 
             gm.Games = (List<Game>) ViewState["Games"];
@@ -47,6 +56,13 @@ namespace Navebsite
         {
             var terms = gm.Search;
             terms.SearchQuery = SearchBox.Text;
+            gm.Search = terms;
+        }
+
+        protected void GenreChecks_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            var terms = gm.Search;
+            terms.FilterGenres = (from ListItem item in GenreChecks.Items where item.Selected select new Genre(int.Parse(item.Value), item.Text)).ToList();
             gm.Search = terms;
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using NavebsiteDAL;
 
 namespace NavebsiteBL
@@ -46,11 +47,14 @@ namespace NavebsiteBL
         public string ProfilePictureUrl => "./Images/UserProfiles/" + ProfilePicture;
         public string BackgroundUrl => "./Images/UserBackgrounds/" + Background;
 
+        public void UpdateDescription()
+        {
+
+        }
+
         public static List<User> AllUsers()
         {
-            var users = new List<User>();
-            foreach (DataRow row in DbUser.AllUsers().Rows) users.Add(new User(row));
-            return users;
+            return (from DataRow row in DbUser.AllUsers().Rows select new User(row)).ToList();
         }
 
         public void AddActivity(string text)

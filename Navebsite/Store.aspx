@@ -12,6 +12,8 @@
     <div class="tuple_vert">
         <asp:TextBox runat="server" type="range" min="10" max="150" step="10" value="150" CssClass="slider" Id="slider" ClientIDMode="Static" AutoPostBack="True" OnTextChanged="slider_OnTextChanged"></asp:TextBox>
         <asp:Label Text="Any Price" runat="server" ClientIDMode="Static" ID="text"/>
+        <asp:CheckBoxList ID="GenreChecks" AutoPostBack="True" runat="server" OnSelectedIndexChanged="GenreChecks_OnSelectedIndexChanged">
+        </asp:CheckBoxList>
         <asp:TextBox runat="server" ID="SearchBox" CssClass="input"  AutoPostBack="True" OnTextChanged="SearchBox_OnTextChanged" />
     </div>
     <script>
