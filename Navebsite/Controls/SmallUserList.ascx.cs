@@ -13,6 +13,7 @@ namespace Navebsite.Controls
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             TitleLabel.Text = Title;
             foreach (var user in Users)
             {

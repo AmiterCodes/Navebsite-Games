@@ -6,8 +6,9 @@
            RepeatDirection="Vertical"
            RepeatLayout="Table"
            RepeatColumns="3"
+              
            runat="server"
-                CssClass="store">
+              CssClass="store">
 
                
          <ItemTemplate>
@@ -31,4 +32,8 @@
          </ItemTemplate>
  
       </asp:DataList>
+    <div class="list_footer">
+        <asp:Button Text="Next" CssClass="button" OnClick="nextButton_OnClick" ID="nextButton" runat="server" />
+        <asp:Button Text="Previous" CssClass="button" OnClick="prevButton_OnClick" ID="prevButton" runat="server" />
     </div>
+</div>

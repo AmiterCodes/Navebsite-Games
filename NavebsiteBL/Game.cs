@@ -6,6 +6,7 @@ using NavebsiteDAL;
 
 namespace NavebsiteBL
 {
+    [Serializable]
     public class Game
     {
         public Game(DataRow row)

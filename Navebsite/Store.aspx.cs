@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web.UI;
 using NavebsiteBL;
 
@@ -8,10 +9,13 @@ namespace Navebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
-                gm.Games = Game.StoreGames();
-            }
+                ViewState["Games"] = Game.StoreGames();
+            };
+
+            gm.Games = (List<Game>) ViewState["Games"];
         }
     }
 }
