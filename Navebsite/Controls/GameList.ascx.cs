@@ -1,15 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using NavebsiteBL;
 
 namespace Navebsite.Controls
 {
+    [Serializable]
+    public class SearchTerms
+    {
+        public OrderBy OrderBy { get; set; } = OrderBy.PublishDate;
+        public string SearchQuery { get; set; } = "";
+        public double MaxPrice { get; set; } = double.MaxValue;
+
+        
+    }
+
     public partial class GameList : UserControl
     {
         public List<Game> Games { get; set; }
         public PagedDataSource pg;
+
+
+
+        public SearchTerms Search
+        {
+            get
+            {
+                var o = ViewState["_search"];
+                if(o == null) return new SearchTerms();
+                return (SearchTerms) o;
+            }
+            set
+            {
+                CurrentPage = 0;
+                ViewState["_search"] = value;
+                update();
+            }
+        }
 
         public int CurrentPage
         {
@@ -33,7 +62,30 @@ namespace Navebsite.Controls
 
         public void update()
         {
-            pg = new PagedDataSource { DataSource = Games, AllowPaging = true, PageSize = 12, CurrentPageIndex = CurrentPage };
+            var games = Games.Where(game => game.Price <= Search.MaxPrice);
+
+            switch (Search.OrderBy)
+            {
+                case OrderBy.PublishDate:
+                    games = games.OrderBy(game => game.PublishDate).ThenBy(g => g.Id);
+                    break;
+                case OrderBy.GameName:
+                    games = games.OrderBy(game => game.GameName).ThenBy(g => g.Id);
+                    break;
+                case OrderBy.Price:
+                    games = games.OrderBy(game => game.Price).ThenBy(g => g.Id);
+                    break;
+                default:
+                    games = games.OrderBy(g => g.Id);
+                    break;
+            }
+
+            games = games.Where(game => game.GameName.ToLower().Contains(Search.SearchQuery.ToLower()));
+
+            pg = new PagedDataSource { DataSource = games.ToList()
+                , AllowPaging = true, PageSize = 20, CurrentPageIndex = CurrentPage };
+
+
             ItemsList.DataSource = pg;
             ItemsList.DataBind();
 

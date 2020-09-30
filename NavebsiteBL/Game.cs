@@ -7,6 +7,15 @@ using NavebsiteDAL;
 namespace NavebsiteBL
 {
     [Serializable]
+    public enum OrderBy
+    {
+        PublishDate,
+        GameName,
+        Price
+    }
+    
+
+    [Serializable]
     public class Game
     {
         public Game(DataRow row)
@@ -86,6 +95,25 @@ namespace NavebsiteBL
         public static List<Game> StoreGames()
         {
             return (from DataRow r in DbGame.AllPublicGames().Rows select new Game(r)).ToList();
+        }
+
+        public static List<Game> StoreGames(OrderBy sort)
+        {
+            string sortString;
+            switch (sort)
+            {
+                case OrderBy.GameName:
+                    sortString = "Game Name";
+                    break;
+                case OrderBy.PublishDate:
+                    sortString = "Publish Date";
+                    break;
+                default:
+                    sortString = sort.ToString();
+                    break;
+            }
+
+            return (from DataRow r in DbGame.AllPublicGamesOrder(sortString).Rows select new Game(r)).ToList();
         }
     }
 }

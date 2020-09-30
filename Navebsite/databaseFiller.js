@@ -3,7 +3,6 @@ const download = require('image-downloader');
 const fetch = require('node-fetch');
 const connection = open(`Provider=Microsoft.ACE.OLEDB.12.0;Data Source='C:\\Users\\amitn\\source\\repos\\Navebsite\\Navebsite\\App_Data\\Navebase.accdb';`);
 
-connection.query("SELECT * FROM Games").then(data => console.log(data));
 
 
 const url = 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=7CB796999B3B99E7252BCA46AC1C9CBC&steamid=76561198217085696&format=json&include_appinfo=true';
@@ -16,6 +15,32 @@ function getRandomDate(from, to) {
 
 (async () => {
 
+    const query = await connection.query("SELECT * FROM Games")
+    let data = [...query];
+    data.forEach(game => {
+
+        var genres = [];
+        while(genres.length < Math.ceil(Math.random() * 3)) {
+            var r = Math.floor(Math.random() * 5) + 1;
+            if(genres.indexOf(r) === -1) genres.push(r);
+        }
+
+        genres.forEach(genre => {
+            const sql = `INSERT INTO GameGenres
+            (Game, Genre)
+            VALUES
+            (${game.ID}, ${genre})`.replace(/\n/g, "");
+            connection.execute(sql)
+        })
+
+
+    })
+    
+
+})();
+
+
+async function genGames() {
     const data = await fetch(url).then(d => d.json());
 
     let games = [...data.response.games];
@@ -66,6 +91,4 @@ function getRandomDate(from, to) {
             let r =  await connection.execute(sql)
             console.log("Inserted game " + game.name)
     });
-    
-
-})();
+}

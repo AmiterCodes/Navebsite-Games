@@ -3,9 +3,9 @@
 <asp:DataList id="ItemsList"
            CellPadding="20"
            CellSpacing="50"
-           RepeatDirection="Vertical"
+           RepeatDirection="Horizontal"
            RepeatLayout="Table"
-           RepeatColumns="3"
+           RepeatColumns="5"
               
            runat="server"
               CssClass="store">

@@ -3,22 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
-    <asp:DropDownList runat="server" ID="sortBy">
-        <asp:ListItem Value="Publish Date">Release Date</asp:ListItem>
-        <asp:ListItem Value="Game Name">Name</asp:ListItem>
+    <asp:DropDownList runat="server" ID="sortBy" AutoPostBack="True" OnSelectedIndexChanged="sortBy_OnSelectedIndexChanged">
+        <asp:ListItem Value="PublishDate">Release Date</asp:ListItem>
+        <asp:ListItem Value="GameName">Name</asp:ListItem>
         <asp:ListItem Value="Price">Price</asp:ListItem>
     </asp:DropDownList>
 
     <div class="tuple_vert">
-        <asp:TextBox runat="server" type="range" min="0" max="300" step="20" value="300" CssClass="slider" Id="slider" ClientIDMode="Static"></asp:TextBox>
+        <asp:TextBox runat="server" type="range" min="10" max="150" step="10" value="150" CssClass="slider" Id="slider" ClientIDMode="Static" AutoPostBack="True" OnTextChanged="slider_OnTextChanged"></asp:TextBox>
         <asp:Label Text="Any Price" runat="server" ClientIDMode="Static" ID="text"/>
+        <asp:TextBox runat="server" ID="SearchBox" CssClass="input"  AutoPostBack="True" OnTextChanged="SearchBox_OnTextChanged" />
     </div>
     <script>
         let slider = document.getElementById("slider");
         let text = document.getElementById("text");
         slider.addEventListener('change',
             (e) => {
-                if (slider.value === slider.max) text.innerText = "Any price";
+                if (slider.value === slider.max) text.innerText = "Any Price";
                 else
                     text.innerText = slider.value + "";
             });
