@@ -17,7 +17,7 @@ namespace Navebsite.Controls
             library.Visible = false;
             if (Session["user"] != null)
             {
-                welcome.Text = "Ahoy, " + user.Username;
+                welcome.Text = "Ahoy, " + Server.HtmlEncode(user.Username);
                 profile.Visible = true;
                 logout.Visible = true;
                 library.Visible = true;

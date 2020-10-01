@@ -48,15 +48,34 @@ namespace NavebsiteBL
         public string ProfilePictureUrl => "./Images/UserProfiles/" + ProfilePicture;
         public string BackgroundUrl => "./Images/UserBackgrounds/" + Background;
 
+
+        public void UpdateBalance(double newBalance)
+        {
+            this.Balance = newBalance;
+            DbUser.UpdateBalance(newBalance, Id);
+        }
+
         public void UpdateDescription(string desc)
         {
             this.Description = desc;
             DbUser.UpdateDescription(desc, Id);
         }
 
-        public void UpdatePassword(string password)
+        public void UpdateProfilePicture(string filename)
         {
-            DbUser.UpdatePassword(password);
+            this.ProfilePicture = filename;
+            DbUser.UpdateProfilePicture(filename, Id);
+        }
+
+        public void UpdateBackground(string filename)
+        {
+            this.Background = filename;
+            DbUser.UpdateBackground(filename, Id);
+        }
+
+        public bool UpdatePassword(string password)
+        {
+            return DbUser.UpdatePassword(password, Id);
         }
 
         public static List<User> AllUsers()

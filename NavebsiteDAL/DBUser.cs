@@ -41,14 +41,31 @@ namespace NavebsiteDAL
                 $"VALUES('{username}', '{BCrypt.Net.BCrypt.EnhancedHashPassword(password)}')");
         }
 
-        public static void UpdatePassword(string password)
+        public static bool UpdatePassword(string password, int user)
         {
-            throw new System.NotImplementedException();
+            string hash = BCrypt.Net.BCrypt.EnhancedHashPassword(password);
+
+            return DalHelper.UpdateWhere("Users", "HashPass", hash, "ID", user) > 0;
         }
 
         public static void UpdateDescription(string desc, int user)
         {
             DalHelper.UpdateWhere("Users", "Description", desc, "ID", user);
+        }
+
+        public static void UpdateBackground(string filename, int user)
+        {
+            DalHelper.UpdateWhere("Users", "Background", filename, "ID", user);
+        }
+
+        public static void UpdateProfilePicture(string filename, int user)
+        {
+            DalHelper.UpdateWhere("Users", "Profile Picture", filename, "ID", user);
+        }
+
+        public static void UpdateBalance(double newBalance, int user)
+        {
+            DalHelper.UpdateWhere("Users", "Balance", newBalance, "ID", user);
         }
     }
 }

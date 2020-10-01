@@ -17,10 +17,10 @@ namespace Navebsite.Controls
                 stars.Controls.Add(image);
             }
 
-            content.Text = ReviewObject.Content;
-            title.Text = ReviewObject.GameName + " Review";
+            content.Text = Server.HtmlEncode(ReviewObject.Content);
+            title.Text = Server.HtmlEncode(ReviewObject.GameName) + " Review";
             title.NavigateUrl = "../GamePage.aspx?id=" + ReviewObject.GameId;
-            author.Text = "review by " + ReviewObject.Username;
+            author.Text = "review by " + Server.HtmlEncode(ReviewObject.Username);
             author.NavigateUrl = "../Profile.aspx?id=" + ReviewObject.UserId;
         }
     }

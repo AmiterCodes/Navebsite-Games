@@ -118,12 +118,19 @@
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Main.css" />
+    <Content Include="Pay.aspx" />
+    <Content Include="pay.js" />
     <Content Include="Register.aspx" />
     <Content Include="Store.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="UserSettings.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\CreditWebService\CreditWebService.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +162,7 @@
     <Compile Include="AdminReview.aspx.designer.cs">
       <DependentUpon>AdminReview.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\UploadHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CompanyPage.aspx.cs">
       <DependentUpon>CompanyPage.aspx</DependentUpon>
@@ -292,10 +300,22 @@
     <Compile Include="Missy.Master.designer.cs">
       <DependentUpon>Missy.Master</DependentUpon>
     </Compile>
+    <Compile Include="Pay.aspx.cs">
+      <DependentUpon>Pay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pay.aspx.designer.cs">
+      <DependentUpon>Pay.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -335,12 +355,25 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Web References\CreditWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Missy.Master" />
     <None Include="packages.config" />
     <Content Include="Site.Mobile.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Web References\CreditWebService\CreditWebService.wsdl" />
+    <Content Include="Web References\CreditWebService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\CreditWebService\Transaction.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -353,6 +386,25 @@
       <Project>{1d3c58ae-83d3-461a-9beb-6b23f5421c61}</Project>
       <Name>NavebsiteBL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost:11524/CreditWebService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CreditWebService\</RelPath>
+      <UpdateFromURL>http://localhost:11524/CreditWebService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Navebsite_CreditWebService_CreditWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

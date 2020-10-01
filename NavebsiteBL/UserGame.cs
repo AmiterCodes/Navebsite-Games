@@ -14,6 +14,7 @@ namespace NavebsiteBL
             Timestamp = (DateTime) dr["Timestamp"];
         }
 
+
         public int UserId { get; set; }
         public DateTime Timestamp { get; set; }
 
