@@ -40,5 +40,15 @@ namespace NavebsiteDAL
                 "(Username,HashPass)" +
                 $"VALUES('{username}', '{BCrypt.Net.BCrypt.EnhancedHashPassword(password)}')");
         }
+
+        public static void UpdatePassword(string password)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public static void UpdateDescription(string desc, int user)
+        {
+            DalHelper.UpdateWhere("Users", "Description", desc, "ID", user);
+        }
     }
 }

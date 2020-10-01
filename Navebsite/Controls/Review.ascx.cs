@@ -20,7 +20,7 @@ namespace Navebsite.Controls
             content.Text = ReviewObject.Content;
             title.Text = ReviewObject.GameName + " Review";
             title.NavigateUrl = "../GamePage.aspx?id=" + ReviewObject.GameId;
-            author.Text = "OrderBy " + ReviewObject.Username;
+            author.Text = "review by " + ReviewObject.Username;
             author.NavigateUrl = "../Profile.aspx?id=" + ReviewObject.UserId;
         }
     }

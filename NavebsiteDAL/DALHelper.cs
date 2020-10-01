@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.OleDb;
 
 namespace NavebsiteDAL
 {
@@ -9,14 +10,14 @@ namespace NavebsiteDAL
         /// </summary>
         /// <param name="sql">sql query</param>
         /// <returns>id of newly inserted row, -1 if it didn't work</returns>
-        public static int Insert(string sql)
+        public static int Insert(string sql, params OleDbParameter[] parameters)
         {
             var helper = new DbHelper(Constants.Provider, Constants.Path);
 
 
             if (!helper.OpenConnection()) throw new ConnectionException();
 
-            var id = helper.InsertWithAutoNumKey(sql);
+            var id = helper.InsertWithAutoNumKey(sql, parameters);
             helper.CloseConnection();
 
             return id;
@@ -47,28 +48,25 @@ namespace NavebsiteDAL
         /// </summary>
         /// <param name="sql">sql query</param>
         /// <returns>id of newly inserted row, -1 if it didn't work</returns>
-        public static int Update(string sql)
+        public static int Update(string sql, params OleDbParameter[] parameters)
         {
             var helper = new DbHelper(Constants.Provider, Constants.Path);
 
 
             if (!helper.OpenConnection()) throw new ConnectionException();
 
-            var id = helper.WriteData(sql);
+            var id = helper.WriteData(sql, parameters);
             helper.CloseConnection();
 
             return id;
         }
 
-        public static int UpdateWhere(string table, string column, string value, string checkColumn, string checkValue)
+        public static int UpdateWhere(string table, string column, object value, string checkColumn, object checkValue)
         {
-            return Update($"UPDATE `{table}` SET `{column}` = '{value}' WHERE `{checkColumn}` = '{checkValue}'");
+            return Update($"UPDATE `{table}` SET `{column}` = @value WHERE `{checkColumn}` = @checkValue",
+                new OleDbParameter("@value", value), new OleDbParameter("@checkValue", checkValue));
         }
 
-        public static int UpdateWhere(string table, string column, int value, string checkColumn, int checkValue)
-        {
-            return Update($"UPDATE `{table}` SET `{column}` = '{value}' WHERE `{checkColumn}` = {checkValue}");
-        }
 
 
         /// <summary>
@@ -76,14 +74,14 @@ namespace NavebsiteDAL
         /// </summary>
         /// <param name="sql">sql query to run</param>
         /// <returns>DataTable containing the results</returns>
-        public static DataTable Select(string sql)
+        public static DataTable Select(string sql, params OleDbParameter[] parameters)
         {
             var helper = new DbHelper(Constants.Provider, Constants.Path);
 
 
             if (!helper.OpenConnection()) throw new ConnectionException();
 
-            var tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql, parameters);
             helper.CloseConnection();
 
             return tb;

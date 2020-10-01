@@ -8,13 +8,14 @@ namespace Navebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var user = (User)Session["user"];
+            var user = (User) Session["user"];
             if (user == null)
             {
                 Response.Redirect("Login.aspx");
                 return;
             }
 
+            if (IsPostBack) return;
             Bio.Text = user.Description;
             CurrentBackground.ImageUrl = user.BackgroundUrl;
             CurrentProfilePicture.ImageUrl = user.ProfilePictureUrl;
@@ -22,7 +23,13 @@ namespace Navebsite
 
         protected void UpdateBio_OnClick(object sender, EventArgs e)
         {
-            
+            var user = (User)Session["user"];
+            if (user == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+            user.UpdateDescription(Bio.Text);
         }
 
         protected void UploadImage_OnClick(object sender, EventArgs e)

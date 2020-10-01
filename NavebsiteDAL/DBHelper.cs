@@ -51,9 +51,9 @@ namespace NavebsiteDAL
         /// </summary>
         /// <param name="sql">SQL SELECT Query</param>
         /// <returns>the data table, or null if it failed</returns>
-        public DataTable GetDataTable(string sql)
+        public DataTable GetDataTable(string sql, params OleDbParameter[] parameters)
         {
-            var reader = ReadData(sql);
+            var reader = ReadData(sql, parameters);
             DataTable output = null;
 
             if (reader != null)
@@ -70,11 +70,16 @@ namespace NavebsiteDAL
         /// </summary>
         /// <param name="sql">SQL INSERT query</param>
         /// <returns>ID of element</returns>
-        public int InsertWithAutoNumKey(string sql)
+        public int InsertWithAutoNumKey(string sql, params OleDbParameter[] parameters)
         {
             try
             {
                 var cmd = new OleDbCommand(sql, _conn);
+
+                foreach (var oleDbParameter in parameters)
+                {
+                    cmd.Parameters.Add(oleDbParameter);
+                }
 
                 var reader = cmd.ExecuteReader();
 
@@ -99,16 +104,21 @@ namespace NavebsiteDAL
 
 
         /// <summary>
-        ///     runs a INSERT, UPDATE or DELETE query on the database
+        ///     runs a INSERT, UPDATE or DELETE query on thes database
         /// </summary>
         /// <param name="sql">SQL Query</param>
         /// <returns>the numbers of rows affected</returns>
-        public int WriteData(string sql)
+        public int WriteData(string sql, params OleDbParameter[] parameters)
         {
             try
             {
                 if (!_connOpen) return WriteDataError;
                 var cmd = new OleDbCommand(sql, _conn);
+
+                foreach (var oleDbParameter in parameters)
+                {
+                    cmd.Parameters.Add(oleDbParameter);
+                }
 
                 var reader = cmd.ExecuteReader();
 
@@ -126,10 +136,17 @@ namespace NavebsiteDAL
         ///     Reads data from an SQL "SELECT" query
         /// </summary>
         /// <param name="sql">SQL query to process</param>
+        /// <param name="parameters">list of parameters</param>
         /// <returns>The DataReader, if fails returns null</returns>
-        public OleDbDataReader ReadData(string sql)
+        public OleDbDataReader ReadData(string sql, params OleDbParameter[] parameters)
         {
+
             var cmd = new OleDbCommand(sql, _conn);
+            foreach (var oleDbParameter in parameters)
+            {
+                cmd.Parameters.Add(oleDbParameter);
+            }
+
             // since execute reader returns null on failure, that's all we have to do.
             return cmd.ExecuteReader();
         }

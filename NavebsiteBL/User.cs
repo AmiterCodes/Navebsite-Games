@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using NavebsiteDAL;
 
 namespace NavebsiteBL
@@ -47,9 +48,15 @@ namespace NavebsiteBL
         public string ProfilePictureUrl => "./Images/UserProfiles/" + ProfilePicture;
         public string BackgroundUrl => "./Images/UserBackgrounds/" + Background;
 
-        public void UpdateDescription()
+        public void UpdateDescription(string desc)
         {
+            this.Description = desc;
+            DbUser.UpdateDescription(desc, Id);
+        }
 
+        public void UpdatePassword(string password)
+        {
+            DbUser.UpdatePassword(password);
         }
 
         public static List<User> AllUsers()
