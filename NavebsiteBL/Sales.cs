@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using NavebsiteDAL;
 
 namespace NavebsiteBL
@@ -20,9 +21,7 @@ namespace NavebsiteBL
 
         private static List<Sales> DataTableToList(DataTable tb)
         {
-            var list = new List<Sales>();
-            foreach (DataRow dr in tb.Rows) list.Add(new Sales(dr));
-            return list;
+            return (from DataRow dr in tb.Rows select new Sales(dr)).ToList();
         }
 
         public static DataTable GameStatsTable(int gameId)

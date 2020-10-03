@@ -13,13 +13,22 @@ namespace Navebsite.Controls {
     public partial class Navbar {
         
         /// <summary>
+        /// store control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl store;
+        
+        /// <summary>
         /// register control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink register;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl register;
         
         /// <summary>
         /// logout control.
@@ -28,7 +37,7 @@ namespace Navebsite.Controls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink logout;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logout;
         
         /// <summary>
         /// login control.
@@ -37,16 +46,7 @@ namespace Navebsite.Controls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink login;
-        
-        /// <summary>
-        /// profile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink profile;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl login;
         
         /// <summary>
         /// library control.
@@ -55,15 +55,6 @@ namespace Navebsite.Controls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink library;
-        
-        /// <summary>
-        /// welcome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label welcome;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl library;
     }
 }

@@ -19,5 +19,10 @@ namespace NavebsiteDAL
         {
             return DalHelper.AllFromTable("UserGames");
         }
+
+        public static void AddGame(int user, int game, double price)
+        {
+            DalHelper.Insert($"INSERT INTO UserGames (User, Game,Cost) VALUES ({user},{game},{price})");
+        }
     }
 }

@@ -61,14 +61,14 @@ namespace Navebsite
         {
             var user = (User)Session["user"];
             if (user == null) Response.Redirect("Login.aspx");
-            CreditWebService.CreditWebService service = new CreditWebService.CreditWebService();
-            CreditCardDetails details = new CreditCardDetails
+            var service = new CreditWebService.CreditWebService();
+            var details = new CreditCardDetails
             {
-                CardNumber = cardnumber.Text,
+                CardNumber = cardnumber.Text.Replace(" ",""),
                 CardVerificationValue = securitycode.Text,
                 HolderName = name.Text,
                 Month = int.Parse(expirationdate.Text.Substring(0, 2)),
-                Year = int.Parse(expirationdate.Text.Substring(2, 2))
+                Year = int.Parse(expirationdate.Text.Substring(3, 2))
             };
 
             var transaction = service.Pay(details, "Navebsite Games Inc.", amount);
@@ -78,15 +78,16 @@ namespace Navebsite
                 return;
             }
 
-            if (payingFor == "bal")
+            switch (payingFor)
             {
-                user.UpdateBalance(amount + user.Balance);
-
-            }
-
-            if (payingFor == "game")
-            {
-                UserGame.
+                case "bal":
+                    user.UpdateBalance(amount + user.Balance);
+                    Response.Redirect("UserSettings.aspx");
+                    break;
+                case "game":
+                    UserGame.AddGame(user.Id, game.Id, amount);
+                    Response.Redirect("GamePage.aspx?id=" + game.Id);
+                    break;
             }
         }
     }

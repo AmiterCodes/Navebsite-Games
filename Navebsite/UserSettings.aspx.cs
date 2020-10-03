@@ -16,6 +16,8 @@ namespace Navebsite
                 Response.Redirect("Login.aspx");
                 return;
             }
+
+            CurrentBalance.Text = "" + user.Balance;
             CurrentBackground.ImageUrl = user.BackgroundUrl;
             CurrentProfilePicture.ImageUrl = user.ProfilePictureUrl;
             if (IsPostBack) return;
@@ -95,7 +97,7 @@ namespace Navebsite
 
         protected void AddBalanceButton_OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("Pay.aspx" + );
+            Response.Redirect($"Pay.aspx?am={AddBalance.Text}&for=bal");
         }
     }
 }

@@ -14,6 +14,10 @@ namespace NavebsiteBL
             Timestamp = (DateTime) dr["Timestamp"];
         }
 
+        public static void AddGame(int user, int game, double price)
+        {
+            DbUserGames.AddGame(user, game, price);
+        }
 
         public int UserId { get; set; }
         public DateTime Timestamp { get; set; }

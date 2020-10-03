@@ -11,6 +11,16 @@ namespace NavebsiteDAL
                                     $" WHERE Games.ID = {gameId}");
         }
 
+        public static double AverageRating(int gameId)
+        {
+            DataTable tb = DalHelper.Select($@"SELECT Avg(GameReviews.Stars) AS Rating
+FROM GameReviews
+WHERE Game = {gameId}
+GROUP BY GameReviews.Game;");
+            if (tb.Rows.Count == 0) return -1;
+            return (double) tb.Rows[0][0];
+        }
+
         public static DataTable ReviewsByUser(int userId)
         {
             return DalHelper.Select("SELECT GameReviews.*, Users.Username, Games.[Game Name]" +

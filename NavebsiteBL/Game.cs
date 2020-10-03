@@ -74,6 +74,8 @@ namespace NavebsiteBL
         public double Price { get; set; }
         private List<Genre> _genres ;
 
+        public double AverageRating => DbReview.AverageRating(Id);
+
         public List<Genre> Genres =>
             _genres ?? (_genres =
                 (from DataRow r in DbGenre.GetGenresByGame(Id).Rows select new Genre(r)).ToList());
@@ -95,6 +97,11 @@ namespace NavebsiteBL
         public static List<Game> GamesByDeveloper(int developerId)
         {
             return (from DataRow r in DbGame.AllGamesFromDeveloper(developerId).Rows select new Game(r)).ToList();
+        }
+
+        public static List<Game> ReviewGames()
+        {
+            return (from DataRow r in DbGame.GamesToReview().Rows select new Game(r)).ToList();
         }
 
         public static List<Game> StoreGames()

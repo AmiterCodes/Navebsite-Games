@@ -8,17 +8,13 @@ namespace Navebsite.Controls
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            welcome.Text = "";
             var user = (User) Session["user"];
-            profile.Visible = false;
             logout.Visible = false;
             login.Visible = false;
             register.Visible = false;
             library.Visible = false;
             if (Session["user"] != null)
             {
-                welcome.Text = "Ahoy, " + Server.HtmlEncode(user.Username);
-                profile.Visible = true;
                 logout.Visible = true;
                 library.Visible = true;
             }

@@ -114,14 +114,14 @@
             </div>
             <div class="tuple">
                 <asp:Label runat="server" AssociatedControlID="cardnumber">Card Number</asp:Label>
-                <asp:TextBox ClientIDMode="Static" CssClass="input" ID="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric" runat="server"></asp:TextBox>
+                <asp:TextBox ClientIDMode="Static" CssClass="input" ID="cardnumber" type="text" pattern="[0-9 ]*" inputmode="numeric" runat="server"></asp:TextBox>
                 <svg id="ccicon" class="ccicon" width="750" height="471" viewBox="0 0 750 471" version="1.1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
                 </svg>
             </div>
             <div class="tuple">
                 <asp:Label runat="server" AssociatedControlID="expirationdate">Expiration (mm/yy)</asp:Label>
-                <asp:TextBox ClientIDMode="Static" CssClass="input" ID="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric" runat="server"></asp:TextBox>
+                <asp:TextBox ClientIDMode="Static" CssClass="input" ID="expirationdate" type="text" pattern="[0-9/]*" inputmode="numeric" runat="server"></asp:TextBox>
             </div>
             <div class="tuple">
                 <asp:Label runat="server" AssociatedControlID="securitycode">Security Code</asp:Label>
