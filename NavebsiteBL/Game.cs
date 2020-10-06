@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using NavebsiteDAL;
 
 namespace NavebsiteBL
@@ -76,6 +77,11 @@ namespace NavebsiteBL
 
         public double AverageRating => DbReview.AverageRating(Id);
 
+        public void LoadGenres()
+        {
+            List<Genre> genres = Genres;
+        }
+
         public List<Genre> Genres =>
             _genres ?? (_genres =
                 (from DataRow r in DbGenre.GetGenresByGame(Id).Rows select new Genre(r)).ToList());
@@ -106,7 +112,35 @@ namespace NavebsiteBL
 
         public static List<Game> StoreGames()
         {
-            return (from DataRow r in DbGame.AllPublicGames().Rows select new Game(r)).ToList();
+            var games = DbGame.AllPublicGames();
+            var genres = DbGenre.GetAllPublicGameGenres();
+
+            List<Game> output = new List<Game>();
+
+            var enumerator = genres.Rows.OfType<DataRow>().GetEnumerator();
+            enumerator.MoveNext();
+            foreach (DataRow game in games.Rows)
+            {
+
+                var gameObject = new Game(game) {_genres = new List<Genre>()};
+                if (enumerator.Current != null)
+                {
+                    int currentGame = (int) enumerator.Current["Game"];
+                    bool enumeratorEnded = false;
+                    while (!enumeratorEnded && currentGame == gameObject.Id)
+                    {
+                        gameObject._genres.Add(new Genre(enumerator.Current));
+                        enumeratorEnded = !enumerator.MoveNext();
+                        if (enumerator.Current != null) currentGame = (int) enumerator.Current["Game"];
+                    }
+                }
+
+                output.Add(gameObject);
+            }
+
+            enumerator.Dispose();
+
+            return output;
         }
     }
 }

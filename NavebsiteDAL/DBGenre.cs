@@ -32,14 +32,21 @@ namespace NavebsiteDAL
                             INNER JOIN(Genres INNER JOIN GameGenres ON Genres.ID = GameGenres.Genre) 
                             ON Games.ID = GameGenres.Game 
                             WHERE Games.ID = {gameId};";
+            return DalHelper.Select(sql);
+        }
 
-            var helper = new DbHelper(Constants.Provider, Constants.Path);
+        public static DataTable GetAllGameGenres()
+        {
+            var sql = $@"SELECT Genres.[Genre Name], Genres.ID, GameGenres.Game
+                        FROM Genres INNER JOIN GameGenres ON Genres.ID = GameGenres.Genre ORDER BY GameGenres.Game;";
+            return DalHelper.Select(sql);
+        }
 
-            if (!helper.OpenConnection()) throw new ConnectionException();
-
-            var tb = helper.GetDataTable(sql);
-            helper.CloseConnection();
-            return tb;
+        public static DataTable GetAllPublicGameGenres()
+        {
+            var sql = $@"SELECT Genres.[Genre Name], Genres.ID, GameGenres.Game
+FROM Games INNER JOIN (Genres INNER JOIN GameGenres ON Genres.ID = GameGenres.Genre) ON Games.ID = GameGenres.Game WHERE Games.[Review Status] = 1;";
+            return DalHelper.Select(sql);
         }
     }
 }
