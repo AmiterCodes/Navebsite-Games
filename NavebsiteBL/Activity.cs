@@ -7,6 +7,10 @@ namespace NavebsiteBL
 {
     public class Activity
     {
+        /// <summary>
+        /// creates an activity object from a dataRow, does not do any DAL calls
+        /// </summary>
+        /// <param name="dr">DataRow of activity</param>
         public Activity(DataRow dr)
         {
             Id = (int) dr["ID"];
