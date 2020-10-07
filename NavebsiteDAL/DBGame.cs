@@ -37,7 +37,7 @@ namespace NavebsiteDAL
         /// <returns>DataTable of all games</returns>
         public static DataTable AllPublicGames()
         {
-            return DalHelper.AllWhere("Games", "Review Status", 1);
+            return DalHelper.Select("SELECT * FROM Games WHERE [Review Status] = 1 ORDER BY Games.ID");
         }
 
         /// <summary>

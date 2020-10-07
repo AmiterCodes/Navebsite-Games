@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Web;
@@ -14,6 +15,9 @@ namespace Navebsite
             Directory.SetCurrentDirectory(Server.MapPath("~/"));
             BlHelper.SetPath(ConfigurationManager.AppSettings["DbPath"]);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            List<Game> games = Game.StoreGames();
+            Application["StoreGames"] = games;
         }
 
         protected void Session_Start(object sender, EventArgs e)

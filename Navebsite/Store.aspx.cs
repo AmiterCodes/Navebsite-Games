@@ -23,10 +23,9 @@ namespace Navebsite
                 {
                     genreChecksItem.Selected = true;
                 }
-                ViewState["Games"] = Game.StoreGames();
             };
 
-            gm.Games = (List<Game>) ViewState["Games"];
+            gm.Games = (List<Game>) Application["StoreGames"];
         }
         
 
