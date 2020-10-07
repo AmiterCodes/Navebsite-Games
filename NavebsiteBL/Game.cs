@@ -14,7 +14,7 @@ namespace NavebsiteBL
         GameName,
         Price
     }
-    
+
 
     [Serializable]
     public class Game
@@ -56,6 +56,7 @@ namespace NavebsiteBL
 
         public Game(int id) : this(DbGame.GetGame(id))
         {
+            LoadGenres();
         }
 
         public int Id { get; set; }
@@ -73,7 +74,7 @@ namespace NavebsiteBL
         public int DeveloperId { get; set; }
         public DateTime PublishDate { get; set; }
         public double Price { get; set; }
-        private List<Genre> _genres ;
+        private List<Genre> _genres;
 
         public double AverageRating => DbReview.AverageRating(Id);
 
@@ -82,11 +83,12 @@ namespace NavebsiteBL
             List<Genre> genres = Genres;
         }
 
-        public List<Genre> Genres =>
-            _genres ?? (_genres =
-                (from DataRow r in DbGenre.GetGenresByGame(Id).Rows select new Genre(r)).ToList());
+        public List<Genre> Genres { get => _genres ?? (_genres =
+        (from DataRow r in DbGenre.GetGenresByGame(Id).Rows select new Genre(r)).ToList());
+            set => _genres = value;
+        }
 
-        public Developer Developer => new Developer(DeveloperId);
+    public Developer Developer => new Developer(DeveloperId);
         public string DeveloperName => Developer.DeveloperName;
 
         public string GenresString

@@ -69,9 +69,15 @@ namespace Navebsite
             var gameName = GameName.Text;
             var price = double.Parse(Price.Text);
 
-            var game = new Game(gameName, link, description, bgPath, logoPath, developer, price);
+            var game = new Game(gameName, link, description, bgPath, logoPath, developer, price)
+            {
+                Genres = ((HashSet<Genre>) ViewState["GenreList"]).ToList()
+            };
+            
 
             foreach (var genre in (HashSet<Genre>) ViewState["GenreList"]) Genre.InsertGameGenre(genre, game.Id);
+
+            
 
             var update = new Update(version, "Game Added", "'" + GameName + "' has been added to the store", game.Id);
             Response.Redirect("GamePage.aspx?id=" + game.Id);
