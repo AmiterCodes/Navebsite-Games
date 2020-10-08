@@ -25,7 +25,7 @@ namespace Navebsite.Controls
             var series2 = chart.Series[1];
             series2.ChartType = SeriesChartType.SplineArea;
             var a = chart.ChartAreas[0];
-            chart.Style["background"] = "background: linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%)";
+            chart.Style["background"] = "linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%)";
             a.BackImageTransparentColor = Color.Transparent;
             var b = chart.ChartAreas[1];
             b.BackImageTransparentColor = Color.Transparent;

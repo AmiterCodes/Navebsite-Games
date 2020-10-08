@@ -4,17 +4,20 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Navebsite.Controls;
 using NavebsiteBL;
 
 namespace Navebsite
 {
     public partial class AdminPage : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        
+        protected void Page_Init(object sender, EventArgs e)
         {
             sales.Sales = Sales.AllStats();
-            GameGrid.DataSource = Game.ReviewGames();
-            GameGrid.DataBind();
+            gameList.Games = Game.ReviewGames();
+            gameList.AddButtons = true;
+
         }
     }
 }
