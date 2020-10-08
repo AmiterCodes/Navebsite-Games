@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,7 +14,7 @@ namespace Navebsite.Controls
         public Game Game { get; set;  }
         public bool AddButtons { get; set; }
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Init(object sender, EventArgs e)
         {
             buttons.Visible = AddButtons;
 
@@ -29,12 +30,20 @@ namespace Navebsite.Controls
 
         protected void DenyButton_OnClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Game.ReviewStatus = 2;
+            GameViewPanel.Controls.Clear();
+            GameViewPanel.Controls.Add(new Literal() { Text = "Game Denied" });
         }
 
         protected void ApproveButton_OnClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Game.ReviewStatus = 1;
+
+            List<Game> games = (List<Game>) Application["StoreGames"];
+            games.Add(Game);
+
+            GameViewPanel.Controls.Clear();
+            GameViewPanel.Controls.Add(new Literal(){ Text = "Game Approved"});
         }
     }
 }
