@@ -103,6 +103,7 @@
     <Content Include="Controls\GameLibrary.ascx" />
     <Content Include="Controls\GameList.ascx" />
     <Content Include="Controls\GameView.ascx" />
+    <Content Include="Controls\GameViewList.ascx" />
     <Content Include="Controls\Navbar.ascx" />
     <Content Include="Controls\Review.ascx" />
     <Content Include="Controls\SalesChart.ascx" />
@@ -212,6 +213,13 @@
     </Compile>
     <Compile Include="Controls\GameView.ascx.designer.cs">
       <DependentUpon>GameView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GameViewList.ascx.cs">
+      <DependentUpon>GameViewList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\GameViewList.ascx.designer.cs">
+      <DependentUpon>GameViewList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\Navbar.ascx.cs">
       <DependentUpon>Navbar.ascx</DependentUpon>

@@ -1281,3 +1281,34 @@ body::-webkit-scrollbar-thumb {
     }
 
 }
+
+.gameview {
+    background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+    width: 80%;
+}
+
+.gameview_info {
+    display: flex;
+    flex-direction: column;
+}
+
+.gameview_dev {
+    color: rgba(192, 197, 255, 0.47);
+}
+
+.gameview_time {
+    color: rgba(192, 197, 255, 0.47);
+}
+
+.gameview_title {
+    font-weight: bold;
+    margin-bottom: .5rem;
+    font-size: 1.6rem;
+}
+
+.gameview_time::before {
+    content: 'Published ';
+}

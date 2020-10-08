@@ -48,5 +48,10 @@ namespace NavebsiteDAL
         {
             return DalHelper.AllWhere("Games", "Review Status", 0);
         }
+
+        public static void UpdateReviewStatus(int newReviewStatus, int id)
+        {
+            DalHelper.UpdateWhere("Games", "Review Status", newReviewStatus, "ID", id);
+        }
     }
 }

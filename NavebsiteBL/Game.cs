@@ -61,7 +61,15 @@ namespace NavebsiteBL
         public string GameName { get; set; }
         public string GameLink { get; set; }
         public string Description { get; set; }
-        public int ReviewStatus { get; set; }
+        public int ReviewStatus
+        {
+            get;
+            set
+            {
+                DbGame.UpdateReviewStatus(value, Id);
+            }
+        }
+
         public string Background { get; set; }
         public string Logo { get; set; }
 
