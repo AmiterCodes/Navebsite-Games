@@ -3,12 +3,20 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
     <div class="centering">
-        <asp:TextBox runat="server" ID="username" placeholder="username" CssClass="input" />
+        
+        <asp:TextBox runat="server" TextMode="Email" CssClass="input" ID="Email" placeholder="email" required="true" />
+        <asp:RequiredFieldValidator ErrorMessage="Email is required!" ControlToValidate="Email" runat="server" />
+        <asp:RegularExpressionValidator ErrorMessage="Email must be valid!" ControlToValidate="Email" runat="server" ValidationExpression="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" />
+
+
+        <asp:TextBox runat="server" ID="username" placeholder="username" CssClass="input" required="true" />
         <asp:RequiredFieldValidator ErrorMessage="Username is required!" ControlToValidate="username" runat="server" />
         <asp:RegularExpressionValidator ErrorMessage="Username must be between 3 and 16 characters, with no special characters" ControlToValidate="username" runat="server" ValidationExpression="^\w{3,16}$" />
-        <asp:TextBox runat="server" CssClass="input" ID="password" placeholder="password" />
+        
+        <asp:TextBox runat="server" CssClass="input" ID="password" placeholder="password" required="true" />
         <asp:RequiredFieldValidator ErrorMessage="Password is required!" ControlToValidate="password" runat="server" />
         <asp:RegularExpressionValidator ErrorMessage="Password must be at least 6 letters, with at least one capital letter, lowercase letter and one number" ControlToValidate="password" runat="server" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$" />
+        
         <asp:Label runat="server" ID="errorBox"></asp:Label>
         <asp:Button Text="Register" runat="server" OnClick="Register_Click" CssClass="button" />
     </div>

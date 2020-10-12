@@ -13,10 +13,11 @@ namespace Navebsite
         {
             Validate();
             if (!IsValid) return;
+            var email = Email.Text;
             var userName = username.Text;
             var pass = password.Text;
 
-            var user = NavebsiteBL.User.RegisterUser(userName, pass);
+            var user = NavebsiteBL.User.RegisterUser(email, userName, pass);
             if (user == null)
             {
                 errorBox.Text = "Register did not work";

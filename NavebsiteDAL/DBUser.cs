@@ -60,15 +60,16 @@ namespace NavebsiteDAL
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="email"></param>
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static int InsertUser(string username, string password)
+        public static int InsertUser(string email, string username, string password)
         {
             return DalHelper.Insert(
                 "INSERT INTO Users" +
-                "(Username,HashPass)" +
-                $"VALUES('{username}', '{BCrypt.Net.BCrypt.EnhancedHashPassword(password)}')");
+                "(Email,Username,HashPass)" +
+                $"VALUES('{email}','{username}', '{BCrypt.Net.BCrypt.EnhancedHashPassword(password)}')");
         }
 
         public static bool UpdatePassword(string password, int user)

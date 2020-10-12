@@ -23,6 +23,7 @@ namespace NavebsiteBL
             JoinDate = (DateTime) dr["Join Date"];
             ProfilePicture = (string) dr["Profile Picture"];
             Background = (string) dr["Background"];
+            Email = (string) dr["Email"];
             IsAdmin = (bool) dr["Admin"];
             IsDeveloper = (bool) dr["Developer"];
             if (IsDeveloper)
@@ -34,6 +35,7 @@ namespace NavebsiteBL
         public int Id { get; set; }
         public string Username { get; set; }
         public string Description { get; set; }
+        public string Email { get; set; }
         public double Balance { get; set; }
         public DateTime JoinDate { get; set; }
         public string ProfilePicture { get; set; }
@@ -93,9 +95,9 @@ namespace NavebsiteBL
             return DbUser.Authenticate(username, password) ? new User(DbUser.GetUserByName(username)) : null;
         }
 
-        public static User RegisterUser(string username, string password)
+        public static User RegisterUser(string email, string username, string password)
         {
-            var id = DbUser.InsertUser(username, password);
+            var id = DbUser.InsertUser(email ,username, password);
             return new User(id);
         }
     }
