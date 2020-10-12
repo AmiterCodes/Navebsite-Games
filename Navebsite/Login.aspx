@@ -9,5 +9,6 @@
         <asp:RequiredFieldValidator ErrorMessage="Password is required!" ControlToValidate="password" runat="server" Display="Dynamic"/>
         <asp:Label runat="server" ID="errorBox"></asp:Label>
         <asp:Button Text="Login" runat="server" OnClick="Login_Click" CssClass="button" />
+
     </div>
 </asp:Content>

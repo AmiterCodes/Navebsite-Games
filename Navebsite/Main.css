@@ -84,11 +84,15 @@ body {
 a {
     padding: 0.2rem;
     text-decoration: none;
-    transition: all .3s;
+    transition: all .3s ease;
+    background-image: linear-gradient(60deg,transparent 0%, transparent 50%, #F45866 50%, #FF1E61 100% );
+    background-size: 250%;
 }
 
     a:hover {
-        text-shadow: rgba(255, 211, 0, 0.70) 0 0 .5rem;
+        background-position: 100%;
+        color: white;
+        /*text-shadow: rgba(255, 211, 0, 0.70) 0 0 .5rem;*/
     }
 
 .game_title {
@@ -1181,8 +1185,8 @@ body::-webkit-scrollbar-thumb {
     --bg-primary: #23232e;
     --bg-secondary: #141418;
     --transition-speed: 600ms;
-    --anim-length: 2s;
-    --anim-delay: .5s;
+    --anim-length:1.5s;
+    --anim-delay: .3s;
 }
 
 .anim_logo > path:nth-child(1) {

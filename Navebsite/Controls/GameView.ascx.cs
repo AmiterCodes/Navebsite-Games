@@ -31,8 +31,7 @@ namespace Navebsite.Controls
         protected void DenyButton_OnClick(object sender, EventArgs e)
         {
             Game.ReviewStatus = 2;
-            GameViewPanel.Controls.Clear();
-            GameViewPanel.Controls.Add(new Literal() { Text = "Game Denied" });
+            Parent.Controls.Remove(this);
         }
 
         protected void ApproveButton_OnClick(object sender, EventArgs e)
@@ -41,9 +40,7 @@ namespace Navebsite.Controls
 
             List<Game> games = (List<Game>) Application["StoreGames"];
             games.Add(Game);
-
-            GameViewPanel.Controls.Clear();
-            GameViewPanel.Controls.Add(new Literal(){ Text = "Game Approved"});
+            Parent.Controls.Remove(this);
         }
     }
 }

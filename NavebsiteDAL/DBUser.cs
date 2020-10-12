@@ -2,25 +2,48 @@
 
 namespace NavebsiteDAL
 {
+
+    /// <summary>
+    /// static class that deals with user database calls
+    /// </summary>
     public class DbUser
     {
+        /// <summary>
+        /// Retrieves a list of all users that are signed up
+        /// </summary>
+        /// <returns>DataTable of all users</returns>
         public static DataTable AllUsers()
         {
             return DalHelper.AllFromTable("Users");
         }
 
+        /// <summary>
+        /// Gets a user by id
+        /// </summary>
+        /// <param name="user">id of user</param>
+        /// <returns>DataRow of user data</returns>
         public static DataRow GetUserById(int user)
         {
             return DalHelper.GetRowById(user, "Users");
         }
 
 
-
+        /// <summary>
+        /// Gets a user by username
+        /// </summary>
+        /// <param name="username">username of user</param>
+        /// <returns>DataRow of user data</returns>
         public static DataRow GetUserByName(string username)
         {
             return DalHelper.RowWhere("Users", "Username", username);
         }
 
+        /// <summary>
+        /// Method that checks if a user and password are valid for authentication 
+        /// </summary>
+        /// <param name="username">user</param>
+        /// <param name="password">password</param>
+        /// <returns>if the username password combination is valid</returns>
         public static bool Authenticate(string username, string password)
         {
             var tb = DalHelper.Select("SELECT HashPass FROM Users WHERE username = '" + username + "'");
@@ -30,9 +53,16 @@ namespace NavebsiteDAL
             var row = tb.Rows[0];
             var hash = (string) row["HashPass"];
 
+            // Use the BCrypt library for verification
             return BCrypt.Net.BCrypt.EnhancedVerify(password, hash);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static int InsertUser(string username, string password)
         {
             return DalHelper.Insert(
