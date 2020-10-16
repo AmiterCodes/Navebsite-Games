@@ -41,7 +41,9 @@
         <div class="gamepage_info Play">
             <asp:Button Id="play" runat="server" CssClass="big-button" OnClick="play_Click"/>
         </div>
-
+        <div class="Update">
+            <NV:UpdateList ID="UpdateList" runat="server"/>
+        </div>
         <asp:Panel runat="server" ID="reviewList" CssClass="reviews Reviews">
             <h2>Reviews</h2>
         </asp:Panel>

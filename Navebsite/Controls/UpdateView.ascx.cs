@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.UI;
+using Markdig;
 using NavebsiteBL;
 
 namespace Navebsite.Controls
@@ -11,6 +12,11 @@ namespace Navebsite.Controls
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title.Text = Update.UpdateName;
+            Version.Text = Update.UpdateVersion;
+            Date.Text = Update.Timestamp.ToShortDateString();
+
+            Content.Text = Markdown.ToHtml(Update.UpdateDescription);
         }
     }
 }

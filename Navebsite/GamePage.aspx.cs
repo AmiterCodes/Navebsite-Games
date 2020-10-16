@@ -32,6 +32,8 @@ namespace Navebsite
                     reviewList.Controls.Add(reviewControl);
                 }
 
+                UpdateList.Updates = game.Updates;
+
                 if (Session["user"] != null)
                 {
                     var user = (User) Session["user"];

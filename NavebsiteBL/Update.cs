@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using NavebsiteDAL;
@@ -14,6 +15,7 @@ namespace NavebsiteBL
             UpdateName = (string) dr["Update Name"];
             UpdateDescription = (string) dr["Update Description"];
             GameId = (int) dr["Game"];
+            Timestamp = (DateTime) dr["Timestamp"];
         }
 
         public Update(string updateVersion, string updateName, string updateDescription, int gameId)
@@ -29,12 +31,13 @@ namespace NavebsiteBL
         public int Id { get; }
         public string UpdateVersion { get; }
         public string UpdateName { get; }
+        public DateTime Timestamp { get; }
         public string UpdateDescription { get; }
         public int GameId { get; }
 
         public Game Game => new Game(GameId);
 
-        public List<Update> ListUpdates(int game)
+        public static List<Update> ListUpdates(int game)
         {
             return (from DataRow dr in DbUpdate.ListUpdates(game).Rows select new Update(dr)).ToList();
         }

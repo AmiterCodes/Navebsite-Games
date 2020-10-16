@@ -114,6 +114,8 @@ namespace NavebsiteBL
             }
         }
 
+        public List<Update> Updates => Update.ListUpdates(Id);
+
         public static List<Game> GamesByDeveloper(int developerId)
         {
             return (from DataRow r in DbGame.AllGamesFromDeveloper(developerId).Rows select new Game(r)).ToList();
