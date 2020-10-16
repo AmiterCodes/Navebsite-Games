@@ -9,6 +9,7 @@ namespace Navebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            RedeemError.Text = "";
             ErrorBox.Text = "";
             var user = (User) Session["user"];
             if (user == null)
@@ -105,10 +106,17 @@ namespace Navebsite
             string code = RedeemGame.Text.ToUpper();
 
             var user = (User)Session["user"];
-
+            
             int game = GameCode.RedeemCode(user.Id, code);
 
-            Response.Redirect("GamePage.aspx?id=" + game);
+            if (game == -1)
+            {
+                RedeemError.Text = "code entered is either invalid or used";
+            }
+            else
+            {
+                Response.Redirect("GamePage.aspx?id=" + game);
+            }
         }
     }
 }

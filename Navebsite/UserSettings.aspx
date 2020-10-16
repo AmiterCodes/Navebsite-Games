@@ -22,6 +22,7 @@
                 <asp:Button ID="RedeemGameButton" runat="server" OnClick="RedeemGameButton_OnClick" Text="Button" />
 
             </div>
+            <asp:Label Text="" ID="RedeemError" runat="server" />
                 <asp:RequiredFieldValidator ErrorMessage="You must put a code" ControlToValidate="RedeemGame" ValidationGroup="Redeem" runat="server" />
             <asp:RegularExpressionValidator runat="server" ErrorMessage="You must put a 16 character code" ValidationGroup="Redeem" ControlToValidate="RedeemGame" ValidationExpression="^[a-zA-Z0-9]{16}$"></asp:RegularExpressionValidator>
             </div>
