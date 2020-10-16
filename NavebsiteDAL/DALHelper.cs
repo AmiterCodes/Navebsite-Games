@@ -67,6 +67,11 @@ namespace NavebsiteDAL
                 new OleDbParameter("@value", value), new OleDbParameter("@checkValue", checkValue));
         }
 
+        public static int UpdateWhere(string table, string column1, object value1, string column2, object value2, string checkColumn, object checkValue)
+        {
+            return Update($"UPDATE `{table}` SET `{column1}` = @value1, `{column2}` = @value2 WHERE `{checkColumn}` = @checkValue",
+                new OleDbParameter("@value1", value1), new OleDbParameter("@value2", value2) ,new OleDbParameter("@checkValue", checkValue));
+        }
 
 
         /// <summary>
@@ -185,7 +190,7 @@ namespace NavebsiteDAL
         /// <param name="column">column to compare</param>
         /// <param name="value">value that is required for the rows</param>
         /// <returns>DataRow containing the matching row</returns>
-        public static DataRow RowWhere(string table, string column, object value)
+        public static DataRow RowWhere(string table, string column, object value, string columns = "*")
         {
             var helper = new DbHelper(Constants.Provider, Constants.Path);
 
