@@ -20,7 +20,7 @@ namespace Navebsite
                 }
                 else
                 {
-                    Response.Redirect("404.aspx");
+                    Response.Redirect("Login.aspx");
                     return;
                 }
             }

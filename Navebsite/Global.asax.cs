@@ -15,6 +15,8 @@ namespace Navebsite
             Directory.SetCurrentDirectory(Server.MapPath("~/"));
             BlHelper.SetPath(ConfigurationManager.AppSettings["DbPath"]);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+             
+            
 
             List<Game> games = Game.StoreGames();
             Application["StoreGames"] = games;

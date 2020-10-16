@@ -9,12 +9,13 @@ namespace Navebsite
 {
     public partial class GamePage : Page
     {
+        private Game game;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 var id = int.Parse(Request.QueryString["id"]);
-                var game = new Game(id);
+                game = new Game(id);
                 banner.Style["background"] =
                     $"linear-gradient(180deg,rgba(255,255,255,0) -46.84%,#3F3148 100%), url('{game.BackgroundUrl}') center/cover";
                 play.Text = "Buy " + game.GameName + " $" + game.Price;
@@ -60,10 +61,19 @@ namespace Navebsite
 
         protected void play_Click(object sender, EventArgs e)
         {
-            var id = int.Parse(Request.QueryString["id"]);
-            var game = new Game(id);
+            var user = (User)Session["user"];
+            
+            if(user == null) Response.Redirect("Login.aspx");
 
-            Response.Redirect(game.GameLink);
+            if (UserGame.GameOwnedByUser(game.Id, user.Id))
+            {
+                Response.Redirect(game.GameLink);
+            }
+            else
+            {
+                Response.Redirect($"Pay.aspx?for=game&game={game.Id}");
+            }
+
         }
     }
 }

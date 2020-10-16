@@ -26,8 +26,8 @@ namespace Navebsite
                 string amountString = Request.QueryString["am"];
                 payingFor = Request.QueryString["for"];
 
-                if (amountString == null || payingFor == null) Response.Redirect("404");
-                if (!double.TryParse(amountString, out amount)) Response.Redirect("404");
+                
+                
 
                 if (payingFor != "game" && payingFor != "bal") Response.Redirect("404");
 
@@ -35,6 +35,8 @@ namespace Navebsite
                 {
                     case "bal":
                     {
+                        if (!double.TryParse(amountString, out amount)) Response.Redirect("404");
+                        if (amountString == null || payingFor == null) Response.Redirect("404");
                         if (amount < 5 || amount > 1000) amount = 5;
                         break;
                     }
@@ -49,6 +51,8 @@ namespace Navebsite
                         break;
                     }
                 }
+
+                paymentAmount.Text = "$" + amount;
             }
             catch(Exception ex)
             {

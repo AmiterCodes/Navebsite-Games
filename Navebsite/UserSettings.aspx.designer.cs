@@ -40,6 +40,24 @@ namespace Navebsite {
         protected global::System.Web.UI.WebControls.Button AddBalanceButton;
         
         /// <summary>
+        /// RedeemGame control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox RedeemGame;
+        
+        /// <summary>
+        /// RedeemGameButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button RedeemGameButton;
+        
+        /// <summary>
         /// CurrentBackground control.
         /// </summary>
         /// <remarks>

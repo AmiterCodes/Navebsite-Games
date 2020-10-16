@@ -99,5 +99,12 @@ namespace Navebsite
         {
             Response.Redirect($"Pay.aspx?am={AddBalance.Text}&for=bal");
         }
+
+        protected void RedeemGameButton_OnClick(object sender, EventArgs e)
+        {
+            string code = RedeemGame.Text;
+            
+
+        }
     }
 }

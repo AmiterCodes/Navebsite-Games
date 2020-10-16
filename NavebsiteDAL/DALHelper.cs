@@ -185,34 +185,14 @@ namespace NavebsiteDAL
         /// <param name="column">column to compare</param>
         /// <param name="value">value that is required for the rows</param>
         /// <returns>DataRow containing the matching row</returns>
-        public static DataRow RowWhere(string table, string column, string value)
+        public static DataRow RowWhere(string table, string column, object value)
         {
             var helper = new DbHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            var sql = $"SELECT * FROM {table} WHERE `{column}` = '{value}'";
+            var sql = $"SELECT * FROM {table} WHERE @COLUMN = @VALUE";
 
-            var tb = helper.GetDataTable(sql);
-            if (tb.Rows.Count == 0) return null;
-            helper.CloseConnection();
-            return tb.Rows[0];
-        }
-
-        /// <summary>
-        ///     Returns row from a table with a where clause
-        /// </summary>
-        /// <param name="table">name of SQL table</param>
-        /// <param name="column">column to compare</param>
-        /// <param name="value">value that is required for the rows</param>
-        /// <returns>DataRow containing the matching row</returns>
-        public static DataRow RowWhere(string table, string column, int value)
-        {
-            var helper = new DbHelper(Constants.Provider, Constants.Path);
-
-            if (!helper.OpenConnection()) throw new ConnectionException();
-            var sql = $"SELECT * FROM {table} WHERE `{column}` = {value}";
-
-            var tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql, new OleDbParameter("@COLUMN", column), new OleDbParameter("@VALUE", value));
             if (tb.Rows.Count == 0) return null;
             helper.CloseConnection();
             return tb.Rows[0];
@@ -225,37 +205,18 @@ namespace NavebsiteDAL
         /// <param name="column">column to compare</param>
         /// <param name="value">value that is required for the rows</param>
         /// <returns>DataTable containing the matching rows</returns>
-        public static DataTable AllWhere(string table, string column, int value)
+        public static DataTable AllWhere(string table, string column, object value)
         {
             var helper = new DbHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            var sql = $"SELECT * FROM {table} WHERE `{column}` = {value}";
+            var sql = $"SELECT * FROM {table} WHERE @COLUMN = @VALUE";
 
-            var tb = helper.GetDataTable(sql);
+            var tb = helper.GetDataTable(sql, new OleDbParameter("@COLUMN", column), new OleDbParameter("@VALUE", value));
             helper.CloseConnection();
             return tb;
         }
-
-        /// <summary>
-        ///     Returns a table of al rows from a table with a where clause
-        /// </summary>
-        /// <param name="table">name of SQL table</param>
-        /// <param name="column">column to compare</param>
-        /// <param name="value">value that is required for the rows</param>
-        /// <returns>DataTable containing the matching rows</returns>
-        public static DataTable AllWhere(string table, string column, string value)
-        {
-            var helper = new DbHelper(Constants.Provider, Constants.Path);
-
-            if (!helper.OpenConnection()) throw new ConnectionException();
-            var sql = $"SELECT * FROM {table} WHERE `{column}` = '{value}'";
-
-            var tb = helper.GetDataTable(sql);
-            helper.CloseConnection();
-            return tb;
-        }
-
+        
         /// <summary>
         ///     returns all rows from a table
         /// </summary>

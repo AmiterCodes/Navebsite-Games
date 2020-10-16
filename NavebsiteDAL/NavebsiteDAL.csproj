@@ -70,6 +70,7 @@
     <Compile Include="DBDeveloper.cs" />
     <Compile Include="DBFriends.cs" />
     <Compile Include="DBGame.cs" />
+    <Compile Include="DbGameCodes.cs" />
     <Compile Include="DBPhotos.cs" />
     <Compile Include="DBGenre.cs" />
     <Compile Include="DBHelper.cs" />

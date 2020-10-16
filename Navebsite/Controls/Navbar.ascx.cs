@@ -15,12 +15,18 @@ namespace Navebsite.Controls
             library.Visible = false;
             if (Session["user"] != null)
             {
+                ProfileName.Text = user.Username;
+                balance.Text = "$" + user.Balance;
                 logout.Visible = true;
+                logoutSide.Visible = true;
                 library.Visible = true;
+                userSettingsSide.Visible = true;
             }
             else
             {
+                registerSide.Visible = true;
                 register.Visible = true;
+                loginSide.Visible = true;
                 login.Visible = true;
             }
         }

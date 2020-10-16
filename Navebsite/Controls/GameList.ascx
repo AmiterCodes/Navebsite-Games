@@ -2,7 +2,7 @@
 <div class="game_list">
 <asp:DataList id="ItemsList"
            CellPadding="20"
-           CellSpacing="50"
+           CellSpacing="30"
            RepeatDirection="Horizontal"
            RepeatLayout="Table"
            RepeatColumns="4"
@@ -33,7 +33,7 @@
  
       </asp:DataList>
     <div class="list_footer">
-        <asp:Button Text="Next" CssClass="button" OnClick="nextButton_OnClick" ID="nextButton" runat="server" />
-        <asp:Button Text="Previous" CssClass="button" OnClick="prevButton_OnClick" ID="prevButton" runat="server" />
+        <asp:Button Text="&larr; Previous" CssClass="button" OnClick="prevButton_OnClick" ID="prevButton" runat="server" />
+        <asp:Button Text="Next &rarr;" CssClass="button" OnClick="nextButton_OnClick" ID="nextButton" runat="server" />
     </div>
 </div>
