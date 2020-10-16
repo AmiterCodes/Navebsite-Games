@@ -52,6 +52,7 @@
     <Compile Include="Developer.cs" />
     <Compile Include="Friends.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="GameCode.cs" />
     <Compile Include="GamePhoto.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="Photo.cs" />

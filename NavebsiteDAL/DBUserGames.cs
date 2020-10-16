@@ -39,5 +39,6 @@ namespace NavebsiteDAL
         {
             DalHelper.Insert($"INSERT INTO UserGames (User, Game,Cost) VALUES ({user},{game},{price})");
         }
+
     }
 }

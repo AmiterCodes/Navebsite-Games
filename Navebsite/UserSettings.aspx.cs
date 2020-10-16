@@ -102,9 +102,13 @@ namespace Navebsite
 
         protected void RedeemGameButton_OnClick(object sender, EventArgs e)
         {
-            string code = RedeemGame.Text;
-            
+            string code = RedeemGame.Text.ToUpper();
 
+            var user = (User)Session["user"];
+
+            int game = GameCode.RedeemCode(user.Id, code);
+
+            Response.Redirect("GamePage.aspx?id=" + game);
         }
     }
 }
