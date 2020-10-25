@@ -195,9 +195,9 @@ namespace NavebsiteDAL
             var helper = new DbHelper(Constants.Provider, Constants.Path);
 
             if (!helper.OpenConnection()) throw new ConnectionException();
-            var sql = $"SELECT * FROM {table} WHERE @COLUMN = @VALUE";
+            var sql = $"SELECT * FROM {table} WHERE `{column}` = @value";
 
-            var tb = helper.GetDataTable(sql, new OleDbParameter("@COLUMN", column), new OleDbParameter("@VALUE", value));
+            var tb = helper.GetDataTable(sql, new OleDbParameter("@value", value));
             if (tb.Rows.Count == 0) return null;
             helper.CloseConnection();
             return tb.Rows[0];

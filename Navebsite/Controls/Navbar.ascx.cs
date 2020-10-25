@@ -15,6 +15,7 @@ namespace Navebsite.Controls
             library.Visible = false;
             if (Session["user"] != null)
             {
+                ProfilePicture.ImageUrl = "../" + user.ProfilePictureUrl;
                 ProfileName.Text = user.Username;
                 balance.Text = "$" + user.Balance;
                 logout.Visible = true;

@@ -46,7 +46,7 @@ namespace NavebsiteDAL
         /// <returns>if the username password combination is valid</returns>
         public static bool Authenticate(string username, string password)
         {
-            var tb = DalHelper.Select("SELECT HashPass FROM Users WHERE username = '" + username + "'");
+            var tb = DalHelper.Select("SELECT HashPass FROM Users WHERE Username = '" + username + "'");
 
             if (tb.Rows.Count == 0) return false;
 
