@@ -34,6 +34,7 @@
       </asp:DataList>
     <div class="list_footer">
         <asp:Button Text="&larr; Previous" CssClass="button" OnClick="prevButton_OnClick" ID="prevButton" runat="server" />
+        <asp:Label Text="1" ID="PageLabel" runat="server" />
         <asp:Button Text="Next &rarr;" CssClass="button" OnClick="nextButton_OnClick" ID="nextButton" runat="server" />
     </div>
 </div>

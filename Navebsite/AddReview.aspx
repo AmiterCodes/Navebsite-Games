@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
     <div class="review_form">
         <asp:Label Text="Review" runat="server" ID="reviewTitle"/>
-        <asp:TextBox runat="server" ID="reviewContent" TextMode="MultiLine" Rows="10" CssClass="input review_form_text" placeholder="Write your ReviewObject here"/>
+        <asp:TextBox runat="server" ID="reviewContent" TextMode="MultiLine" Rows="10" CssClass="input review_form_text" placeholder="Write your Review here"/>
         <asp:RequiredFieldValidator ErrorMessage="You cannot submit an empty ReviewObject" ControlToValidate="reviewContent" runat="server"/>
 
         Rating

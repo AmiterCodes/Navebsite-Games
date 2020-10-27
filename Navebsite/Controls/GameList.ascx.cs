@@ -94,6 +94,8 @@ namespace Navebsite.Controls
             ItemsList.DataSource = pg;
             ItemsList.DataBind();
 
+            PageLabel.Text = (CurrentPage + 1) + "";
+
             prevButton.Visible = !pg.IsFirstPage;
             nextButton.Visible = !pg.IsLastPage;
         }
