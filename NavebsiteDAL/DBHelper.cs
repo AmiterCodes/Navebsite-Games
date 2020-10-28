@@ -96,7 +96,7 @@ namespace NavebsiteDAL
 
                 return WriteDataError;
             }
-            catch
+            catch(Exception e)
             {
                 return WriteDataError;
             }

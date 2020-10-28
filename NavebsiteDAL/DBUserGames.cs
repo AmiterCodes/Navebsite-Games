@@ -37,7 +37,7 @@ namespace NavebsiteDAL
         /// <param name="price">the cost the user paid</param>
         public static void AddGame(int user, int game, double price)
         {
-            DalHelper.Insert($"INSERT INTO UserGames (User, Game,Cost) VALUES ({user},{game},{price})");
+            DalHelper.Insert($"INSERT INTO UserGames ([User],[Game],[Cost]) VALUES ({user},{game},{price});");
         }
 
     }
