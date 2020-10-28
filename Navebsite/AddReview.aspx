@@ -5,7 +5,7 @@
     <div class="review_form">
         <asp:Label Text="Review" runat="server" ID="reviewTitle"/>
         <asp:TextBox runat="server" ID="reviewContent" TextMode="MultiLine" Rows="10" CssClass="input review_form_text" placeholder="Write your Review here"/>
-        <asp:RequiredFieldValidator ErrorMessage="You cannot submit an empty ReviewObject" ControlToValidate="reviewContent" runat="server"/>
+        <asp:RequiredFieldValidator ErrorMessage="You cannot submit an empty Review" ControlToValidate="reviewContent" runat="server"/>
 
         Rating
         <fieldset class="rating">
@@ -28,7 +28,7 @@
                 <label for="demo-5" aria-label="5 stars" title="5 stars"></label>
             </div>
         </fieldset>
-        <asp:Button Text="text" runat="server" ID="submit" OnClick="submit_Click" CssClass="button"/>
+        <asp:Button Text="Submit Review!" runat="server" ID="submit" OnClick="submit_Click" CssClass="button"/>
         <asp:Label Text="" runat="server" ID="errorBox"/>
     </div>
 </asp:Content>

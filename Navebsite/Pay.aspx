@@ -133,7 +133,7 @@
             Amount to pay:
             <asp:Label Text="$0.00" ID="paymentAmount" runat="server" />
         </div>
-        <asp:Button runat="server" ID="PayButton" Text="Pay!" OnClick="PayButton_OnClick"/>
+        <asp:Button runat="server" ID="PayButton" Text="Pay!" CssClass="button" OnClick="PayButton_OnClick"/>
         <asp:Label Text="" ID="ErrorBox" runat="server" />
     </div>
 
