@@ -21,6 +21,10 @@ namespace NavebsiteBL
             GenreName = genreName;
         }
 
+        public static void ClearGenres(int game)
+        {
+            DbGenre.DeleteGenresForGame(game);
+        }
 
         public Genre(DataRow row)
         {

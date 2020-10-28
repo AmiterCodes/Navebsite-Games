@@ -45,7 +45,7 @@
                 <asp:Label Text="Price" AssociatedControlID="Price" runat="server" CssClass="input_label"/>
                 <asp:TextBox runat="server" ID="Price" CssClass="input"/>
             </div>
-            <asp:Button Text="Submit for ReviewObject" runat="server" ID="button" CssClass="button" OnClick="button_Click"/>
+            <asp:Button Text="Update" runat="server" ID="button" CssClass="button" OnClick="button_Click"/>
         </div>
         <div class="=centering">
             <asp:RangeValidator ID="PriceValidator" runat="server" ErrorMessage="Price must be a double"

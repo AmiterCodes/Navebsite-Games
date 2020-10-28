@@ -48,5 +48,10 @@ namespace NavebsiteDAL
 FROM Games INNER JOIN (Genres INNER JOIN GameGenres ON Genres.ID = GameGenres.Genre) ON Games.ID = GameGenres.Game WHERE Games.[Review Status] = 1;";
             return DalHelper.Select(sql);
         }
+
+        public static void DeleteGenresForGame(int game)
+        {
+            var sql = $@"DELETE * FROM GameGenres WHERE Game = {game}";
+        }
     }
 }

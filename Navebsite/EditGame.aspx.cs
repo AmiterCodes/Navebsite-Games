@@ -4,14 +4,128 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Navebsite.App_Code;
+using NavebsiteBL;
 
 namespace Navebsite
 {
     public partial class EditGame : System.Web.UI.Page
     {
+
+        private static readonly string backgroundFormat = @"\Images\GameBackgrounds\";
+        private static readonly string logoFormat = @"\Images\GameLogos\";
+
+        private Game game;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            //user validation
+
+            var user = (User)Session["user"];
+            if (user == null) Response.Redirect("404");
+            if (user != null && !user.IsDeveloper) Response.Redirect("404");
+
+            string gameIdString = Request.QueryString["game"];
+            if(!int.TryParse(gameIdString, out int gameId)) Response.Redirect("404");
+            try
+            {
+                game = new Game(gameId);
+            }
+            catch (InvalidOperationException)
+            {
+                Response.Redirect("404");
+            }
+
+            if(game.DeveloperId != user.DeveloperId) Response.Redirect("404");
+
+
+
+            // data loading
+
+            if (!IsPostBack) LoadGenreData();
+
+
+            UpdateGenres();
+        }
+
+        private void UpdateGenres()
+        {
+            var set = (HashSet<Genre>)ViewState["GenreList"];
+            Genres.Text = set.Count == 0
+                ? "No Genres Selected"
+                : string.Join(", ", set.Select(genre => genre.GenreName));
+
+        }
+
+        
+
+        private void LoadGenreData()
+        {
+            GenreList.DataSource = Genre.AllGenres();
+            GenreList.DataTextField = "GenreName";
+            GenreList.DataValueField = "ID";
+            GenreList.DataBind();
+            ViewState["GenreList"] = new HashSet<Genre>();
+        }
+
+        protected void button_Click(object sender, EventArgs e)
+        {
+            var user = (User)Session["user"];
+            if (user == null)
+            {
+                Response.Redirect("404");
+                return;
+            }
+
+            if (!user.IsDeveloper) Response.Redirect("404");
+            Validate();
+            if (!IsValid) return;
+
+            var developer = user.DeveloperId;
+
+            var bgPath = UploadHelper.ImageFileUpload(Background, backgroundFormat, "no.jpg", Server);
+            var logoPath = UploadHelper.ImageFileUpload(Logo, logoFormat, "no.jpg", Server);
+
+            var description = Description.Text;
+            var version = Version.Text;
+            var link = GameLink.Text;
+            var gameName = GameName.Text;
+            var price = double.Parse(Price.Text);
+
+            var game = new Game(gameName, link, description, bgPath, logoPath, developer, price)
+            {
+                Genres = ((HashSet<Genre>)ViewState["GenreList"]).ToList()
+            };
+
+            Genre.ClearGenres(game.Id);
+            foreach (var genre in (HashSet<Genre>)ViewState["GenreList"]) Genre.InsertGameGenre(genre, game.Id);
+
+            Response.Redirect("GamePage.aspx?id=" + game.Id);
+        }
+
+        protected void AddGenreToAll_Click(object sender, EventArgs e)
+        {
+            var genre = new Genre(newGenre.Text);
+            LoadGenreData();
+        }
+
+        protected void AddToCurrentGenres_Click(object sender, EventArgs e)
+        {
+            var genre = new Genre(int.Parse(GenreList.SelectedValue), GenreList.SelectedItem.Text);
+            var genres = (HashSet<Genre>)ViewState["GenreList"];
+            if (genres.All(g => g.GenreName != genre.GenreName))
+            {
+                genres.Add(genre);
+                UpdateGenres();
+            }
+        }
+
+        protected void ResetButton_Click(object sender, EventArgs e)
+        {
+            ViewState["GenreList"] = new HashSet<Genre>();
+            UpdateGenres();
         }
     }
 }
