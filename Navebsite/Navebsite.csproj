@@ -113,6 +113,7 @@
     <Content Include="Controls\UpdateView.ascx" />
     <Content Include="Controls\UpdateList.ascx" />
     <Content Include="Default.aspx" />
+    <Content Include="EditGame.aspx" />
     <Content Include="GameData.aspx" />
     <Content Include="GamePage.aspx" />
     <Content Include="Global.asax" />
@@ -269,6 +270,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditGame.aspx.cs">
+      <DependentUpon>EditGame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditGame.aspx.designer.cs">
+      <DependentUpon>EditGame.aspx</DependentUpon>
     </Compile>
     <Compile Include="GameData.aspx.cs">
       <DependentUpon>GameData.aspx</DependentUpon>

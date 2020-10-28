@@ -79,7 +79,7 @@ namespace Navebsite
 
             
 
-            var update = new Update(version, "Game Added", "'" + GameName + "' has been added to the store", game.Id);
+            var update = new Update(version, "Game Added", "\'" + Server.HtmlEncode(GameName.Text) + "\' has been added to the store", game.Id);
             Response.Redirect("GamePage.aspx?id=" + game.Id);
         }
 
