@@ -1,5 +1,5 @@
 # 🎮 Navebsite-Games
-An online video game shop
+An online video game shop project for school
 ## User Types
 ### 🤖 Admin
 has access to everything, can review games that are submitted and view revenue for the entire store
