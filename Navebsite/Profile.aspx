@@ -28,12 +28,13 @@
         .Reviews { grid-area: Reviews; }
     </style>
     <div class="grid-container">
-        <div class="banner">
+        <div class="banner centering">
 
             <asp:Image ID="banner" runat="server" CssClass="profile_banner"/>
             <div class="profile_info">
                 <asp:Image ID="icon" runat="server" CssClass="profile_icon"/>
                 <asp:Label runat="server" CssClass="profile_name" ID="name"></asp:Label>
+
                 <asp:Button Text="Add Friend" runat="server" CssClass="button" ID="AddButton" OnClick="AddButton_OnClick"/>
                 <asp:Button Text="Remove Friend" runat="server" CssClass="button" Id="RemoveButton" OnClick="RemoveButton_OnClick"/>
             </div>
