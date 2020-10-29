@@ -1306,9 +1306,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gameview {
+    margin: 1rem;
+
     background-size: cover;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     padding: 1rem;
     width: 80%;
 }
@@ -1327,6 +1329,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gameview_title {
+    color: white;
     font-weight: bold;
     margin-bottom: .5rem;
     font-size: 1.6rem;

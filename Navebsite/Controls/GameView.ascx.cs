@@ -24,6 +24,8 @@ namespace Navebsite.Controls
             GameDeveloper.Text = Game.DeveloperName;
             GameGenres.Text = Game.GenresString;
             GameName.Text = Game.GameName;
+            GameName.NavigateUrl = "../GamePage.aspx?id=" + Game.Id;
+            EditButton.NavigateUrl = "../EditGame.aspx?game=" + Game.Id;
             rating.Text = Game.AverageRating + "⭐";
             price.Text = Game.Price == 0 ? "Free" : "$" + Game.Price;
         }

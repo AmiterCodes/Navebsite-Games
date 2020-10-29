@@ -13,13 +13,13 @@ namespace Navebsite {
     public partial class EditGame {
         
         /// <summary>
-        /// AddGameForm control.
+        /// EditGameForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel AddGameForm;
+        protected global::System.Web.UI.WebControls.Panel EditGameForm;
         
         /// <summary>
         /// GameName control.
@@ -83,15 +83,6 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button AddGenreToAll;
-        
-        /// <summary>
-        /// Version control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Version;
         
         /// <summary>
         /// GameLink control.

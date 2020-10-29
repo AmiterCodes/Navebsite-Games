@@ -21,14 +21,37 @@ namespace Navebsite
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //user validation
+            //user validation and game loading
 
             var user = (User)Session["user"];
+            LoadGame();
+            ValidateUser(user);
+
+
+            // data loading
+
+            if (!IsPostBack)
+            {
+                LoadGenreData();
+                LoadData();
+            }
+
+
+            UpdateGenres();
+        }
+
+        private void ValidateUser(User user)
+        {
             if (user == null) Response.Redirect("404");
             if (user != null && !user.IsDeveloper) Response.Redirect("404");
 
+            if (game.DeveloperId != user.DeveloperId) Response.Redirect("404");
+        }
+
+        private void LoadGame()
+        {
             string gameIdString = Request.QueryString["game"];
-            if(!int.TryParse(gameIdString, out int gameId)) Response.Redirect("404");
+            if (!int.TryParse(gameIdString, out int gameId)) Response.Redirect("404");
             try
             {
                 game = new Game(gameId);
@@ -37,17 +60,6 @@ namespace Navebsite
             {
                 Response.Redirect("404");
             }
-
-            if(game.DeveloperId != user.DeveloperId) Response.Redirect("404");
-
-
-
-            // data loading
-
-            if (!IsPostBack) LoadGenreData();
-
-
-            UpdateGenres();
         }
 
         private void UpdateGenres()
@@ -59,7 +71,14 @@ namespace Navebsite
 
         }
 
-        
+        private void LoadData()
+        {
+            GameName.Text = game.GameName;
+            GameLink.Text = game.GameLink;
+            Description.Text = game.Description;
+            Price.Text = "" + game.Price;
+
+        }
 
         private void LoadGenreData()
         {
@@ -67,7 +86,9 @@ namespace Navebsite
             GenreList.DataTextField = "GenreName";
             GenreList.DataValueField = "ID";
             GenreList.DataBind();
-            ViewState["GenreList"] = new HashSet<Genre>();
+            var set = new HashSet<Genre>();
+            game.Genres.ForEach(genre => set.Add(genre));
+            ViewState["GenreList"] = set;
         }
 
         protected void button_Click(object sender, EventArgs e)
@@ -85,20 +106,24 @@ namespace Navebsite
 
             var developer = user.DeveloperId;
 
-            var bgPath = UploadHelper.ImageFileUpload(Background, backgroundFormat, "no.jpg", Server);
-            var logoPath = UploadHelper.ImageFileUpload(Logo, logoFormat, "no.jpg", Server);
+            //var bgPath = UploadHelper.ImageFileUpload(Background, backgroundFormat, "no.jpg", Server);
+            //var logoPath = UploadHelper.ImageFileUpload(Logo, logoFormat, "no.jpg", Server);
 
             var description = Description.Text;
-            var version = Version.Text;
             var link = GameLink.Text;
             var gameName = GameName.Text;
-            var price = double.Parse(Price.Text);
+            var price = double.Parse(Price.Text.Replace("$", ""));
 
-            var game = new Game(gameName, link, description, bgPath, logoPath, developer, price)
-            {
-                Genres = ((HashSet<Genre>)ViewState["GenreList"]).ToList()
-            };
+            game.DeveloperId = developer;
+            //game.Background = bgPath;
+            //game.Logo = logoPath;
+            game.Description = description;
+            game.GameLink = link;
+            game.GameName = gameName;
+            game.Price = price;
 
+            game.UpdateToDatabase();
+            
             Genre.ClearGenres(game.Id);
             foreach (var genre in (HashSet<Genre>)ViewState["GenreList"]) Genre.InsertGameGenre(genre, game.Id);
 

@@ -158,5 +158,18 @@ namespace NavebsiteBL
 
             return output;
         }
+
+        public void UpdateToDatabase()
+        {
+            DbGame.UpdateGame(
+                Id,
+                Description,
+                Background,
+                Logo,
+                DeveloperId,
+                GameLink,
+                GameName,
+                Price);
+        }
     }
 }

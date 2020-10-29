@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.OleDb;
 
 namespace NavebsiteDAL
 {
@@ -52,6 +53,26 @@ namespace NavebsiteDAL
         public static void UpdateReviewStatus(int newReviewStatus, int id)
         {
             DalHelper.UpdateWhere("Games", "Review Status", newReviewStatus, "ID", id);
+        }
+
+        public static void UpdateGame(int id, string description, string background, string logo, int developerId, string gameLink, string gameName, double price)
+        {
+            DalHelper.Update($@"UPDATE Games
+SET [Game Name] = @gameName, 
+[Game Link] = @gameLink, 
+[Description] = @desc, 
+[Background] = @background, 
+[Logo] = @logo, 
+[Developer] = @dev, 
+[Price] = @price 
+WHERE ID = {id}", 
+                new OleDbParameter("@gameName", gameName),
+                new OleDbParameter("@gameLink", gameLink),
+                new OleDbParameter("@desc", description),
+                new OleDbParameter("@background", background),
+                new OleDbParameter("@logo", logo),
+                new OleDbParameter("@dev", developerId),
+                new OleDbParameter("@price", price));
         }
     }
 }
