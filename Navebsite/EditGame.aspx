@@ -65,4 +65,15 @@
 
         </div>
     </asp:Panel>
+    <asp:Panel ID="ImageForms" runat="server">
+        <div class="tuple_vert">
+            <asp:Label Text="Background Image" AssociatedControlID="Background" runat="server" CssClass="input_label"/>
+            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="input" accept=".png,.jpg,.jpeg,.jfif,.webp"/>
+        </div>
+        <div class="tuple_vert">
+            <asp:Label Text="Logo Image" AssociatedControlID="Logo" runat="server" CssClass="input_label"/>
+            <asp:FileUpload ID="FileUpload2" runat="server" CssClass="input" accept=".png,.jpg,.jpeg,.jfif,.webp"/>
+                
+        </div>
+    </asp:Panel>
 </asp:Content>

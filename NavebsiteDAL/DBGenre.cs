@@ -52,6 +52,7 @@ FROM Games INNER JOIN (Genres INNER JOIN GameGenres ON Genres.ID = GameGenres.Ge
         public static void DeleteGenresForGame(int game)
         {
             var sql = $@"DELETE * FROM GameGenres WHERE Game = {game}";
+            DalHelper.Update(sql);
         }
     }
 }

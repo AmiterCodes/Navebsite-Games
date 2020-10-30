@@ -125,6 +125,7 @@ namespace Navebsite
             game.UpdateToDatabase();
             
             Genre.ClearGenres(game.Id);
+
             foreach (var genre in (HashSet<Genre>)ViewState["GenreList"]) Genre.InsertGameGenre(genre, game.Id);
 
             Response.Redirect("GamePage.aspx?id=" + game.Id);

@@ -58,6 +58,24 @@ namespace Navebsite.Controls {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl library;
         
         /// <summary>
+        /// devPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl devPage;
+        
+        /// <summary>
+        /// adminPage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adminPage;
+        
+        /// <summary>
         /// ProfilePicture control.
         /// </summary>
         /// <remarks>

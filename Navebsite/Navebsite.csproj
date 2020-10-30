@@ -124,6 +124,7 @@
     <Content Include="Main.css" />
     <Content Include="Pay.aspx" />
     <Content Include="pay.js" />
+    <Content Include="PaymentSuccess.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Store.aspx" />
     <Content Include="Profile.aspx" />
@@ -337,6 +338,13 @@
     </Compile>
     <Compile Include="Pay.aspx.designer.cs">
       <DependentUpon>Pay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentSuccess.aspx.cs">
+      <DependentUpon>PaymentSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PaymentSuccess.aspx.designer.cs">
+      <DependentUpon>PaymentSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

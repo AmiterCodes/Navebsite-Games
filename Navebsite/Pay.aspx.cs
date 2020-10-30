@@ -18,6 +18,10 @@ namespace Navebsite
         private string payingFor;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            
+
+            payment.Visible = !UseBalance.Checked;
             try
             {
                 var user = (User) Session["user"];
@@ -42,13 +46,27 @@ namespace Navebsite
                     }
                     case "game":
                     {
+                        gameOptions.Visible = true;
                         string gameIdString = Request.QueryString["game"];
                         if (gameIdString == null) Response.Redirect("404");
                         if (!int.TryParse(gameIdString, out int gameId)) Response.Redirect("404.aspx");
 
                         game = new Game(gameId);
                         amount = game.Price;
-                        break;
+
+                        double remaining = user.Balance - amount;
+
+                        CurrentBalance.Text = user.Balance + "";
+                        RemainingBalance.Text = remaining + "";
+
+                        if (remaining < 0)
+                        {
+                            UseBalance.Enabled = false;
+                            UseBalance.Text = "(not enough balance)";
+                        }
+
+
+                            break;
                     }
                 }
 
@@ -93,6 +111,11 @@ namespace Navebsite
                     Response.Redirect("GamePage.aspx?id=" + game.Id);
                     break;
             }
+        }
+
+        protected void UseBalance_OnCheckedChanged(object sender, EventArgs e)
+        {
+            payment.Visible = !UseBalance.Checked;
         }
     }
 }
