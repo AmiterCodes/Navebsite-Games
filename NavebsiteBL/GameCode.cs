@@ -63,7 +63,7 @@ namespace NavebsiteBL
         /// </summary>
         /// <param name="game">id of game</param>
         /// <returns>the game code for the game</returns>
-        public GameCode GenerateCode(int game)
+        public static GameCode GenerateCode(int game)
         {
             string code = RandomCodeString(16);
 
@@ -73,6 +73,9 @@ namespace NavebsiteBL
         private GameCode(string code, int game)
         {
             Id = DbGameCodes.InsertCode(code, game);
+
+            Code = code;
+            GameId = game;
 
             Used = false;
             RedeemedById = -1;

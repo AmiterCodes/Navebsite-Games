@@ -76,6 +76,24 @@ namespace Navebsite {
         protected global::System.Web.UI.WebControls.Panel gameOptions;
         
         /// <summary>
+        /// GameImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image GameImage;
+        
+        /// <summary>
+        /// GameName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GameName;
+        
+        /// <summary>
         /// BuyGift control.
         /// </summary>
         /// <remarks>

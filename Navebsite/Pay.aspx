@@ -135,6 +135,8 @@
             <asp:Label Text="$0.00" ID="paymentAmount" runat="server"/>
         </div>
         <asp:Panel ID="gameOptions" Visible="false" runat="server" CssClass="tuple_vert">
+            <asp:Image ImageUrl="./Images/GameBackgrounds/no.jpg" CssClass="image" ID="GameImage" runat="server" />
+            <asp:Label ID="GameName" Text="Game Name" runat="server" />
             <div>
                 <asp:CheckBox ClientIDMode="Static" ID="BuyGift" Checked="False" Text="Buy as gift code" runat="server"/>
 
@@ -149,6 +151,7 @@
 
             </asp:Panel>
         <asp:Button runat="server" ID="PayButton" OnClientClick="return confirm('Are you sure?')" Text="Pay!" CssClass="button" OnClick="PayButton_OnClick"/>
+        
         <asp:Label Text="" ID="ErrorBox" runat="server"/>
     </div>
 

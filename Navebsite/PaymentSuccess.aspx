@@ -14,6 +14,14 @@
                 Your code is:
                 <asp:Label ID="Code" CssClass="key_label" Text="NO CODE" runat="server" />
             </asp:Panel>
+            <asp:Panel runat="server" ID="BalancePanel" CssClass="tuple_vert" Visible="False">
+                <asp:Label ID="AmountAdded" runat="server" />
+            </asp:Panel>
+            <asp:Panel runat="server" ID="GamePanel" CssClass="tuple_vert" Visible="False">
+                <asp:HyperLink CssClass="button" ID="PlayHere" Text="Play game here" runat="server" />
+            </asp:Panel>
+            <asp:HyperLink NavigateUrl="./Store.aspx" Text="back to the store" runat="server" />
+
         </div>
     </div>
 </asp:Content>

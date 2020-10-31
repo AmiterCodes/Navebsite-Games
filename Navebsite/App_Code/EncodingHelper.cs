@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Navebsite.App_Code
 {
-    public class TextHelper
+    public class EncodingHelper
     {
         public static string Base64Encode(string plainText)
         {

@@ -1,25 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Navebsite.App_Code;
 using Navebsite.CreditWebService;
 using NavebsiteBL;
-using static Navebsite.CreditWebService.CreditWebService;
 
 namespace Navebsite
 {
-    public partial class Pay : System.Web.UI.Page
+    public partial class Pay : Page
     {
-        private Game game;
         private double amount;
+        private Game game;
         private string payingFor;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.ValidateRequestMode = ValidateRequestMode.Enabled;
-            
+
 
             payment.Visible = !UseBalance.Checked;
             try
@@ -27,11 +25,9 @@ namespace Navebsite
                 var user = (User) Session["user"];
                 if (user == null) Response.Redirect("Login.aspx");
 
-                string amountString = Request.QueryString["am"];
+                var amountString = Request.QueryString["am"];
                 payingFor = Request.QueryString["for"];
 
-                
-                
 
                 if (payingFor != "game" && payingFor != "bal") Response.Redirect("404");
 
@@ -47,16 +43,20 @@ namespace Navebsite
                     case "game":
                     {
                         gameOptions.Visible = true;
-                        string gameIdString = Request.QueryString["game"];
+                        var gameIdString = Request.QueryString["game"];
                         if (gameIdString == null) Response.Redirect("404");
-                        if (!int.TryParse(gameIdString, out int gameId)) Response.Redirect("404.aspx");
+                        if (!int.TryParse(gameIdString, out var gameId)) Response.Redirect("404.aspx");
 
                         game = new Game(gameId);
                         amount = game.Price;
 
+                        GameImage.ImageUrl = game.BackgroundUrl;
+                        GameImage.AlternateText = "Image for " + game.GameName;
+                        GameName.Text = game.GameName;
+
                         PayButton.CausesValidation = !UseBalance.Checked;
 
-                        double remaining = user.Balance - amount;
+                        var remaining = user.Balance - amount;
 
                         CurrentBalance.Text = user.Balance + "";
                         RemainingBalance.Text = remaining + "";
@@ -74,7 +74,7 @@ namespace Navebsite
 
                 paymentAmount.Text = "$" + amount;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.Print(ex.Message);
                 Response.Redirect("404");
@@ -83,12 +83,11 @@ namespace Navebsite
 
         protected void PayButton_OnClick(object sender, EventArgs e)
         {
-            var user = (User)Session["user"];
+            var user = (User) Session["user"];
             if (user == null) Response.Redirect("Login.aspx");
 
             if (!UseBalance.Checked)
             {
-
                 var service = new CreditWebService.CreditWebService();
                 var details = new CreditCardDetails
                 {
@@ -111,17 +110,33 @@ namespace Navebsite
                 user.UpdateBalance(user.Balance - amount);
             }
 
+            string paymentSuccessPage = "./PaymentSuccess.aspx";
+            var queryString = HttpUtility.ParseQueryString(string.Empty);
             switch (payingFor)
             {
                 case "bal":
                     user.UpdateBalance(amount + user.Balance);
-                    Response.Redirect("UserSettings.aspx");
+                    queryString.Add("balance", "" + amount);
                     break;
                 case "game":
-                    UserGame.AddGame(user.Id, game.Id, amount);
-                    Response.Redirect("GamePage.aspx?id=" + game.Id);
+                    if (BuyGift.Checked)
+                    {
+                        var code = GameCode.GenerateCode(game.Id);
+                        var codeEncoded = EncodingHelper.Base64Encode(code.Code);
+                        queryString.Add("code", HttpUtility.UrlEncode(codeEncoded));
+                        
+                    }
+                    else
+                    {
+                        UserGame.AddGame(user.Id, game.Id, amount);
+                        queryString.Add("game", "" + game.Id);
+                    }
+
                     break;
             }
+
+
+            Response.Redirect(paymentSuccessPage + "?" + queryString);
         }
 
         protected void UseBalance_OnCheckedChanged(object sender, EventArgs e)

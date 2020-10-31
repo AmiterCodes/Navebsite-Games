@@ -129,6 +129,13 @@ namespace Navebsite
             foreach (var genre in (HashSet<Genre>)ViewState["GenreList"]) Genre.InsertGameGenre(genre, game.Id);
 
             Response.Redirect("GamePage.aspx?id=" + game.Id);
+
+            game.Genres = ((HashSet<Genre>) ViewState["GenreList"]).ToList();
+
+            List<Game> storeGames = (List<Game>) Application["StoreGames"];
+            storeGames.RemoveAll(g => g.Id == game.Id);
+
+            storeGames.Insert(0, game);
         }
 
         protected void AddGenreToAll_Click(object sender, EventArgs e)
