@@ -18,7 +18,7 @@ namespace Navebsite
         private string payingFor;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Page.ValidateRequestMode = ValidateRequestMode.Enabled;
             
 
             payment.Visible = !UseBalance.Checked;
@@ -54,6 +54,8 @@ namespace Navebsite
                         game = new Game(gameId);
                         amount = game.Price;
 
+                        PayButton.CausesValidation = !UseBalance.Checked;
+
                         double remaining = user.Balance - amount;
 
                         CurrentBalance.Text = user.Balance + "";
@@ -66,7 +68,7 @@ namespace Navebsite
                         }
 
 
-                            break;
+                        break;
                     }
                 }
 
@@ -83,21 +85,30 @@ namespace Navebsite
         {
             var user = (User)Session["user"];
             if (user == null) Response.Redirect("Login.aspx");
-            var service = new CreditWebService.CreditWebService();
-            var details = new CreditCardDetails
-            {
-                CardNumber = cardnumber.Text.Replace(" ",""),
-                CardVerificationValue = securitycode.Text,
-                HolderName = name.Text,
-                Month = int.Parse(expirationdate.Text.Substring(0, 2)),
-                Year = int.Parse(expirationdate.Text.Substring(3, 2))
-            };
 
-            var transaction = service.Pay(details, "Navebsite Games Inc.", amount);
-            if (transaction == null)
+            if (!UseBalance.Checked)
             {
-                ErrorBox.Text = "Payment Failed";
-                return;
+
+                var service = new CreditWebService.CreditWebService();
+                var details = new CreditCardDetails
+                {
+                    CardNumber = cardnumber.Text.Replace(" ", ""),
+                    CardVerificationValue = securitycode.Text,
+                    HolderName = name.Text,
+                    Month = int.Parse(expirationdate.Text.Substring(0, 2)),
+                    Year = int.Parse(expirationdate.Text.Substring(3, 2))
+                };
+
+                var transaction = service.Pay(details, "Navebsite Games Inc.", amount);
+                if (transaction == null)
+                {
+                    ErrorBox.Text = "Payment Failed";
+                    return;
+                }
+            }
+            else
+            {
+                user.UpdateBalance(user.Balance - amount);
             }
 
             switch (payingFor)

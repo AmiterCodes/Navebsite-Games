@@ -10,6 +10,10 @@
                 <circle id="successAnimationCircle" cx="35" cy="35" r="24" stroke="#979797" stroke-width="2" stroke-linecap="round" fill="transparent"/>
                 <polyline id="successAnimationCheck" stroke="#979797" stroke-width="2" points="23 34 34 43 47 27" fill="transparent"/>
             </svg>
+            <asp:Panel runat="server" ID="CodePanel" CssClass="tuple_vert" Visible="False">
+                Your code is:
+                <asp:Label ID="Code" CssClass="key_label" Text="NO CODE" runat="server" />
+            </asp:Panel>
         </div>
     </div>
 </asp:Content>

@@ -74,5 +74,15 @@ WHERE ID = {id}",
                 new OleDbParameter("@dev", developerId),
                 new OleDbParameter("@price", price));
         }
+
+        public static void UpdateLogo(string filename, int id)
+        {
+            DalHelper.UpdateWhere("Games", "Logo", filename, "ID", id);
+        }
+
+        public static void UpdateBackground(string filename, int id)
+        {
+            DalHelper.UpdateWhere("Games", "Background", filename, "ID", id);
+        }
     }
 }

@@ -171,5 +171,17 @@ namespace NavebsiteBL
                 GameName,
                 Price);
         }
+
+        public void UpdateLogo(string filename)
+        {
+            this.Logo = filename;
+            DbGame.UpdateLogo(filename, Id);
+        }
+
+        public void UpdateBackground(string filename)
+        {
+            this.Background = filename;
+            DbGame.UpdateBackground(filename, Id);
+        }
     }
 }

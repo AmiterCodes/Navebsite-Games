@@ -153,5 +153,17 @@ namespace Navebsite
             ViewState["GenreList"] = new HashSet<Genre>();
             UpdateGenres();
         }
+
+        protected void UpdateLogoButton_OnClick(object sender, EventArgs e)
+        {
+            string filename = UploadHelper.ImageFileUpload(Background, "Images/GameLogos/", "no.png", Server);
+            game.UpdateLogo(filename);
+        }
+
+        protected void UpdateBackgroundButton_OnClick(object sender, EventArgs e)
+        {
+            string filename = UploadHelper.ImageFileUpload(Background, "Images/GameBackgrounds/", "no.png", Server);
+            game.UpdateBackground(filename);
+        }
     }
 }

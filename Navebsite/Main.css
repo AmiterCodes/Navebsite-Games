@@ -1698,3 +1698,10 @@ input[type='radio'] {
     justify-content: center;
     margin: auto;
 }
+
+.key_label {
+    font-size: 1.6rem;
+    background-color: white;
+    color: black;
+    text-transform: uppercase;
+}

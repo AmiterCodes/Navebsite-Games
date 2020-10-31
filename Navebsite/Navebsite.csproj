@@ -167,6 +167,7 @@
     <Compile Include="AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
     </Compile>
+    <Content Include="App_Code\TextHelper.cs" />
     <Compile Include="App_Code\UploadHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CompanyPage.aspx.cs">
