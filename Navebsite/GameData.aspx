@@ -3,5 +3,5 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
     <NV:SalesChart ID="sales" runat="server"/>
-
+    
 </asp:Content>

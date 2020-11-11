@@ -7,6 +7,7 @@ namespace Navebsite
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DevDetails.Visible = NewDevCheck.Checked;
         }
 
         protected void Register_Click(object sender, EventArgs e)
@@ -27,6 +28,11 @@ namespace Navebsite
                 Session["user"] = user;
                 user.AddActivity("Created Account");
                 Response.Redirect("Profile.aspx?id=" + user.Id);
+            }
+
+            if (NewDevCheck.Checked)
+            {
+
             }
         }
     }

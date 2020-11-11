@@ -18,6 +18,17 @@
         <asp:RegularExpressionValidator Display="Dynamic" ErrorMessage="Password must be at least 6 letters, with at least one capital letter, lowercase letter and one number" ControlToValidate="password" runat="server" ValidationExpression="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$" />
         
         <asp:Label runat="server" ID="errorBox"></asp:Label>
+        
+        <asp:CheckBox ID="NewDevCheck" AutoPostBack="True" Text="Sign up as new developer" runat="server" />
+        
+        <asp:Panel ID="DevDetails" runat="server">
+            <div class="tuple_vert">
+                <asp:TextBox ID="DevName" placeholder="Developer name" runat="server" />
+            </div>
+        </asp:Panel>
+        
         <asp:Button Text="Register" runat="server" OnClick="Register_Click" CssClass="button" />
+
+
     </div>
 </asp:Content>

@@ -71,6 +71,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\BankAccountDetails.cs" />
     <Compile Include="App_Code\Transaction.cs" />
     <Compile Include="CreditWebService.asmx.cs">
       <DependentUpon>CreditWebService.asmx</DependentUpon>
