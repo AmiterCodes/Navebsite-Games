@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 
 namespace NavebsiteDAL
 {
     /// <summary>
     ///     DB Helper, methods to do operations on a database
     /// </summary>
-    public class DbHelper
+    public class DbHelper : IDisposable
     {
         public const int WriteDataError = -1;
         private readonly string _provider;
@@ -98,6 +99,7 @@ namespace NavebsiteDAL
             }
             catch(Exception e)
             {
+                Debug.WriteLine(e.Message);
                 return WriteDataError;
             }
         }
@@ -202,6 +204,11 @@ namespace NavebsiteDAL
             {
                 return null;
             }
+        }
+
+        public void Dispose()
+        {
+            _conn?.Dispose();
         }
     }
 }

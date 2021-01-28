@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using Navebsite.App_Code;
 using Navebsite.CreditWebService;
+
 using NavebsiteBL;
 
 namespace Navebsite
@@ -89,19 +90,18 @@ namespace Navebsite
             if (!UseBalance.Checked)
             {
                 var service = new CreditWebService.CreditWebService();
-                var details = new CreditCardDetails
+                var details = new CreditCardDto
                 {
                     CardNumber = cardnumber.Text.Replace(" ", ""),
                     CardVerificationValue = securitycode.Text,
-                    HolderName = name.Text,
                     Month = int.Parse(expirationdate.Text.Substring(0, 2)),
                     Year = int.Parse(expirationdate.Text.Substring(3, 2))
                 };
 
-                var transaction = service.Pay(details, "Navebsite Games Inc.", amount);
+                var transaction = service.Pay(details, service.GetBankAccount(3), amount);
                 if (transaction == null)
                 {
-                    ErrorBox.Text = "Payment Failed";
+                    SnackbarHelper.DisplaySnackBar(this, "Payment Failed");
                     return;
                 }
             }

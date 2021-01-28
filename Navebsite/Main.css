@@ -1,4 +1,16 @@
-﻿* {
+﻿@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+@font-face {
+    font-family: "San Francisco";
+    font-weight: bold;
+    src: url(https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff);
+}
+
+* {
     margin: 0;
     padding: 0;
 }
@@ -6,7 +18,7 @@
 body {
     background: linear-gradient(180deg, #1D1D1D 0, #24263D 100%);
     color: white;
-    font-family: Roboto;
+    font-family: 'San Francisco';
     min-height: 100vh;
 }
 
@@ -584,19 +596,25 @@ label[for]:hover {
     }
 
 .input {
-    background: #741C1C;
-    transition: border 300ms;
-    border: transparent 3px solid;
-    color: #fff;
-    display: inline-block;
-    margin: .5rem;
+    padding: 5px 12px;
+    font-size: 1rem;
+    line-height: 20px;
+    color: #1d1d1d;
+    vertical-align: middle;
+    background-color: whitesmoke;
+    margin: .5rem .3rem;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    border-radius: 6px;
     outline: none;
-    padding: .5rem;
+    box-shadow: inset 0px 2px 0px rgba(225, 228, 232, 0.2);
 }
 
-.input:focus {
-    border: red 3px solid;
-}
+    .input:focus {
+        border-color: #0366D6;
+        outline: none;
+        box-shadow: 3px -3px 0px #BAD1F4, -3px 3px 0px #BAD1F4, 3px 3px 0px #BAD1F4, -3px -3px 0px #BAD1F4;
+    }
 
 
 .review_form_text {
@@ -658,9 +676,14 @@ select {
 .image {
 }
 
-.input::placeholder {
-    font-family: Roboto;
+input::placeholder {
+    font-family: "San Francisco";
 }
+
+textarea {
+    font-family: "San Francisco";
+}
+
 
 .grid-container {
     height: 90vh;

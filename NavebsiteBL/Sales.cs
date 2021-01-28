@@ -15,9 +15,27 @@ namespace NavebsiteBL
             Revenue = (double) dr["Revenue"];
         }
 
+        public Sales() {}
+
         public DateTime Date { get; set; }
         public int Purchases { get; set; }
         public double Revenue { get; set; }
+
+        public static Sales SalesForGame(int id)
+        {
+            DataRow row = DbStats.getGameStats(id);
+            if (row == null)
+                return new Sales
+                {
+                    Purchases = 0,
+                    Revenue = 0
+                };
+            return new Sales
+            {
+                Purchases = (int)row["Purchases"],
+                Revenue = (double) row["Revenue"]
+            }
+        }
 
         private static List<Sales> DataTableToList(DataTable tb)
         {

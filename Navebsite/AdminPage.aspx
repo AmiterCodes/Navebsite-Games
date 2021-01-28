@@ -5,4 +5,5 @@
     
     <NV:SalesChart ID="sales" runat="server"/>
     <NV:GameViewList runat="server" ID="gameList"/>
+    <asp:GridView runat="server" ID="TransactionHistory"></asp:GridView>
 </asp:Content>

@@ -3,6 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js"></script>
     <script src="pay.js" defer></script>
+    <script>
+        function showPaymentFailedError() {
+            Snackbar.show({ text: '❌ Payment Failed!', pos: 'top-center', showAction: false });
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
     <asp:Panel class="centering" ID="payment" runat="server">
@@ -152,7 +157,6 @@
             </asp:Panel>
         <asp:Button runat="server" ID="PayButton" OnClientClick="return confirm('Are you sure?')" Text="Pay!" CssClass="button" OnClick="PayButton_OnClick"/>
         
-        <asp:Label Text="" ID="ErrorBox" runat="server"/>
     </div>
 
 </asp:Content>

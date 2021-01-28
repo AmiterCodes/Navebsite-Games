@@ -58,12 +58,12 @@ namespace NavebsiteDAL
         }
 
         /// <summary>
-        /// 
+        /// Inserts a user into the database
         /// </summary>
-        /// <param name="email"></param>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <returns></returns>
+        /// <param name="email">email of the user</param>
+        /// <param name="username">username of the user</param>
+        /// <param name="password">plaintext password of the user</param>
+        /// <returns>id of new user</returns>
         public static int InsertUser(string email, string username, string password)
         {
             return DalHelper.Insert(
@@ -72,6 +72,12 @@ namespace NavebsiteDAL
                 $"VALUES('{email}','{username}', '{BCrypt.Net.BCrypt.EnhancedHashPassword(password)}')");
         }
 
+        /// <summary>
+        /// updates the password in the database
+        /// </summary>
+        /// <param name="password">new plaintext password</param>
+        /// <param name="user">id of user</param>
+        /// <returns>true if it changed anything</returns>
         public static bool UpdatePassword(string password, int user)
         {
             string hash = BCrypt.Net.BCrypt.EnhancedHashPassword(password);
@@ -79,21 +85,41 @@ namespace NavebsiteDAL
             return DalHelper.UpdateWhere("Users", "HashPass", hash, "ID", user) > 0;
         }
 
+        /// <summary>
+        /// updates the description of a user in the database
+        /// </summary>
+        /// <param name="desc">new description</param>
+        /// <param name="user">user id</param>
         public static void UpdateDescription(string desc, int user)
         {
             DalHelper.UpdateWhere("Users", "Description", desc, "ID", user);
         }
 
+        /// <summary>
+        /// updates the background of a user in the database
+        /// </summary>
+        /// <param name="filename">name of the file</param>
+        /// <param name="user">user id</param>
         public static void UpdateBackground(string filename, int user)
         {
             DalHelper.UpdateWhere("Users", "Background", filename, "ID", user);
         }
 
+        /// <summary>
+        /// updates the profile picture of a user in the database
+        /// </summary>
+        /// <param name="filename">name of the file</param>
+        /// <param name="user">user id</param>
         public static void UpdateProfilePicture(string filename, int user)
         {
             DalHelper.UpdateWhere("Users", "Profile Picture", filename, "ID", user);
         }
 
+        /// <summary>
+        /// updates the balance of the user
+        /// </summary>
+        /// <param name="newBalance">new balance of user</param>
+        /// <param name="user">user id</param>
         public static void UpdateBalance(double newBalance, int user)
         {
             DalHelper.UpdateWhere("Users", "Balance", newBalance, "ID", user);

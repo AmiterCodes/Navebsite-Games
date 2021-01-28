@@ -23,7 +23,7 @@
         
         <asp:Panel ID="DevDetails" runat="server">
             <div class="tuple_vert">
-                <asp:TextBox ID="DevName" placeholder="Developer name" runat="server" />
+                <asp:TextBox ID="DevName" placeholder="Developer name" runat="server" CssClass="input" />
             </div>
         </asp:Panel>
         

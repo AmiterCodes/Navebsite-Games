@@ -17,11 +17,11 @@
             <asp:RequiredFieldValidator ErrorMessage="You must input money to add" ControlToValidate="AddBalance" ValidationGroup="Balance" runat="server" />
 
             <h3 class="header">Redeem Game: </h3>
-            <div class="tuple">
+            <asp:Panel runat="server" CssClass="tuple" DefaultButton="RedeemGameButton">
                 <asp:TextBox placeholder="XXXX XXXX XXXX XXXX" CssClass="input" ID="RedeemGame" runat="server" />
-                <asp:Button ID="RedeemGameButton" runat="server" OnClick="RedeemGameButton_OnClick" Text="Button" />
+                <asp:Button ID="RedeemGameButton" runat="server" OnClick="RedeemGameButton_OnClick" CssClass="button" Text="Button" />
 
-            </div>
+            </asp:Panel>
             <asp:Label Text="" ID="RedeemError" runat="server" />
                 <asp:RequiredFieldValidator ErrorMessage="You must put a code" ControlToValidate="RedeemGame" ValidationGroup="Redeem" runat="server" />
             <asp:RegularExpressionValidator runat="server" ErrorMessage="You must put a 16 character code" ValidationGroup="Redeem" ControlToValidate="RedeemGame" ValidationExpression="^[a-zA-Z0-9]{16}$"></asp:RegularExpressionValidator>

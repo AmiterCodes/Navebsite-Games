@@ -23,7 +23,7 @@ namespace Navebsite.CreditWebService {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="CreditWebServiceSoap", Namespace="http://tempuri.org/")]
@@ -32,6 +32,22 @@ namespace Navebsite.CreditWebService {
         private System.Threading.SendOrPostCallback IsValidOperationCompleted;
         
         private System.Threading.SendOrPostCallback PayOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback TransactionHistoryOfOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateEmptyBankAccountOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateVisaBankAccountOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddNewMastercardCardOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback AddNewVisaCardOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetCardsForAccountOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetAllBankAccountsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetBankAccountOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -78,20 +94,44 @@ namespace Navebsite.CreditWebService {
         public event PayCompletedEventHandler PayCompleted;
         
         /// <remarks/>
+        public event TransactionHistoryOfCompletedEventHandler TransactionHistoryOfCompleted;
+        
+        /// <remarks/>
+        public event CreateEmptyBankAccountCompletedEventHandler CreateEmptyBankAccountCompleted;
+        
+        /// <remarks/>
+        public event CreateVisaBankAccountCompletedEventHandler CreateVisaBankAccountCompleted;
+        
+        /// <remarks/>
+        public event AddNewMastercardCardCompletedEventHandler AddNewMastercardCardCompleted;
+        
+        /// <remarks/>
+        public event AddNewVisaCardCompletedEventHandler AddNewVisaCardCompleted;
+        
+        /// <remarks/>
+        public event GetCardsForAccountCompletedEventHandler GetCardsForAccountCompleted;
+        
+        /// <remarks/>
+        public event GetAllBankAccountsCompletedEventHandler GetAllBankAccountsCompleted;
+        
+        /// <remarks/>
+        public event GetBankAccountCompletedEventHandler GetBankAccountCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/IsValid", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public bool IsValid(CreditCardDetails details) {
+        public bool IsValid(CreditCardDto details) {
             object[] results = this.Invoke("IsValid", new object[] {
                         details});
             return ((bool)(results[0]));
         }
         
         /// <remarks/>
-        public void IsValidAsync(CreditCardDetails details) {
+        public void IsValidAsync(CreditCardDto details) {
             this.IsValidAsync(details, null);
         }
         
         /// <remarks/>
-        public void IsValidAsync(CreditCardDetails details, object userState) {
+        public void IsValidAsync(CreditCardDto details, object userState) {
             if ((this.IsValidOperationCompleted == null)) {
                 this.IsValidOperationCompleted = new System.Threading.SendOrPostCallback(this.OnIsValidOperationCompleted);
             }
@@ -108,26 +148,26 @@ namespace Navebsite.CreditWebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Pay", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Transaction Pay(CreditCardDetails details, string to, double amountDollar) {
+        public TransactionDto Pay(CreditCardDto from, BankAccountDto to, double amountDollar) {
             object[] results = this.Invoke("Pay", new object[] {
-                        details,
+                        from,
                         to,
                         amountDollar});
-            return ((Transaction)(results[0]));
+            return ((TransactionDto)(results[0]));
         }
         
         /// <remarks/>
-        public void PayAsync(CreditCardDetails details, string to, double amountDollar) {
-            this.PayAsync(details, to, amountDollar, null);
+        public void PayAsync(CreditCardDto from, BankAccountDto to, double amountDollar) {
+            this.PayAsync(from, to, amountDollar, null);
         }
         
         /// <remarks/>
-        public void PayAsync(CreditCardDetails details, string to, double amountDollar, object userState) {
+        public void PayAsync(CreditCardDto from, BankAccountDto to, double amountDollar, object userState) {
             if ((this.PayOperationCompleted == null)) {
                 this.PayOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPayOperationCompleted);
             }
             this.InvokeAsync("Pay", new object[] {
-                        details,
+                        from,
                         to,
                         amountDollar}, this.PayOperationCompleted, userState);
         }
@@ -136,6 +176,240 @@ namespace Navebsite.CreditWebService {
             if ((this.PayCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.PayCompleted(this, new PayCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/TransactionHistoryOf", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public TransactionDto[] TransactionHistoryOf(BankAccountDto bank) {
+            object[] results = this.Invoke("TransactionHistoryOf", new object[] {
+                        bank});
+            return ((TransactionDto[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void TransactionHistoryOfAsync(BankAccountDto bank) {
+            this.TransactionHistoryOfAsync(bank, null);
+        }
+        
+        /// <remarks/>
+        public void TransactionHistoryOfAsync(BankAccountDto bank, object userState) {
+            if ((this.TransactionHistoryOfOperationCompleted == null)) {
+                this.TransactionHistoryOfOperationCompleted = new System.Threading.SendOrPostCallback(this.OnTransactionHistoryOfOperationCompleted);
+            }
+            this.InvokeAsync("TransactionHistoryOf", new object[] {
+                        bank}, this.TransactionHistoryOfOperationCompleted, userState);
+        }
+        
+        private void OnTransactionHistoryOfOperationCompleted(object arg) {
+            if ((this.TransactionHistoryOfCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.TransactionHistoryOfCompleted(this, new TransactionHistoryOfCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CreateEmptyBankAccount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public BankAccountDto CreateEmptyBankAccount(string name, int id) {
+            object[] results = this.Invoke("CreateEmptyBankAccount", new object[] {
+                        name,
+                        id});
+            return ((BankAccountDto)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateEmptyBankAccountAsync(string name, int id) {
+            this.CreateEmptyBankAccountAsync(name, id, null);
+        }
+        
+        /// <remarks/>
+        public void CreateEmptyBankAccountAsync(string name, int id, object userState) {
+            if ((this.CreateEmptyBankAccountOperationCompleted == null)) {
+                this.CreateEmptyBankAccountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateEmptyBankAccountOperationCompleted);
+            }
+            this.InvokeAsync("CreateEmptyBankAccount", new object[] {
+                        name,
+                        id}, this.CreateEmptyBankAccountOperationCompleted, userState);
+        }
+        
+        private void OnCreateEmptyBankAccountOperationCompleted(object arg) {
+            if ((this.CreateEmptyBankAccountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateEmptyBankAccountCompleted(this, new CreateEmptyBankAccountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CreateVisaBankAccount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public BankAccountDto CreateVisaBankAccount(string name, int id) {
+            object[] results = this.Invoke("CreateVisaBankAccount", new object[] {
+                        name,
+                        id});
+            return ((BankAccountDto)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateVisaBankAccountAsync(string name, int id) {
+            this.CreateVisaBankAccountAsync(name, id, null);
+        }
+        
+        /// <remarks/>
+        public void CreateVisaBankAccountAsync(string name, int id, object userState) {
+            if ((this.CreateVisaBankAccountOperationCompleted == null)) {
+                this.CreateVisaBankAccountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateVisaBankAccountOperationCompleted);
+            }
+            this.InvokeAsync("CreateVisaBankAccount", new object[] {
+                        name,
+                        id}, this.CreateVisaBankAccountOperationCompleted, userState);
+        }
+        
+        private void OnCreateVisaBankAccountOperationCompleted(object arg) {
+            if ((this.CreateVisaBankAccountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateVisaBankAccountCompleted(this, new CreateVisaBankAccountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddNewMastercardCard", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public CreditCardDetails AddNewMastercardCard(BankAccountDetails bankAccount) {
+            object[] results = this.Invoke("AddNewMastercardCard", new object[] {
+                        bankAccount});
+            return ((CreditCardDetails)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddNewMastercardCardAsync(BankAccountDetails bankAccount) {
+            this.AddNewMastercardCardAsync(bankAccount, null);
+        }
+        
+        /// <remarks/>
+        public void AddNewMastercardCardAsync(BankAccountDetails bankAccount, object userState) {
+            if ((this.AddNewMastercardCardOperationCompleted == null)) {
+                this.AddNewMastercardCardOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddNewMastercardCardOperationCompleted);
+            }
+            this.InvokeAsync("AddNewMastercardCard", new object[] {
+                        bankAccount}, this.AddNewMastercardCardOperationCompleted, userState);
+        }
+        
+        private void OnAddNewMastercardCardOperationCompleted(object arg) {
+            if ((this.AddNewMastercardCardCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddNewMastercardCardCompleted(this, new AddNewMastercardCardCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/AddNewVisaCard", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public CreditCardDto AddNewVisaCard(BankAccountDto bankAccount) {
+            object[] results = this.Invoke("AddNewVisaCard", new object[] {
+                        bankAccount});
+            return ((CreditCardDto)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void AddNewVisaCardAsync(BankAccountDto bankAccount) {
+            this.AddNewVisaCardAsync(bankAccount, null);
+        }
+        
+        /// <remarks/>
+        public void AddNewVisaCardAsync(BankAccountDto bankAccount, object userState) {
+            if ((this.AddNewVisaCardOperationCompleted == null)) {
+                this.AddNewVisaCardOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAddNewVisaCardOperationCompleted);
+            }
+            this.InvokeAsync("AddNewVisaCard", new object[] {
+                        bankAccount}, this.AddNewVisaCardOperationCompleted, userState);
+        }
+        
+        private void OnAddNewVisaCardOperationCompleted(object arg) {
+            if ((this.AddNewVisaCardCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.AddNewVisaCardCompleted(this, new AddNewVisaCardCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetCardsForAccount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public CreditCardDto[] GetCardsForAccount(BankAccountDto bankAccount) {
+            object[] results = this.Invoke("GetCardsForAccount", new object[] {
+                        bankAccount});
+            return ((CreditCardDto[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetCardsForAccountAsync(BankAccountDto bankAccount) {
+            this.GetCardsForAccountAsync(bankAccount, null);
+        }
+        
+        /// <remarks/>
+        public void GetCardsForAccountAsync(BankAccountDto bankAccount, object userState) {
+            if ((this.GetCardsForAccountOperationCompleted == null)) {
+                this.GetCardsForAccountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetCardsForAccountOperationCompleted);
+            }
+            this.InvokeAsync("GetCardsForAccount", new object[] {
+                        bankAccount}, this.GetCardsForAccountOperationCompleted, userState);
+        }
+        
+        private void OnGetCardsForAccountOperationCompleted(object arg) {
+            if ((this.GetCardsForAccountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetCardsForAccountCompleted(this, new GetCardsForAccountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetAllBankAccounts", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public BankAccountDto[] GetAllBankAccounts() {
+            object[] results = this.Invoke("GetAllBankAccounts", new object[0]);
+            return ((BankAccountDto[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetAllBankAccountsAsync() {
+            this.GetAllBankAccountsAsync(null);
+        }
+        
+        /// <remarks/>
+        public void GetAllBankAccountsAsync(object userState) {
+            if ((this.GetAllBankAccountsOperationCompleted == null)) {
+                this.GetAllBankAccountsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetAllBankAccountsOperationCompleted);
+            }
+            this.InvokeAsync("GetAllBankAccounts", new object[0], this.GetAllBankAccountsOperationCompleted, userState);
+        }
+        
+        private void OnGetAllBankAccountsOperationCompleted(object arg) {
+            if ((this.GetAllBankAccountsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetAllBankAccountsCompleted(this, new GetAllBankAccountsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetBankAccount", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public BankAccountDto GetBankAccount(int id) {
+            object[] results = this.Invoke("GetBankAccount", new object[] {
+                        id});
+            return ((BankAccountDto)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetBankAccountAsync(int id) {
+            this.GetBankAccountAsync(id, null);
+        }
+        
+        /// <remarks/>
+        public void GetBankAccountAsync(int id, object userState) {
+            if ((this.GetBankAccountOperationCompleted == null)) {
+                this.GetBankAccountOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetBankAccountOperationCompleted);
+            }
+            this.InvokeAsync("GetBankAccount", new object[] {
+                        id}, this.GetBankAccountOperationCompleted, userState);
+        }
+        
+        private void OnGetBankAccountOperationCompleted(object arg) {
+            if ((this.GetBankAccountCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetBankAccountCompleted(this, new GetBankAccountCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -159,14 +433,12 @@ namespace Navebsite.CreditWebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class CreditCardDetails {
-        
-        private string holderNameField;
+    public partial class CreditCardDto {
         
         private string cardNumberField;
         
@@ -176,15 +448,7 @@ namespace Navebsite.CreditWebService {
         
         private int yearField;
         
-        /// <remarks/>
-        public string HolderName {
-            get {
-                return this.holderNameField;
-            }
-            set {
-                this.holderNameField = value;
-            }
-        }
+        private int bankAccountIdField;
         
         /// <remarks/>
         public string CardNumber {
@@ -225,23 +489,183 @@ namespace Navebsite.CreditWebService {
                 this.yearField = value;
             }
         }
+        
+        /// <remarks/>
+        public int BankAccountId {
+            get {
+                return this.bankAccountIdField;
+            }
+            set {
+                this.bankAccountIdField = value;
+            }
+        }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Transaction {
+    public partial class CreditCardDetails {
+        
+        private string cardNumberField;
+        
+        private string cardVerificationValueField;
+        
+        private int monthField;
+        
+        private int yearField;
+        
+        private int bankAccountIdField;
+        
+        private BankAccountDetails bankAccountField;
+        
+        /// <remarks/>
+        public string CardNumber {
+            get {
+                return this.cardNumberField;
+            }
+            set {
+                this.cardNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string CardVerificationValue {
+            get {
+                return this.cardVerificationValueField;
+            }
+            set {
+                this.cardVerificationValueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Month {
+            get {
+                return this.monthField;
+            }
+            set {
+                this.monthField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int Year {
+            get {
+                return this.yearField;
+            }
+            set {
+                this.yearField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int BankAccountId {
+            get {
+                return this.bankAccountIdField;
+            }
+            set {
+                this.bankAccountIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public BankAccountDetails BankAccount {
+            get {
+                return this.bankAccountField;
+            }
+            set {
+                this.bankAccountField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class BankAccountDetails {
+        
+        private int identificationNumberField;
+        
+        private string holderNameField;
+        
+        private double balanceField;
+        
+        private CreditCardDetails[] creditCardsField;
+        
+        /// <remarks/>
+        public int identificationNumber {
+            get {
+                return this.identificationNumberField;
+            }
+            set {
+                this.identificationNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string holderName {
+            get {
+                return this.holderNameField;
+            }
+            set {
+                this.holderNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double Balance {
+            get {
+                return this.balanceField;
+            }
+            set {
+                this.balanceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public CreditCardDetails[] CreditCards {
+            get {
+                return this.creditCardsField;
+            }
+            set {
+                this.creditCardsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class TransactionDto {
+        
+        private int transactionIdField;
         
         private double amountDollarField;
         
-        private string cardHolderField;
+        private CreditCardDto fromField;
         
-        private string receiverField;
+        private BankAccountDto toField;
         
         private System.DateTime timestampField;
+        
+        /// <remarks/>
+        public int TransactionId {
+            get {
+                return this.transactionIdField;
+            }
+            set {
+                this.transactionIdField = value;
+            }
+        }
         
         /// <remarks/>
         public double AmountDollar {
@@ -254,22 +678,22 @@ namespace Navebsite.CreditWebService {
         }
         
         /// <remarks/>
-        public string CardHolder {
+        public CreditCardDto From {
             get {
-                return this.cardHolderField;
+                return this.fromField;
             }
             set {
-                this.cardHolderField = value;
+                this.fromField = value;
             }
         }
         
         /// <remarks/>
-        public string Receiver {
+        public BankAccountDto To {
             get {
-                return this.receiverField;
+                return this.toField;
             }
             set {
-                this.receiverField = value;
+                this.toField = value;
             }
         }
         
@@ -285,11 +709,68 @@ namespace Navebsite.CreditWebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.4084.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class BankAccountDto {
+        
+        private int identificationNumberField;
+        
+        private string holderNameField;
+        
+        private double balanceField;
+        
+        private CreditCardDto[] creditCardsField;
+        
+        /// <remarks/>
+        public int identificationNumber {
+            get {
+                return this.identificationNumberField;
+            }
+            set {
+                this.identificationNumberField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string holderName {
+            get {
+                return this.holderNameField;
+            }
+            set {
+                this.holderNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public double Balance {
+            get {
+                return this.balanceField;
+            }
+            set {
+                this.balanceField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public CreditCardDto[] CreditCards {
+            get {
+                return this.creditCardsField;
+            }
+            set {
+                this.creditCardsField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void IsValidCompletedEventHandler(object sender, IsValidCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class IsValidCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -311,11 +792,11 @@ namespace Navebsite.CreditWebService {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void PayCompletedEventHandler(object sender, PayCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class PayCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -328,10 +809,218 @@ namespace Navebsite.CreditWebService {
         }
         
         /// <remarks/>
-        public Transaction Result {
+        public TransactionDto Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Transaction)(this.results[0]));
+                return ((TransactionDto)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void TransactionHistoryOfCompletedEventHandler(object sender, TransactionHistoryOfCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class TransactionHistoryOfCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal TransactionHistoryOfCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public TransactionDto[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((TransactionDto[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void CreateEmptyBankAccountCompletedEventHandler(object sender, CreateEmptyBankAccountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateEmptyBankAccountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateEmptyBankAccountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public BankAccountDto Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((BankAccountDto)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void CreateVisaBankAccountCompletedEventHandler(object sender, CreateVisaBankAccountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateVisaBankAccountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateVisaBankAccountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public BankAccountDto Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((BankAccountDto)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void AddNewMastercardCardCompletedEventHandler(object sender, AddNewMastercardCardCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddNewMastercardCardCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddNewMastercardCardCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public CreditCardDetails Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((CreditCardDetails)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void AddNewVisaCardCompletedEventHandler(object sender, AddNewVisaCardCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class AddNewVisaCardCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal AddNewVisaCardCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public CreditCardDto Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((CreditCardDto)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetCardsForAccountCompletedEventHandler(object sender, GetCardsForAccountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetCardsForAccountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetCardsForAccountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public CreditCardDto[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((CreditCardDto[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetAllBankAccountsCompletedEventHandler(object sender, GetAllBankAccountsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetAllBankAccountsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetAllBankAccountsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public BankAccountDto[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((BankAccountDto[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GetBankAccountCompletedEventHandler(object sender, GetBankAccountCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetBankAccountCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetBankAccountCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public BankAccountDto Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((BankAccountDto)(this.results[0]));
             }
         }
     }

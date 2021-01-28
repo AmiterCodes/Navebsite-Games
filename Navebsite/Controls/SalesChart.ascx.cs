@@ -17,19 +17,9 @@ namespace Navebsite.Controls
             var starting = DateTime.Now.Date.AddDays(-30);
             var ending = DateTime.Now.Date;
 
-            chart.Height = 500;
-            chart.Width = 800;
-            chart.ForeColor = Color.White;
-            var series1 = chart.Series[0];
-            series1.ChartType = SeriesChartType.SplineArea;
-            var series2 = chart.Series[1];
-            series2.ChartType = SeriesChartType.SplineArea;
-            var a = chart.ChartAreas[0];
-            chart.Style["background"] = "linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%)";
-            a.BackImageTransparentColor = Color.Transparent;
-            var b = chart.ChartAreas[1];
-            b.BackImageTransparentColor = Color.Transparent;
 
+            StyleChart(chartPurchases);
+            StyleChart(chartRevenue);
 
             var tb = new DataTable();
 
@@ -63,8 +53,24 @@ namespace Navebsite.Controls
 
             e.Dispose();
 
-            chart.DataSource = tb;
-            chart.DataBind();
+            chartRevenue.DataSource = tb;
+            chartPurchases.DataSource = tb;
+            chartRevenue.DataBind();
+            chartPurchases.DataBind();
+            
+        }
+
+        private static void StyleChart(Chart chart)
+        {
+            chart.Height = 500;
+            chart.Width = 800;
+            chart.ForeColor = Color.White;
+            var series1 = chart.Series[0];
+            series1.ChartType = SeriesChartType.SplineArea;
+            var a = chart.ChartAreas[0];
+            a.BackImageTransparentColor = Color.Transparent;
+
+            a.AxisX.LabelStyle.Format = "MM-dd-yy";
         }
     }
 }

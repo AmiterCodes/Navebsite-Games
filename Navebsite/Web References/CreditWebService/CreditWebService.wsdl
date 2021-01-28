@@ -5,17 +5,17 @@
       <s:element name="IsValid">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:CreditCardDetails" />
+            <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:CreditCardDto" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="CreditCardDetails">
+      <s:complexType name="CreditCardDto">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="HolderName" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="CardVerificationValue" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BankAccountId" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:element name="IsValidResponse">
@@ -28,27 +28,184 @@
       <s:element name="Pay">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="details" type="tns:CreditCardDetails" />
-            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="from" type="tns:CreditCardDto" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="tns:BankAccountDto" />
             <s:element minOccurs="1" maxOccurs="1" name="amountDollar" type="s:double" />
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:complexType name="BankAccountDto">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="identificationNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="holderName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCards" type="tns:ArrayOfCreditCardDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCreditCardDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CreditCardDto" nillable="true" type="tns:CreditCardDto" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="PayResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="PayResult" type="tns:Transaction" />
+            <s:element minOccurs="0" maxOccurs="1" name="PayResult" type="tns:TransactionDto" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Transaction">
+      <s:complexType name="TransactionDto">
         <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionId" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="AmountDollar" type="s:double" />
-          <s:element minOccurs="0" maxOccurs="1" name="CardHolder" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Receiver" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="From" type="tns:CreditCardDto" />
+          <s:element minOccurs="0" maxOccurs="1" name="To" type="tns:BankAccountDto" />
           <s:element minOccurs="1" maxOccurs="1" name="Timestamp" type="s:dateTime" />
         </s:sequence>
       </s:complexType>
+      <s:element name="TransactionHistoryOf">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bank" type="tns:BankAccountDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransactionHistoryOfResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransactionHistoryOfResult" type="tns:ArrayOfTransactionDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransactionDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionDto" nillable="true" type="tns:TransactionDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateEmptyBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateEmptyBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateEmptyBankAccountResult" type="tns:BankAccountDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVisaBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateVisaBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateVisaBankAccountResult" type="tns:BankAccountDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewMastercardCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bankAccount" type="tns:BankAccountDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BankAccountDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="identificationNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="holderName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCards" type="tns:ArrayOfCreditCardDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCreditCardDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CreditCardDetails" nillable="true" type="tns:CreditCardDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CreditCardDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardVerificationValue" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BankAccountId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankAccount" type="tns:BankAccountDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddNewMastercardCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewMastercardCardResult" type="tns:CreditCardDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewVisaCard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bankAccount" type="tns:BankAccountDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddNewVisaCardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewVisaCardResult" type="tns:CreditCardDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardsForAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bankAccount" type="tns:BankAccountDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardsForAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardsForAccountResult" type="tns:ArrayOfCreditCardDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllBankAccounts">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllBankAccountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllBankAccountsResult" type="tns:ArrayOfBankAccountDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBankAccountDto">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankAccountDto" nillable="true" type="tns:BankAccountDto" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBankAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankAccountResult" type="tns:BankAccountDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="IsValidSoapIn">
@@ -63,6 +220,54 @@
   <wsdl:message name="PaySoapOut">
     <wsdl:part name="parameters" element="tns:PayResponse" />
   </wsdl:message>
+  <wsdl:message name="TransactionHistoryOfSoapIn">
+    <wsdl:part name="parameters" element="tns:TransactionHistoryOf" />
+  </wsdl:message>
+  <wsdl:message name="TransactionHistoryOfSoapOut">
+    <wsdl:part name="parameters" element="tns:TransactionHistoryOfResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateEmptyBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateEmptyBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="CreateEmptyBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateEmptyBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateVisaBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateVisaBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="CreateVisaBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateVisaBankAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewMastercardCardSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewMastercardCard" />
+  </wsdl:message>
+  <wsdl:message name="AddNewMastercardCardSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewMastercardCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddNewVisaCardSoapIn">
+    <wsdl:part name="parameters" element="tns:AddNewVisaCard" />
+  </wsdl:message>
+  <wsdl:message name="AddNewVisaCardSoapOut">
+    <wsdl:part name="parameters" element="tns:AddNewVisaCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardsForAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardsForAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetCardsForAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardsForAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBankAccountsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllBankAccounts" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBankAccountsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllBankAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankAccount" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankAccountResponse" />
+  </wsdl:message>
   <wsdl:portType name="CreditWebServiceSoap">
     <wsdl:operation name="IsValid">
       <wsdl:input message="tns:IsValidSoapIn" />
@@ -71,6 +276,38 @@
     <wsdl:operation name="Pay">
       <wsdl:input message="tns:PaySoapIn" />
       <wsdl:output message="tns:PaySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TransactionHistoryOf">
+      <wsdl:input message="tns:TransactionHistoryOfSoapIn" />
+      <wsdl:output message="tns:TransactionHistoryOfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmptyBankAccount">
+      <wsdl:input message="tns:CreateEmptyBankAccountSoapIn" />
+      <wsdl:output message="tns:CreateEmptyBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVisaBankAccount">
+      <wsdl:input message="tns:CreateVisaBankAccountSoapIn" />
+      <wsdl:output message="tns:CreateVisaBankAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewMastercardCard">
+      <wsdl:input message="tns:AddNewMastercardCardSoapIn" />
+      <wsdl:output message="tns:AddNewMastercardCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewVisaCard">
+      <wsdl:input message="tns:AddNewVisaCardSoapIn" />
+      <wsdl:output message="tns:AddNewVisaCardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsForAccount">
+      <wsdl:input message="tns:GetCardsForAccountSoapIn" />
+      <wsdl:output message="tns:GetCardsForAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBankAccounts">
+      <wsdl:input message="tns:GetAllBankAccountsSoapIn" />
+      <wsdl:output message="tns:GetAllBankAccountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccount">
+      <wsdl:input message="tns:GetBankAccountSoapIn" />
+      <wsdl:output message="tns:GetBankAccountSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CreditWebServiceSoap" type="tns:CreditWebServiceSoap">
@@ -93,6 +330,78 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="TransactionHistoryOf">
+      <soap:operation soapAction="http://tempuri.org/TransactionHistoryOf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmptyBankAccount">
+      <soap:operation soapAction="http://tempuri.org/CreateEmptyBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVisaBankAccount">
+      <soap:operation soapAction="http://tempuri.org/CreateVisaBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewMastercardCard">
+      <soap:operation soapAction="http://tempuri.org/AddNewMastercardCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewVisaCard">
+      <soap:operation soapAction="http://tempuri.org/AddNewVisaCard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsForAccount">
+      <soap:operation soapAction="http://tempuri.org/GetCardsForAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBankAccounts">
+      <soap:operation soapAction="http://tempuri.org/GetAllBankAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccount">
+      <soap:operation soapAction="http://tempuri.org/GetBankAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="CreditWebServiceSoap12" type="tns:CreditWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -107,6 +416,78 @@
     </wsdl:operation>
     <wsdl:operation name="Pay">
       <soap12:operation soapAction="http://tempuri.org/Pay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionHistoryOf">
+      <soap12:operation soapAction="http://tempuri.org/TransactionHistoryOf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmptyBankAccount">
+      <soap12:operation soapAction="http://tempuri.org/CreateEmptyBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVisaBankAccount">
+      <soap12:operation soapAction="http://tempuri.org/CreateVisaBankAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewMastercardCard">
+      <soap12:operation soapAction="http://tempuri.org/AddNewMastercardCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewVisaCard">
+      <soap12:operation soapAction="http://tempuri.org/AddNewVisaCard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsForAccount">
+      <soap12:operation soapAction="http://tempuri.org/GetCardsForAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBankAccounts">
+      <soap12:operation soapAction="http://tempuri.org/GetAllBankAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccount">
+      <soap12:operation soapAction="http://tempuri.org/GetBankAccount" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -84,8 +84,7 @@ namespace Navebsite
             var viewer = (User) Session["user"];
 
             Friends.SendFriendRequest(viewer.Id, user.Id);
-            AddButton.Enabled = false;
-            AddButton.Text = "Requested";
+            Response.Redirect($"Profile.aspx?id={user.Id}");
         }
     }
 }

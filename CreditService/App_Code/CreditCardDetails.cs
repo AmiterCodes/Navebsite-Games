@@ -1,26 +1,46 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace CreditService
 {
+    public class CreditCardDto
+    {
+        public string CardNumber { get; set; } // credit card number
+        public string CardVerificationValue { get; set; } // 3 digits on the back
+        public int Month { get; set; } // in number, january = 01, february 02 and so on
+        public int Year { get; set; } // year, in the format 2020
+        
+        public int BankAccountId { get; set; }
+    }
+
     public class CreditCardDetails
     {
-        public string HolderName { get; set; } // name of credit card holder, e.g "AMIT NAVE"
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string CardNumber { get; set; } // credit card number
         public string CardVerificationValue { get; set; } // 3 digits on the back
         public int Month { get; set; } // in number, january = 01, february 02 and so on
         public int Year { get; set; } // year, in the format 2020
 
-        private static bool LuhnAlgorithm(string digits)
+        public int BankAccountId { get; set; }
+        public BankAccountDetails BankAccount { get; set; }
+
+        public override bool Equals(object other)
         {
-            return digits.All(char.IsDigit) && digits.Reverse()
-                .Select(c => c - 48)
-                .Select((thisNum, i) => i % 2 == 0
-                    ? thisNum
-                    : (thisNum *= 2) > 9
-                        ? thisNum - 9
-                        : thisNum
-                ).Sum() % 10 == 0;
+            if (!(other is CreditCardDetails)) return false;
+
+            CreditCardDetails card = (CreditCardDetails) other;
+             return card.Month == this.Month
+                   && card.Year == this.Year
+                   && card.CardNumber == this.CardNumber
+                   && card.CardVerificationValue == this.CardVerificationValue;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
 
         public bool IsValid()
@@ -28,6 +48,7 @@ namespace CreditService
             var len = CardNumber.Length;
 
             if (len == 0) return false;
+            
 
             // check for all numbers
             if (!CardNumber.All(char.IsDigit)) return false;
@@ -35,47 +56,6 @@ namespace CreditService
 
             if (CardVerificationValue.Length != 3) return false;
 
-
-            // check for network validity
-            switch (CardNumber[0])
-            {
-                case '4':
-                    // Visa
-                    if (len != 13 && len != 16) return false;
-                    break;
-                case '5':
-                    // Mastercard
-                    if (len != 16) return false;
-                    break;
-                case '3':
-                    switch (len)
-                    {
-                        // Diner's Club & Carte Blanche
-                        case 14:
-                        {
-                            if (CardNumber[1] != '0' && CardNumber[1] != '6' && CardNumber[1] != '8') return false;
-                            break;
-                        }
-                        // American Express
-                        case 15:
-                        {
-                            if (CardNumber[1] != '4' && CardNumber[1] != '7') return false;
-                            break;
-                        }
-                        default:
-                            return false;
-                    }
-
-                    break;
-                case '6':
-                    // Discover
-                    if (len != 16) return false;
-                    break;
-
-
-                default:
-                    return false;
-            }
 
 
             // Check card not expired
@@ -85,7 +65,24 @@ namespace CreditService
             var time = DateTime.Now;
             if (time.Year % 100 > Year) return false;
             if (time.Year % 100 == Year && time.Month > Month) return false;
-            return LuhnAlgorithm(CardNumber);
+
+
+            using (var db = new BankingContext())
+            {
+                var query = from card in db.creditCards
+                    where card.Month == this.Month
+                          && card.Year == this.Year
+                          && card.CardNumber == this.CardNumber
+                          && card.CardVerificationValue == this.CardVerificationValue
+                select card.BankAccount;
+
+                BankAccountDetails found = query.FirstOrDefault();
+
+                this.BankAccount = found;
+
+                return found != null;
+
+            }
         }
     }
 }

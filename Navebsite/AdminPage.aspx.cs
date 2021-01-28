@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Navebsite.Controls;
+using Navebsite.CreditWebService;
 using NavebsiteBL;
 
 namespace Navebsite
@@ -18,6 +19,11 @@ namespace Navebsite
             gameList.Games = Game.ReviewGames();
             gameList.AddButtons = true;
 
+
+            var service = new CreditWebService.CreditWebService();
+            BankAccountDto bank = service.GetBankAccount(3);
+            TransactionHistory.DataSource = service.TransactionHistoryOf(bank);
+            TransactionHistory.DataBind();
         }
     }
 }

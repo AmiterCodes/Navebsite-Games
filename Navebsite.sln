@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NavebsiteBL", "NavebsiteBL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditService", "CreditService\CreditService.csproj", "{BD24B48D-8B4E-4DD9-9BD1-65726C48FDC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditServiceTest", "CreditServiceTest\CreditServiceTest.csproj", "{5A723121-8066-48BF-A064-7317A8759823}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BD24B48D-8B4E-4DD9-9BD1-65726C48FDC1} = {BD24B48D-8B4E-4DD9-9BD1-65726C48FDC1}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +38,10 @@ Global
 		{BD24B48D-8B4E-4DD9-9BD1-65726C48FDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD24B48D-8B4E-4DD9-9BD1-65726C48FDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD24B48D-8B4E-4DD9-9BD1-65726C48FDC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A723121-8066-48BF-A064-7317A8759823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A723121-8066-48BF-A064-7317A8759823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A723121-8066-48BF-A064-7317A8759823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A723121-8066-48BF-A064-7317A8759823}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

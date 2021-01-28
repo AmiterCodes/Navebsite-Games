@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.UI;
+using NavebsiteBL;
 
 namespace Navebsite
 {
@@ -30,9 +31,17 @@ namespace Navebsite
                 Response.Redirect("Profile.aspx?id=" + user.Id);
             }
 
-            if (NewDevCheck.Checked)
+            if (NewDevCheck.Checked && user != null)
             {
+                Developer developer = new Developer(DevName.Text);
 
+                Session["dev"] = developer;
+
+                developer.AddUser(user.Id);
+                user.DeveloperId = developer.Id;
+                user.IsDeveloper = true;
+
+                Session["user"] = user;
             }
         }
     }

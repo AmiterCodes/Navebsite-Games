@@ -15,6 +15,17 @@ namespace NavebsiteDAL
             return DalHelper.AllWhere("Games", "Developer", devId);
         }
 
+        /// <summary>
+        /// inserts a game into the database
+        /// </summary>
+        /// <param name="gameName">name of game</param>
+        /// <param name="link">link of game</param>
+        /// <param name="description">description of game</param>
+        /// <param name="background">background filename of game</param>
+        /// <param name="logo">logo filename of game</param>
+        /// <param name="developer">developer id of game</param>
+        /// <param name="price">price of game</param>
+        /// <returns>id of game</returns>
         public static int InsertGame(string gameName, string link, string description, string background, string logo,
             int developer, double price)
         {
@@ -50,11 +61,27 @@ namespace NavebsiteDAL
             return DalHelper.AllWhere("Games", "Review Status", 0);
         }
 
+        /// <summary>
+        /// Updates the review status for a game
+        /// </summary>
+        /// <param name="newReviewStatus">the new status id</param>
+        /// <param name="id">id of game</param>
         public static void UpdateReviewStatus(int newReviewStatus, int id)
         {
             DalHelper.UpdateWhere("Games", "Review Status", newReviewStatus, "ID", id);
         }
 
+        /// <summary>
+        /// Updates a game
+        /// </summary>
+        /// <param name="id">id of game</param>
+        /// <param name="description">description of game</param>
+        /// <param name="background">background of game</param>
+        /// <param name="logo">logo of game</param>
+        /// <param name="developerId">developer id of game</param>
+        /// <param name="gameLink">link of game</param>
+        /// <param name="gameName">name of game</param>
+        /// <param name="price">price of game</param>
         public static void UpdateGame(int id, string description, string background, string logo, int developerId, string gameLink, string gameName, double price)
         {
             DalHelper.Update($@"UPDATE Games

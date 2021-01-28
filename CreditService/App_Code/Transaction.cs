@@ -1,15 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
 namespace CreditService
 {
+    public class TransactionDto
+    {
+        public int TransactionId { get; set; }
+
+        public double AmountDollar { get; set; }
+        
+        public virtual CreditCardDto From { get; set; }
+        
+        public virtual BankAccountDto To { get; set; }
+        public DateTime Timestamp { get; set; }
+    }
+
+
     public class Transaction
     {
+        public int TransactionId { get; set; }
+
         public double AmountDollar { get; set; }
-        public string CardHolder { get; set; }
-        public string Receiver { get; set; }
+
+        public string CardNumber { get; set; }
+        public virtual CreditCardDetails From { get; set; }
+
+        public int identificationNumber { get; set; }
+        public virtual BankAccountDetails To { get; set; }
         public DateTime Timestamp { get; set; }
     }
 
@@ -18,9 +38,9 @@ namespace CreditService
 
         private readonly List<Action<Transaction>> _actions;
 
-        public TransactionBuilder CardHolder(string name)
+        public TransactionBuilder From(string cardNumber)
         {
-            _actions.Add(t => t.CardHolder = name);
+            _actions.Add(t => t.CardNumber = cardNumber);
             return this;
         }
 
@@ -30,9 +50,9 @@ namespace CreditService
             return this;
         }
 
-        public TransactionBuilder Receiver(string name)
+        public TransactionBuilder To(int id)
         {
-            _actions.Add(t => t.Receiver = name);
+            _actions.Add(t => t.identificationNumber = id);
             return this;
         }
 

@@ -41,6 +41,7 @@ namespace NavebsiteDAL
                 $"OR ([User 1] = {user2} AND [User 2] = {user1})) AND Type = TRUE");
         }
 
+
         public static bool ExistsConnection(int user1, int user2)
         {
             return DalHelper.RowExists(

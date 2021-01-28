@@ -56,6 +56,7 @@ namespace Navebsite
             }
             string filename = UploadHelper.ImageFileUpload(ProfilePicture, "Images/UserProfiles/", "profile.png", Server);
             user.UpdateProfilePicture(filename);
+            Response.Redirect("UserSettings.aspx");
         }
 
         protected void UploadBackground_OnClick(object sender, EventArgs e)
@@ -70,6 +71,7 @@ namespace Navebsite
             }
             string filename = UploadHelper.ImageFileUpload(Background, "Images/UserBackgrounds/", "no.png", Server);
             user.UpdateBackground(filename);
+            Response.Redirect("UserSettings.aspx");
 
         }
 
@@ -88,6 +90,7 @@ namespace Navebsite
             if (authenticatedUser != null)
             {
                 user.UpdatePassword(Password.Text);
+
             }
             else
             {

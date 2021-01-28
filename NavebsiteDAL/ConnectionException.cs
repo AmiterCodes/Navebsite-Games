@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NavebsiteDAL
 {
+    [Serializable]
     class ConnectionException : Exception
     {
         /// <summary>

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Web.Services;
 using System.Linq;
+using AutoMapper;
+using Remotion.Linq.Clauses;
 
 namespace CreditService
 {
@@ -15,31 +17,75 @@ namespace CreditService
     // [System.Web.Script.Services.ScriptService]
     public partial class CreditWebService : WebService
     {
-
-
-        [WebMethod]
-        public bool IsValid(CreditCardDetails details)
+        private Mapper mapper = new Mapper(new MapperConfiguration(cfg =>
         {
-            return details.IsValid();
+            cfg.CreateMap<BankAccountDetails, BankAccountDto>().ReverseMap();
+            cfg.CreateMap<CreditCardDetails, CreditCardDto>().ReverseMap();
+            cfg.CreateMap<Transaction, TransactionDto>().ReverseMap();
+
+
+        }));
+
+        /// <summary>
+        /// Checks if a credit card is valid
+        /// </summary>
+        /// <param name="details">credit card details</param>
+        /// <returns>True if valid</returns>
+        [WebMethod]
+        public bool IsValid(CreditCardDto details)
+        {
+            return mapper.Map<CreditCardDetails>(details).IsValid();
         }
 
+        /// <summary>
+        /// Pays a credit card to a bank account
+        /// </summary>
+        /// <param name="from">Credit card that pays</param>
+        /// <param name="to">bank account that receives the payment</param>
+        /// <param name="amountDollar">amount in dollars of transaction</param>
+        /// <returns>TrasnactionDto object of the transaction</returns>
         [WebMethod]
-        public Transaction Pay(CreditCardDetails details, string to, double amountDollar)
+        public TransactionDto Pay(CreditCardDto from, BankAccountDto to, double amountDollar)
         {
-            if (!details.IsValid()) return null;
+            if (IsValid(from)) return null;
             var builder = new TransactionBuilder();
-            return builder
-                .CardHolder(details.HolderName)
-                .Receiver(to)
+            Transaction transaction = builder
+                .From(from.CardNumber)
+                .To(to.identificationNumber)
                 .AmountDollar(amountDollar)
                 .TimeUtcNow()
                 .Build();
+
+            using (var db = new BankingContext())
+            {
+                db.Transactions.Add(transaction);
+                BankAccountDetails fromBank = db.bankAccounts.Find(from.BankAccountId);
+                fromBank.Balance -= transaction.AmountDollar;
+                BankAccountDetails toBank = db.bankAccounts.Find(to.identificationNumber);
+                toBank.Balance += transaction.AmountDollar;
+
+                db.SaveChanges();
+
+                return mapper.Map<TransactionDto>(transaction);
+            }
         }
 
+        /// <summary>
+        /// Gets the transaction history of a bank account
+        /// </summary>
+        /// <param name="bank">bank account to get information about</param>
+        /// <returns>list of TransactionDto</returns>
         [WebMethod]
-        public List<Transaction> TransactionHistoryOf(int creditCard)
+        public List<TransactionDto> TransactionHistoryOf(BankAccountDto bank)
         {
-            throw new NotImplementedException();
+            using (var db = new BankingContext())
+            {
+                var query = from transaction in db.Transactions
+                    where transaction.From.BankAccount.identificationNumber.Equals(bank.identificationNumber) || transaction.To.identificationNumber.Equals(bank.identificationNumber)
+                    select transaction;
+
+                return mapper.Map<List<TransactionDto>>(query.ToList());
+            }
         }
 
         public static string[] VISA_PREFIX_LIST = new[]
@@ -78,26 +124,26 @@ namespace CreditService
                                                             };
 
         private Random random = new Random();
-
-        private string GenerateRandomVisaCreditCard()
+        
+        private CreditCardDetails GenerateRandomVisaCreditCard(BankAccountDetails bank)
         {
             string prefix = VISA_PREFIX_LIST[random.Next(VISA_PREFIX_LIST.Length)];
 
             const int length = 16;
 
-            return GenerateRandomCard(prefix, length);
+            return GenerateRandomCard(prefix, length, bank);
         }
 
-        private string GenerateRandomMastercardCreditCard()
+        private CreditCardDetails GenerateRandomMastercardCreditCard(BankAccountDetails bank)
         {
             string prefix = MASTERCARD_PREFIX_LIST[random.Next(MASTERCARD_PREFIX_LIST.Length)];
 
             const int length = 16;
 
-            return GenerateRandomCard(prefix, length);
+            return GenerateRandomCard(prefix, length, bank);
         }
 
-        private string GenerateRandomCard(string prefix, int length)
+        private CreditCardDetails GenerateRandomCard(string prefix, int length, BankAccountDetails bank)
         {
             string ccnumber = prefix;
             while (ccnumber.Length < (length - 1))
@@ -139,41 +185,136 @@ namespace CreditService
 
             ccnumber += checkdigit;
 
-            return ccnumber;
+            var date = DateTime.Now.AddYears(6).AddMonths(6);
+
+            
+            using (var db = new BankingContext())
+            {
+                var card = new CreditCardDetails
+                {
+                    BankAccountId= bank.identificationNumber,
+                    CardNumber = ccnumber,
+                    CardVerificationValue = (random.Next(1000) + "").PadLeft(3),
+                    Month = date.Month,
+                    Year = date.Year
+                };
+
+                db.creditCards.Add(card);
+                db.SaveChanges();
+
+                return card;
+            }
+
+        }
+
+
+        /// <summary>
+        /// Creates a new empty bank account
+        /// </summary>
+        /// <param name="name">account name</param>
+        /// <param name="id">account id</param>
+        /// <returns>new bank account's data as BankAccountDto</returns>
+        [WebMethod]
+        public BankAccountDto CreateEmptyBankAccount(string name, int id)
+        {
+            BankAccountDetails details = new BankAccountDetails
+            {
+                holderName = name,
+                identificationNumber = id,
+            };
+
+            using (var db = new BankingContext())
+            {
+                db.bankAccounts.Add(details);
+                db.SaveChanges();
+            }
+            
+            return mapper.Map<BankAccountDto>(details);
+        }
+
+        /// <summary>
+        /// Creates a bank account with a visa credit card
+        /// </summary>
+        /// <param name="name">bank </param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [WebMethod]
+        public BankAccountDto CreateVisaBankAccount(string name, int id)
+        {
+            var bank = CreateEmptyBankAccount(name, id);
+            var card = AddNewVisaCard(bank);
+
+            return new BankAccountDto
+            {
+                holderName = bank.holderName,
+                Balance = bank.Balance,
+                CreditCards = new List<CreditCardDto> {card},
+                identificationNumber = bank.identificationNumber
+            };
         }
 
         [WebMethod]
-        public CreditCardDetails CreateMastercardAccount(string name)
+        public CreditCardDto AddNewMastercardCard(BankAccountDto bankAccount)
         {
-            var date = DateTime.Now.AddYears(6).AddMonths(6);
-
-            var credit = new CreditCardDetails
-            {
-                CardNumber = GenerateRandomMastercardCreditCard(),
-                CardVerificationValue = "" + (100 + random.Next(900)),
-                HolderName = name,
-                Month = date.Month,
-                Year = date.Year
-            };
-
-            return credit;
+            BankAccountDetails bank = mapper.Map<BankAccountDetails>(bankAccount);
+            return mapper.Map<CreditCardDto>(GenerateRandomMastercardCreditCard(bank));
         }
 
         [WebMethod]
-        public CreditCardDetails CreateVisaAccount(string name)
+        public CreditCardDto AddNewVisaCard(BankAccountDto bankAccount)
         {
-            var date = DateTime.Now.AddYears(6).AddMonths(6);
+            BankAccountDetails bank = mapper.Map<BankAccountDetails>(bankAccount);
+            return mapper.Map<CreditCardDto>(GenerateRandomVisaCreditCard(bank));
+        }
 
-            var credit = new CreditCardDetails
+        [WebMethod]
+        public List<CreditCardDto> GetCardsForAccount(BankAccountDto bankAccount)
+        {
+            using (var db = new BankingContext())
             {
-                CardNumber = GenerateRandomVisaCreditCard(),
-                CardVerificationValue = "" + (100 + random.Next(900)),
-                HolderName = name,
-                Month = date.Month,
-                Year = date.Year
-            };
+                var query = from card in db.creditCards
+                    where card.BankAccount.Equals(bankAccount)
+                    select card;
 
-            return credit;
+                return mapper.Map<List<CreditCardDto>>(query.ToList());
+            }
+        }
+
+        [WebMethod]
+        public List<BankAccountDto> GetAllBankAccounts()
+        {
+            using (var db = new BankingContext())
+            {
+                var query = from bank in db.bankAccounts
+                    select bank;
+
+                return mapper.Map<List<BankAccountDto>>(query.ToList());
+            }
+        }
+
+        [WebMethod]
+        public BankAccountDto GetBankAccount(int id)
+        {
+            using (var db = new BankingContext())
+            {
+                var query = from bank in db.bankAccounts
+                    where bank.identificationNumber == id
+                    select bank;
+
+                return mapper.Map<BankAccountDto>(query.FirstOrDefault());
+            }
+        }
+
+        [WebMethod]
+        public List<TransactionDto> GetAllTransactions()
+        {
+            using (var db = new BankingContext())
+            {
+                var query = from transaction in db.Transactions
+                    select transaction;
+
+                return mapper.Map<List<TransactionDto>>(query.ToList());
+            }
         }
     }
 }

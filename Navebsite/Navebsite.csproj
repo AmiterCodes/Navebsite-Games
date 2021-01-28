@@ -135,6 +135,15 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Web References\CreditWebService\CreditCardDetails.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\CreditWebService\BankAccountDto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\CreditWebService\CreditCardDto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\CreditWebService\CreditWebService.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -168,6 +177,7 @@
       <DependentUpon>AdminPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\EncodingHelper.cs" />
+    <Compile Include="App_Code\SnackbarHelper.cs" />
     <Compile Include="App_Code\UploadHelper.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="CompanyPage.aspx.cs">
@@ -407,11 +417,11 @@
     <Content Include="Site.Mobile.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web References\CreditWebService\CreditWebService.wsdl" />
-    <Content Include="Web References\CreditWebService\Reference.map">
+    <None Include="Web References\CreditWebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
-    <Content Include="Web References\CreditWebService\Transaction.datasource">
+    </None>
+    <Content Include="Web References\CreditWebService\TransactionDto.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">

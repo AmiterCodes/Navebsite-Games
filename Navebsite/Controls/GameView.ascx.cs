@@ -24,6 +24,10 @@ namespace Navebsite.Controls
             GameDeveloper.Text = Game.DeveloperName;
             GameGenres.Text = Game.GenresString;
             GameName.Text = Game.GameName;
+            Sales sales = Sales.SalesForGame(Game.Id);
+            revenue.Text = "$" + sales.Revenue;
+            sold.Text = "" + sales.Purchases;
+
             GameName.NavigateUrl = "../GamePage.aspx?id=" + Game.Id;
             EditButton.NavigateUrl = "../EditGame.aspx?game=" + Game.Id;
             rating.Text = Game.AverageRating + "⭐";

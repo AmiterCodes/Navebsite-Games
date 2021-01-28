@@ -33,7 +33,7 @@ namespace NavebsiteBL
         /// <param name="user">id of the user to search for</param>
         /// <returns>
         ///     empty list if user does not have any photos or doesn't exist, else returns a List
-        ///     <UserPhoto> of all photos of specified user
+        ///     of UserPhoto of all photos of specified user
         /// </returns>
         public static List<UserPhoto> GetPhotosByUser(int user)
         {

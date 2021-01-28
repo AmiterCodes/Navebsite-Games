@@ -18,7 +18,7 @@
                  runat="server" CssClass="game_image"/>
               <div class="game_caption">
                   
-             <a href="gamepage?id=<%#: DataBinder.Eval(Container.DataItem, "Id") %>">
+             <a href="gamepage?id=<%#: DataBinder.Eval(Container.DataItem, "Id") %>" style="text-align: center">
                 <span class="game_title"><%#: DataBinder.Eval(Container.DataItem, "GameName") %></span>
                  </a>
                 <span class="game_genres"><%#: DataBinder.Eval(Container.DataItem, "GenresString") %></span>
