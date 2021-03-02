@@ -46,6 +46,9 @@
         </div>
         <asp:Panel runat="server" ID="reviewList" CssClass="reviews Reviews">
             <h2>Reviews</h2>
+            <asp:Panel runat="server" ID="ReviewBox" CssClass="review_box">
+
+            </asp:Panel>
         </asp:Panel>
         <div class="Gallery">
             <NV:Gallery runat="server" ID="gallery"/>

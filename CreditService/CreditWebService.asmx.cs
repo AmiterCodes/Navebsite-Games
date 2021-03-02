@@ -210,6 +210,30 @@ namespace CreditService
 
 
         /// <summary>
+        /// deposits money into a bank account
+        /// </summary>
+        /// <param name="bankId">id of bank account</param>
+        /// <param name="amountDollar">amount to deposit</param>
+        /// <returns>updated bank account, returns null if failed.</returns>
+        [WebMethod]
+        public BankAccountDto DepositMoney(int bankId, double amountDollar)
+        {
+            if (amountDollar > 10000 || amountDollar <= 0) return null;
+
+            using (var db = new BankingContext())
+            {
+                BankAccountDetails bank = db.BankAccounts.Find(bankId);
+                if (bank == null) return null;
+
+                bank.Balance += amountDollar;
+
+                db.SaveChanges();
+
+                return mapper.Map<BankAccountDto>(bank);
+            }
+        }
+
+        /// <summary>
         /// Creates a new empty bank account
         /// </summary>
         /// <param name="name">account name</param>

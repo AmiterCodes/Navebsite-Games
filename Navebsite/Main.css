@@ -97,12 +97,9 @@ a {
     padding: 0.2rem;
     text-decoration: none;
     transition: all .3s ease;
-    background-image: linear-gradient(60deg,transparent 0%, transparent 50%, #F45866 50%, #FF1E61 100% );
-    background-size: 270%;
 }
 
     a:hover {
-        background-position: 100%;
         color: white;
         /*text-shadow: rgba(255, 211, 0, 0.70) 0 0 .5rem;*/
     }
@@ -238,22 +235,23 @@ a {
 }
 
 .button {
+    background: none;
     border: #767FD1 solid 3px;
-    background-color: transparent;
-    background-image: linear-gradient(60deg,transparent 0%, transparent 50%, #767FD1 50%, #7160D9 100% );
-    background-size: 250%;
-    background-position: 0;
     color: white;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     outline: none;
     padding: .5rem;
+    transition: all .3s;
     text-align: center;
-    transition: transform,background-position .3s;
 }
 
     .button:hover {
-        background-position: 100%;
+        background-color: #767FD1;
     }
+
 
 .button a {
     color: white;
@@ -358,7 +356,7 @@ a {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
-    min-width: 50vw;
+    margin: .2rem;
     padding: 1rem;
 }
 
@@ -373,7 +371,26 @@ a {
 }
 
 .review_stars {
+
     margin: .5rem;
+}
+
+hr {
+    border: 0;
+    margin: .3rem;
+    background: linear-gradient(to right, red, magenta);
+    height: 3px;
+}
+
+.add_review {
+    line-height: 50%;
+    padding: 1rem;
+}
+
+.review_box {
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
 }
 
 .review_content {
@@ -385,6 +402,9 @@ a {
 }
 
 .reviews {
+
+    min-width: 60%;
+    max-width: 80%;
     background: linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%);
     display: inline-block;
     padding: 2rem;

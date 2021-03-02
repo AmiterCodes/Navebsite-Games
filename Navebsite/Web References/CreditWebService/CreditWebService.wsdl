@@ -36,8 +36,8 @@
       </s:element>
       <s:complexType name="BankAccountDto">
         <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="identificationNumber" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="holderName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HolderName" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:double" />
           <s:element minOccurs="0" maxOccurs="1" name="CreditCards" type="tns:ArrayOfCreditCardDto" />
         </s:sequence>
@@ -82,11 +82,25 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionDto" nillable="true" type="tns:TransactionDto" />
         </s:sequence>
       </s:complexType>
+      <s:element name="DepositMoney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="bankId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="amountDollar" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DepositMoneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DepositMoneyResult" type="tns:BankAccountDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="CreateEmptyBankAccount">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -101,7 +115,6 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -115,37 +128,14 @@
       <s:element name="AddNewMastercardCard">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="bankAccount" type="tns:BankAccountDetails" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankAccount" type="tns:BankAccountDto" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="BankAccountDetails">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="identificationNumber" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="holderName" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:double" />
-          <s:element minOccurs="0" maxOccurs="1" name="CreditCards" type="tns:ArrayOfCreditCardDetails" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfCreditCardDetails">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="CreditCardDetails" nillable="true" type="tns:CreditCardDetails" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="CreditCardDetails">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="CardVerificationValue" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="Month" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="Year" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="BankAccountId" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="BankAccount" type="tns:BankAccountDetails" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="AddNewMastercardCardResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="AddNewMastercardCardResult" type="tns:CreditCardDetails" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddNewMastercardCardResult" type="tns:CreditCardDto" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -206,6 +196,19 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetAllTransactions">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllTransactionsResult" type="tns:ArrayOfTransactionDto" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BankAccountDto" nillable="true" type="tns:BankAccountDto" />
+      <s:element name="ArrayOfBankAccountDto" nillable="true" type="tns:ArrayOfBankAccountDto" />
+      <s:element name="ArrayOfTransactionDto" nillable="true" type="tns:ArrayOfTransactionDto" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="IsValidSoapIn">
@@ -225,6 +228,12 @@
   </wsdl:message>
   <wsdl:message name="TransactionHistoryOfSoapOut">
     <wsdl:part name="parameters" element="tns:TransactionHistoryOfResponse" />
+  </wsdl:message>
+  <wsdl:message name="DepositMoneySoapIn">
+    <wsdl:part name="parameters" element="tns:DepositMoney" />
+  </wsdl:message>
+  <wsdl:message name="DepositMoneySoapOut">
+    <wsdl:part name="parameters" element="tns:DepositMoneyResponse" />
   </wsdl:message>
   <wsdl:message name="CreateEmptyBankAccountSoapIn">
     <wsdl:part name="parameters" element="tns:CreateEmptyBankAccount" />
@@ -268,6 +277,78 @@
   <wsdl:message name="GetBankAccountSoapOut">
     <wsdl:part name="parameters" element="tns:GetBankAccountResponse" />
   </wsdl:message>
+  <wsdl:message name="GetAllTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllTransactions" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="DepositMoneyHttpGetIn">
+    <wsdl:part name="bankId" type="s:string" />
+    <wsdl:part name="amountDollar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DepositMoneyHttpGetOut">
+    <wsdl:part name="Body" element="tns:BankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="CreateEmptyBankAccountHttpGetIn">
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateEmptyBankAccountHttpGetOut">
+    <wsdl:part name="Body" element="tns:BankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="CreateVisaBankAccountHttpGetIn">
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateVisaBankAccountHttpGetOut">
+    <wsdl:part name="Body" element="tns:BankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBankAccountsHttpGetIn" />
+  <wsdl:message name="GetAllBankAccountsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountHttpGetIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountHttpGetOut">
+    <wsdl:part name="Body" element="tns:BankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTransactionsHttpGetIn" />
+  <wsdl:message name="GetAllTransactionsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTransactionDto" />
+  </wsdl:message>
+  <wsdl:message name="DepositMoneyHttpPostIn">
+    <wsdl:part name="bankId" type="s:string" />
+    <wsdl:part name="amountDollar" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DepositMoneyHttpPostOut">
+    <wsdl:part name="Body" element="tns:BankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="CreateEmptyBankAccountHttpPostIn">
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateEmptyBankAccountHttpPostOut">
+    <wsdl:part name="Body" element="tns:BankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="CreateVisaBankAccountHttpPostIn">
+    <wsdl:part name="name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateVisaBankAccountHttpPostOut">
+    <wsdl:part name="Body" element="tns:BankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="GetAllBankAccountsHttpPostIn" />
+  <wsdl:message name="GetAllBankAccountsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfBankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountHttpPostIn">
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetBankAccountHttpPostOut">
+    <wsdl:part name="Body" element="tns:BankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTransactionsHttpPostIn" />
+  <wsdl:message name="GetAllTransactionsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfTransactionDto" />
+  </wsdl:message>
   <wsdl:portType name="CreditWebServiceSoap">
     <wsdl:operation name="IsValid">
       <wsdl:input message="tns:IsValidSoapIn" />
@@ -280,6 +361,10 @@
     <wsdl:operation name="TransactionHistoryOf">
       <wsdl:input message="tns:TransactionHistoryOfSoapIn" />
       <wsdl:output message="tns:TransactionHistoryOfSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DepositMoney">
+      <wsdl:input message="tns:DepositMoneySoapIn" />
+      <wsdl:output message="tns:DepositMoneySoapOut" />
     </wsdl:operation>
     <wsdl:operation name="CreateEmptyBankAccount">
       <wsdl:input message="tns:CreateEmptyBankAccountSoapIn" />
@@ -309,6 +394,62 @@
       <wsdl:input message="tns:GetBankAccountSoapIn" />
       <wsdl:output message="tns:GetBankAccountSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetAllTransactions">
+      <wsdl:input message="tns:GetAllTransactionsSoapIn" />
+      <wsdl:output message="tns:GetAllTransactionsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CreditWebServiceHttpGet">
+    <wsdl:operation name="DepositMoney">
+      <wsdl:input message="tns:DepositMoneyHttpGetIn" />
+      <wsdl:output message="tns:DepositMoneyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmptyBankAccount">
+      <wsdl:input message="tns:CreateEmptyBankAccountHttpGetIn" />
+      <wsdl:output message="tns:CreateEmptyBankAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVisaBankAccount">
+      <wsdl:input message="tns:CreateVisaBankAccountHttpGetIn" />
+      <wsdl:output message="tns:CreateVisaBankAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBankAccounts">
+      <wsdl:input message="tns:GetAllBankAccountsHttpGetIn" />
+      <wsdl:output message="tns:GetAllBankAccountsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccount">
+      <wsdl:input message="tns:GetBankAccountHttpGetIn" />
+      <wsdl:output message="tns:GetBankAccountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTransactions">
+      <wsdl:input message="tns:GetAllTransactionsHttpGetIn" />
+      <wsdl:output message="tns:GetAllTransactionsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CreditWebServiceHttpPost">
+    <wsdl:operation name="DepositMoney">
+      <wsdl:input message="tns:DepositMoneyHttpPostIn" />
+      <wsdl:output message="tns:DepositMoneyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmptyBankAccount">
+      <wsdl:input message="tns:CreateEmptyBankAccountHttpPostIn" />
+      <wsdl:output message="tns:CreateEmptyBankAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateVisaBankAccount">
+      <wsdl:input message="tns:CreateVisaBankAccountHttpPostIn" />
+      <wsdl:output message="tns:CreateVisaBankAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBankAccounts">
+      <wsdl:input message="tns:GetAllBankAccountsHttpPostIn" />
+      <wsdl:output message="tns:GetAllBankAccountsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccount">
+      <wsdl:input message="tns:GetBankAccountHttpPostIn" />
+      <wsdl:output message="tns:GetBankAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTransactions">
+      <wsdl:input message="tns:GetAllTransactionsHttpPostIn" />
+      <wsdl:output message="tns:GetAllTransactionsHttpPostOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CreditWebServiceSoap" type="tns:CreditWebServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -332,6 +473,15 @@
     </wsdl:operation>
     <wsdl:operation name="TransactionHistoryOf">
       <soap:operation soapAction="http://tempuri.org/TransactionHistoryOf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DepositMoney">
+      <soap:operation soapAction="http://tempuri.org/DepositMoney" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -402,6 +552,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAllTransactions">
+      <soap:operation soapAction="http://tempuri.org/GetAllTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="CreditWebServiceSoap12" type="tns:CreditWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -425,6 +584,15 @@
     </wsdl:operation>
     <wsdl:operation name="TransactionHistoryOf">
       <soap12:operation soapAction="http://tempuri.org/TransactionHistoryOf" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DepositMoney">
+      <soap12:operation soapAction="http://tempuri.org/DepositMoney" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -495,6 +663,129 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAllTransactions">
+      <soap12:operation soapAction="http://tempuri.org/GetAllTransactions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CreditWebServiceHttpGet" type="tns:CreditWebServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="DepositMoney">
+      <http:operation location="/DepositMoney" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmptyBankAccount">
+      <http:operation location="/CreateEmptyBankAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVisaBankAccount">
+      <http:operation location="/CreateVisaBankAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBankAccounts">
+      <http:operation location="/GetAllBankAccounts" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccount">
+      <http:operation location="/GetBankAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTransactions">
+      <http:operation location="/GetAllTransactions" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CreditWebServiceHttpPost" type="tns:CreditWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="DepositMoney">
+      <http:operation location="/DepositMoney" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateEmptyBankAccount">
+      <http:operation location="/CreateEmptyBankAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVisaBankAccount">
+      <http:operation location="/CreateVisaBankAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBankAccounts">
+      <http:operation location="/GetAllBankAccounts" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankAccount">
+      <http:operation location="/GetBankAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTransactions">
+      <http:operation location="/GetAllTransactions" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="CreditWebService">
     <wsdl:port name="CreditWebServiceSoap" binding="tns:CreditWebServiceSoap">
@@ -502,6 +793,12 @@
     </wsdl:port>
     <wsdl:port name="CreditWebServiceSoap12" binding="tns:CreditWebServiceSoap12">
       <soap12:address location="http://localhost:11524/CreditWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CreditWebServiceHttpGet" binding="tns:CreditWebServiceHttpGet">
+      <http:address location="http://localhost:11524/CreditWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CreditWebServiceHttpPost" binding="tns:CreditWebServiceHttpPost">
+      <http:address location="http://localhost:11524/CreditWebService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

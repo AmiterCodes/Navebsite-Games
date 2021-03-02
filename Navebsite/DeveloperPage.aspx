@@ -5,7 +5,7 @@
     <NV:SalesChart runat="server" ID="salesChart" />
     <asp:HyperLink NavigateUrl="AddGame.aspx" CssClass="button" Text="Add Game" runat="server" />
     
-    <asp:Button Text="Store Page" OnClick="OnClick" runat="server" />
+    <asp:Button CssClass="button" Text="Store Page" OnClick="OnClick" runat="server" />
 
     <!-- BANNER -->
     

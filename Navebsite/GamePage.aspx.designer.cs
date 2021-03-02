@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite {
-    
-    
-    public partial class GamePage {
-        
+namespace Navebsite
+{
+
+
+    public partial class GamePage
+    {
+
         /// <summary>
         /// banner control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel banner;
-        
+
         /// <summary>
         /// name control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label name;
-        
+
         /// <summary>
         /// play control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button play;
-        
+
         /// <summary>
         /// UpdateList control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Navebsite.Controls.UpdateList UpdateList;
-        
+
         /// <summary>
         /// reviewList control.
         /// </summary>
@@ -56,7 +58,16 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel reviewList;
-        
+
+        /// <summary>
+        /// ReviewBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ReviewBox;
+
         /// <summary>
         /// gallery control.
         /// </summary>
@@ -65,7 +76,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Navebsite.Controls.Gallery gallery;
-        
+
         /// <summary>
         /// friends control.
         /// </summary>

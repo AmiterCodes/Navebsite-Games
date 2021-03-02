@@ -29,7 +29,7 @@ namespace Navebsite
                     var reviewControl = (Controls.Review) Page.LoadControl("~/Controls/Review.ascx");
                     reviewControl.ReviewObject = review;
                     reviewControl.ID = "" + review.UserId;
-                    reviewList.Controls.Add(reviewControl);
+                    ReviewBox.Controls.Add(reviewControl);
                 }
 
                 UpdateList.Updates = game.Updates;
@@ -44,10 +44,10 @@ namespace Navebsite
                     var link = new HyperLink
                     {
                         NavigateUrl = "AddReview.aspx?game=" + game.Id,
-                        CssClass = "button",
+                        CssClass = "button add_review",
                         Text = "Add Review"
                     };
-                    reviewList.Controls.Add(link);
+                    ReviewBox.Controls.Add(link);
                 }
                 else
                 {

@@ -22,7 +22,7 @@ namespace NavebsiteDAL
         /// <returns></returns>
         public static int AddDeveloper(string developerName)
         {
-            return DalHelper.Insert("INSERT INTO Developer (DeveloperName) VALUES (@name)", new OleDbParameter("@name", developerName));
+            return DalHelper.Insert("INSERT INTO Developer ([Developer Name]) VALUES (@name)", new OleDbParameter("@name", developerName));
         }
 
         /// <summary>
