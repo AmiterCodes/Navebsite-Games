@@ -31,8 +31,8 @@ namespace NavebsiteBL
 
         public int Id { get; set; }
         public string DeveloperName { get; set; }
-        public string About { get; set; }
-        public string Icon { get; set; }
+        public string About { get; set; } = "";
+        public string Icon { get; set; } = "";
 
         public string IconUrl => "./Images/DeveloperIcons/" + Icon;
         public string BackgroundUrl => "./Images/DeveloperBackgrounds/" + Background;

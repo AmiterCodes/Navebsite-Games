@@ -47,7 +47,7 @@ namespace CreditService
         [WebMethod]
         public TransactionDto Pay(CreditCardDto from, BankAccountDto to, double amountDollar)
         {
-            if (IsValid(from)) return null;
+            if (!IsValid(from)) return null;
             var builder = new TransactionBuilder();
             Transaction transaction = builder
                 .From(from.CardNumber)
@@ -58,8 +58,9 @@ namespace CreditService
 
             using (var db = new BankingContext())
             {
-                db.Transactions.Add(transaction);
-                BankAccountDetails fromBank = db.bankAccounts.Find(from.BankAccountId);
+                Transaction saved = db.Transactions.Add(transaction);
+                BankAccountDetails fromBank = db.bankAccounts.FirstOrDefault(bank => bank.CreditCards.Any(card => card.CardNumber == from.CardNumber));
+                if (fromBank == null) return null;
                 fromBank.Balance -= transaction.AmountDollar;
                 BankAccountDetails toBank = db.bankAccounts.Find(to.identificationNumber);
                 toBank.Balance += transaction.AmountDollar;

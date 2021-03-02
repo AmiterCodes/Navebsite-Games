@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI;
 using NavebsiteBL;
 
@@ -30,6 +32,17 @@ namespace Navebsite
             }
 
             activities.Activities = user.Activities;
+            gallery.Photos = UserPhoto.GetPhotosByUser(user.Id).Cast<Photo>().ToList();
+
+            var list = Review.ReviewsByUser(user.Id);
+            foreach (var review in list)
+            {
+                var reviewControl = (Controls.Review)Page.LoadControl("~/Controls/Review.ascx");
+                reviewControl.ReviewObject = review;
+                reviewControl.ID = "" + review.UserId;
+                reviewList.Controls.Add(reviewControl);
+            }
+            if (Session["user"] == null) return;
             friends.Users = Friends.GetFriends(user.Id);
 
             if (IsPostBack) return;
@@ -40,11 +53,18 @@ namespace Navebsite
             if (Session["user"] == null) return;
             var viewer = (User) Session["user"];
 
+            mutualFriends.Users = new List<User>();
+
             if (viewer.Id == user.Id)
             {
                 AddButton.Visible = false;
                 RemoveButton.Visible = false;
                 return;
+            }
+            else
+            {
+                mutualFriends.Users = Friends.GetMutualFriends(user.Id, viewer.Id);
+                mutualFriends.Visible = true;
             }
 
             var areFriends = Friends.AreFriends(viewer, user);

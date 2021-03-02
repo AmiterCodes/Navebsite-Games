@@ -72,6 +72,7 @@ namespace NavebsiteDAL
                 $"VALUES('{email}','{username}', '{BCrypt.Net.BCrypt.EnhancedHashPassword(password)}')");
         }
 
+
         /// <summary>
         /// updates the password in the database
         /// </summary>

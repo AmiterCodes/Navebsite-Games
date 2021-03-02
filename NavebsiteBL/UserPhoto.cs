@@ -42,5 +42,11 @@ namespace NavebsiteBL
             foreach (DataRow r in tb.Rows) list.Add(new UserPhoto(r));
             return list;
         }
+
+
+        public static int InsertPhoto(int user, string filename)
+        {
+            return DbPhotos.InsertPhoto(user, filename, PhotoType.UserPhotos);
+        }
     }
 }

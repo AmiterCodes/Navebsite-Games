@@ -5,7 +5,25 @@
     <NV:SalesChart runat="server" ID="salesChart" />
     <asp:HyperLink NavigateUrl="AddGame.aspx" CssClass="button" Text="Add Game" runat="server" />
     
+    <asp:Button Text="Store Page" OnClick="OnClick" runat="server" />
+
     <!-- BANNER -->
+    
+    <asp:Panel runat="server" DefaultButton="SubmitData">
+        <h3 class="header">Update your data</h3>
+
+        <asp:TextBox ID="AboutField" runat="server" CssClass="input" placeholder="Bio Here" />
+        <asp:RequiredFieldValidator ErrorMessage="You must input something for a bio" ControlToValidate="AboutField" ValidationGroup="DeveloperData" runat="server" />
+
+        <asp:TextBox ID="DeveloperNameField" runat="server" CssClass="input" placeholder="Developer Name Here" />
+        <asp:RequiredFieldValidator ErrorMessage="You must input a developer name" ControlToValidate="DeveloperNameField" ValidationGroup="DeveloperData" runat="server" />
+        <asp:Button ID="SubmitData" Text="Update Developer Data" runat="server" CssClass="button" OnClick="SubmitData_OnClick" />
+
+        
+    </asp:Panel>
+    
+
+    
     <asp:Panel CssClass="tuple_vert" runat="server" DefaultButton="UploadBackground">
         <h3 class="header">Developer Banner</h3>
         <asp:Image runat="server" ID="CurrentBackground" CssClass="image_preview" />
@@ -13,19 +31,7 @@
         <asp:RequiredFieldValidator ErrorMessage="You must upload an image" ControlToValidate="Background" ValidationGroup="Background" runat="server" />
         <asp:Button ID="UploadBackground" Text="Update Background" runat="server" CssClass="button" OnClick="UploadBackground_OnClick" />
     </asp:Panel>
-    
-    <asp:Panel runat="server" DefaultButton="SubmitData">
-        <h3 class="header">Update your data</h3>
 
-        <asp:TextBox ID="AboutField" runat="server" CssClass="input" />
-        <asp:RequiredFieldValidator ErrorMessage="You must input something for a bio" ControlToValidate="AboutField" ValidationGroup="DeveloperData" runat="server" />
-
-        <asp:TextBox ID="DeveloperNameField" runat="server" CssClass="input" />
-        <asp:RequiredFieldValidator ErrorMessage="You must input a developer name" ControlToValidate="DeveloperNameField" ValidationGroup="DeveloperData" runat="server" />
-        <asp:Button ID="SubmitData" Text="Update Developer Data" runat="server" CssClass="button" OnClick="SubmitData_OnClick" />
-
-
-    </asp:Panel>
 
     <!-- PROFILE PICTURE -->
 

@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.OleDb;
 
 namespace NavebsiteDAL
 {
@@ -70,6 +71,13 @@ namespace NavebsiteDAL
         public static DataTable AllPhotos(PhotoType type)
         {
             return DalHelper.AllFromTable(type.ToString());
+        }
+
+        public static int InsertPhoto(int id, string filename, PhotoType type)
+        {
+            string field = type == PhotoType.UserPhotos ? "User" : "Game";
+            return DalHelper.Insert($"INSERT INTO {type.ToString()} ({field}, Photo) VALUES ({id}, @filename)"
+            , new OleDbParameter("@filename", filename));
         }
     }
 }

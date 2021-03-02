@@ -63,8 +63,8 @@ namespace CreditService
             if (Month > 12) return false;
 
             var time = DateTime.Now;
-            if (time.Year % 100 > Year) return false;
-            if (time.Year % 100 == Year && time.Month > Month) return false;
+            if (time.Year > Year) return false;
+            if (time.Year == Year && time.Month > Month) return false;
 
 
             using (var db = new BankingContext())

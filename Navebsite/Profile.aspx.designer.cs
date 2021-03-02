@@ -58,6 +58,24 @@ namespace Navebsite {
         protected global::System.Web.UI.WebControls.Button RemoveButton;
         
         /// <summary>
+        /// reviewList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel reviewList;
+        
+        /// <summary>
+        /// gallery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Navebsite.Controls.Gallery gallery;
+        
+        /// <summary>
         /// activities control.
         /// </summary>
         /// <remarks>
@@ -74,5 +92,14 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Navebsite.Controls.SmallUserList friends;
+        
+        /// <summary>
+        /// mutualFriends control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Navebsite.Controls.SmallUserList mutualFriends;
     }
 }

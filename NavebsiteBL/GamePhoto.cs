@@ -24,6 +24,11 @@ namespace NavebsiteBL
 
         public int GameId { get; set; }
 
+        public static int InsertPhoto(int game, string filename)
+        {
+            return DbPhotos.InsertPhoto(game, filename, PhotoType.GamePhotos);
+        }
+
         public static GamePhoto RandomPhoto(int game)
         {
             return new GamePhoto(DbPhotos.RandomPhotoOfGame(game));

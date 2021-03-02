@@ -22,33 +22,6 @@ namespace Navebsite {
         protected global::Navebsite.Controls.SalesChart salesChart;
         
         /// <summary>
-        /// CurrentBackground control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image CurrentBackground;
-        
-        /// <summary>
-        /// Background control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Background;
-        
-        /// <summary>
-        /// UploadBackground control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UploadBackground;
-        
-        /// <summary>
         /// AboutField control.
         /// </summary>
         /// <remarks>
@@ -74,6 +47,33 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SubmitData;
+        
+        /// <summary>
+        /// CurrentBackground control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image CurrentBackground;
+        
+        /// <summary>
+        /// Background control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload Background;
+        
+        /// <summary>
+        /// UploadBackground control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UploadBackground;
         
         /// <summary>
         /// CurrentProfilePicture control.

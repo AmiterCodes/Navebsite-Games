@@ -13,6 +13,15 @@ namespace NavebsiteBL
         {
         }
 
+        public override bool Equals(object obj)
+        {
+            if (!(obj is User)) return false;
+            User user = (User) obj;
+            return user.Id == this.Id;
+        }
+
+        public override int GetHashCode() => base.GetHashCode();
+
         public User(DataRow dr)
         {
             if (dr == null) throw new InvalidOperationException();
@@ -100,5 +109,6 @@ namespace NavebsiteBL
             var id = DbUser.InsertUser(email ,username, password);
             return new User(id);
         }
+        
     }
 }

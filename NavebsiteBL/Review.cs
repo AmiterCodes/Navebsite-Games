@@ -49,7 +49,7 @@ namespace NavebsiteBL
         {
             var list = new List<Review>();
 
-            foreach (DataRow row in DbReview.ReviewsByGame(userId).Rows) list.Add(new Review(row));
+            foreach (DataRow row in DbReview.ReviewsByUser(userId).Rows) list.Add(new Review(row));
             return list;
         }
     }

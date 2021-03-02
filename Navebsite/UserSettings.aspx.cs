@@ -41,7 +41,17 @@ namespace Navebsite
 
         protected void UploadImage_OnClick(object sender, EventArgs e)
         {
-
+            Validate("Image");
+            if (!IsValid) return;
+            var user = (User)Session["user"];
+            if (user == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+            string filename = UploadHelper.ImageFileUpload(ImageUpload, "Images/UserProfiles/", "image.png", Server);
+            UserPhoto.InsertPhoto(user.Id, filename);
+            Response.Redirect("UserSettings.aspx");
         }
 
         protected void UploadProfile_OnClick(object sender, EventArgs e)
@@ -118,6 +128,8 @@ namespace Navebsite
             }
             else
             {
+                Game gameObject = new Game(game);
+                user.AddActivity("Redeemed code for " + gameObject.GameName);
                 Response.Redirect("GamePage.aspx?id=" + game);
             }
         }

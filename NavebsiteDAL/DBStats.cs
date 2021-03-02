@@ -42,7 +42,7 @@ namespace NavebsiteDAL
         public static DataRow getGameStats(int id)
         {
             var tb = DalHelper.Select(
-                "SELECT COUNT(Game) AS Purchases, SUM(Cost) AS Revenue from UserGames WHERE Game = 1 GROUP BY Game");
+                $"SELECT COUNT(Game) AS Purchases, SUM(Cost) AS Revenue from UserGames WHERE Game = {id} GROUP BY Game");
             if (tb.Rows.Count == 0) return null;
             return tb.Rows[0];
         }

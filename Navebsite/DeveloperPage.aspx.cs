@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -69,8 +70,20 @@ namespace Navebsite
                 Response.Redirect("Login.aspx");
                 return;
             }
+
+            dev.UpdateData(Server.HtmlEncode(DeveloperNameField.Text), Server.HtmlEncode(AboutField.Text));
+
             Response.Redirect("DeveloperPage.aspx");
 
+        }
+
+        protected void OnClick(object sender, EventArgs e)
+        {
+            dev = (Developer)Session["dev"];
+
+            if (dev == null) Response.Redirect("404");
+
+            Response.Redirect("CompanyPage.aspx?dev=" + dev.Id);
         }
     }
 }

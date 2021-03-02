@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using NavebsiteDAL;
@@ -52,6 +53,14 @@ namespace NavebsiteBL
         public static bool ExistsFriendRequest(User user1, User user2)
         {
             return ExistsFriendRequest(user1.Id, user2.Id);
+        }
+
+        public static List<User> GetMutualFriends(int userId, int viewerId)
+        {
+            List<User> first = GetFriends(userId);
+            List<User> second = GetFriends(viewerId);
+
+            return first.Intersect(second).ToList();
         }
     }
 }

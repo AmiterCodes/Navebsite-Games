@@ -95,7 +95,7 @@ namespace Navebsite
                     CardNumber = cardnumber.Text.Replace(" ", ""),
                     CardVerificationValue = securitycode.Text,
                     Month = int.Parse(expirationdate.Text.Substring(0, 2)),
-                    Year = int.Parse(expirationdate.Text.Substring(3, 2))
+                    Year = 2000 + int.Parse(expirationdate.Text.Substring(3, 2))
                 };
 
                 var transaction = service.Pay(details, service.GetBankAccount(3), amount);
@@ -130,6 +130,7 @@ namespace Navebsite
                     {
                         UserGame.AddGame(user.Id, game.Id, amount);
                         queryString.Add("game", "" + game.Id);
+                        user.AddActivity("Bought " + game.GameName);
                     }
 
                     break;

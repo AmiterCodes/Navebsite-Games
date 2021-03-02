@@ -32,9 +32,9 @@ namespace NavebsiteBL
                 };
             return new Sales
             {
-                Purchases = (int)row["Purchases"],
+                Purchases = (int) row["Purchases"],
                 Revenue = (double) row["Revenue"]
-            }
+            };
         }
 
         private static List<Sales> DataTableToList(DataTable tb)

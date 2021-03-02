@@ -10,7 +10,7 @@
             grid-template-areas:
                                "banner banner"
                                "Activity Friends"
-                               "Reviews ."
+                               "Reviews Gallery"
                                ". .";
             grid-template-columns: 1.5fr 1fr;
             grid-template-rows: 1fr 1fr 1fr 1fr;
@@ -26,6 +26,8 @@
         .Friends { grid-area: Friends; }
 
         .Reviews { grid-area: Reviews; }
+
+        .Gallery { grid-area: Gallery }
     </style>
     <div class="grid-container">
         <div class="banner centering">
@@ -39,11 +41,18 @@
                 <asp:Button Text="Remove Friend" runat="server" CssClass="button" Id="RemoveButton" OnClick="RemoveButton_OnClick"/>
             </div>
         </div>
+        <asp:Panel runat="server" ID="reviewList" CssClass="reviews Reviews">
+            <h2>User Reviews</h2>
+        </asp:Panel>
+        <div class="Gallery">
+            <NV:Gallery runat="server" ID="gallery"/>
+        </div>
         <div class="Activity">
             <Nv:ActivityList runat="server" Id="activities"/>
         </div>
         <div class="Friends">
             <NV:UserList runat="server" ID="friends" ViewStateMode="Enabled" Title="Friends"/>
+            <NV:UserList runat="server" ID="mutualFriends" Visible="False" ViewStateMode="Enabled" Title="Mutual Friends"/>
         </div>
     </div>
 </asp:Content>
