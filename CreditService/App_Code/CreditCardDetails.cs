@@ -69,7 +69,7 @@ namespace CreditService
 
             using (var db = new BankingContext())
             {
-                var query = from card in db.creditCards
+                var query = from card in db.CreditCards
                     where card.Month == this.Month
                           && card.Year == this.Year
                           && card.CardNumber == this.CardNumber

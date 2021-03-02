@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "CreditService.BankingContext";
         }
 
         protected override void Seed(CreditService.BankingContext context)

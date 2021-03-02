@@ -51,7 +51,7 @@ namespace CreditService
             var builder = new TransactionBuilder();
             Transaction transaction = builder
                 .From(from.CardNumber)
-                .To(to.identificationNumber)
+                .To(to.Id)
                 .AmountDollar(amountDollar)
                 .TimeUtcNow()
                 .Build();
@@ -59,10 +59,10 @@ namespace CreditService
             using (var db = new BankingContext())
             {
                 Transaction saved = db.Transactions.Add(transaction);
-                BankAccountDetails fromBank = db.bankAccounts.FirstOrDefault(bank => bank.CreditCards.Any(card => card.CardNumber == from.CardNumber));
+                BankAccountDetails fromBank = db.BankAccounts.FirstOrDefault(bank => bank.CreditCards.Any(card => card.CardNumber == from.CardNumber));
                 if (fromBank == null) return null;
                 fromBank.Balance -= transaction.AmountDollar;
-                BankAccountDetails toBank = db.bankAccounts.Find(to.identificationNumber);
+                BankAccountDetails toBank = db.BankAccounts.Find(to.Id);
                 toBank.Balance += transaction.AmountDollar;
 
                 db.SaveChanges();
@@ -82,7 +82,7 @@ namespace CreditService
             using (var db = new BankingContext())
             {
                 var query = from transaction in db.Transactions
-                    where transaction.From.BankAccount.identificationNumber.Equals(bank.identificationNumber) || transaction.To.identificationNumber.Equals(bank.identificationNumber)
+                    where transaction.From.BankAccount.Id.Equals(bank.Id) || transaction.To.Id.Equals(bank.Id)
                     select transaction;
 
                 return mapper.Map<List<TransactionDto>>(query.ToList());
@@ -193,14 +193,14 @@ namespace CreditService
             {
                 var card = new CreditCardDetails
                 {
-                    BankAccountId= bank.identificationNumber,
+                    BankAccountId= bank.Id,
                     CardNumber = ccnumber,
                     CardVerificationValue = (random.Next(1000) + "").PadLeft(3),
                     Month = date.Month,
                     Year = date.Year
                 };
 
-                db.creditCards.Add(card);
+                db.CreditCards.Add(card);
                 db.SaveChanges();
 
                 return card;
@@ -213,20 +213,18 @@ namespace CreditService
         /// Creates a new empty bank account
         /// </summary>
         /// <param name="name">account name</param>
-        /// <param name="id">account id</param>
         /// <returns>new bank account's data as BankAccountDto</returns>
         [WebMethod]
-        public BankAccountDto CreateEmptyBankAccount(string name, int id)
+        public BankAccountDto CreateEmptyBankAccount(string name)
         {
             BankAccountDetails details = new BankAccountDetails
             {
-                holderName = name,
-                identificationNumber = id,
+                HolderName = name,
             };
 
             using (var db = new BankingContext())
             {
-                db.bankAccounts.Add(details);
+                db.BankAccounts.Add(details);
                 db.SaveChanges();
             }
             
@@ -240,17 +238,17 @@ namespace CreditService
         /// <param name="id"></param>
         /// <returns></returns>
         [WebMethod]
-        public BankAccountDto CreateVisaBankAccount(string name, int id)
+        public BankAccountDto CreateVisaBankAccount(string name)
         {
-            var bank = CreateEmptyBankAccount(name, id);
+            var bank = CreateEmptyBankAccount(name);
             var card = AddNewVisaCard(bank);
 
             return new BankAccountDto
             {
-                holderName = bank.holderName,
+                HolderName = bank.HolderName,
                 Balance = bank.Balance,
                 CreditCards = new List<CreditCardDto> {card},
-                identificationNumber = bank.identificationNumber
+                Id = bank.Id
             };
         }
 
@@ -273,7 +271,7 @@ namespace CreditService
         {
             using (var db = new BankingContext())
             {
-                var query = from card in db.creditCards
+                var query = from card in db.CreditCards
                     where card.BankAccount.Equals(bankAccount)
                     select card;
 
@@ -286,7 +284,7 @@ namespace CreditService
         {
             using (var db = new BankingContext())
             {
-                var query = from bank in db.bankAccounts
+                var query = from bank in db.BankAccounts
                     select bank;
 
                 return mapper.Map<List<BankAccountDto>>(query.ToList());
@@ -298,8 +296,8 @@ namespace CreditService
         {
             using (var db = new BankingContext())
             {
-                var query = from bank in db.bankAccounts
-                    where bank.identificationNumber == id
+                var query = from bank in db.BankAccounts
+                    where bank.Id == id
                     select bank;
 
                 return mapper.Map<BankAccountDto>(query.FirstOrDefault());

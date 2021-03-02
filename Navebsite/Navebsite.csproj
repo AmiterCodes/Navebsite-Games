@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="BCrypt.Net-Next, Version=4.0.0.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.0\lib\net452\BCrypt.Net-Next.dll</HintPath>
     </Reference>
@@ -129,11 +132,12 @@
     <Content Include="Profile.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="UserSettings.aspx" />
-    <Content Include="ViewSwitcher.ascx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web References\CreditWebService\CreditCardDetails.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
@@ -143,6 +147,7 @@
     <Content Include="Web References\CreditWebService\CreditCardDto.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </Content>
+    <Content Include="Site.Mobile.Master" />
     <None Include="Web References\CreditWebService\CreditWebService.disco" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -374,7 +379,6 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
@@ -399,7 +403,6 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -412,8 +415,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Missy.Master" />
-    <None Include="packages.config" />
-    <Content Include="Site.Mobile.Master" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web References\CreditWebService\CreditWebService.wsdl" />
     <None Include="Web References\CreditWebService\Reference.map">

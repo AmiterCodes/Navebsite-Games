@@ -7,13 +7,13 @@ namespace CreditService.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class ChangedTransaction : IMigrationMetadata
+    public sealed partial class mig : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedTransaction));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(mig));
         
         string IMigrationMetadata.Id
         {
-            get { return "202101210900114_ChangedTransaction"; }
+            get { return "202103020703418_mig"; }
         }
         
         string IMigrationMetadata.Source
