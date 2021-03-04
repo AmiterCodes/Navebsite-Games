@@ -50,6 +50,7 @@ namespace Navebsite
             icon.ImageUrl = user.ProfilePictureUrl;
 
             name.Text = Server.HtmlEncode(user.Username);
+            ProfileBio.Text = Server.HtmlEncode(user.Description);
             if (Session["user"] == null) return;
             var viewer = (User) Session["user"];
 

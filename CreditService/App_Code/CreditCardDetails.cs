@@ -67,7 +67,7 @@ namespace CreditService
             if (time.Year == Year && time.Month > Month) return false;
 
 
-            using (var db = new BankingContext())
+            using (var db = new BankContext())
             {
                 var query = from card in db.CreditCards
                     where card.Month == this.Month

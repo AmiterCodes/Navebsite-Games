@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Navebsite.Controls;
@@ -27,7 +29,29 @@ namespace Navebsite
 
             gm.Games = (List<Game>) Application["StoreGames"];
         }
-        
+
+        public struct GameDto
+        {
+            public string GameName { get; set; }
+            public string IconUrl { get; set; }
+
+            public int Id { get; set; }
+        }
+
+
+        [WebMethod]
+        public static List<GameDto> AutoComplete(string current)
+        {
+            if(current == "") return new List<GameDto>();
+            List<string> terms = new List<string>();
+            var games = (List<Game>) HttpContext.Current.Application["StoreGames"];
+
+            return games
+                .Where(game => game.GameName.ToLower().Contains(current.ToLower()))
+                .Take(5)
+                .Select(game => new GameDto() { GameName = game.GameName, IconUrl = game.LogoUrl, Id = game.Id })
+                .ToList();
+        } 
 
         protected void slider_OnTextChanged(object sender, EventArgs e)
         {

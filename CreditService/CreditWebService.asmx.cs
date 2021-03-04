@@ -56,7 +56,7 @@ namespace CreditService
                 .TimeUtcNow()
                 .Build();
 
-            using (var db = new BankingContext())
+            using (var db = new BankContext())
             {
                 Transaction saved = db.Transactions.Add(transaction);
                 BankAccountDetails fromBank = db.BankAccounts.FirstOrDefault(bank => bank.CreditCards.Any(card => card.CardNumber == from.CardNumber));
@@ -79,7 +79,7 @@ namespace CreditService
         [WebMethod]
         public List<TransactionDto> TransactionHistoryOf(BankAccountDto bank)
         {
-            using (var db = new BankingContext())
+            using (var db = new BankContext())
             {
                 var query = from transaction in db.Transactions
                     where transaction.From.BankAccount.Id.Equals(bank.Id) || transaction.To.Id.Equals(bank.Id)
@@ -189,7 +189,7 @@ namespace CreditService
             var date = DateTime.Now.AddYears(6).AddMonths(6);
 
             
-            using (var db = new BankingContext())
+            using (var db = new BankContext())
             {
                 var card = new CreditCardDetails
                 {
@@ -220,7 +220,7 @@ namespace CreditService
         {
             if (amountDollar > 10000 || amountDollar <= 0) return null;
 
-            using (var db = new BankingContext())
+            using (var db = new BankContext())
             {
                 BankAccountDetails bank = db.BankAccounts.Find(bankId);
                 if (bank == null) return null;
@@ -246,7 +246,7 @@ namespace CreditService
                 HolderName = name,
             };
 
-            using (var db = new BankingContext())
+            using (var db = new BankContext())
             {
                 db.BankAccounts.Add(details);
                 db.SaveChanges();
@@ -258,9 +258,8 @@ namespace CreditService
         /// <summary>
         /// Creates a bank account with a visa credit card
         /// </summary>
-        /// <param name="name">bank </param>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="name">name of holder </param>
+        /// <returns>bank account data object</returns>
         [WebMethod]
         public BankAccountDto CreateVisaBankAccount(string name)
         {
@@ -293,7 +292,7 @@ namespace CreditService
         [WebMethod]
         public List<CreditCardDto> GetCardsForAccount(BankAccountDto bankAccount)
         {
-            using (var db = new BankingContext())
+            using (var db = new BankContext())
             {
                 var query = from card in db.CreditCards
                     where card.BankAccount.Equals(bankAccount)
@@ -306,7 +305,7 @@ namespace CreditService
         [WebMethod]
         public List<BankAccountDto> GetAllBankAccounts()
         {
-            using (var db = new BankingContext())
+            using (var db = new BankContext())
             {
                 var query = from bank in db.BankAccounts
                     select bank;
@@ -318,7 +317,7 @@ namespace CreditService
         [WebMethod]
         public BankAccountDto GetBankAccount(int id)
         {
-            using (var db = new BankingContext())
+            using (var db = new BankContext())
             {
                 var query = from bank in db.BankAccounts
                     where bank.Id == id
@@ -331,7 +330,7 @@ namespace CreditService
         [WebMethod]
         public List<TransactionDto> GetAllTransactions()
         {
-            using (var db = new BankingContext())
+            using (var db = new BankContext())
             {
                 var query = from transaction in db.Transactions
                     select transaction;

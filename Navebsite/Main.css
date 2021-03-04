@@ -15,6 +15,13 @@
     padding: 0;
 }
 
+.user_list_container {
+    background: linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     background: linear-gradient(180deg, #1D1D1D 0, #24263D 100%);
     color: white;
@@ -200,7 +207,12 @@ a {
 .profile_name {
     color: white;
     font-size: 30px;
+}
+
+.profile_data {
+    display: flex;
     margin-left: 2rem;
+    flex-direction: column;
 }
 
 .profile {
@@ -227,11 +239,39 @@ a {
     margin-left: -50%;
 }
 
-.profile_name {
+.found_games {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.found-game {
+    width: 100%;
+    padding: .8rem;
+    display: flex;
+    transition: all .1s;
+    flex-direction: row;
+}
+
+.found-game:hover {
+    color: black;
+    background-color: white;
+}
+
+.found-game:hover > .found-game_name {
+    color: black;
+}
+
+.found-game_name {
     color: white;
-    font-size: 30px;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.found-game-image {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
 }
 
 .button {
@@ -258,12 +298,16 @@ a {
 }
 
 
+
 .activities {
     background: #0F1017;
     display: inline-block;
     min-height: 10vh;
+    color: black;
+    background-color: white;
     min-width: 30vw;
     padding: 2rem;
+    border-radius: 20px;
 }
 
 .activity_list {
@@ -533,6 +577,8 @@ hr {
     z-index: 3000;
 }
 
+
+
 .profile_content {
     align-items: center;
     display: flex;
@@ -540,7 +586,6 @@ hr {
 }
 
 .user_list {
-    background: linear-gradient(180deg, #0F1016 0%, #1C1D2B 100%);
     display: inline-block;
     padding: 1rem;
 }
