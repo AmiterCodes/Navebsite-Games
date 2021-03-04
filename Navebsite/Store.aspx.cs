@@ -48,7 +48,7 @@ namespace Navebsite
 
             return games
                 .Where(game => game.GameName.ToLower().Contains(current.ToLower()))
-                .Take(5)
+                .Take(10)
                 .Select(game => new GameDto() { GameName = game.GameName, IconUrl = game.LogoUrl, Id = game.Id })
                 .ToList();
         } 

@@ -1,5 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GameList.ascx.cs" Inherits="Navebsite.Controls.GameList" %>
 <div class="game_list">
+    <asp:UpdatePanel runat="server">
+        <ContentTemplate>
+            
 <asp:DataList id="ItemsList"
            CellPadding="20"
            CellSpacing="30"
@@ -32,6 +35,8 @@
          </ItemTemplate>
  
       </asp:DataList>
+        </ContentTemplate>
+    </asp:UpdatePanel>
     <div class="list_footer">
         <asp:Button Text="&larr; Previous" CssClass="button" OnClick="prevButton_OnClick" ID="prevButton" runat="server" />
         <asp:Label Text="1" ID="PageLabel" runat="server" />
