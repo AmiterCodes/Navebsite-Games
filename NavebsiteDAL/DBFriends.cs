@@ -116,5 +116,10 @@ namespace NavebsiteDAL
                       + selectDirection.Replace("$1", "2").Replace("$2", "1");
             return sql;
         }
+
+        public static DataTable IncomingRequests(int user)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

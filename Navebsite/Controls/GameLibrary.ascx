@@ -1,15 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="GameLibrary.ascx.cs" Inherits="Navebsite.Controls.GameLibrary" %>
 <div class="game_library">
     <h2>Library</h2>
-    <asp:DataList ID="ItemsList"
-                  CellPadding="20"
-                  CellSpacing="20"
-                  RepeatDirection="Vertical"
-                  RepeatLayout="Table"
-                  RepeatColumns="1"
+    <asp:Repeater ID="ItemsList"
                   runat="server">
         <ItemTemplate>
-            <div class="libgame" style="background-image: linear-gradient(180deg, rgba(15, 16, 22, 0.72) 0, #1C1D2B 100%), url('../<%#: Eval("BackgroundUrl") %>');">
+            <div class="libgame"  style="background-image: linear-gradient(180deg, rgba(15, 16, 22, 0.72) 0, #1C1D2B 100%), url('../<%#: Eval("BackgroundUrl") %>');">
                 <div class="libgame_info">
                     <h2><%#: Eval("GameName") %></h2>
                     <a class="libgame_company" href="CompanyPage.aspx?dev=<%# Eval("DeveloperID") %>"><%#: DataBinder.Eval(Container.DataItem, "DeveloperName") %></a>
@@ -21,5 +16,8 @@
                 </div>
             </div>
         </ItemTemplate>
-    </asp:DataList>
+        <SeparatorTemplate>
+            <div style="height: 1rem;"></div>
+        </SeparatorTemplate>
+    </asp:Repeater>
 </div>

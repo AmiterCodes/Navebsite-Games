@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite.Controls {
-    
-    
-    public partial class SalesChart {
-        
+namespace Navebsite.Controls
+{
+
+
+    public partial class SalesChart
+    {
+
         /// <summary>
         /// chartRevenue control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.DataVisualization.Charting.Chart chartRevenue;
-        
+
         /// <summary>
         /// chartPurchases control.
         /// </summary>

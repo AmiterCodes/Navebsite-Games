@@ -15,6 +15,12 @@ namespace NavebsiteBL
             return (from DataRow row in tb.Rows select new User(row)).ToList();
         }
 
+        public static List<User> IncomingRequests(int user)
+        {
+            var tb = DbFriends.IncomingRequests(user);
+            return (from DataRow row in tb.Rows select new User(row)).ToList();
+        }
+
         public static List<User> FriendsThatPlayGame(int user, int game)
         {
             var tb = DbFriends.GetFriendsWhoPlayGame(user, game);

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite.Controls {
-    
-    
-    public partial class GameLibrary {
-        
+namespace Navebsite.Controls
+{
+
+
+    public partial class GameLibrary
+    {
+
         /// <summary>
         /// ItemsList control.
         /// </summary>
@@ -19,6 +21,6 @@ namespace Navebsite.Controls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList ItemsList;
+        protected global::System.Web.UI.WebControls.Repeater ItemsList;
     }
 }

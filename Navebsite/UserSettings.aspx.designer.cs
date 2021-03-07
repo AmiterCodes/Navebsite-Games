@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite {
-    
-    
-    public partial class UserSettings {
-        
+namespace Navebsite
+{
+
+
+    public partial class UserSettings
+    {
+
         /// <summary>
         /// CurrentBalance control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label CurrentBalance;
-        
+
         /// <summary>
         /// AddBalance control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox AddBalance;
-        
+
         /// <summary>
         /// AddBalanceButton control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button AddBalanceButton;
-        
+
         /// <summary>
         /// RedeemGame control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox RedeemGame;
-        
+
         /// <summary>
         /// RedeemGameButton control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button RedeemGameButton;
-        
+
         /// <summary>
         /// RedeemError control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label RedeemError;
-        
+
         /// <summary>
         /// CurrentBackground control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image CurrentBackground;
-        
+
         /// <summary>
         /// Background control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload Background;
-        
+
         /// <summary>
         /// UploadBackground control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button UploadBackground;
-        
+
         /// <summary>
         /// CurrentProfilePicture control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image CurrentProfilePicture;
-        
+
         /// <summary>
         /// ProfilePicture control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload ProfilePicture;
-        
+
         /// <summary>
         /// UploadProfile control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button UploadProfile;
-        
+
         /// <summary>
         /// Bio control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Bio;
-        
+
         /// <summary>
         /// UpdateBio control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button UpdateBio;
-        
+
         /// <summary>
         /// OldPassword control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox OldPassword;
-        
+
         /// <summary>
         /// Password control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Password;
-        
+
         /// <summary>
         /// ConfirmPassword control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
-        
+
         /// <summary>
         /// UpdatePassword control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button UpdatePassword;
-        
+
         /// <summary>
         /// ErrorBox control.
         /// </summary>
@@ -182,23 +184,5 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ErrorBox;
-        
-        /// <summary>
-        /// ImageUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload ImageUpload;
-        
-        /// <summary>
-        /// UploadImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UploadImage;
     }
 }

@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite.Controls {
-    
-    
-    public partial class GameList {
-        
+namespace Navebsite.Controls
+{
+
+
+    public partial class GameList
+    {
+
         /// <summary>
         /// ItemsList control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList ItemsList;
-        
+
         /// <summary>
         /// prevButton control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button prevButton;
-        
+
         /// <summary>
         /// PageLabel control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PageLabel;
-        
+
         /// <summary>
         /// nextButton control.
         /// </summary>

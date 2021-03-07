@@ -56,7 +56,7 @@ namespace CreditService
                 .TimeUtcNow()
                 .Build();
 
-            using (var db = new BankContext())
+            using (var db = new BankSystemContext())
             {
                 Transaction saved = db.Transactions.Add(transaction);
                 BankAccountDetails fromBank = db.BankAccounts.FirstOrDefault(bank => bank.CreditCards.Any(card => card.CardNumber == from.CardNumber));
@@ -79,7 +79,7 @@ namespace CreditService
         [WebMethod]
         public List<TransactionDto> TransactionHistoryOf(BankAccountDto bank)
         {
-            using (var db = new BankContext())
+            using (var db = new BankSystemContext())
             {
                 var query = from transaction in db.Transactions
                     where transaction.From.BankAccount.Id.Equals(bank.Id) || transaction.To.Id.Equals(bank.Id)
@@ -189,7 +189,7 @@ namespace CreditService
             var date = DateTime.Now.AddYears(6).AddMonths(6);
 
             
-            using (var db = new BankContext())
+            using (var db = new BankSystemContext())
             {
                 var card = new CreditCardDetails
                 {
@@ -220,7 +220,7 @@ namespace CreditService
         {
             if (amountDollar > 10000 || amountDollar <= 0) return null;
 
-            using (var db = new BankContext())
+            using (var db = new BankSystemContext())
             {
                 BankAccountDetails bank = db.BankAccounts.Find(bankId);
                 if (bank == null) return null;
@@ -246,7 +246,7 @@ namespace CreditService
                 HolderName = name,
             };
 
-            using (var db = new BankContext())
+            using (var db = new BankSystemContext())
             {
                 db.BankAccounts.Add(details);
                 db.SaveChanges();
@@ -290,12 +290,12 @@ namespace CreditService
         }
 
         [WebMethod]
-        public List<CreditCardDto> GetCardsForAccount(BankAccountDto bankAccount)
+        public List<CreditCardDto> GetCardsForAccount(int accountId)
         {
-            using (var db = new BankContext())
+            using (var db = new BankSystemContext())
             {
                 var query = from card in db.CreditCards
-                    where card.BankAccount.Equals(bankAccount)
+                    where card.BankAccountId.Equals(accountId)
                     select card;
 
                 return mapper.Map<List<CreditCardDto>>(query.ToList());
@@ -305,7 +305,7 @@ namespace CreditService
         [WebMethod]
         public List<BankAccountDto> GetAllBankAccounts()
         {
-            using (var db = new BankContext())
+            using (var db = new BankSystemContext())
             {
                 var query = from bank in db.BankAccounts
                     select bank;
@@ -317,7 +317,7 @@ namespace CreditService
         [WebMethod]
         public BankAccountDto GetBankAccount(int id)
         {
-            using (var db = new BankContext())
+            using (var db = new BankSystemContext())
             {
                 var query = from bank in db.BankAccounts
                     where bank.Id == id
@@ -330,7 +330,7 @@ namespace CreditService
         [WebMethod]
         public List<TransactionDto> GetAllTransactions()
         {
-            using (var db = new BankContext())
+            using (var db = new BankSystemContext())
             {
                 var query = from transaction in db.Transactions
                     select transaction;

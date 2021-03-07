@@ -14,5 +14,8 @@
     </series>
     <chartareas><asp:ChartArea Name="ChartArea1"></asp:ChartArea>
     </chartareas>
-
+    
 </asp:Chart>
+<script defer>
+    console.log('<%=Sales %>');
+</script>

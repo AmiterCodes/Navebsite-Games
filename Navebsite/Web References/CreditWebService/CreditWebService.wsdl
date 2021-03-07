@@ -156,7 +156,7 @@
       <s:element name="GetCardsForAccount">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="bankAccount" type="tns:BankAccountDto" />
+            <s:element minOccurs="1" maxOccurs="1" name="accountId" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -207,6 +207,7 @@
         </s:complexType>
       </s:element>
       <s:element name="BankAccountDto" nillable="true" type="tns:BankAccountDto" />
+      <s:element name="ArrayOfCreditCardDto" nillable="true" type="tns:ArrayOfCreditCardDto" />
       <s:element name="ArrayOfBankAccountDto" nillable="true" type="tns:ArrayOfBankAccountDto" />
       <s:element name="ArrayOfTransactionDto" nillable="true" type="tns:ArrayOfTransactionDto" />
     </s:schema>
@@ -302,6 +303,12 @@
   <wsdl:message name="CreateVisaBankAccountHttpGetOut">
     <wsdl:part name="Body" element="tns:BankAccountDto" />
   </wsdl:message>
+  <wsdl:message name="GetCardsForAccountHttpGetIn">
+    <wsdl:part name="accountId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCardsForAccountHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCreditCardDto" />
+  </wsdl:message>
   <wsdl:message name="GetAllBankAccountsHttpGetIn" />
   <wsdl:message name="GetAllBankAccountsHttpGetOut">
     <wsdl:part name="Body" element="tns:ArrayOfBankAccountDto" />
@@ -334,6 +341,12 @@
   </wsdl:message>
   <wsdl:message name="CreateVisaBankAccountHttpPostOut">
     <wsdl:part name="Body" element="tns:BankAccountDto" />
+  </wsdl:message>
+  <wsdl:message name="GetCardsForAccountHttpPostIn">
+    <wsdl:part name="accountId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCardsForAccountHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfCreditCardDto" />
   </wsdl:message>
   <wsdl:message name="GetAllBankAccountsHttpPostIn" />
   <wsdl:message name="GetAllBankAccountsHttpPostOut">
@@ -412,6 +425,10 @@
       <wsdl:input message="tns:CreateVisaBankAccountHttpGetIn" />
       <wsdl:output message="tns:CreateVisaBankAccountHttpGetOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetCardsForAccount">
+      <wsdl:input message="tns:GetCardsForAccountHttpGetIn" />
+      <wsdl:output message="tns:GetCardsForAccountHttpGetOut" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllBankAccounts">
       <wsdl:input message="tns:GetAllBankAccountsHttpGetIn" />
       <wsdl:output message="tns:GetAllBankAccountsHttpGetOut" />
@@ -437,6 +454,10 @@
     <wsdl:operation name="CreateVisaBankAccount">
       <wsdl:input message="tns:CreateVisaBankAccountHttpPostIn" />
       <wsdl:output message="tns:CreateVisaBankAccountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsForAccount">
+      <wsdl:input message="tns:GetCardsForAccountHttpPostIn" />
+      <wsdl:output message="tns:GetCardsForAccountHttpPostOut" />
     </wsdl:operation>
     <wsdl:operation name="GetAllBankAccounts">
       <wsdl:input message="tns:GetAllBankAccountsHttpPostIn" />
@@ -702,6 +723,15 @@
         <mime:mimeXml part="Body" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCardsForAccount">
+      <http:operation location="/GetCardsForAccount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllBankAccounts">
       <http:operation location="/GetAllBankAccounts" />
       <wsdl:input>
@@ -752,6 +782,15 @@
     </wsdl:operation>
     <wsdl:operation name="CreateVisaBankAccount">
       <http:operation location="/CreateVisaBankAccount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardsForAccount">
+      <http:operation location="/GetCardsForAccount" />
       <wsdl:input>
         <mime:content type="application/x-www-form-urlencoded" />
       </wsdl:input>

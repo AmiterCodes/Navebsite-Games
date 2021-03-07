@@ -106,6 +106,7 @@
     <Content Include="Controls\GameList.ascx" />
     <Content Include="Controls\GameView.ascx" />
     <Content Include="Controls\GameViewList.ascx" />
+    <Content Include="Controls\LoadingOverlay.ascx" />
     <Content Include="Controls\Navbar.ascx" />
     <Content Include="Controls\Review.ascx" />
     <Content Include="Controls\SalesChart.ascx" />
@@ -235,6 +236,13 @@
     </Compile>
     <Compile Include="Controls\GameViewList.ascx.designer.cs">
       <DependentUpon>GameViewList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LoadingOverlay.ascx.cs">
+      <DependentUpon>LoadingOverlay.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\LoadingOverlay.ascx.designer.cs">
+      <DependentUpon>LoadingOverlay.ascx</DependentUpon>
     </Compile>
     <Compile Include="Controls\Navbar.ascx.cs">
       <DependentUpon>Navbar.ascx</DependentUpon>
@@ -376,6 +384,7 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
@@ -400,6 +409,7 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

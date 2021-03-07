@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite {
-    
-    
-    public partial class AdminPage {
-        
+namespace Navebsite
+{
+
+
+    public partial class AdminPage
+    {
+
         /// <summary>
         /// sales control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Navebsite.Controls.SalesChart sales;
-        
+
         /// <summary>
         /// gameList control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Navebsite.Controls.GameViewList gameList;
-        
+
         /// <summary>
         /// TransactionHistory control.
         /// </summary>
@@ -38,5 +40,23 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView TransactionHistory;
+
+        /// <summary>
+        /// CreditCardRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater CreditCardRepeater;
+
+        /// <summary>
+        /// AddCard control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddCard;
     }
 }

@@ -7,11 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite {
-    
-    
-    public partial class Store {
-        
+namespace Navebsite
+{
+
+
+    public partial class Store
+    {
+
+        /// <summary>
+        /// PageUpdateProgress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdateProgress PageUpdateProgress;
+
         /// <summary>
         /// sortBy control.
         /// </summary>
@@ -20,7 +31,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList sortBy;
-        
+
         /// <summary>
         /// slider control.
         /// </summary>
@@ -29,7 +40,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox slider;
-        
+
         /// <summary>
         /// text control.
         /// </summary>
@@ -38,7 +49,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label text;
-        
+
         /// <summary>
         /// GenreChecks control.
         /// </summary>
@@ -47,7 +58,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList GenreChecks;
-        
+
         /// <summary>
         /// SearchBox control.
         /// </summary>
@@ -56,7 +67,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox SearchBox;
-        
+
         /// <summary>
         /// gm control.
         /// </summary>

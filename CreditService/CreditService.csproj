@@ -182,16 +182,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\BankAccountDetails.cs" />
-    <Compile Include="App_Code\BankContext.cs" />
+    <Compile Include="App_Code\BankSystemContext.cs" />
     <Compile Include="App_Code\Transaction.cs" />
     <Compile Include="CreditWebService.asmx.cs">
       <DependentUpon>CreditWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="App_Code\CreditCardDetails.cs" />
-    <Compile Include="Migrations\202103020703418_mig.cs" />
-    <Compile Include="Migrations\202103020703418_mig.designer.cs">
-      <DependentUpon>202103020703418_mig.cs</DependentUpon>
+    <Compile Include="Migrations\202103070943481_transactionUpdate.cs" />
+    <Compile Include="Migrations\202103070943481_transactionUpdate.designer.cs">
+      <DependentUpon>202103070943481_transactionUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -209,8 +209,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202103020703418_mig.resx">
-      <DependentUpon>202103020703418_mig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202103070943481_transactionUpdate.resx">
+      <DependentUpon>202103070943481_transactionUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

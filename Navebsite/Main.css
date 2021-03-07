@@ -29,6 +29,10 @@ body {
     min-height: 100vh;
 }
 
+.link {
+    color: #03a9f4;
+}
+
 .game_library {
     align-items: center;
     display: flex;
@@ -252,6 +256,17 @@ a {
     flex-direction: column;
 }
 
+.list_footer {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list_footer > * {
+    margin: .4rem;
+}
+
 .found-game {
     width: 100%;
     padding: .8rem;
@@ -284,22 +299,82 @@ a {
     border-radius: 2rem;
 }
 
+.login_page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.login_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.login_header {
+    font-size: 3rem;
+}
+
+.login_header_sub {
+    font-size: 1.5rem;
+    margin-left: 3rem;
+}
+
+.login_top {
+    color: #571A1A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.login_image-img {
+    background-size: cover;
+    width: 100%;
+}
+
+.login_side {
+    position: relative;
+    display: flex;
+    width: 30%;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-grow: 1;
+    background: linear-gradient(139.25deg, rgba(255, 46, 0, 0.51) 4.98%, #FF1E61 70.62%), #E05757;
+    height: 100%;
+}
+
+
+.login_main {
+    flex-grow: 5;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .button {
-    background: none;
-    border: #767FD1 solid 3px;
+    border: none;
+    padding: .5rem;
+    background: linear-gradient(131.81deg, #FF2E00 7.1%, #FF1E61 122.94%);
+    background-color: #FF2E00;
+        border-radius: 11px;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     outline: none;
-    padding: .5rem;
     transition: all .3s;
     text-align: center;
 }
 
     .button:hover {
-        background-color: #767FD1;
+        background: white;
+        color: #FF2E00;
     }
 
 
@@ -344,6 +419,7 @@ a {
 
 
 .libgame {
+    display: block;
     background-position: center;
     background-size: cover;
     /* background: linear-gradient(180deg, rgba(15, 16, 22, 0.72) 0%, #1C1D2B 100%), url('https://d.ibtimes.co.uk/en/full/1602046/minecraft-art.jpg?w=600&e=b9208487edf12504de07b038ccad3c96');*/
@@ -663,6 +739,7 @@ label[for]:hover {
     font-size: 1.6rem;
     color: #fff;
     font-weight: bold;
+    margin: .5rem;
 }
 
     .header::placeholder {
@@ -670,25 +747,32 @@ label[for]:hover {
 
     }
 
+.header_secondary {
+    margin: 1rem;
+    font-size: 1rem;
+
+}
+
 .input {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .3);
     padding: 5px 12px;
     font-size: 1rem;
     line-height: 20px;
+    border: none;
     color: #1d1d1d;
     vertical-align: middle;
     background-color: whitesmoke;
     margin: .5rem .3rem;
     background-repeat: no-repeat;
     background-position: right 8px center;
-    border-radius: 6px;
+    border-radius: 10px;
     outline: none;
-    box-shadow: inset 0px 2px 0px rgba(225, 228, 232, 0.2);
+    border: 5px solid transparent;
 }
 
     .input:focus {
-        border-color: #0366D6;
+        border-bottom: 5px solid #0366D6;
         outline: none;
-        box-shadow: 3px -3px 0px #BAD1F4, -3px 3px 0px #BAD1F4, 3px 3px 0px #BAD1F4, -3px -3px 0px #BAD1F4;
     }
 
 
@@ -765,7 +849,7 @@ textarea {
 }
 
 .image_preview {
-    width: 300px;
+    width: 10rem;
 }
 
 .balance_value::before {
@@ -1116,11 +1200,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 #form1 {
-    height: 100%;
+    min-height: 100vh;
 }
 
 .main {
-    height: 100%;
+    min-height: 100%;
     margin-left: 5rem;
 }
 
@@ -1197,7 +1281,11 @@ body::-webkit-scrollbar-thumb {
     .main {
         margin: 0;
     }
+
+
 }
+
+
 
 /* Large screens */
 @media only screen and (min-width: 600px) {
@@ -1438,8 +1526,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .user-settings {
-    display: flex;
-    flex-wrap: wrap;
+    border-radius: 20px;
+    padding: 5rem;
+    height: 100%;
+    width: 70%;
+    background: #eee;
+    color: #571A1A;
 }
 
 .user-settings > div {
@@ -1802,4 +1894,218 @@ input[type='radio'] {
     background-color: white;
     color: black;
     text-transform: uppercase;
+}
+
+.f04_main {
+    background-image: linear-gradient(137.15deg, rgba(45, 12, 78, 0.81) -27.17%, rgba(17, 24, 85, 0.81) 126.79%), url(./Images/shavit.jpeg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.f04_text {
+    z-index: 1000;
+    margin: 3rem;
+}
+.f04_header {
+    margin-bottom: -3rem;
+    font-size: 30rem;
+}
+.f04_subtext {
+    font-size: 2rem;
+}
+
+.f04_amogus {
+    z-index: 500;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 40%;
+    height: 10%;
+    animation-name: amogusAnimation;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+}
+
+@keyframes amogusAnimation {
+    0% {
+        z-index: 1500;
+    }
+    50% {
+        z-index: 700;
+        transform: rotate(10deg) translate(-50%,-50%);
+        top: 60%;
+        left: 60%;
+    }
+    100% {
+        z-index: 1500;
+    }
+}
+
+.settings {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.selected {
+    background: #eee !important;
+}
+
+.setting_tab_list {
+    width: 30%;
+}
+
+.settings_tab:hover {
+    color: black;
+    background: #eee;
+}
+
+.settings_tab {
+    padding: 1rem;
+    margin: 1rem;
+    margin-right: 0rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background: white;
+    
+}
+
+.settings_tab-desc {
+    margin: 1rem;
+}
+
+.settings_tab-header {
+    font-weight: 600;
+    
+}
+
+
+.Wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Base {
+    background: #ccc;
+    height: 200px;
+    width: 300px;
+    border-radius: 15px;
+}
+
+.Inner-wrap {
+    background-color: #0c0014;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%230d1838' points='1600%2C160 0%2C460 0%2C350 1600%2C50'/%3E%3Cpolygon fill='%230e315d' points='1600%2C260 0%2C560 0%2C450 1600%2C150'/%3E%3Cpolygon fill='%230f4981' points='1600%2C360 0%2C660 0%2C550 1600%2C250'/%3E%3Cpolygon fill='%231062a6' points='1600%2C460 0%2C760 0%2C650 1600%2C350'/%3E%3Cpolygon fill='%23117aca' points='1600%2C800 0%2C800 0%2C750 1600%2C450'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: auto 147%;
+    background-position: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 13px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+/* Controls top right logo */
+
+.Logo {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    right: 0;
+    top: 0;
+    padding: inherit;
+    fill: #117aca;
+}
+
+/* Controls chip icon */
+
+.Chip {
+    height: 40px;
+    margin: 20px 0 15px 0;
+}
+
+.gold path {
+    fill: url(#gold-gradient);
+}
+
+svg {
+    display: block;
+}
+
+/* Controls name size */
+
+.Logo-name {
+    transform: scale(.5);
+    margin-left: -75px;
+}
+
+.Card-number p {
+    text-align: center;
+}
+
+.Card-number {
+    margin-top: -25px;
+    display: flex;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#first-li {
+    margin-left: 0;
+}
+
+#last-li {
+    margin-right: 0;
+}
+
+.Expire {
+    font-size: .75em;
+    text-align: center;
+}
+
+    .Expire h4 {
+        font-weight: 400;
+        color: #aaa;
+        margin: 0;
+        /*   word-spacing: 9999999px; */
+        text-transform: uppercase;
+    }
+
+    .Expire p {
+        font-size: 1.55em;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+.Name h3 {
+    position: absolute;
+    bottom: 0;
+    left: 18%;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1.35em;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.Visa {
+    width: 50px;
+    position: absolute;
+    bottom: -145px;
+    right: 0;
+    padding: inherit;
 }

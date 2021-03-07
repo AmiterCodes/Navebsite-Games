@@ -28,7 +28,7 @@ namespace CreditService
         public string CardNumber { get; set; }
         public virtual CreditCardDetails From { get; set; }
 
-        public int identificationNumber { get; set; }
+        public int ToId { get; set; }
         public virtual BankAccountDetails To { get; set; }
         public DateTime Timestamp { get; set; }
     }
@@ -52,7 +52,7 @@ namespace CreditService
 
         public TransactionBuilder To(int id)
         {
-            _actions.Add(t => t.identificationNumber = id);
+            _actions.Add(t => t.ToId = id);
             return this;
         }
 
