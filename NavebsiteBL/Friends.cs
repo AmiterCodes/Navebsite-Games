@@ -66,7 +66,9 @@ namespace NavebsiteBL
             List<User> first = GetFriends(userId);
             List<User> second = GetFriends(viewerId);
 
-            return first.Intersect(second).ToList();
+            var comparer = EqualityComparerFactory.Create<User>(
+                user => user.Id.GetHashCode(), (a, b) => a.Id == b.Id);
+            return first.Intersect(second, comparer).ToList();
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Navebsite.Controls
                 view.Game = game;
                 List.Controls.Add(view);
             });
+            if (List.Controls.Count == 1) NoGames.Visible = true;
         }
     }
 }

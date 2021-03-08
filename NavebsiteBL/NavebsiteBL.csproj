@@ -50,6 +50,7 @@
     <Compile Include="Activity.cs" />
     <Compile Include="BLHelper.cs" />
     <Compile Include="Developer.cs" />
+    <Compile Include="EqualityComparerFactory.cs" />
     <Compile Include="Friends.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameCode.cs" />

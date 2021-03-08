@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Navebsite.App_Code;
 using Navebsite.Controls;
 using Navebsite.CreditWebService;
 using NavebsiteBL;
@@ -25,6 +26,7 @@ namespace Navebsite
             bankAccount = service.GetBankAccount(3);
             TransactionHistory.DataSource = service.TransactionHistoryOf(bankAccount);
             TransactionHistory.DataBind();
+            BalanceLabel.Text = "$" + bankAccount.Balance;
 
             List<CreditCardDto> cards = service.GetCardsForAccount(3).ToList();
 
@@ -52,7 +54,7 @@ namespace Navebsite
 
         protected void OnClick(object sender, EventArgs e)
         {
-
+            
             var service = new CreditWebService.CreditWebService();
             service.AddNewVisaCard(bankAccount);
 
@@ -61,5 +63,25 @@ namespace Navebsite
             CreditCardRepeater.DataSource = cards;
             CreditCardRepeater.DataBind();
         }
+
+        protected void OnClick_Deposit(object sender, EventArgs e)
+        {
+
+            var service = new CreditWebService.CreditWebService();
+
+            double money = double.Parse(DepositText.Text);
+            try
+            {
+
+
+                service.DepositMoney(bankAccount.Id, money);
+                BalanceLabel.Text = "$" + (bankAccount.Balance + money);
+            }
+            catch
+            {
+                SnackbarHelper.DisplaySnackBar(this, "Deposit Failed...");
+            }
+        }
+
     }
 }

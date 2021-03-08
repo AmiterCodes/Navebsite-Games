@@ -15,6 +15,15 @@ namespace Navebsite
     {
 
         /// <summary>
+        /// chart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel chart;
+
+        /// <summary>
         /// sales control.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,15 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Navebsite.Controls.SalesChart sales;
+
+        /// <summary>
+        /// gameListContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel gameListContainer;
 
         /// <summary>
         /// gameList control.
@@ -33,6 +51,60 @@ namespace Navebsite
         protected global::Navebsite.Controls.GameViewList gameList;
 
         /// <summary>
+        /// balance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel balance;
+
+        /// <summary>
+        /// BalanceLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label BalanceLabel;
+
+        /// <summary>
+        /// DepositText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DepositText;
+
+        /// <summary>
+        /// DepositButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DepositButton;
+
+        /// <summary>
+        /// DepositFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator DepositFieldValidator;
+
+        /// <summary>
+        /// NoTransactionsError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label NoTransactionsError;
+
+        /// <summary>
         /// TransactionHistory control.
         /// </summary>
         /// <remarks>
@@ -40,6 +112,15 @@ namespace Navebsite
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView TransactionHistory;
+
+        /// <summary>
+        /// creditCards control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel creditCards;
 
         /// <summary>
         /// CreditCardRepeater control.

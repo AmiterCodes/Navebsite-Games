@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
     <div class="settings">
         <div class="setting_tab_list" id="list">
-            <a class="settings_tab" onmouseover="openPage('balance', this)" href="#">
+            <a class="settings_tab" onclick="openPage('balance', this)" href="#">
                 <span class="settings_tab-header">
                     <i class="fas fa-money-check-alt"></i>
                     Redeem Codes and Balance
@@ -14,7 +14,7 @@
                     Here you can redeem codes and update your account balance.
                 </p>
             </a>
-            <a class="selected settings_tab " onmouseover="openPage('images', this)" href="#">
+            <a class="selected settings_tab " onclick="openPage('images', this)" href="#">
                 <span class="settings_tab-header">
                     <i class="far fa-user-circle"></i>
                     Account Details
@@ -23,7 +23,7 @@
                     Here you can change your background and profile pictures, and update your bio.
                 </p>
             </a>
-            <a class="settings_tab" onmouseover="openPage('passupdate', this)" href="#">
+            <a class="settings_tab" onclick="openPage('passupdate', this)" href="#">
                 <span class="settings_tab-header">
                     <i class="fas fa-key"></i>
                     Change Password
@@ -36,10 +36,10 @@
         
         <div class="user-settings" id="settings_list">
             <!-- BALANCE AND REDEEM -->
-            <div class="balance" id="balance">
+            <div id="balance">
 
                 <h3 class="header_secondary">Account Balance: </h3>
-                <asp:Label Text="00.00" CssClass="balance_value" ID="CurrentBalance" runat="server"/>
+                <asp:Label Text="00.00" CssClass="balance" ID="CurrentBalance" runat="server"/>
                 <asp:Panel runat="server" DefaultButton="AddBalanceButton" class="tuple">
                     <asp:TextBox placeholder="0.00" runat="server" CssClass="input" ID="AddBalance"/>
                     <asp:Button Text="Add To Balance" runat="server" CssClass="button" ID="AddBalanceButton" OnClick="AddBalanceButton_OnClick"/>

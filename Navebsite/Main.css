@@ -1492,14 +1492,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 .gameview {
+    color: white;
     margin: 1rem;
-
+    justify-content: space-between;
     background-size: cover;
     display: flex;
-    justify-content: space-around;
     padding: 1rem;
     width: 80%;
 }
+
 
 .gameview_info {
     display: flex;
@@ -1527,17 +1528,11 @@ body::-webkit-scrollbar-thumb {
 
 .user-settings {
     border-radius: 20px;
-    padding: 5rem;
-    height: 100%;
+    padding: 3rem;
+    min-height: 70vh;
     width: 70%;
     background: #eee;
     color: #571A1A;
-}
-
-.user-settings > div {
-    flex-grow: 1;
-    width: 33%;
-    margin-top: 2rem;
 }
 
 .store_page{
@@ -1876,6 +1871,7 @@ input[type='radio'] {
 
 
 .centering {
+    width: 100%;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -1993,6 +1989,9 @@ input[type='radio'] {
     
 }
 
+.chart {
+    width: 30%;
+}
 
 .Wrap {
     display: flex;
@@ -2108,4 +2107,9 @@ svg {
     bottom: -145px;
     right: 0;
     padding: inherit;
+}
+
+.balance {
+    font-size: 4rem;
+    text-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.3);
 }

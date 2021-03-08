@@ -35,6 +35,8 @@ namespace Navebsite.Controls
 
             List<Sales> updatedSales = new List<Sales>();
             IEnumerator<Sales> e = Sales.GetEnumerator();
+            int totalPurchases = 0;
+            double totalRevenue = 0;
             e.Reset();
             e.MoveNext();
             while (e.Current != null && e.Current.Date < starting)
@@ -64,6 +66,8 @@ namespace Navebsite.Controls
                 row["Purchases"] = sale.Purchases;
                 row["Revenue"] = sale.Revenue;
 
+                totalPurchases += sale.Purchases;
+                totalRevenue += sale.Revenue;
 
                 tb.Rows.Add(row);
                 updatedSales.Add(sale);
@@ -78,13 +82,13 @@ namespace Navebsite.Controls
             chartRevenue.DataBind();
             chartPurchases.DataBind();
 
-            StyleChart(chartPurchases);
-            StyleChart(chartRevenue);
+            StyleChart(chartPurchases, "Total Purchases for Month: " + totalPurchases);
+            StyleChart(chartRevenue, "Total Revenue for Month: " + totalRevenue);
 
 
         }
 
-        private static void StyleChart(Chart chart)
+        private static void StyleChart(Chart chart, string label)
         {
             chart.Height = 500;
             chart.Width = 800;
@@ -93,7 +97,7 @@ namespace Navebsite.Controls
             series1.ChartType = SeriesChartType.Bar;
             var a = chart.ChartAreas[0];
             a.BackImageTransparentColor = Color.Transparent;
-
+            chart.ChartAreas[0].AxisX.Title = label;
             a.AxisX.LabelStyle.Format = "MM-dd-yy";
         }
     }

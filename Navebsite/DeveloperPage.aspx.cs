@@ -26,6 +26,7 @@ namespace Navebsite
 
             DeveloperNameField.Text = dev.DeveloperName;
             AboutField.Text = dev.About;
+            PageLink.NavigateUrl = "CompanyPage.aspx?dev=" + dev.Id;
         }
 
 
