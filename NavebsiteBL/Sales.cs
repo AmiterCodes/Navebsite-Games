@@ -42,20 +42,6 @@ namespace NavebsiteBL
             return (from DataRow dr in tb.Rows select new Sales(dr)).ToList();
         }
 
-        public static DataTable GameStatsTable(int gameId)
-        {
-            return DbStats.GameSalesStats(gameId);
-        }
-
-        public static DataTable CompanyStatsTable(int devId)
-        {
-            return DbStats.CompanySalesStats(devId);
-        }
-
-        public static DataTable AllStatsTable()
-        {
-            return DbStats.TotalSalesStats();
-        }
 
         public static List<Sales> GameStats(int gameId)
         {

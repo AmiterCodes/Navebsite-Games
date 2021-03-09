@@ -27,6 +27,7 @@ namespace NavebsiteBL
         public void AddUser(int userId)
         {
             DbDeveloper.SetUserDeveloper(userId, this.Id);
+            DbConnections.FulfillRequest(userId, this.Id);
         }
 
         public int Id { get; set; }

@@ -69,7 +69,7 @@
     <Compile Include="DALHelper.cs" />
     <Compile Include="DBActivity.cs" />
     <Compile Include="DBDeveloper.cs" />
-    <Compile Include="DBFriends.cs" />
+    <Compile Include="DbConnections.cs" />
     <Compile Include="DBGame.cs" />
     <Compile Include="DbGameCodes.cs" />
     <Compile Include="DBPhotos.cs" />

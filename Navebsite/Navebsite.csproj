@@ -129,6 +129,7 @@
     <Content Include="pay.js" />
     <Content Include="PaymentSuccess.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="RequestsPage.aspx" />
     <Content Include="Store.aspx" />
     <Content Include="Profile.aspx" />
     <Content Include="favicon.ico" />
@@ -381,6 +382,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RequestsPage.aspx.cs">
+      <DependentUpon>RequestsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RequestsPage.aspx.designer.cs">
+      <DependentUpon>RequestsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>

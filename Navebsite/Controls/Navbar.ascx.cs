@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using NavebsiteBL;
 
 namespace Navebsite.Controls
@@ -18,12 +19,22 @@ namespace Navebsite.Controls
             devPage.Visible = false;
             library.Visible = false;
             adminPage.Visible = false;
+            requestsSide.Visible = false;
             if (user != null)
             {
+                int friendRequests = Connections.IncomingFriendRequestsCount(user.Id);
+                int devRequests = Connections.IncomingDeveloperRequestsCount(user.Id);
+
+                int notifCount = friendRequests + devRequests;
+
+                notifs.Text = notifCount +"";
+                if(notifCount > 0)notifs.Visible = true;
+
                 ProfilePicture.ImageUrl = "../" + user.ProfilePictureUrl;
                 ProfileName.Text = user.Username;
                 balance.Text = "$" + user.Balance;
                 logout.Visible = true;
+                requestsSide.Visible = true;
                 logoutSide.Visible = true;
                 library.Visible = true;
                 userSettingsSide.Visible = true;

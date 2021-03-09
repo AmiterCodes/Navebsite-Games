@@ -38,7 +38,7 @@ namespace Navebsite
                 {
                     var user = (User) Session["user"];
 
-                    friends.Users = Friends.FriendsThatPlayGame(user.Id, game.Id);
+                    friends.Users = Connections.FriendsThatPlayGame(user.Id, game.Id);
                     if (UserGame.GameOwnedByUser(game.Id, user.Id))
                         play.Text = "Play " + Server.HtmlEncode(game.GameName);
                     var link = new HyperLink

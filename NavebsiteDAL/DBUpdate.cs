@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.OleDb;
 
 namespace NavebsiteDAL
 {
@@ -15,7 +16,10 @@ namespace NavebsiteDAL
         public static int InsertUpdate(string version, string updateName, string description, int game)
         {
             return DalHelper.Insert(
-                $"INSERT INTO GameUpdates ([Update Version],[Update Name], [Update Description], [Game]) VALUES ('{version}','{updateName}','{description}',{game})");
+                $"INSERT INTO GameUpdates ([Update Version],[Update Name], [Update Description], [Game]) VALUES (@version,@updateName,@description,{game})",
+                new OleDbParameter("@version", version),
+                new OleDbParameter("@description", description),
+                new OleDbParameter("@updateName", updateName));
         }
 
         /// <summary>

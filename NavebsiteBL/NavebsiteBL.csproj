@@ -51,7 +51,7 @@
     <Compile Include="BLHelper.cs" />
     <Compile Include="Developer.cs" />
     <Compile Include="EqualityComparerFactory.cs" />
-    <Compile Include="Friends.cs" />
+    <Compile Include="Connections.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameCode.cs" />
     <Compile Include="GamePhoto.cs" />

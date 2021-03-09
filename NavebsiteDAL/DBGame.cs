@@ -31,7 +31,12 @@ namespace NavebsiteDAL
         {
             return DalHelper.Insert(
                 "INSERT INTO Games ([Game Name],[Game Link],Description,Background,Logo,Developer,Price) " +
-                $"VALUES ('{gameName}','{link}','{description}','{background}','{logo}',{developer},{price})");
+                $"VALUES (@gameName,@link,@desc,@background,@logo,{developer},{price})",
+                new OleDbParameter("@gameName", gameName),
+                new OleDbParameter("@link", gameName),
+            new OleDbParameter("@desc", gameName),
+            new OleDbParameter("@background", gameName),
+            new OleDbParameter("@logo", gameName));
         }
 
         /// <summary>

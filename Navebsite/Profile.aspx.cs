@@ -42,8 +42,11 @@ namespace Navebsite
                 reviewControl.ID = "" + review.UserId;
                 reviewList.Controls.Add(reviewControl);
             }
-            if (Session["user"] == null) return;
-            friends.Users = Friends.GetFriends(user.Id);
+
+            friends.Users = Connections.GetFriends(user.Id);
+
+            mutualFriends.Users = new List<User>();
+            
 
             if (IsPostBack) return;
             banner.ImageUrl = user.BackgroundUrl;
@@ -54,38 +57,55 @@ namespace Navebsite
             if (Session["user"] == null) return;
             var viewer = (User) Session["user"];
 
-            mutualFriends.Users = new List<User>();
 
             if (viewer.Id == user.Id)
             {
                 AddButton.Visible = false;
                 RemoveButton.Visible = false;
+                InviteToCompany.Visible = false;
                 return;
             }
             else
             {
-                mutualFriends.Users = Friends.GetMutualFriends(user.Id, viewer.Id);
+                mutualFriends.Users = Connections.GetMutualFriends(user.Id, viewer.Id);
                 mutualFriends.Visible = true;
             }
+            
 
-            var areFriends = Friends.AreFriends(viewer, user);
+            var areFriends = Connections.AreFriends(viewer, user);
+            
             if (areFriends)
             {
                 AddButton.Visible = false;
             }
             else
             {
-                if (Friends.ExistsFriendRequest(user, viewer))
+                if (Connections.ExistsFriendRequest(user, viewer))
                 {
                     AddButton.Text = "Accept Friend Request";
+                    RemoveButton.Text = "Deny Friend Request";
                 }
-                else if (Friends.ExistsFriendRequest(viewer, user))
+                else if (Connections.ExistsFriendRequest(viewer, user))
                 {
                     AddButton.Enabled = false;
                     AddButton.Text = "Requested";
                 }
 
                 RemoveButton.Visible = false;
+            }
+
+            if (Session["dev"] == null) return;
+
+            var dev = (Developer)Session["dev"];
+
+            if (user.DeveloperId == dev.Id) return;
+
+
+            InviteToCompany.Visible = true;
+            if (Connections.ExistsDeveloperRequest(dev.Id, user.Id))
+            {
+                InviteToCompany.Enabled = false;
+                InviteToCompany.Text = "Requested to develop";
             }
         }
 
@@ -94,7 +114,7 @@ namespace Navebsite
             if (Session["user"] == null) return;
             var viewer = (User) Session["user"];
 
-            Friends.RemoveFriend(viewer.Id, user.Id);
+            Connections.RemoveFriend(viewer.Id, user.Id);
             AddButton.Visible = true;
             RemoveButton.Visible = false;
         }
@@ -104,8 +124,24 @@ namespace Navebsite
             if (Session["user"] == null) return;
             var viewer = (User) Session["user"];
 
-            Friends.SendFriendRequest(viewer.Id, user.Id);
+            Connections.SendFriendRequest(viewer.Id, user.Id);
             Response.Redirect($"Profile.aspx?id={user.Id}");
+        }
+
+        protected void InviteToCompany_OnClick_OnClick(object sender, EventArgs e)
+        {
+            if (Session["user"] == null) return;
+
+            if (Session["dev"] == null) return;
+
+            var dev = (Developer) Session["dev"];
+
+            if (user.IsDeveloper && user.DeveloperId == dev.Id) return;
+
+            Connections.SendDeveloperInvite(user.Id, dev.Id);
+
+            Response.Redirect($"Profile.aspx?id={user.Id}");
+
         }
     }
 }

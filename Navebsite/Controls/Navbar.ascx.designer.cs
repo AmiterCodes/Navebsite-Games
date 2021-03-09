@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite.Controls {
-    
-    
-    public partial class Navbar {
-        
+namespace Navebsite.Controls
+{
+
+
+    public partial class Navbar
+    {
+
         /// <summary>
         /// store control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl store;
-        
+
         /// <summary>
         /// register control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl register;
-        
+
         /// <summary>
         /// logout control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl logout;
-        
+
         /// <summary>
         /// login control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl login;
-        
+
         /// <summary>
         /// library control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl library;
-        
+
         /// <summary>
         /// devPage control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl devPage;
-        
+
         /// <summary>
         /// adminPage control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl adminPage;
-        
+
         /// <summary>
         /// ProfilePicture control.
         /// </summary>
@@ -83,7 +85,16 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image ProfilePicture;
-        
+
+        /// <summary>
+        /// notifs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label notifs;
+
         /// <summary>
         /// ProfileName control.
         /// </summary>
@@ -92,7 +103,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ProfileName;
-        
+
         /// <summary>
         /// loginSide control.
         /// </summary>
@@ -101,7 +112,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink loginSide;
-        
+
         /// <summary>
         /// registerSide control.
         /// </summary>
@@ -110,7 +121,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink registerSide;
-        
+
         /// <summary>
         /// userSettingsSide control.
         /// </summary>
@@ -119,7 +130,16 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink userSettingsSide;
-        
+
+        /// <summary>
+        /// requestsSide control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink requestsSide;
+
         /// <summary>
         /// logoutSide control.
         /// </summary>
@@ -128,7 +148,7 @@ namespace Navebsite.Controls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink logoutSide;
-        
+
         /// <summary>
         /// balance control.
         /// </summary>

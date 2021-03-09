@@ -60,13 +60,15 @@
     <div class="profile">
         <a href="../Profile.aspx" class="button profile_picture_container">
             <asp:Image runat="server" ID="ProfilePicture" CssClass="profile_picture" ImageUrl="../Images/UserProfiles/profile.png" alt="Profile Picture" />
-            
+            <asp:Label Text="0" ID="notifs" CssClass="notifications_count" runat="server" Visible="False" />
             </a>
         <asp:Label runat="server" Text="Guest" ID="ProfileName" class="side_name"></asp:Label>
         <div class="side_content">
             <asp:HyperLink Visible="False" Text="Login" NavigateUrl="../Login.aspx" ID="loginSide" CssClass="button" runat="server" />
             <asp:HyperLink Visible="False" Text="Register" NavigateUrl="../Register.aspx" ID="registerSide" CssClass="button" runat="server" />
             <asp:HyperLink Visible="False" Text="Settings" NavigateUrl="../UserSettings.aspx" ID="userSettingsSide" CssClass="button" runat="server" />
+            
+            <asp:HyperLink Visible="False" Text="Requests" NavigateUrl="../RequestsPage.aspx" ID="requestsSide" CssClass="button" runat="server" />
             <asp:HyperLink Visible="False" Text="Logout" NavigateUrl="../Logout.aspx" ID="logoutSide" CssClass="button" runat="server" />
             <span class="bold">Balance:</span>
             <asp:Label ID="balance" Text="$0.00" runat="server" />

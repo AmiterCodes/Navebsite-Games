@@ -9,7 +9,7 @@
             gap: 1rem 1rem;
             grid-template-areas:
                                "banner banner"
-                               "Activity Friends"
+                               "Activity Connections"
                                "Reviews Gallery"
                                ". .";
             grid-template-columns: 1.5fr 1fr;
@@ -23,7 +23,7 @@
             padding: 2rem
         }
 
-        .Friends { grid-area: Friends; }
+        .Friends { grid-area: Connections; }
 
         .Reviews { grid-area: Reviews; }
 
@@ -38,7 +38,8 @@
                 <div class="profile_data">
                     <asp:Label runat="server" CssClass="profile_name" ID="name"></asp:Label>
                     <asp:Label runat="server" CssClass="profile_bio" ID="ProfileBio"></asp:Label>
-                    </div>
+                </div>
+                <asp:Button Text="Invite to Develop" runat="server" CssClass="button_blue" ID="InviteToCompany" OnClick="InviteToCompany_OnClick_OnClick" Visible="False"/>
                 <asp:Button Text="Add Friend" runat="server" CssClass="button" ID="AddButton" OnClick="AddButton_OnClick"/>
                 <asp:Button Text="Remove Friend" runat="server" CssClass="button" Id="RemoveButton" OnClick="RemoveButton_OnClick"/>
             </div>

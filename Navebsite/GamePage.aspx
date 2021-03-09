@@ -9,7 +9,7 @@
             gap: 1rem 1rem;
             grid-template-areas:
                                "banner banner"
-                               "Play Friends"
+                               "Play Connections"
                                "Reviews Gallery"
                                "Update Gallery";
             grid-template-columns: 1.5fr 1fr;
@@ -22,7 +22,7 @@
         .Friends {
             display: flex;
             flex-direction: column;
-            grid-area: Friends;
+            grid-area: Connections;
         }
 
         .Play { grid-area: Play; }
