@@ -163,7 +163,7 @@ namespace Navebsite
 
         protected void UpdateLogoButton_OnClick(object sender, EventArgs e)
         {
-            string filename = UploadHelper.ImageFileUpload(Background, "Images/GameLogos/", "no.png", Server);
+            string filename = UploadHelper.ImageFileUpload(Logo, "Images/GameLogos/", "no.png", Server);
             game.UpdateLogo(filename);
         }
 

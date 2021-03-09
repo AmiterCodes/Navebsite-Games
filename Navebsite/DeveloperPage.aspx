@@ -120,7 +120,7 @@
 
         }
 
-        openPage('balance', list.children[2]);
+        openPage('generalData', list.children[1]);
 
     </script>
 </asp:Content>

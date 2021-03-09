@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Navebsite {
-    
-    
-    public partial class EditGame {
-        
+namespace Navebsite
+{
+
+
+    public partial class EditGame
+    {
+
         /// <summary>
         /// EditGameForm control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel EditGameForm;
-        
+
         /// <summary>
         /// GameName control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GameName;
-        
+
         /// <summary>
         /// Genres control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Genres;
-        
+
         /// <summary>
         /// ResetButton control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ResetButton;
-        
+
         /// <summary>
         /// GenreList control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList GenreList;
-        
+
         /// <summary>
         /// AddToCurrentGenres control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button AddToCurrentGenres;
-        
+
         /// <summary>
         /// newGenre control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox newGenre;
-        
+
         /// <summary>
         /// AddGenreToAll control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button AddGenreToAll;
-        
+
         /// <summary>
         /// GameLink control.
         /// </summary>
@@ -92,25 +94,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GameLink;
-        
-        /// <summary>
-        /// Background control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Background;
-        
-        /// <summary>
-        /// Logo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Logo;
-        
+
         /// <summary>
         /// Description control.
         /// </summary>
@@ -119,7 +103,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Description;
-        
+
         /// <summary>
         /// Price control.
         /// </summary>
@@ -128,7 +112,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Price;
-        
+
         /// <summary>
         /// button control.
         /// </summary>
@@ -137,7 +121,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button button;
-        
+
         /// <summary>
         /// PriceValidator control.
         /// </summary>
@@ -146,7 +130,7 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RangeValidator PriceValidator;
-        
+
         /// <summary>
         /// ImageForms control.
         /// </summary>
@@ -155,16 +139,16 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel ImageForms;
-        
+
         /// <summary>
-        /// FileUpload1 control.
+        /// Background control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
-        
+        protected global::System.Web.UI.WebControls.FileUpload Background;
+
         /// <summary>
         /// UpdateBackgroundButton control.
         /// </summary>
@@ -173,16 +157,34 @@ namespace Navebsite {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button UpdateBackgroundButton;
-        
+
         /// <summary>
-        /// FileUpload2 control.
+        /// FileUpload1Validator control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
-        
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FileUpload1Validator;
+
+        /// <summary>
+        /// Logo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload Logo;
+
+        /// <summary>
+        /// FileUpload2Validator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator FileUpload2Validator;
+
         /// <summary>
         /// UpdateLogoButton control.
         /// </summary>
