@@ -23,11 +23,13 @@
         <asp:TextBox runat="server" TextMode="Email" CssClass="input" ID="Email" placeholder="email" required="true"/>
         <asp:RequiredFieldValidator Display="Dynamic" ErrorMessage="Email is required!" ControlToValidate="Email" runat="server"/>
         <asp:RegularExpressionValidator Display="Dynamic" ErrorMessage="Email must be valid!" ControlToValidate="Email" runat="server" ValidationExpression="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"/>
+        <asp:CustomValidator ErrorMessage="There is already a user with that email!" ControlToValidate="Email" OnServerValidate="Email_ServerValidate" runat="server" />
 
         <asp:Label Text="Username" runat="server"/>
         <asp:TextBox runat="server" ID="username" placeholder="username" CssClass="input" required="true"/>
         <asp:RequiredFieldValidator Display="Dynamic" ErrorMessage="Username is required!" ControlToValidate="username" runat="server"/>
         <asp:RegularExpressionValidator Display="Dynamic" ErrorMessage="Username must be between 3 and 16 characters, with no special characters" ControlToValidate="username" runat="server" ValidationExpression="^\w{3,16}$"/>
+        <asp:CustomValidator ErrorMessage="There is already a user with that username!" ControlToValidate="Username" OnServerValidate="Username_ServerValidate" runat="server" />
 
         <asp:Label Text="Password" runat="server"/>
         <asp:TextBox runat="server" CssClass="input" ID="password" placeholder="password" TextMode="Password" required="true"/>

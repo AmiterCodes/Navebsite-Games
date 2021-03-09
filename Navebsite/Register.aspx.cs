@@ -43,5 +43,19 @@ namespace Navebsite
 
             
         }
+
+        protected void Email_ServerValidate(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            var email = Email.Text;
+
+            args.IsValid = !NavebsiteBL.User.ExistsWhereEmail(email);
+        }
+
+        protected void Username_ServerValidate(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            var name = username.Text;
+
+            args.IsValid = !NavebsiteBL.User.ExistsWhereUsername(name);
+        }
     }
 }

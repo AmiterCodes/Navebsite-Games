@@ -43,6 +43,7 @@ namespace Navebsite
         private void ValidateUser(User user)
         {
             if (user == null) Response.Redirect("404");
+            if (user.IsAdmin) return;
             if (user != null && !user.IsDeveloper) Response.Redirect("404");
 
             if (game.DeveloperId != user.DeveloperId) Response.Redirect("404");

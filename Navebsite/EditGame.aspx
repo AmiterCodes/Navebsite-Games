@@ -60,12 +60,12 @@
         <div class="tuple_vert">
             <asp:Label Text="Background Image" AssociatedControlID="Background" runat="server" CssClass="input_label"/>
             <asp:FileUpload ID="Background" runat="server" CssClass="input" accept=".png,.jpg,.jpeg,.jfif,.webp"/>
-            <asp:Button Text="Update Background" CssClass="button" ID="UpdateBackgroundButton" OnClick="UpdateBackgroundButton_OnClick" runat="server" />
+            <asp:Button Text="Update Background" CssClass="button" ValidationGroup="Background" ID="UpdateBackgroundButton" OnClick="UpdateBackgroundButton_OnClick" runat="server" />
             <asp:RequiredFieldValidator ID="FileUpload1Validator" ControlToValidate="Background" runat="server" ErrorMessage="You must put a valid logo" ValidationGroup="Logo"></asp:RequiredFieldValidator>
         </div>
         <div class="tuple_vert">
             <asp:Label Text="Logo Image" AssociatedControlID="Logo" runat="server" CssClass="input_label"/>
-            <asp:FileUpload ID="Logo" runat="server" CssClass="input" accept=".png,.jpg,.jpeg,.jfif,.webp"/>
+            <asp:FileUpload ID="Logo" runat="server" CssClass="input" ValidationGroup="Logo" accept=".png,.jpg,.jpeg,.jfif,.webp"/>
             <asp:RequiredFieldValidator ID="FileUpload2Validator" ControlToValidate="Logo" runat="server" ErrorMessage="You must put a valid logo" ValidationGroup="Logo"></asp:RequiredFieldValidator>
             <asp:Button Text="Update Logo" CssClass="button" ID="UpdateLogoButton" OnClick="UpdateLogoButton_OnClick" ValidationGroup="Logo" runat="server" />
         </div>

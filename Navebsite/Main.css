@@ -609,6 +609,7 @@ hr {
 }
 
 .navebsite_title {
+    display: flex;
 }
 
 .navebsite_logo {

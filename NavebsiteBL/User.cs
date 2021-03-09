@@ -109,6 +109,16 @@ namespace NavebsiteBL
             var id = DbUser.InsertUser(email ,username, password);
             return new User(id);
         }
-        
+
+        public static bool ExistsWhereUsername(string username)
+        {
+            return AllUsers().Any(user => user.Username.ToLower() == username.ToLower());
+        }
+
+        public static bool ExistsWhereEmail(string email)
+        {
+            return AllUsers().Any(user => user.Email.ToLower() == email.ToLower());
+        }
+
     }
 }
