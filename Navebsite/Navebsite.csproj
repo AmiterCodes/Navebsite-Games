@@ -134,6 +134,7 @@
     <Content Include="Profile.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="UserSettings.aspx" />
+    <Content Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -5,11 +5,21 @@ namespace NavebsiteDAL
 {
     public class DbGame
     {
+        /// <summary>
+        /// gets a game by id
+        /// </summary>
+        /// <param name="id">id of game</param>
+        /// <returns>datarow of game</returns>
         public static DataRow GetGame(int id)
         {
             return DalHelper.GetRowById(id, "Games");
         }
 
+        /// <summary>
+        /// gets all games from a developer
+        /// </summary>
+        /// <param name="devId">id of developer</param>
+        /// <returns></returns>
         public static DataTable AllGamesFromDeveloper(int devId)
         {
             return DalHelper.AllWhere("Games", "Developer", devId);
@@ -107,11 +117,21 @@ WHERE ID = {id}",
                 new OleDbParameter("@price", price));
         }
 
+        /// <summary>
+        /// updates the logo of the game
+        /// </summary>
+        /// <param name="filename">filename of image</param>
+        /// <param name="id">id of game</param>
         public static void UpdateLogo(string filename, int id)
         {
             DalHelper.UpdateWhere("Games", "Logo", filename, "ID", id);
         }
 
+        /// <summary>
+        /// updates the background of the game
+        /// </summary>
+        /// <param name="filename">filename of image</param>
+        /// <param name="id">id of game</param>
         public static void UpdateBackground(string filename, int id)
         {
             DalHelper.UpdateWhere("Games", "Background", filename, "ID", id);

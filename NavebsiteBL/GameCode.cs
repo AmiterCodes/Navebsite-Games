@@ -8,18 +8,17 @@ using NavebsiteDAL;
 
 namespace NavebsiteBL
 {
+    /// <summary>
+    /// represents a code for a game
+    /// </summary>
     public class GameCode
     {
         public int Id { get; }
-
         public string Code { get; }
         public int GameId { get; }
-
         public Game Game => new Game(GameId);
-
         public bool Used{ get; }
         public int RedeemedById { get; }
-
         public User Redeemer => RedeemedById == -1 ? null : new User(RedeemedById);
 
         /// <summary>
@@ -40,23 +39,8 @@ namespace NavebsiteBL
             return game;
         }
 
-        private GameCode(DataRow row)
-        {
-            Id = (int) row["ID"];
-            Code = (string) row["Code"];
-            GameId = (int) row["Game"];
-            Used = (bool) row["Used"];
-            RedeemedById = (int) row["Redeemed By"];
-        }
 
-        private static readonly Random Random = new Random();
-
-        private static string RandomCodeString(int length)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-                .Select(s => s[Random.Next(s.Length)]).ToArray());
-        }
+        
 
         /// <summary>
         /// Generates a random unused game code for a specific game
@@ -70,6 +54,24 @@ namespace NavebsiteBL
             return new GameCode(code, game);
         }
 
+
+
+        private static readonly Random Random = new Random();
+
+        private static string RandomCodeString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[Random.Next(s.Length)]).ToArray());
+        }
+        private GameCode(DataRow row)
+        {
+            Id = (int)row["ID"];
+            Code = (string)row["Code"];
+            GameId = (int)row["Game"];
+            Used = (bool)row["Used"];
+            RedeemedById = (int)row["Redeemed By"];
+        }
         private GameCode(string code, int game)
         {
             Id = DbGameCodes.InsertCode(code, game);

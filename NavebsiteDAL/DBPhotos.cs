@@ -73,6 +73,13 @@ namespace NavebsiteDAL
             return DalHelper.AllFromTable(type.ToString());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="filename"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static int InsertPhoto(int id, string filename, PhotoType type)
         {
             string field = type == PhotoType.UserPhotos ? "User" : "Game";

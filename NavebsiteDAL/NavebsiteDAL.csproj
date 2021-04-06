@@ -87,6 +87,7 @@
     <None Include="articles\intro.md" />
     <None Include="articles\toc.md" />
     <None Include="articles\toc.yml" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="index.md" />
     <None Include="packages.config" />
     <None Include="toc.yml" />

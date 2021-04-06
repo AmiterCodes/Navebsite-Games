@@ -5,6 +5,9 @@ using NavebsiteDAL;
 
 namespace NavebsiteBL
 {
+    /// <summary>
+    /// Represents an activity of a user
+    /// </summary>
     public class Activity
     {
         /// <summary>
@@ -19,6 +22,10 @@ namespace NavebsiteBL
             UserId = (int) dr["User"];
         }
 
+        /// <summary>
+        /// Creates an activity object from id
+        /// </summary>
+        /// <param name="id">id of activity</param>
         public Activity(int id)
         {
             var dr = DbActivity.GetActivity(id);
@@ -27,11 +34,17 @@ namespace NavebsiteBL
             UserId = (int) dr["User"];
         }
 
+
         public int Id { get; set; }
         public string ActivityText { get; set; }
         public DateTime Timestamp { get; set; }
         public int UserId { get; set; }
 
+        /// <summary>
+        /// returns all activities for user
+        /// </summary>
+        /// <param name="user">id of user</param>
+        /// <returns></returns>
         public static List<Activity> UserActivities(int user)
         {
             var list = new List<Activity>();
@@ -40,6 +53,11 @@ namespace NavebsiteBL
             return list;
         }
 
+        /// <summary>
+        /// adds a new activity to the database
+        /// </summary>
+        /// <param name="text">activity text</param>
+        /// <param name="userId">id of user</param>
         public static void AddActivity(string text, int userId)
         {
             DbActivity.InsertActivity(text, userId);

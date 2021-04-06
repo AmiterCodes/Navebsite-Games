@@ -34,6 +34,12 @@ namespace NavebsiteDAL
             return DalHelper.Select(sql);
         }
 
+        /// <summary>
+        /// checks if 2 users are friends
+        /// </summary>
+        /// <param name="user1">id of user 1</param>
+        /// <param name="user2">id of user 2</param>
+        /// <returns>true if user1 and user2 are friends</returns>
         public static bool AreFriends(int user1, int user2)
         {
             return DalHelper.RowExists(
@@ -42,6 +48,12 @@ namespace NavebsiteDAL
         }
 
 
+        /// <summary>
+        /// checks if exists a friend connection, including a sent request between 2 users
+        /// </summary>
+        /// <param name="user1">id of user 1</param>
+        /// <param name="user2">id of user 2</param>
+        /// <returns></returns>
         public static bool ExistsConnection(int user1, int user2)
         {
             return DalHelper.RowExists(
@@ -188,38 +200,38 @@ namespace NavebsiteDAL
         /// </summary>
         /// <param name="user">user invited</param>
         /// <param name="dev">developer to invite</param>
-        /// <returns></returns>
+        /// <returns>true if went successful</returns>
         public static bool SendDeveloperInvite(int user, int dev)
         {
             return DalHelper.Insert($"INSERT INTO DeveloperInvitations ([From], [To], Fulfilled) VALUES ({dev},{user},FALSE)") != -1;
         }
 
         /// <summary>
-        /// 
+        /// returns if exists an unfulfilled developer request from develoepr to user
         /// </summary>
-        /// <param name="dev"></param>
-        /// <param name="user"></param>
-        /// <returns></returns>
+        /// <param name="dev">id of developer</param>
+        /// <param name="user">user invited</param>
+        /// <returns>true if exists else false</returns>
         public static bool ExistsDeveloperRequest(int dev, int user)
         {
             return DalHelper.Select($"SELECT ID FROM DeveloperInvitations WHERE [From] = {dev} AND [To] = {user} AND Fulfilled = FALSE").Rows.Count > 0;
         }
 
         /// <summary>
-        /// 
+        /// gets a count of all incoming dev requests
         /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
+        /// <param name="userId">id of user</param>
+        /// <returns>int amount of requests</returns>
         public static int IncomingDeveloperRequestsCount(int userId)
         {
             return DalHelper.Select($"SELECT ID FROM DeveloperInvitations WHERE [To] = {userId} AND Fulfilled = FALSE").Rows.Count;
         }
 
         /// <summary>
-        /// 
+        /// gets a count of all incoming friend requests
         /// </summary>
-        /// <param name="userId"></param>
-        /// <returns></returns>
+        /// <param name="userId">id of user</param>
+        /// <returns>amount of incoming friend requests</returns>
         public static int IncomingFriendRequestsCount(int userId)
         {
             return DalHelper.Select($"SELECT [User 1] FROM UserFriends WHERE [User 2] = {userId} AND [Type] = FALSE").Rows.Count;
