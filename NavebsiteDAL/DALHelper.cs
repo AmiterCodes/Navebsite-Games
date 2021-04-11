@@ -3,6 +3,9 @@ using System.Data.OleDb;
 
 namespace NavebsiteDAL
 {
+ /// <summary>
+ /// class that abstracts some of the features of DBHelper to make it easier to use
+ /// </summary>
     public class DalHelper
     {
         /// <summary>

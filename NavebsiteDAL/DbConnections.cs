@@ -2,6 +2,9 @@
 
 namespace NavebsiteDAL
 {
+    /// <summary>
+    /// DB class for friends and developer connection related data fetching
+    /// </summary>
     public class DbConnections
     {
         /// <summary>

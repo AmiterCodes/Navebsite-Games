@@ -2,6 +2,9 @@
 
 namespace NavebsiteDAL
 {
+    /// <summary>
+    /// DB class for user activity-related data fetching
+    /// </summary>
     public class DbActivity
     {
         /// <summary>

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace NavebsiteDAL
 {
+    /// <summary>
+    /// DB class for game code-related data fetching
+    /// </summary>
     public class DbGameCodes
     {
         /// <summary>

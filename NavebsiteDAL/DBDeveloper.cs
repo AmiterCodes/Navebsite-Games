@@ -3,6 +3,9 @@ using System.Data.OleDb;
 
 namespace NavebsiteDAL
 {
+    /// <summary>
+    /// DB class for developer-related data fetching
+    /// </summary>
     public class DbDeveloper
     {
         /// <summary>

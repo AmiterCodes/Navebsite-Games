@@ -3,12 +3,18 @@ using System.Data.OleDb;
 
 namespace NavebsiteDAL
 {
+    /// <summary>
+    /// type of photo's relation
+    /// </summary>
     public enum PhotoType
     {
         GamePhotos,
         UserPhotos
     }
 
+    /// <summary>
+    /// class that deals with photos
+    /// </summary>
     public class DbPhotos
     {
         /// <summary>

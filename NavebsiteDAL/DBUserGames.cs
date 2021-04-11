@@ -3,7 +3,7 @@
 namespace NavebsiteDAL
 {
     /// <summary>
-    /// static class that deals with the relations between games and users
+    /// static DB class that deals with the relations between games and users
     /// </summary>
     public class DbUserGames
     {

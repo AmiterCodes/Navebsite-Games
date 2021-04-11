@@ -2,6 +2,9 @@
 
 namespace NavebsiteDAL
 {
+    /// <summary>
+    /// class that deals with statistics about sales
+    /// </summary>
     public class DbStats
     {
         /// <summary>
@@ -39,6 +42,11 @@ namespace NavebsiteDAL
                 "GROUP BY CDate(Format(UserGames.Timestamp, \"dd/mm/yyyy\")) ORDER BY CDate(Format(UserGames.Timestamp, \"dd/mm/yyyy\"));");
         }
 
+        /// <summary>
+        /// returns stats for a game in one row
+        /// </summary>
+        /// <param name="id">id of game</param>
+        /// <returns>dataRow of sales</returns>
         public static DataRow getGameStats(int id)
         {
             var tb = DalHelper.Select(

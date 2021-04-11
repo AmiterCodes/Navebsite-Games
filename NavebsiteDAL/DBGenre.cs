@@ -2,6 +2,9 @@
 
 namespace NavebsiteDAL
 {
+    /// <summary>
+    /// DB class for genre-related data fetching
+    /// </summary>
     public class DbGenre
     {
         /// <summary>

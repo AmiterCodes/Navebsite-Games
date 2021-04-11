@@ -6,8 +6,15 @@ using NavebsiteDAL;
 
 namespace NavebsiteBL
 {
+    /// <summary>
+    /// represents a game update
+    /// </summary>
     public class Update
     {
+        /// <summary>
+        /// creates an update object from dataRow
+        /// </summary>
+        /// <param name="dr">dataRow of update</param>
         public Update(DataRow dr)
         {
             Id = (int) dr["ID"];
@@ -18,6 +25,13 @@ namespace NavebsiteBL
             Timestamp = (DateTime) dr["Timestamp"];
         }
 
+        /// <summary>
+        /// inserts update into the database
+        /// </summary>
+        /// <param name="updateVersion">version of update</param>
+        /// <param name="updateName">name of update</param>
+        /// <param name="updateDescription">description of update</param>
+        /// <param name="gameId">id of game</param>
         public Update(string updateVersion, string updateName, string updateDescription, int gameId)
         {
             UpdateVersion = updateVersion;
@@ -37,6 +51,11 @@ namespace NavebsiteBL
 
         public Game Game => new Game(GameId);
 
+        /// <summary>
+        /// lists all updates for a certain game
+        /// </summary>
+        /// <param name="game">id of game</param>
+        /// <returns>list of update</returns>
         public static List<Update> ListUpdates(int game)
         {
             return (from DataRow dr in DbUpdate.ListUpdates(game).Rows select new Update(dr)).ToList();

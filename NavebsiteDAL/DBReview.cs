@@ -2,6 +2,9 @@
 
 namespace NavebsiteDAL
 {
+    /// <summary>
+    /// class that deals with game user-written reviews
+    /// </summary>
     public class DbReview
     {
         /// <summary>

@@ -2,13 +2,23 @@
 
 namespace NavebsiteBL
 {
+    /// <summary>
+    /// represents a photo
+    /// </summary>
     public class Photo
     {
+        /// <summary>
+        /// empty constructor
+        /// </summary>
         public Photo()
         {
             Id = -1;
         }
 
+        /// <summary>
+        /// generates a photo from dataRow
+        /// </summary>
+        /// <param name="dr">dataRow of photo</param>
         public Photo(DataRow dr)
         {
             Id = (int) dr["ID"];

@@ -18,21 +18,47 @@ namespace CreditService
         public DateTime Timestamp { get; set; }
     }
 
-
+    /// <summary>
+    /// Represents a transaction
+    /// </summary>
     public class Transaction
     {
+        /// <summary>
+        /// id of transaction
+        /// </summary>
         public int TransactionId { get; set; }
-
+        
+        /// <summary>
+        /// dollar amount that was passed in transaction
+        /// </summary>
         public double AmountDollar { get; set; }
 
+        /// <summary>
+        /// number of transaction card
+        /// </summary>
         public string CardNumber { get; set; }
+        /// <summary>
+        /// credit card that the transaction is from
+        /// </summary>
         public virtual CreditCardDetails From { get; set; }
 
+        /// <summary>
+        /// id of bank account that the transaction is to
+        /// </summary>
         public int ToId { get; set; }
+        /// <summary>
+        /// bank account details of the bank account that the transaction is sent to
+        /// </summary>
         public virtual BankAccountDetails To { get; set; }
+        /// <summary>
+        /// timestamp of transaction
+        /// </summary>
         public DateTime Timestamp { get; set; }
     }
 
+    /// <summary>
+    /// builder class for a transaction
+    /// </summary>
     public class TransactionBuilder
     {
 

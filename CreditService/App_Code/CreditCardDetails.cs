@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace CreditService
 {
+    /// <summary>
+    /// Data Transfer Object for credit card information
+    /// </summary>
     public class CreditCardDto
     {
         public string CardNumber { get; set; } // credit card number
@@ -15,6 +18,9 @@ namespace CreditService
         public int BankAccountId { get; set; }
     }
 
+    /// <summary>
+    /// represents credit card information
+    /// </summary>
     public class CreditCardDetails
     {
         [Key]
@@ -43,6 +49,10 @@ namespace CreditService
             return base.GetHashCode();
         }
 
+        /// <summary>
+        /// checks if credit card details are valid
+        /// </summary>
+        /// <returns>true if this card is valid</returns>
         public bool IsValid()
         {
             var len = CardNumber.Length;

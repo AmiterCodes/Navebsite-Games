@@ -7,6 +7,10 @@ namespace NavebsiteBL
 {
     public class UserPhoto : Photo
     {
+        /// <summary>
+        /// creates a userPhoto from database by id
+        /// </summary>
+        /// <param name="id">id of user photo</param>
         public UserPhoto(int id)
         {
             Id = id;
@@ -18,6 +22,10 @@ namespace NavebsiteBL
             Timestamp = (DateTime) dr["Timestamp"];
         }
 
+        /// <summary>
+        /// creates a userPhoto object from dataRow
+        /// </summary>
+        /// <param name="dr">dataRowof userPhoto</param>
         public UserPhoto(DataRow dr) : base(dr)
         {
             UserId = (int) dr["User"];
@@ -44,6 +52,12 @@ namespace NavebsiteBL
         }
 
 
+        /// <summary>
+        /// inserts a photo for a user
+        /// </summary>
+        /// <param name="user">id of user</param>
+        /// <param name="filename">name of file</param>
+        /// <returns>id of photo</returns>
         public static int InsertPhoto(int user, string filename)
         {
             return DbPhotos.InsertPhoto(user, filename, PhotoType.UserPhotos);

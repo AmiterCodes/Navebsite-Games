@@ -3,6 +3,9 @@ using System.Data.OleDb;
 
 namespace NavebsiteDAL
 {
+    /// <summary>
+    /// class that deals with game updates
+    /// </summary>
     public class DbUpdate
     {
         /// <summary>

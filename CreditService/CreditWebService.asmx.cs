@@ -275,13 +275,22 @@ namespace CreditService
             };
         }
 
+        /// <summary>
+        /// Adds a new mastercard card to a bank account
+        /// </summary>
+        /// <param name="bankAccount">BankAccountDTO of the bank to add to</param>
+        /// <returns>CreditCardDTO of a mastercard</returns>
         [WebMethod]
         public CreditCardDto AddNewMastercardCard(BankAccountDto bankAccount)
         {
             BankAccountDetails bank = mapper.Map<BankAccountDetails>(bankAccount);
             return mapper.Map<CreditCardDto>(GenerateRandomMastercardCreditCard(bank));
         }
-
+        /// <summary>
+        /// Adds a new visa card to a bank account
+        /// </summary>
+        /// <param name="bankAccount">BankAccountDTO of the bank to add to</param>
+        /// <returns>CreditCardDTO of a visa</returns>
         [WebMethod]
         public CreditCardDto AddNewVisaCard(BankAccountDto bankAccount)
         {
@@ -289,6 +298,11 @@ namespace CreditService
             return mapper.Map<CreditCardDto>(GenerateRandomVisaCreditCard(bank));
         }
 
+        /// <summary>
+        /// returns a list of all cards for a bank account
+        /// </summary>
+        /// <param name="accountId">id of account</param>
+        /// <returns>list of credit card DTOs</returns>
         [WebMethod]
         public List<CreditCardDto> GetCardsForAccount(int accountId)
         {
@@ -302,6 +316,10 @@ namespace CreditService
             }
         }
 
+        /// <summary>
+        /// returns a list of all bank accounts
+        /// </summary>
+        /// <returns>List of all bank accounts as DTOs</returns>
         [WebMethod]
         public List<BankAccountDto> GetAllBankAccounts()
         {
@@ -314,6 +332,11 @@ namespace CreditService
             }
         }
 
+        /// <summary>
+        /// returns a bank account by id
+        /// </summary>
+        /// <param name="id">id of bank account</param>
+        /// <returns>DTO of bank account</returns>
         [WebMethod]
         public BankAccountDto GetBankAccount(int id)
         {
@@ -327,6 +350,10 @@ namespace CreditService
             }
         }
 
+        /// <summary>
+        /// returns all transactions
+        /// </summary>
+        /// <returns>list of all transactions as DTOs</returns>
         [WebMethod]
         public List<TransactionDto> GetAllTransactions()
         {
