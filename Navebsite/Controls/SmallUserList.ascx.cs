@@ -15,6 +15,11 @@ namespace Navebsite.Controls
         protected void Page_Load(object sender, EventArgs e)
         {
             
+            if(Users.Count == 0)
+            {
+                NoUsersError.Visible = true;
+            }
+
             TitleLabel.Text = Title;
             foreach (var user in Users)
             {
@@ -23,6 +28,8 @@ namespace Navebsite.Controls
                 var image = new Image {CssClass = "user_img", ImageUrl = "../" + user.ProfilePictureUrl};
 
                 caption.Text = Server.HtmlEncode(user.Username);
+
+                
 
                 link.Controls.Add(caption);
                 link.Controls.Add(image);

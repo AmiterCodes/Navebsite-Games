@@ -2188,3 +2188,27 @@ svg {
     font-size: 4rem;
     text-shadow: 0 1rem 2rem 1rem rgba(0, 0, 0, 0.3);
 }
+
+.update {
+    background: linear-gradient( 180deg, #0F1016 0%, #1C1D2B 100%);
+    padding: 1rem;
+
+}
+
+.update_header {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.update_meta {
+    opacity: .7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 1rem;
+    width: 60%;
+}
+
+.update_title {
+    font-size: 2rem;
+}
