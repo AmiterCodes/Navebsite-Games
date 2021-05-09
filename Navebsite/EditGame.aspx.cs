@@ -173,5 +173,11 @@ namespace Navebsite
             string filename = UploadHelper.ImageFileUpload(Background, "Images/GameBackgrounds/", "no.png", Server);
             game.UpdateBackground(filename);
         }
+
+        protected void AddUpdateButton_Click(object sender, EventArgs e)
+        {
+            var update = new Update(Version.Text, VersionTitle.Text, MyID.Text, game.Id);
+            Response.Redirect("GamePage.aspx?id=" + game.Id);
+        }
     }
 }

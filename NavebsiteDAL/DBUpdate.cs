@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.OleDb;
 
 namespace NavebsiteDAL
@@ -21,8 +22,8 @@ namespace NavebsiteDAL
             return DalHelper.Insert(
                 $"INSERT INTO GameUpdates ([Update Version],[Update Name], [Update Description], [Game]) VALUES (@version,@updateName,@description,{game})",
                 new OleDbParameter("@version", version),
-                new OleDbParameter("@description", description),
-                new OleDbParameter("@updateName", updateName));
+                new OleDbParameter("@updateName", updateName),
+                new OleDbParameter("@description", description));
         }
 
         /// <summary>
@@ -33,6 +34,13 @@ namespace NavebsiteDAL
         public static DataTable ListUpdates(int game)
         {
             return DalHelper.AllWhere("GameUpdates", "Game", game);
+        }
+
+        public static void setAsCurrent(int gameId, int updateId)
+        {
+            DalHelper.UpdateWhere("GameUpdates", "Current", false, "Game", gameId);
+            DalHelper.UpdateWhere("GameUpdates", "Current", true, "Game", gameId, "ID", updateId);
+
         }
     }
 }

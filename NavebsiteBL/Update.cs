@@ -38,7 +38,9 @@ namespace NavebsiteBL
             UpdateName = updateName;
             UpdateDescription = updateDescription;
             GameId = gameId;
+            
             Id = DbUpdate.InsertUpdate(updateVersion, updateName, updateDescription, gameId);
+            DbUpdate.setAsCurrent(gameId, Id);
         }
 
 

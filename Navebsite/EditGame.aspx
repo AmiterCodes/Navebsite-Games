@@ -1,8 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Missy.Master" AutoEventWireup="true" CodeBehind="EditGame.aspx.cs" Inherits="Navebsite.EditGame" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Navebsite" runat="server">
+
+    
     <asp:Panel runat="server" ID="EditGameForm" CssClass="centering">
+
         <div>
             <div>
             <div class="tuple_vert">
@@ -70,4 +74,34 @@
             <asp:Button Text="Update Logo" CssClass="button" ID="UpdateLogoButton" OnClick="UpdateLogoButton_OnClick" ValidationGroup="Logo" runat="server" />
         </div>
     </asp:Panel>
+
+    <asp:Panel runat="server" ID="AddUpdateForm" DefaultButton="AddUpdateButton">
+
+        <span style="font-size: 2rem">Add Update</span>
+        <asp:TextBox Visible="false" runat="server" ID="updateOutput" ClientIDMode="Static"  />
+       <div class="tuple_vert">
+                <asp:Label Text="Version" AssociatedControlID="Version" runat="server" CssClass="input_label"/>
+                <asp:TextBox runat="server" ID="Version" CssClass="input" ValidationGroup="Update"/>
+            </div>
+     <div class="tuple_vert">
+                <asp:Label Text="Version Title" AssociatedControlID="VersionTitle" runat="server" CssClass="input_label"/>
+                <asp:TextBox runat="server" ID="VersionTitle" CssClass="input" ValidationGroup="Update"/>
+            </div>
+     
+        <asp:TextBox runat="server" ID="MyID" ClientIDMode="Static" ValidationGroup="Update" />
+        <asp:RequiredFieldValidator ErrorMessage="You must put version content" ControlToValidate="updateOutput" runat="server" Display="Dynamic" />
+        
+        <asp:RequiredFieldValidator ErrorMessage="You must put a version title" ControlToValidate="VersionTitle" runat="server" Display="Dynamic" />
+                <asp:RequiredFieldValidator ErrorMessage="You must put a version title" ControlToValidate="Version" runat="server" Display="Dynamic" />
+
+        <asp:Button CssClass="button" Text="Add Update" OnClick="AddUpdateButton_Click" ValidationGroup="Update" Id="AddUpdateButton" runat="server" />
+    </asp:Panel>
+
+    <script defer>
+        var simplemde = new SimpleMDE({ element: document.getElementById("MyID") });
+        simplemde.codemirror.on("change", function () {
+            let elem = document.getElementById("updateOutput");
+            elem.value = simplemde.value();
+        });
+    </script>
 </asp:Content>
